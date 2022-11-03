@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
+import 'package:cssapp/configs/configs.dart';
 
 class Technocards extends StatelessWidget {
   var events = [
@@ -9,7 +10,7 @@ class Technocards extends StatelessWidget {
       "title1": "A",
       "title": "BACUS",
       "title2": "TECH",
-      "picture": "assets/Abacus-tech.png",
+      "picture": Paths.eventTIMGAbacusTech,
       "details": "",
       "Event1": "Chess",
       "Event2": "Valo",
@@ -20,7 +21,7 @@ class Technocards extends StatelessWidget {
       "title1": "A",
       "title": "BACUS",
       "title2": "IIT",
-      "picture": "assets/Abacus-lit.png",
+      "picture": Paths.eventTIMGAbacusIIT,
       "details": "",
       "Event1": "Chess",
       "Event2": "Valorant Tournaments",
@@ -31,7 +32,7 @@ class Technocards extends StatelessWidget {
       "title1": "C",
       "title": "SS",
       "title2": "HACKS",
-      "picture": "assets/CSS-hack.png",
+      "picture": Paths.eventTIMGCSSHacks,
       "details":
           "An amazing hackathon for developers and dev enthusiasts solving problems given by the judges. This is the one big opportunity for all the hackathon lovers to check their innovative and presentation skills. This provides the participants a upperhand experience for all the hackathon they will be participating in.",
       "Event1": "",
@@ -43,7 +44,7 @@ class Technocards extends StatelessWidget {
       "title1": "E",
       "title": "NIGMA",
       "title2": "",
-      "picture": "assets/Enigma.png",
+      "picture": Paths.eventTIMGEnigma,
       "details":
           "Computer Science Society organizes coding contests for first year students. This contest being open to all enhances a good competitive environment for the students. The questions are made such that even students will little or basic Knowledge of programming can surely attempt the questions. Learning programming is now an essential skill for various placement interviews and our society encourages more and more participation in such activities.",
       "Event1": "",
@@ -55,7 +56,7 @@ class Technocards extends StatelessWidget {
       "title1": "C",
       "title": " CLASSES",
       "title2": "",
-      "picture": "assets/C-classes.png",
+      "picture": Paths.eventTIMGCClasses,
       "details":
           "Basics of programming and C language is taught by the computer science students of second year in order to enlighten the first year students about the resources to study tips and tricks to move ahead in terms of fundamentals and knowledge about Computer Science.",
       "Event1": "",
@@ -82,49 +83,49 @@ class Technocards extends StatelessWidget {
                           SizedBox(
                             width: MediaQuery.of(context).size.width,
                             child: LottieBuilder.asset(
-                              'assets/techno.json',
+                              Paths.lottieTechno,
                               fit: BoxFit.fitWidth,
                             ),
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width,
                             child: LottieBuilder.asset(
-                              'assets/techno.json',
+                              Paths.lottieTechno,
                               fit: BoxFit.fitWidth,
                             ),
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width,
                             child: LottieBuilder.asset(
-                              'assets/techno.json',
+                              Paths.lottieTechno,
                               fit: BoxFit.fitWidth,
                             ),
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width,
                             child: LottieBuilder.asset(
-                              'assets/techno.json',
+                              Paths.lottieTechno,
                               fit: BoxFit.fitWidth,
                             ),
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width,
                             child: LottieBuilder.asset(
-                              'assets/techno.json',
+                              Paths.lottieTechno,
                               fit: BoxFit.fitWidth,
                             ),
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width,
                             child: LottieBuilder.asset(
-                              'assets/techno.json',
+                              Paths.lottieTechno,
                               fit: BoxFit.fitWidth,
                             ),
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width,
                             child: LottieBuilder.asset(
-                              'assets/techno.json',
+                              Paths.lottieTechno,
                               fit: BoxFit.fitWidth,
                             ),
                           ),

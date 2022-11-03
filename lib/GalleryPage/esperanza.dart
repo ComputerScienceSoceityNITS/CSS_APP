@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:cssapp/configs/configs.dart';
 
 class Esperanza extends StatefulWidget {
   @override
@@ -9,10 +10,10 @@ class Esperanza extends StatefulWidget {
 
 class _EsperanzaState extends State<Esperanza> {
   final esperanza_pics = [
-    "assets/3-min.jpeg",
-    "assets/1-min.jpeg",
-    "assets/2-min.jpeg",
-    "assets/4-min.jpeg"
+    Paths.eventEsperanza1,
+    Paths.eventEsperanza2,
+    Paths.eventEsperanza3,
+    Paths.eventEsperanza4
   ];
 
   @override
@@ -22,23 +23,24 @@ class _EsperanzaState extends State<Esperanza> {
       SizedBox(
         width: _size.width,
         child: LottieBuilder.asset(
-          'assets/loader.json',
+          Paths.lottieLoader,
           fit: BoxFit.fitWidth,
         ),
       ),
       SizedBox(
-          height: double.infinity,
-          width: double.infinity,
-          child: CarouselSlider.builder(
-              itemCount: esperanza_pics.length,
-              itemBuilder: (context, index, realIndex) {
-                final esperanzaPic = esperanza_pics[index];
-                return buildImage(esperanzaPic, index);
-              },
-              options: CarouselOptions(
-                  enlargeCenterPage: true,
-                  autoPlay: true,
-                  height: MediaQuery.of(context).size.height * 0.4))),
+        height: double.infinity,
+        width: double.infinity,
+        child: CarouselSlider.builder(
+          itemCount: esperanza_pics.length,
+          itemBuilder: (context, index, realIndex) {
+            return buildImage(esperanza_pics[index]!, index);
+          },
+          options: CarouselOptions(
+              enlargeCenterPage: true,
+              autoPlay: true,
+              height: MediaQuery.of(context).size.height * 0.4),
+        ),
+      ),
     ]);
   }
 

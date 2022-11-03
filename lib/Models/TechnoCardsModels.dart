@@ -15,7 +15,7 @@ class TechnoCardsModels {
       "title1": "A",
       "title": "BACUS",
       "title2": "IIT",
-      "picture": "assets/Abacus-lit.png",
+      "picture": "assets/Abacus-Iit.png",
       "details": "",
       "Event1": "Chess",
       "Event2": "Valorant Tournaments",

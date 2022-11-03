@@ -1,6 +1,7 @@
 import 'package:cssapp/DevelopersPage/developers.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:cssapp/configs/configs.dart';
 
 class DevelopersPage extends StatefulWidget {
   const DevelopersPage({Key? key}) : super(key: key);
@@ -36,52 +37,55 @@ class _DevelopersPageState extends State<DevelopersPage> {
                           child: Container(
                               alignment: Alignment.topCenter,
                               child: Stack(
-                                children: 
-                                  [Container(
-                                      alignment: Alignment.topLeft,
-                                      height: 200,
-                                      child: AnimatedOpacity(
-                                        opacity: 0.7,
-                                        duration: const Duration(milliseconds: 10),
-                                        child: Lottie.asset(
-                                          'assets/team.json',
-                                        ),
+                                children: [
+                                  Container(
+                                    alignment: Alignment.topLeft,
+                                    height: 200,
+                                    child: AnimatedOpacity(
+                                      opacity: 0.7,
+                                      duration:
+                                          const Duration(milliseconds: 10),
+                                      child: Lottie.asset(
+                                        Paths.lottieTeam,
                                       ),
                                     ),
-                                    Row(
+                                  ),
+                                  Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       const Text(
                                         "OUR",
                                         style: TextStyle(
-                                  fontSize: 39,
-                                  color: Colors.white,
-                                  fontFamily: 'Cormorant Unicase',
-                                  fontWeight: FontWeight.bold,
-                                                            ),
+                                          fontSize: 39,
+                                          color: Colors.white,
+                                          fontFamily: 'Cormorant Unicase',
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
-                                      const SizedBox(width: 10,),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
                                       Text(
-                                              "team",
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 40,
-                                                  fontFamily: 'Round Pop',
-                                                  fontWeight:
-                                                      FontWeight.bold,
-                                                      shadows: [
-                                                    const Shadow(
-                                                        offset: Offset(3, 3),
-                                                        color: Colors.black38,
-                                                        blurRadius: 10),
-                                                    Shadow(
-                                                        offset: const Offset(-3, -3),
-                                                        color: const Color(0xFF923cb5).withOpacity(0.85),
-                                                        blurRadius: 10)
-                                                      ]),
-                                            ),
+                                        "team",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 40,
+                                            fontFamily: 'Round Pop',
+                                            fontWeight: FontWeight.bold,
+                                            shadows: [
+                                              const Shadow(
+                                                  offset: Offset(3, 3),
+                                                  color: Colors.black38,
+                                                  blurRadius: 10),
+                                              Shadow(
+                                                  offset: const Offset(-3, -3),
+                                                  color: const Color(0xFF923cb5)
+                                                      .withOpacity(0.85),
+                                                  blurRadius: 10)
+                                            ]),
+                                      ),
                                     ],
                                   ),
                                 ],

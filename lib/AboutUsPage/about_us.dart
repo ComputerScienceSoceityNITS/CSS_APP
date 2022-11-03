@@ -191,7 +191,7 @@ class _AboutUsState extends State<AboutUs> {
                                   child: Row(
                                     children: [
                                       InkWell(
-                                                              child: Tab(icon: Image.asset("assets/CSSLogo.png", width: 40, height: 30, fit: BoxFit.cover,),),
+                                                              child: Tab(icon: Image.asset("assets/CSS_logo_light.png", width: 40, height: 30, fit: BoxFit.cover,),),
                                                               onTap: () => launch(
                                                                   'https://nitscss.live/'),
                                                             ),

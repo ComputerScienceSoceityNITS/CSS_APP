@@ -5,6 +5,7 @@ import '../Models/api_call.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:loading_indicator/loading_indicator.dart';
+import 'package:cssapp/configs/configs.dart';
 
 class Developers extends StatefulWidget {
   const Developers({Key? key}) : super(key: key);
@@ -29,6 +30,7 @@ class _DevelopersState extends State<Developers> {
 
   static Map _posts = Api.members_22 as Map;
 
+  @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(

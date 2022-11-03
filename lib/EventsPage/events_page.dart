@@ -2,6 +2,7 @@ import 'package:cssapp/EventsPage/culture_events.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'techno_events.dart';
+import 'package:cssapp/configs/configs.dart';
 
 class EventsPage extends StatefulWidget {
   const EventsPage({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class _EventsPageState extends State<EventsPage> {
                         opacity: 0.7,
                         duration: const Duration(milliseconds: 10),
                         child: Lottie.asset(
-                          'assets/accounting.json',
+                          Paths.lottieAccounting,
                           frameRate: FrameRate(2),
                         ),
                       ),
@@ -53,8 +54,8 @@ class _EventsPageState extends State<EventsPage> {
                           child: Container(
                             decoration: BoxDecoration(
                                 color: Colors.grey[900],
-                                border: Border.all(
-                                    width: 0.5, color: Colors.grey)),
+                                border:
+                                    Border.all(width: 0.5, color: Colors.grey)),
                             child: const Center(
                               child: Text(
                                 "CSS",
@@ -83,8 +84,7 @@ class _EventsPageState extends State<EventsPage> {
                                   child: Card(
                                     color: const Color(0xFFBC4E9C),
                                     shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5)),
+                                        borderRadius: BorderRadius.circular(5)),
                                     child: const Padding(
                                       padding: EdgeInsets.all(8.0),
                                       child: Text(

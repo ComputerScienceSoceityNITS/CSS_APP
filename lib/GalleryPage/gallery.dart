@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import './esperanza.dart';
-import './abacus.dart';
+import 'esperanza.dart';
+import 'abacus.dart';
+import 'package:cssapp/configs/configs.dart';
 
 class GalleryPage extends StatefulWidget {
   const GalleryPage({Key? key}) : super(key: key);
@@ -52,7 +53,7 @@ class _GalleryPageState extends State<GalleryPage> {
                   opacity: 0.7,
                   duration: const Duration(milliseconds: 10),
                   child: Lottie.asset(
-                    'assets/sing_song.json',
+                    Paths.lottieSingSong,
                     frameRate: FrameRate(2),
                   ),
                 ),

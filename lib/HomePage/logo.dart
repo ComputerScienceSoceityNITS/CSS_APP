@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:cssapp/HomePage/events.dart';
 import 'package:cssapp/HomePage/executive_members_card.dart';
+import 'package:cssapp/configs/configs.dart';
 
 class Logo extends StatelessWidget {
   @override
@@ -65,22 +66,23 @@ class Logo extends StatelessWidget {
                       child: AnimatedOpacity(
                         opacity: 0.3,
                         duration: const Duration(milliseconds: 10),
-                        child: Lottie.asset('assets/loader.json',
-                        // height: MediaQuery.of(context).size.height,
+                        child: Lottie.asset(
+                          Paths.lottieLoader,
+                          // height: MediaQuery.of(context).size.height,
                         ),
                       ),
                     ),
                   ]),
                   MediaQuery.of(context).orientation == Orientation.portrait
                       ? SizedBox(
-                        child: AnimatedOpacity(
-                          opacity: 0.3,
-                          duration: const Duration(milliseconds: 10),
-                          child: Lottie.asset(
-                            'assets/loader.json',
+                          child: AnimatedOpacity(
+                            opacity: 0.3,
+                            duration: const Duration(milliseconds: 10),
+                            child: Lottie.asset(
+                              Paths.lottieLoader,
+                            ),
                           ),
-                        ),
-                      )
+                        )
                       : Container(),
                 ],
               ),
@@ -104,8 +106,8 @@ class Logo extends StatelessWidget {
                             child: FractionallySizedBox(
                               widthFactor: 0.35,
                               heightFactor: 0.9,
-                              child: Lottie.asset('assets/data.json',
-                                fit: BoxFit.fitHeight),
+                              child: Lottie.asset(Paths.lottieCSS,
+                                  fit: BoxFit.fitHeight),
                             ),
                           ),
                         ],
@@ -183,7 +185,7 @@ class Logo extends StatelessWidget {
                       padding: const EdgeInsets.all(25.0),
                       child: SizedBox(
                         width: double.infinity,
-                        child: Lottie.asset('assets/networking.json',
+                        child: Lottie.asset(Paths.lottieNetworking,
                             fit: BoxFit.fitHeight),
                       ),
                     ),
@@ -227,7 +229,7 @@ class Logo extends StatelessWidget {
                     Container(
                       alignment: Alignment.bottomLeft,
                       height: 200,
-                      child: Lottie.asset('assets/rainman.json',
+                      child: Lottie.asset(Paths.lottieRainMan,
                           fit: BoxFit.fitHeight),
                     ),
                     Container(
@@ -266,7 +268,7 @@ class Logo extends StatelessWidget {
                                   SizedBox(
                                     width: 100,
                                     height: 120,
-                                    child: Lottie.asset('assets/bell.json',
+                                    child: Lottie.asset(Paths.lottieBell,
                                         fit: BoxFit.fitHeight),
                                   ),
                                   const Text(
@@ -282,39 +284,36 @@ class Logo extends StatelessWidget {
                             ),
                           ),
                           Stack(
-                            children: 
-                              [Container(
+                            children: [
+                              Container(
                                 alignment: Alignment.topRight,
                                 height: 200,
-                                child: Lottie.asset('assets/drone.json',
+                                child: Lottie.asset(Paths.lottieDrone,
                                     fit: BoxFit.fitHeight),
                               ),
                               Container(
                                 alignment: Alignment.bottomCenter,
-                                child: Column(
- 
-                                  children: [
-                                    const SizedBox(
-                                            height: 80,
-                                          ),
-                                    Text(
-                                            "Nothing to Show!",
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                
-                                                fontSize: 20,
-                                                fontFamily: 'Anton',
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                    Text(
-                                            "Come back later",
-                                            style: TextStyle(
-                                                color: Colors.grey[800],
-                                                fontSize: 20,
-                                                fontFamily: 'Anton',
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                  ]),
+                                child: Column(children: [
+                                  const SizedBox(
+                                    height: 80,
+                                  ),
+                                  Text(
+                                    "Nothing to Show!",
+                                    style: TextStyle(
+                                        color: Colors.grey[800],
+                                        fontSize: 20,
+                                        fontFamily: 'Anton',
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    "Come back later",
+                                    style: TextStyle(
+                                        color: Colors.grey[800],
+                                        fontSize: 20,
+                                        fontFamily: 'Anton',
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ]),
                               ),
                             ],
                           ),

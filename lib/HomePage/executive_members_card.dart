@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:cssapp/configs/configs.dart';
 
 class Executivemembers extends StatelessWidget {
   var members = [
     {
       "title": "CONVENER",
-      "picture": "assets/framers/MajhiSir.jpeg",
+      "picture": Paths.framerMajhiSir,
       "name": "Mr. Umakanta majhi",
       "details": "Assistant Professor",
       "email": "umakanta@cse.nits.ac.in"
     },
     {
       "title": "GENERAL SECRETARY",
-      "picture": "assets/framers/Samiksha_Kulkarni.jpeg",
+      "picture": Paths.framerSamikshaKulkarni,
       "name": "Samiksha Kulkarni",
       "details": "+91 6000844282",
       "email": ""
     },
     {
       "title": "TECHNICAL HEAD",
-      "picture": "assets/framers/Abhishek_Kumar_Jha.jpg",
+      "picture": Paths.framerAbhishekKumarJha,
       "name": "Abhishek Kumar Jha",
       "details": "+91 9101810767",
       "email": ""

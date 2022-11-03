@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cssapp/HomePage/home_screen.dart';
 import './MembersPage/members_screen.dart';
 import 'Models/api_call.dart';
+import 'configs/configs.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class _SplashState extends State<Splash> {
           height: 200,
           width: 200,
           child: Image.asset(
-            "assets/logo.png",
+            Paths.cssLogo!,
             fit: BoxFit.contain,
           ),
         )));
