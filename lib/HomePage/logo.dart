@@ -1,8 +1,10 @@
+import 'package:cssapp/state_handlers/theme/theme_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:cssapp/HomePage/events.dart';
 import 'package:cssapp/HomePage/executive_members_card.dart';
 import 'package:cssapp/configs/configs.dart';
+import 'package:provider/provider.dart';
 
 class Logo extends StatelessWidget {
   @override
