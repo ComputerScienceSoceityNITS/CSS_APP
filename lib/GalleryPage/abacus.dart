@@ -10,9 +10,9 @@ class Abacus extends StatefulWidget {
 
 class _AbacusState extends State<Abacus> {
   final abacus_pics = [
-    Paths.eventAbacus1,
-    Paths.eventAbacus2,
-    Paths.eventAbacus3
+    Assets.eventAbacus1,
+    Assets.eventAbacus2,
+    Assets.eventAbacus3
   ];
 
   @override
@@ -21,8 +21,8 @@ class _AbacusState extends State<Abacus> {
     return Stack(children: [
       SizedBox(
         width: _size.width,
-        child: LottieBuilder.asset(
-          Paths.lottieLoader,
+        child: LottieBuilder(
+          lottie: Assets.lottieLoader.lottie,
           fit: BoxFit.fitWidth,
         ),
       ),
@@ -32,7 +32,7 @@ class _AbacusState extends State<Abacus> {
         child: CarouselSlider.builder(
           itemCount: abacus_pics.length,
           itemBuilder: (context, index, realIndex) {
-            return buildImage(abacus_pics[index]!, index);
+            return buildImage(abacus_pics[index], index);
           },
           options: CarouselOptions(
               autoPlay: true,
@@ -43,11 +43,11 @@ class _AbacusState extends State<Abacus> {
     ]);
   }
 
-  Widget buildImage(String abacusPic, int index) => Container(
+  Widget buildImage(Image abacusPic, int index) => Container(
         margin: const EdgeInsets.symmetric(horizontal: 12),
         color: Colors.green,
-        child: Image.asset(
-          abacusPic,
+        child: Image(
+          image: abacusPic.image,
           fit: BoxFit.cover,
         ),
       );

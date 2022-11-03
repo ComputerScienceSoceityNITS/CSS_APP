@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:cssapp/configs/configs.dart';
 
 ThemeData darkTheme = ThemeData(
-  primaryColor: Palette.darkPrimaryColor,
-  scaffoldBackgroundColor: Palette.darkPrimaryColor,
+  primaryColor: Pallet.darkPrimaryColor,
+  scaffoldBackgroundColor: Pallet.darkPrimaryColor,
   fontFamily: 'Archivo',
   colorScheme: ColorScheme.fromSwatch(
-    primarySwatch: Palette.darkPrimarySwatch,
+    primarySwatch: Pallet.darkPrimarySwatch,
     brightness: Brightness.dark,
-  ).copyWith(secondary: Palette.darkSecondaryColor),
+  ).copyWith(secondary: Pallet.darkSecondaryColor),
   textTheme: const TextTheme().apply(
-      bodyColor: Palette.darkSecondaryColor,
-      displayColor: Palette.darkSecondaryColor),
-  focusColor: Palette.darkSecondaryColor,
+      bodyColor: Pallet.darkSecondaryColor,
+      displayColor: Pallet.darkSecondaryColor),
+  focusColor: Pallet.darkSecondaryColor,
 );

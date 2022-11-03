@@ -45,9 +45,7 @@ class _DevelopersPageState extends State<DevelopersPage> {
                                       opacity: 0.7,
                                       duration:
                                           const Duration(milliseconds: 10),
-                                      child: Lottie.asset(
-                                        Paths.lottieTeam,
-                                      ),
+                                      child: Assets.lottieTeam,
                                     ),
                                   ),
                                   Row(

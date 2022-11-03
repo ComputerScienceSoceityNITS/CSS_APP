@@ -113,24 +113,24 @@ class NavigationDrawer extends StatelessWidget {
     switch (index) {
       case 0:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => HomePage(
+          builder: (context) => HomeScreen(
             initialIndex: 0,
           ),
         ));
         break;
       case 1:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => HomePage(initialIndex: 1),
+          builder: (context) => HomeScreen(initialIndex: 1),
         ));
         break;
       case 2:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => HomePage(initialIndex: 2),
+          builder: (context) => HomeScreen(initialIndex: 2),
         ));
         break;
       case 3:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => HomePage(initialIndex: 3),
+          builder: (context) => HomeScreen(initialIndex: 3),
         ));
         break;
       case 4:
@@ -145,7 +145,7 @@ class NavigationDrawer extends StatelessWidget {
         break;
       case 6:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => HomePage(initialIndex: 4),
+          builder: (context) => HomeScreen(initialIndex: 4),
         ));
         break;
     }

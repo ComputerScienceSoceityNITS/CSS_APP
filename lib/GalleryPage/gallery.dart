@@ -52,8 +52,8 @@ class _GalleryPageState extends State<GalleryPage> {
                 child: AnimatedOpacity(
                   opacity: 0.7,
                   duration: const Duration(milliseconds: 10),
-                  child: Lottie.asset(
-                    Paths.lottieSingSong,
+                  child: LottieBuilder(
+                    lottie: Assets.lottieSingSong.lottie,
                     frameRate: FrameRate(2),
                   ),
                 ),

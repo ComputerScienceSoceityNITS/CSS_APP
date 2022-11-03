@@ -9,11 +9,11 @@ class Esperanza extends StatefulWidget {
 }
 
 class _EsperanzaState extends State<Esperanza> {
-  final esperanza_pics = [
-    Paths.eventEsperanza1,
-    Paths.eventEsperanza2,
-    Paths.eventEsperanza3,
-    Paths.eventEsperanza4
+  final esperanzaPics = [
+    Assets.eventEsperanza1,
+    Assets.eventEsperanza2,
+    Assets.eventEsperanza3,
+    Assets.eventEsperanza4
   ];
 
   @override
@@ -22,8 +22,8 @@ class _EsperanzaState extends State<Esperanza> {
     return Stack(children: [
       SizedBox(
         width: _size.width,
-        child: LottieBuilder.asset(
-          Paths.lottieLoader,
+        child: LottieBuilder(
+          lottie: Assets.lottieLoader.lottie,
           fit: BoxFit.fitWidth,
         ),
       ),
@@ -31,9 +31,9 @@ class _EsperanzaState extends State<Esperanza> {
         height: double.infinity,
         width: double.infinity,
         child: CarouselSlider.builder(
-          itemCount: esperanza_pics.length,
+          itemCount: esperanzaPics.length,
           itemBuilder: (context, index, realIndex) {
-            return buildImage(esperanza_pics[index]!, index);
+            return buildImage(esperanzaPics[index]!, index);
           },
           options: CarouselOptions(
               enlargeCenterPage: true,
@@ -44,11 +44,11 @@ class _EsperanzaState extends State<Esperanza> {
     ]);
   }
 
-  Widget buildImage(String esperanzaPic, int index) => Container(
+  Widget buildImage(Image esperanzaPic, int index) => Container(
         margin: const EdgeInsets.symmetric(horizontal: 12),
         color: Colors.blue,
-        child: Image.asset(
-          esperanzaPic,
+        child: Image(
+          image: esperanzaPic.image,
           fit: BoxFit.cover,
         ),
       );

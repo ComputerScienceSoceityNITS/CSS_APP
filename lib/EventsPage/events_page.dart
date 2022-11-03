@@ -39,10 +39,7 @@ class _EventsPageState extends State<EventsPage> {
                       child: AnimatedOpacity(
                         opacity: 0.7,
                         duration: const Duration(milliseconds: 10),
-                        child: Lottie.asset(
-                          Paths.lottieAccounting,
-                          frameRate: FrameRate(2),
-                        ),
+                        child: Assets.lottieAccounting,
                       ),
                     ),
                     Column(

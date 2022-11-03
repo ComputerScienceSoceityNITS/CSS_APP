@@ -1,24 +1,31 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:cssapp/EventsPage/events_page.dart';
 import 'package:cssapp/GalleryPage/gallery.dart';
+import 'package:cssapp/HomePage/widgets/bg_text.dart';
+import 'package:cssapp/HomePage/widgets/css_text.dart';
+import 'package:cssapp/HomePage/widgets/executive_members_card.dart';
 import 'package:cssapp/MembersPage/members_screen.dart';
 import 'package:cssapp/DevelopersPage/developers_page.dart';
 import 'package:flutter/material.dart';
-import 'logo.dart';
+import 'package:cssapp/widgets/widgets.dart';
+import 'package:cssapp/configs/configs.dart';
+import 'package:lottie/lottie.dart';
 import '../navigation_drawer.dart';
+import 'widgets/events.dart';
+import 'home_page.dart';
 
-class HomePage extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   int initialIndex = 0;
-  HomePage({Key? key, required this.initialIndex}) : super(key: key);
+  HomeScreen({Key? key, required this.initialIndex}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeScreenState extends State<HomeScreen> {
   final PageController _pageController = PageController();
   final List<Widget> _screens = const [
-    FirstPage(),
+    HomePage(),
     EventsPage(),
     MembersPage(),
     GalleryPage(),
@@ -42,7 +49,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _selectedIndex = widget.initialIndex;
     });
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _pageController.jumpToPage(widget.initialIndex);
     });
   }
@@ -63,7 +70,9 @@ class _HomePageState extends State<HomePage> {
                 size: 33,
               ),
               backgroundColor: Colors.white,
-              onPressed: () => Scaffold.of(context).openDrawer(),
+              onPressed: () {
+                // Scaffold.of(context).openDrawer();
+              },
             );
           }),
         ),
@@ -85,26 +94,5 @@ class _HomePageState extends State<HomePage> {
             TabItem(icon: Icons.computer, title: ''),
           ],
         ));
-  }
-}
-
-class FirstPage extends StatefulWidget {
-  const FirstPage({Key? key}) : super(key: key);
-
-  @override
-  State<FirstPage> createState() => _FirstPageState();
-}
-
-class _FirstPageState extends State<FirstPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: ListView(
-        children: [
-          Logo(),
-        ],
-      ),
-    );
   }
 }

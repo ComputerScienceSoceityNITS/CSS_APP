@@ -1,2 +1,3 @@
-export 'configurations/paths.dart';
-export 'configurations/pallete.dart';
+export 'configurations/assets.dart';
+export 'configurations/pallet.dart';
+export 'text_style.dart';

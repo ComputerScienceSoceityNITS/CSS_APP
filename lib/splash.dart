@@ -26,7 +26,7 @@ class _SplashState extends State<Splash> {
     Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-            builder: (context) => HomePage(
+            builder: (context) => HomeScreen(
                   initialIndex: 0,
                 )));
   }
@@ -34,15 +34,17 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black,
-        body: Center(
-            child: SizedBox(
+      backgroundColor: Colors.black,
+      body: Center(
+        child: SizedBox(
           height: 200,
           width: 200,
-          child: Image.asset(
-            Paths.cssLogo!,
+          child: Image(
+            image: Assets.cssLogo.image,
             fit: BoxFit.contain,
           ),
-        )));
+        ),
+      ),
+    );
   }
 }
