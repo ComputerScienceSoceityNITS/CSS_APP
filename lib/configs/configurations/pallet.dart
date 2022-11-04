@@ -7,4 +7,6 @@ class Pallet {
   static final Color darkSecondaryColor = Colors.white.withOpacity(0.1);
   static const Color darkCardBGColor = Color(0xFF111111);
   static final Color grey = Colors.grey.shade800;
+  static final Color greyDark = Colors.grey.shade900;
+  static const Color white = Colors.white;
 }

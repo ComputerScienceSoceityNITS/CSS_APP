@@ -1,6 +1,6 @@
 import './main.dart';
 import 'package:flutter/material.dart';
-import 'package:cssapp/HomePage/home_screen.dart';
+import 'package:cssapp/screens/home_screen/home_screen.dart';
 import './MembersPage/members_screen.dart';
 import 'Models/api_call.dart';
 import 'configs/configs.dart';

@@ -1,7 +1,7 @@
 import 'package:cssapp/AboutUsPage/about_us.dart';
 import 'package:flutter/material.dart';
-import 'package:cssapp/HomePage/home_screen.dart';
-import 'HomePage/home_screen.dart';
+import 'package:cssapp/screens/home_screen/home_screen.dart';
+import 'screens/home_screen/home_screen.dart';
 import 'AboutUsPage/about_us.dart';
 import 'ReportBugsPage/report_bugs.dart';
 

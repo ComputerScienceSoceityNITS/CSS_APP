@@ -8,9 +8,10 @@ import 'state_handlers/theme/brightness/light.dart';
 import 'utils/storage_handler.dart';
 
 ThemeHandler _themeHandler = ThemeHandler();
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   // -------------------- Initializing Storage Handler --------------------
-  StorageHandler();
+  await StorageHandler().initPreferences();
 
   runApp(const CSSApp());
 }

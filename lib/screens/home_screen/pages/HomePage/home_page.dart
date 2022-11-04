@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cssapp/configs/configs.dart';
-import 'package:cssapp/widgets/animations/loader.dart';
+import 'events/events.dart';
 import 'package:lottie/lottie.dart';
 import 'widgets/widgets.dart';
 
@@ -60,7 +60,10 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 80),
-                        Events()
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 35),
+                          child: Events(),
+                        )
                       ],
                     ),
                   ),

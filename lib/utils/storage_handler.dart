@@ -4,11 +4,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class StorageHandler {
   static SharedPreferences? _preferences;
-  StorageHandler() {
-    if (_preferences == null) {
-      _initPreferences();
-    }
-  }
 
   // ----------------------------- Getter Methods -----------------------------
   bool get isDarkTheme =>
@@ -20,7 +15,7 @@ class StorageHandler {
     await _preferences?.setBool('isDarkTheme-', isDarkTheme);
   }
 
-  Future<void> _initPreferences() async {
+  Future<void> initPreferences() async {
     _preferences = await SharedPreferences.getInstance();
   }
 }

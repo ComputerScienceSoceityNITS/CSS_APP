@@ -1,18 +1,12 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:cssapp/EventsPage/events_page.dart';
+import 'pages/EventsPage/events_page.dart';
 import 'package:cssapp/GalleryPage/gallery.dart';
-import 'package:cssapp/HomePage/widgets/bg_text.dart';
-import 'package:cssapp/HomePage/widgets/css_text.dart';
-import 'package:cssapp/HomePage/widgets/executive_members_card.dart';
 import 'package:cssapp/MembersPage/members_screen.dart';
 import 'package:cssapp/DevelopersPage/developers_page.dart';
 import 'package:flutter/material.dart';
-import 'package:cssapp/widgets/widgets.dart';
+import 'package:cssapp/navigation_drawer.dart';
+import 'pages/HomePage/home_page.dart';
 import 'package:cssapp/configs/configs.dart';
-import 'package:lottie/lottie.dart';
-import '../navigation_drawer.dart';
-import 'widgets/events.dart';
-import 'home_page.dart';
 
 class HomeScreen extends StatefulWidget {
   int initialIndex = 0;
@@ -85,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
         bottomNavigationBar: ConvexAppBar(
           onTap: _onItemTapped,
           initialActiveIndex: _selectedIndex,
-          backgroundColor: const Color(0xFFBC4E9C),
+          backgroundColor: Pallet.accentColor,
           items: const [
             TabItem(icon: Icons.home, title: ''),
             TabItem(icon: Icons.event, title: ''),

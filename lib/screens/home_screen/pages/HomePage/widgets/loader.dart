@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:lottie/lottie.dart';
 import 'package:cssapp/configs/configs.dart';
 
 class LottieLoader extends StatelessWidget {
@@ -11,7 +10,13 @@ class LottieLoader extends StatelessWidget {
       opacity: 0.3,
       duration: const Duration(milliseconds: 10),
       child: Center(
-        child: Assets.lottieLoader,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Assets.lottieLoader,
+            Assets.lottieLoader,
+          ],
+        ),
       ),
     );
   }
