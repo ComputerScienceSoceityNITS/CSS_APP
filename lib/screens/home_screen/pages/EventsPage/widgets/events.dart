@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'event.dart';
+import 'package:cssapp/configs/configs.dart';
 
 class Events extends StatefulWidget {
   final List<Event> cards;
-  final LottieBuilder lottie;
+  final Widget lottie;
+
   const Events({Key? key, required this.cards, required this.lottie})
       : super(key: key);
 
@@ -17,30 +19,14 @@ class _EventsState extends State<Events> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 30),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Wrap(
-            direction: Axis.vertical,
-            spacing: 100,
-            children: [
-              for (int i = 0; i < widget.cards.length; i++)
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: LottieBuilder(
-                    lottie: widget.lottie.lottie,
-                    fit: BoxFit.fitWidth,
-                  ),
-                ),
-            ],
-          ),
-          Column(
+      child: SizedBox(
+          height: (320 * widget.cards.length).toDouble(),
+          width: MediaQuery.of(context).size.width,
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: widget.cards,
-          )
-        ],
-      ),
+          )),
     );
   }
 }

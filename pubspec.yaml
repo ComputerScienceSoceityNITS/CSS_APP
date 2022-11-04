@@ -42,8 +42,7 @@ flutter:
     - assets/images/events/esperanza/
     - assets/images/framers/
     - assets/lottie/
-    - assets/controller.jpeg
-    - assets/6-min.jpeg
+    - assets/
 
   fonts:
     - family: Anton

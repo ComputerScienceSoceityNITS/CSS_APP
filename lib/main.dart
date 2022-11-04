@@ -1,4 +1,5 @@
 import 'package:cssapp/state_handlers/theme/theme_handler.dart';
+import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
 import './splash.dart';
@@ -12,7 +13,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // -------------------- Initializing Storage Handler --------------------
   await StorageHandler().initPreferences();
-
   runApp(const CSSApp());
 }
 

@@ -53,120 +53,84 @@ class Event extends StatelessWidget {
         ),
       ),
     ];
-    return FlipCard(
-      fill: Fill
-          .fillBack, // Fill the back side of the card to make in the same size as the front.
-      direction: FlipDirection.HORIZONTAL,
-      front: Container(
-        padding: const EdgeInsets.fromLTRB(10, 3, 10, 30),
-        width: 230,
-        height: 300,
-        child: GestureDetector(
-          child: ClipRect(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(
-                sigmaX: 10.0,
-                sigmaY: 10.0,
-              ),
-              child: Container(
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: FlipCard(
+        fill: Fill.fillBack,
+        front: _BaseCard(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: addBorderRadiusToThumbnail ? 150 : 200,
+                height: 150,
                 decoration: BoxDecoration(
-                    color: Colors.grey[200]?.withOpacity(0.1),
-                    border: Border.all(width: 0.5, color: Colors.grey)),
-                child: Center(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              width: addBorderRadiusToThumbnail == true
-                                  ? 150
-                                  : double.infinity,
-                              height: 150,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(
-                                    addBorderRadiusToThumbnail == true
-                                        ? 100
-                                        : 0),
-                                shape: BoxShape.rectangle,
-                                image: DecorationImage(
-                                    image: thumbnail.image, fit: BoxFit.cover),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Column(children: eventTitle)
-                        ],
-                      ),
-                    ],
-                  ),
+                  borderRadius: BorderRadius.circular(100),
+                  shape: BoxShape.rectangle,
+                  image: DecorationImage(
+                      image: thumbnail.image, fit: BoxFit.cover),
                 ),
               ),
-            ),
+              SizedBox(height: addBorderRadiusToThumbnail ? 20 : 10),
+              Column(
+                children: eventTitle,
+              )
+            ],
+          ),
+        ),
+        back: _BaseCard(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: eventTitle,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+                child: Text(
+                  details ?? '',
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(color: Colors.white, fontSize: 10),
+                ),
+              ),
+              ...events.map(
+                (event) => Text(
+                  event,
+                  textAlign: TextAlign.center,
+                  style: textStylisedQuintessentialSmall.copyWith(
+                      color: Pallet.accentColor),
+                ),
+              )
+            ],
           ),
         ),
       ),
-      back: (details != null && details!.isNotEmpty) || events.isNotEmpty
-          ? Container(
-              padding: const EdgeInsets.fromLTRB(10, 3, 10, 30),
-              width: 230,
-              height: 300,
-              child: GestureDetector(
-                child: ClipRect(
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(
-                      sigmaX: 10.0,
-                      sigmaY: 10.0,
-                    ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.grey[200]?.withOpacity(0.1),
-                          border: Border.all(width: 0.5, color: Colors.grey)),
-                      child: Center(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: eventTitle),
-                            Offstage(
-                              offstage: details == null,
-                              child: Padding(
-                                padding: const EdgeInsets.fromLTRB(8, 10, 8, 0),
-                                child: Text(
-                                  details ?? '',
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                      color: Colors.white, fontSize: 10),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 15),
-                            ...events
-                                .map(
-                                  (String event) => Text(
-                                    event,
-                                    textAlign: TextAlign.center,
-                                    style: textStylisedQuintessentialSmall
-                                        .copyWith(color: Pallet.accentColor),
-                                  ),
-                                )
-                                .toList(),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            )
-          : const SizedBox.shrink(),
+    );
+  }
+}
+
+class _BaseCard extends StatelessWidget {
+  final Widget child;
+  const _BaseCard({Key? key, required this.child}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaY: 10, sigmaX: 10),
+        child: Container(
+          width: 230,
+          height: 300,
+          decoration: BoxDecoration(
+            color: Colors.grey.shade200.withOpacity(0.1),
+            border: Border.all(width: 0.5, color: Colors.grey),
+          ),
+          child: child,
+        ),
+      ),
     );
   }
 }

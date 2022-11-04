@@ -19,63 +19,74 @@ class _EventsPageState extends State<EventsPage> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Stack(
-                alignment: Alignment.topCenter,
-                children: [
-                  const AccountingAnimation(),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 100),
-                    child: Column(
-                      children: const [
-                        CSSText(),
-                        EventText(),
-                        TagText(),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 70),
-              Row(
-                children: [
-                  const SizedBox(width: 30),
-                  GestureDetector(
-                    onTap: () => setState(() {
-                      technoEventsSelected = true;
-                    }),
-                    child: Text(
-                      "Techno Events",
-                      style: textStylisedCormorantSmall.copyWith(
-                        color: technoEventsSelected
-                            ? Pallet.accentColor
-                            : Colors.white,
+          child: SizedBox(
+            child: Column(
+              children: [
+                Stack(
+                  alignment: Alignment.topCenter,
+                  children: [
+                    const AccountingAnimation(),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 100),
+                      child: Column(
+                        children: const [
+                          CSSText(),
+                          EventText(),
+                          TagText(),
+                        ],
                       ),
                     ),
-                  ),
-                  const SizedBox(width: 30),
-                  GestureDetector(
-                    onTap: () => setState(() {
-                      technoEventsSelected = false;
-                    }),
-                    child: Text(
-                      "Cultural Events",
-                      style: textStylisedCormorantSmall.copyWith(
-                          color: !technoEventsSelected
+                  ],
+                ),
+                const SizedBox(height: 70),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(width: 30),
+                    GestureDetector(
+                      onTap: () => setState(() {
+                        technoEventsSelected = true;
+                      }),
+                      child: Text(
+                        "Techno Events",
+                        style: textStylisedCormorantSmall.copyWith(
+                          color: technoEventsSelected
                               ? Pallet.accentColor
-                              : Colors.white),
+                              : Colors.white,
+                        ),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              technoEventsSelected
-                  ? Events(
-                      cards: TechnoCards.cards, lottie: Assets.lottieTechno)
-                  : Events(
-                      cards: CulturalCards.cards, lottie: Assets.lottieLoader),
-            ],
+                    const SizedBox(width: 30),
+                    GestureDetector(
+                      onTap: () => setState(() {
+                        technoEventsSelected = false;
+                      }),
+                      child: Text(
+                        "Cultural Events",
+                        style: textStylisedCormorantSmall.copyWith(
+                            color: !technoEventsSelected
+                                ? Pallet.accentColor
+                                : Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                technoEventsSelected
+                    ? Offstage(
+                        offstage: technoEventsSelected == false,
+                        child: Events(
+                            cards: TechnoCards.cards,
+                            lottie: Assets.lottieTechnoGif),
+                      )
+                    : Offstage(
+                        offstage: technoEventsSelected == true,
+                        child: Events(
+                            cards: CulturalCards.cards,
+                            lottie: Assets.lottieLoaderGif),
+                      ),
+              ],
+            ),
           ),
         ),
       ),

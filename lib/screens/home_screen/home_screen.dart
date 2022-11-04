@@ -9,8 +9,8 @@ import 'pages/HomePage/home_page.dart';
 import 'package:cssapp/configs/configs.dart';
 
 class HomeScreen extends StatefulWidget {
-  int initialIndex = 0;
-  HomeScreen({Key? key, required this.initialIndex}) : super(key: key);
+  final int initialIndex;
+  const HomeScreen({Key? key, this.initialIndex = 1}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -21,9 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _screens = const [
     HomePage(),
     EventsPage(),
-    MembersPage(),
-    GalleryPage(),
-    DevelopersPage(),
+    // MembersPage(),
+    // GalleryPage(),
+    // DevelopersPage(),
   ];
 
   int _selectedIndex = 0;

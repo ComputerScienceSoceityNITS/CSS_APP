@@ -66,6 +66,14 @@ class Assets {
       Image.asset('assets/images/framers/ManishBhaiya.jpeg');
   static final Image framerSamikshaKulkarni =
       Image.asset('assets/images/framers/Samiksha_Kulkarni.jpeg');
+  static final Image lottieLoaderGif = Image.asset(
+    "assets/loader.gif",
+    repeat: ImageRepeat.repeatY,
+  );
+  static final Image lottieTechnoGif = Image.asset(
+    "assets/techno.gif",
+    repeat: ImageRepeat.repeatY,
+  );
 
   static final LottieBuilder lottieAccounting =
       Lottie.asset('assets/lottie/accounting.json');

@@ -10,13 +10,7 @@ class LottieLoader extends StatelessWidget {
       opacity: 0.3,
       duration: const Duration(milliseconds: 10),
       child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Assets.lottieLoader,
-            Assets.lottieLoader,
-          ],
-        ),
+        child: Assets.lottieLoaderGif,
       ),
     );
   }
