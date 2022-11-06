@@ -35,7 +35,6 @@ class _DevelopersState extends State<Developers> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          // Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 0)),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -46,8 +45,6 @@ class _DevelopersState extends State<Developers> {
                   child: Container(
                     alignment: Alignment.center,
                     width: 90,
-                    // padding: EdgeInsets.fromLTRB(4, 4, 4, 4),
-                    // margin: EdgeInsets.fromLTRB(20, 20, 0, 0),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(color: Colors.white, width: 4)),

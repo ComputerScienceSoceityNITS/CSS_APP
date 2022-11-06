@@ -41,9 +41,9 @@ Future<void> sendEmail() async {
             "message": message
           }
         }));
-    print(response.statusCode);
+    // print(response.statusCode);
   } catch (e) {
-    print(e);
+    // print(e);
   }
 }
 
@@ -149,7 +149,9 @@ class _ReportBugsState extends State<ReportBugs> {
                       Form(
                           child: Column(
                         children: [
-                          SizedBox(height: 100,),
+                          SizedBox(
+                            height: 100,
+                          ),
                           TextFormField(
                             style: const TextStyle(color: Colors.white),
                             controller: nameController,
@@ -286,7 +288,8 @@ class _ReportBugsState extends State<ReportBugs> {
                                           const SizedBox(width: 10),
                                           Text(
                                             errorText!,
-                                            style: const TextStyle(color: Colors.red),
+                                            style: const TextStyle(
+                                                color: Colors.red),
                                           )
                                         ],
                                       ),

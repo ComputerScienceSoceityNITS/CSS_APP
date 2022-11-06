@@ -13,9 +13,17 @@ const TextStyle textLarge = TextStyle(
   fontWeight: FontWeight.w900,
 );
 
+const TextStyle textLargeSpaced = TextStyle(
+    color: Colors.white,
+    fontSize: 40,
+    fontFamily: 'Anton',
+    fontWeight: FontWeight.w900,
+    letterSpacing: 5);
+
 const TextStyle textSmall = TextStyle(color: Colors.white, fontSize: 10);
 const TextStyle textSmallBold =
     TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900);
+const TextStyle textRegular = TextStyle(color: Colors.white, fontSize: 15);
 
 const TextStyle textStylisedGeostarSmall = TextStyle(
   fontSize: 24,

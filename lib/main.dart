@@ -1,5 +1,6 @@
 import 'package:cssapp/state_handlers/theme/theme_handler.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import './splash.dart';
@@ -13,6 +14,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // -------------------- Initializing Storage Handler --------------------
   await StorageHandler().initPreferences();
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      systemNavigationBarColor: _themeHandler.themeMode == ThemeMode.light
+          ? Colors.white
+          : Colors.black));
+
   runApp(const CSSApp());
 }
 

@@ -1,7 +1,8 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:flutter/services.dart';
 import 'pages/EventsPage/events_page.dart';
-import 'package:cssapp/GalleryPage/gallery.dart';
-import 'package:cssapp/MembersPage/members_screen.dart';
+import 'pages/GalleryPage/gallery.dart';
+import 'pages/MembersPage/members_screen.dart';
 import 'package:cssapp/DevelopersPage/developers_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/navigation_drawer.dart';
@@ -21,9 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _screens = const [
     HomePage(),
     EventsPage(),
-    // MembersPage(),
-    // GalleryPage(),
-    // DevelopersPage(),
+    MembersPage(),
+    GalleryPage(),
+    DevelopersPage(),
   ];
 
   int _selectedIndex = 0;
@@ -40,6 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        systemNavigationBarColor: Pallet.accentColor));
     setState(() {
       _selectedIndex = widget.initialIndex;
     });
