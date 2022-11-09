@@ -1,9 +1,8 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:flutter/services.dart';
 import 'pages/EventsPage/events_page.dart';
 import 'pages/GalleryPage/gallery.dart';
 import 'pages/MembersPage/members_screen.dart';
-import 'package:cssapp/DevelopersPage/developers_page.dart';
+import 'pages/DevelopersPage/developers_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/navigation_drawer.dart';
 import 'pages/HomePage/home_page.dart';

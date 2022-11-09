@@ -1,11 +1,8 @@
-import '../../../../../widgets/member_card.dart';
+import 'package:cssapp/widgets/member_card.dart';
 import 'package:cssapp/configs/configs.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:loading_indicator/loading_indicator.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:cssapp/Models/members/member.dart';
-import 'package:cssapp/Models/members/member_api.dart';
+import 'package:cssapp/state_handlers/members/member.dart';
+import 'package:cssapp/state_handlers/members/member_api.dart';
 
 class MembersScroll extends StatelessWidget {
   final Map<Role, List<Member>>? posts;

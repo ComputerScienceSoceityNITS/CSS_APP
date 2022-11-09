@@ -1,9 +1,10 @@
 import 'package:fade_shimmer/fade_shimmer.dart';
 
-import '../screens/home_screen/pages/MembersPage/widgets/social_icons.dart';
+import 'social_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:cssapp/Models/members/member_api.dart' show Role, Session;
+import 'package:cssapp/state_handlers/members/member_api.dart'
+    show Role, Session;
 import 'package:cached_network_image/cached_network_image.dart';
 
 class MemberCard extends StatelessWidget {

@@ -1,6 +1,5 @@
-import 'package:cssapp/DevelopersPage/developers.dart';
+import 'developers.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:cssapp/configs/configs.dart';
 
 class DevelopersPage extends StatefulWidget {

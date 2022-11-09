@@ -1,7 +1,6 @@
-import 'package:cssapp/Models/members/member_api.dart';
+import 'package:cssapp/state_handlers/members/member_api.dart';
 import 'package:flutter/material.dart';
-import 'package:cssapp/Models/members/member_api.dart';
-import 'package:cssapp/Models/members/member.dart';
+import 'package:cssapp/state_handlers/members/member.dart';
 import 'package:cssapp/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 

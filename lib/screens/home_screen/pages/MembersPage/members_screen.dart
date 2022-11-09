@@ -1,10 +1,10 @@
-import 'package:cssapp/Models/members/member_api.dart';
+import 'package:cssapp/state_handlers/members/member_api.dart';
 import 'package:provider/provider.dart';
-import '../../../../widgets/custom_drop_down.dart';
+import 'package:cssapp/widgets/custom_drop_down.dart';
 import 'widgets/members_scroll.dart';
 import 'package:cssapp/configs/configs.dart';
 import 'package:flutter/material.dart';
-import 'package:cssapp/Models/members/member.dart';
+import 'package:cssapp/state_handlers/members/member.dart';
 
 class MembersPage extends StatefulWidget {
   const MembersPage({Key? key}) : super(key: key);

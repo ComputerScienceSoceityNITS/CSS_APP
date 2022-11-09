@@ -1,5 +1,4 @@
-import 'dart:io';
-import 'package:cssapp/Models/members/member_api.dart';
+import 'package:cssapp/state_handlers/members/member_api.dart';
 import 'package:cssapp/state_handlers/theme/theme_handler.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
