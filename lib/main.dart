@@ -1,8 +1,8 @@
+import 'dart:io';
+import 'package:cssapp/Models/members/member_api.dart';
 import 'package:cssapp/state_handlers/theme/theme_handler.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-
 import './splash.dart';
 import 'package:flutter/material.dart';
 import 'state_handlers/theme/brightness/dark.dart';
@@ -53,8 +53,10 @@ class _CSSAppState extends State<CSSApp> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-            create: (BuildContext context) =>
-                ThemeHandler(themeHandler: _themeHandler))
+          create: (BuildContext context) =>
+              ThemeHandler(themeHandler: _themeHandler),
+        ),
+        ChangeNotifierProvider(create: (BuildContext context) => MemberApi()),
       ],
       child: MaterialApp(
         title: 'CSS App',

@@ -32,7 +32,7 @@ class CustomDropDown extends StatelessWidget {
                 value: value,
                 child: Text(
                   value,
-                  style: textRegular.copyWith(color: Pallet.accentColor),
+                  style: textRegular.copyWith(color: Pallet.white),
                 ),
               );
             },

@@ -1,13 +1,15 @@
-import 'member_card.dart';
+import '../../../../../widgets/member_card.dart';
 import 'package:cssapp/configs/configs.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:cssapp/Models/members/member.dart';
+import 'package:cssapp/Models/members/member_api.dart';
 
 class MembersScroll extends StatelessWidget {
-  final Map<String, List> posts;
-  final String wing;
+  final Map<Role, List<Member>>? posts;
+  final Role wing;
   const MembersScroll({Key? key, required this.posts, required this.wing})
       : super(key: key);
 
@@ -19,39 +21,41 @@ class MembersScroll extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: Column(
           children: [
-            if (posts[wing] != null && posts[wing]!.isNotEmpty)
+            if (posts == null ||
+                (posts![wing] != null && posts![wing]!.isNotEmpty))
               Padding(
                 padding: const EdgeInsets.fromLTRB(6, 10, 0, 0),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(wing.toUpperCase(),
+                    Text(mapRole[wing] ?? '',
                         textAlign: TextAlign.justify, style: textSmallBold),
                     const SizedBox(width: 10),
-                    if (wing.toLowerCase() != "heads")
+                    if (wing != Role.head)
                       const Text("MEMBERS",
                           textAlign: TextAlign.left, style: textSmallBold)
                   ],
                 ),
               ),
             const SizedBox(height: 20),
-            if (posts[wing] != null && posts[wing]!.isNotEmpty)
+            if (posts == null ||
+                (posts![wing] != null && posts![wing]!.isNotEmpty))
               SizedBox(
                 height: 250,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: posts[wing]!.length,
+                  itemCount: posts == null ? 5 : posts![wing]!.length,
                   itemBuilder: (BuildContext context, int index) {
-                    var entry = posts[wing]![index];
+                    Member? member = posts?[wing]![index];
                     return MemberCard(
-                        imageLink: entry.pic,
-                        role: entry.role,
-                        name: entry.name,
-                        session: entry.session,
-                        fb: entry.fb,
-                        git: entry.git,
-                        linkedin: entry.link,
-                        insta: entry.insta);
+                        imageLink: member?.imageLink ?? '',
+                        role: member?.role ?? mapRole[Role.technical]!,
+                        name: member?.name ?? '',
+                        session: member?.session ?? Session.session_20_21,
+                        fb: member?.fb,
+                        git: member?.git,
+                        linkedin: member?.linkedin,
+                        insta: member?.insta);
                   },
                 ),
               )

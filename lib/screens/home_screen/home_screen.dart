@@ -41,8 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-        systemNavigationBarColor: Pallet.accentColor));
     setState(() {
       _selectedIndex = widget.initialIndex;
     });
@@ -68,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               backgroundColor: Colors.white,
               onPressed: () {
-                // Scaffold.of(context).openDrawer();
+                Scaffold.of(context).openDrawer();
               },
             );
           }),

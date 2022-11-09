@@ -1,7 +1,7 @@
-import './main.dart';
+import 'package:cssapp/Models/members/member_api.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/screens/home_screen/home_screen.dart';
-import 'Models/api_call.dart';
+import 'package:provider/provider.dart';
 import 'configs/configs.dart';
 
 class Splash extends StatefulWidget {
@@ -12,22 +12,24 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
+  @override
   void initState() {
     super.initState();
-    Api.getData1();
-    Api.getData2();
-    Api.getData3();
-    navigatetohome();
+    getData();
   }
 
-  navigatetohome() async {
-    await Future.delayed(const Duration(milliseconds: 1500), () {});
-    Navigator.pushReplacement(
+  Future<void> getData() async {
+    Provider.of<MemberApi>(context, listen: false).getAllData();
+    Future.delayed(const Duration(milliseconds: 1500)).then(
+      (value) => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-            builder: (context) => HomeScreen(
-                  initialIndex: 0,
-                )));
+          builder: (context) => const HomeScreen(
+            initialIndex: 0,
+          ),
+        ),
+      ),
+    );
   }
 
   @override
