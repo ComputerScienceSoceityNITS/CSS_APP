@@ -70,57 +70,60 @@ class _EventDialogState extends State<EventDialog>
               padding: const EdgeInsets.all(15.0),
               child: SizedBox(
                 height: bodyHeight - 50,
-                child: Column(children: [
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: ExpandedButton(
-                      child: const Text("x"),
-                      onTap: () {
-                        scaleAnimation = CurvedAnimation(
-                            parent: controller, curve: Curves.easeInOut);
+                child: SingleChildScrollView(
+                  child: Column(children: [
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: ExpandedButton(
+                        child: const Text("x"),
+                        onTap: () {
+                          scaleAnimation = CurvedAnimation(
+                              parent: controller, curve: Curves.easeInOut);
 
-                        controller.addListener(() {
-                          setState(() {});
-                        });
-                        controller
-                            .reverse()
-                            .then((value) => Navigator.pop(context));
-                        ;
-                      },
-                    ),
-                  ),
-                  Text(
-                    widget.desc,
-                    textAlign: TextAlign.justify,
-                  ),
-                  const SizedBox(height: 15),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                        onTap: () => launch(widget.link),
-                        child: widget.link.isNotEmpty
-                            ? Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  Text(
-                                    "Learn More",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 12),
-                                  ),
-                                  Icon(
-                                    Icons.arrow_right,
-                                    color: Colors.white,
-                                    size: 18,
-                                  ),
-                                ],
-                              )
-                            : const SizedBox.shrink(),
+                          controller.addListener(() {
+                            setState(() {});
+                          });
+                          controller
+                              .reverse()
+                              .then((value) => Navigator.pop(context));
+                        },
                       ),
-                    ],
-                  ),
-                ]),
+                    ),
+                    SingleChildScrollView(
+                      child: Text(
+                        widget.desc,
+                        textAlign: TextAlign.justify,
+                      ),
+                    ),
+                    const SizedBox(height: 15),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                          onTap: () => launch(widget.link),
+                          child: widget.link.isNotEmpty
+                              ? Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: const [
+                                    Text(
+                                      "Learn More",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 12),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_right,
+                                      color: Colors.white,
+                                      size: 18,
+                                    ),
+                                  ],
+                                )
+                              : const SizedBox.shrink(),
+                        ),
+                      ],
+                    ),
+                  ]),
+                ),
               ),
             ),
           ],

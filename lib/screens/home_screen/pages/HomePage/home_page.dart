@@ -3,6 +3,7 @@ import 'package:cssapp/configs/configs.dart';
 import 'events/events.dart';
 import 'package:lottie/lottie.dart';
 import 'widgets/widgets.dart';
+import 'package:cssapp/widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
-            const BGText(),
+            const CSSBGText(),
             const LottieLoader(),
             SingleChildScrollView(
               child: Column(

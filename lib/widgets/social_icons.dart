@@ -4,16 +4,19 @@ import 'package:url_launcher/url_launcher.dart';
 class SocialIcons extends StatelessWidget {
   final String? link;
   final IconData icon;
-  const SocialIcons({Key? key, this.link, required this.icon})
+  final double size;
+  const SocialIcons({Key? key, this.link, required this.icon, this.size = 15})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: Icon(
-        icon,
-        color: Colors.white,
-        size: 15,
+      child: SizedBox(
+        width: size,
+        child: Icon(
+          icon,
+          color: Colors.white,
+        ),
       ),
       onTap: () => launch(link ?? ''),
     );

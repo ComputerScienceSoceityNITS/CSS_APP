@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:cssapp/configs/configs.dart';
 
-class BGText extends StatelessWidget {
-  const BGText({Key? key}) : super(key: key);
+class CSSBGText extends StatelessWidget {
+  const CSSBGText({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

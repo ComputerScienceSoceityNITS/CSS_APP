@@ -1,9 +1,8 @@
-import 'package:cssapp/AboutUsPage/about_us.dart';
+import 'package:cssapp/screens/about_screen//about_screen.dart';
 import 'package:cssapp/configs/configs.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/screens/home_screen/home_screen.dart';
 import 'screens/home_screen/home_screen.dart';
-import 'AboutUsPage/about_us.dart';
 import 'ReportBugsPage/report_bugs.dart';
 
 class NavigationDrawer extends StatelessWidget {
