@@ -1,76 +1,77 @@
-import 'package:cssapp/AboutUsPage/about_us.dart';
+import 'package:cssapp/screens/about_screen//about_screen.dart';
+import 'package:cssapp/configs/configs.dart';
 import 'package:flutter/material.dart';
-import 'package:cssapp/HomePage/home_screen.dart';
-import 'HomePage/home_screen.dart';
-import 'AboutUsPage/about_us.dart';
+import 'package:cssapp/screens/home_screen/home_screen.dart';
+import 'screens/home_screen/home_screen.dart';
 import 'ReportBugsPage/report_bugs.dart';
 
 class NavigationDrawer extends StatelessWidget {
-  // const NavigationDrawer({Key? key}) : super(key: key);
   final padding = const EdgeInsets.symmetric(horizontal: 50);
+  final List<String> navigationTexts = [
+    'HOME',
+    'EVENTS',
+    'MEMBERS',
+    'GALLERY',
+    'DEVELOPERS',
+    'ABOUT US',
+    'REPORT TO CSS',
+  ];
+  final List<IconData> icons = [
+    Icons.home,
+    Icons.event,
+    Icons.groups,
+    Icons.picture_in_picture,
+    Icons.laptop,
+    Icons.info,
+    Icons.email,
+  ];
+  final List<int> onPressedMoveToPage = [0, 1, 2, 3, 6];
+
+  NavigationDrawer({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final List<void Function()> pages = [
+      () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const AboutUs()),
+        );
+      },
+      () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ReportBugs()),
+        );
+      }
+    ];
     return Drawer(
       child: Material(
-        // color: Colors.white,
+        color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: ListView(
-            children: [
-              const SizedBox(height: 28),
-              buildMenuItem(
-                text: 'HOME',
-                icon: Icons.home,
-                onPressed: () => selectedItem(context, 0),
-              ),
-              const SizedBox(height: 28),
-              buildMenuItem(
-                text: 'EVENTS',
-                icon: Icons.event,
-                onPressed: () => selectedItem(context, 1),
-              ),
-              const SizedBox(height: 28),
-              buildMenuItem(
-                text: 'MEMBERS',
-                icon: Icons.groups,
-                onPressed: () => selectedItem(context, 2),
-              ),
-              const SizedBox(height: 28),
-              buildMenuItem(
-                text: 'GALLERY',
-                icon: Icons.picture_in_picture,
-                onPressed: () => selectedItem(context, 3),
-              ),
-              const SizedBox(height: 28),
-              buildMenuItem(
-                text: 'DEVELOPERS',
-                icon: Icons.laptop,
-                onPressed: () => selectedItem(context, 6),
-              ),
-              const SizedBox(height: 24),
-              const Divider(color: Colors.grey),
-              const SizedBox(height: 24),
-              buildMenuItem(
-                  text: 'ABOUT US',
-                  icon: Icons.info,
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const AboutUs()),
-                    );
-                  }),
-              const SizedBox(height: 28),
-              buildMenuItem(
-                  text: 'REPORT TO CSS',
-                  icon: Icons.email,
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ReportBugs()),
-                    );
-                  }),
-            ],
+          child: ListView.separated(
+            itemBuilder: (BuildContext context, int index) {
+              return buildMenuItem(
+                context: context,
+                text: navigationTexts[index],
+                icon: icons[index],
+                onPressed: index < 5
+                    ? () => selectedItem(context, onPressedMoveToPage[index])
+                    : pages[index - 5],
+              );
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return index == 4
+                  ? Column(
+                      children: const [
+                        SizedBox(height: 24),
+                        Divider(color: Colors.grey),
+                        SizedBox(height: 24),
+                      ],
+                    )
+                  : const SizedBox(height: 28);
+            },
+            itemCount: navigationTexts.length,
           ),
         ),
       ),
@@ -78,6 +79,7 @@ class NavigationDrawer extends StatelessWidget {
   }
 
   Widget buildMenuItem({
+    required BuildContext context,
     required String text,
     required IconData icon,
     VoidCallback? onPressed,
@@ -91,17 +93,10 @@ class NavigationDrawer extends StatelessWidget {
         color: color,
         size: 23,
       ),
-      title: Text(text,
-          style: TextStyle(
-              color: color,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              shadows: [
-                Shadow(
-                    offset: const Offset(5.0, 5.0),
-                    blurRadius: 3.0,
-                    color: Colors.black.withOpacity(0.2)),
-              ])),
+      title: Text(
+        text,
+        style: textSmallBold.copyWith(color: Theme.of(context).primaryColor),
+      ),
       hoverColor: hoverColor,
       onTap: onPressed,
     );
@@ -109,28 +104,27 @@ class NavigationDrawer extends StatelessWidget {
 
   void selectedItem(BuildContext context, int index) {
     Navigator.of(context).pop();
-
     switch (index) {
       case 0:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => HomePage(
+          builder: (context) => HomeScreen(
             initialIndex: 0,
           ),
         ));
         break;
       case 1:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => HomePage(initialIndex: 1),
+          builder: (context) => HomeScreen(initialIndex: 1),
         ));
         break;
       case 2:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => HomePage(initialIndex: 2),
+          builder: (context) => HomeScreen(initialIndex: 2),
         ));
         break;
       case 3:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => HomePage(initialIndex: 3),
+          builder: (context) => HomeScreen(initialIndex: 3),
         ));
         break;
       case 4:
@@ -145,7 +139,7 @@ class NavigationDrawer extends StatelessWidget {
         break;
       case 6:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => HomePage(initialIndex: 4),
+          builder: (context) => HomeScreen(initialIndex: 4),
         ));
         break;
     }

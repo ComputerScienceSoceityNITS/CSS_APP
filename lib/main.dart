@@ -1,23 +1,73 @@
+import 'package:cssapp/state_handlers/members/member_api.dart';
+import 'package:cssapp/state_handlers/theme/theme_handler.dart';
+import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import './splash.dart';
 import 'package:flutter/material.dart';
+import 'state_handlers/theme/brightness/dark.dart';
+import 'state_handlers/theme/brightness/light.dart';
+import 'utils/storage_handler.dart';
 
-void main() {
-  runApp(const MyApp());
+ThemeHandler _themeHandler = ThemeHandler();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // -------------------- Initializing Storage Handler --------------------
+  await StorageHandler().initPreferences();
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      systemNavigationBarColor: _themeHandler.themeMode == ThemeMode.light
+          ? Colors.white
+          : Colors.black));
+
+  runApp(const CSSApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class CSSApp extends StatefulWidget {
+  const CSSApp({Key? key}) : super(key: key);
+
+  @override
+  State<CSSApp> createState() => _CSSAppState();
+}
+
+class _CSSAppState extends State<CSSApp> {
+  void themeListener() {
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  @override
+  void initState() {
+    _themeHandler.addListener(themeListener);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _themeHandler.removeListener(themeListener);
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'CSS App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (BuildContext context) =>
+              ThemeHandler(themeHandler: _themeHandler),
+        ),
+        ChangeNotifierProvider(create: (BuildContext context) => MemberApi()),
+      ],
+      child: MaterialApp(
+        title: 'CSS App',
+        debugShowCheckedModeBanner: false,
+        darkTheme: darkTheme,
+        theme: lightTheme,
+        themeMode: _themeHandler.themeMode,
+        // home: const Splash(),
+        home: const Scaffold(
+          body: Splash(),
+        ),
       ),
-      // home: const Splash(),
-      home: const Scaffold(
-        body: Splash(),
-      )
     );
   }
 }
