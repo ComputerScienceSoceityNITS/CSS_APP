@@ -8,11 +8,14 @@ import 'state_handlers/theme/brightness/dark.dart';
 import 'state_handlers/theme/brightness/light.dart';
 import 'utils/storage_handler.dart';
 
-ThemeHandler _themeHandler = ThemeHandler();
+late ThemeHandler _themeHandler;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // -------------------- Initializing Storage Handler --------------------
   await StorageHandler().initPreferences();
+  _themeHandler = ThemeHandler();
+  await _themeHandler.init();
+
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       systemNavigationBarColor: _themeHandler.themeMode == ThemeMode.light
           ? Colors.white
@@ -63,10 +66,7 @@ class _CSSAppState extends State<CSSApp> {
         darkTheme: darkTheme,
         theme: lightTheme,
         themeMode: _themeHandler.themeMode,
-        // home: const Splash(),
-        home: const Scaffold(
-          body: Splash(),
-        ),
+        home: const Splash(),
       ),
     );
   }

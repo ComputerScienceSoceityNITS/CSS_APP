@@ -28,10 +28,12 @@ class EventText extends StatelessWidget {
             ),
           ),
         ),
-        const Text(
+        Text(
           "VENTS",
           style: TextStyle(
-              fontSize: 30, fontWeight: FontWeight.bold, color: Pallet.white),
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).backgroundColor),
         ),
       ],
     );

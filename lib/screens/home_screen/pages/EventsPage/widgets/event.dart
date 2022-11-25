@@ -40,7 +40,8 @@ class Event extends StatelessWidget {
           ),
           Text(title,
               textAlign: TextAlign.center,
-              style: textStylisedBlackChancerySmall),
+              style: textStylisedBlackChancerySmall.copyWith(
+                  color: Theme.of(context).backgroundColor)),
         ],
       ),
       const SizedBox(width: 10),
@@ -49,7 +50,8 @@ class Event extends StatelessWidget {
         child: Text(
           titleLine2 ?? '',
           textAlign: TextAlign.center,
-          style: textStylisedBlackChancerySmall,
+          style: textStylisedBlackChancerySmall.copyWith(
+              color: Theme.of(context).backgroundColor),
         ),
       ),
     ];

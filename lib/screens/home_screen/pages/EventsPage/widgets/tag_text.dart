@@ -11,11 +11,15 @@ class TagText extends StatelessWidget {
       child: Wrap(
         spacing: 10,
         children: [
-          const Text("Participate", style: textStylisedItaliannoSmall),
+          Text("Participate",
+              style: textStylisedItaliannoSmall.copyWith(
+                  color: Theme.of(context).backgroundColor)),
           Text("Enjoy",
               style: textStylisedItaliannoSmall.copyWith(
                   color: Pallet.accentColor)),
-          const Text("Learn", style: textStylisedItaliannoSmall),
+          Text("Learn",
+              style: textStylisedItaliannoSmall.copyWith(
+                  color: Theme.of(context).backgroundColor)),
         ],
       ),
     );

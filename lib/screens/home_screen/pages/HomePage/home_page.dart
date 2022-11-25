@@ -12,7 +12,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
       body: SafeArea(
         child: Stack(
           children: [
@@ -46,22 +45,26 @@ class HomePage extends StatelessWidget {
                   ),
                   Container(
                     width: double.infinity,
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).canvasColor,
                     child: Column(
-                      children: const [
-                        SizedBox(height: gap),
-                        Text('ABOUT US', style: textLarge),
-                        SizedBox(height: gap),
+                      children: [
+                        const SizedBox(height: gap),
+                        Text('ABOUT US',
+                            style: textLarge.copyWith(
+                                color: Theme.of(context).backgroundColor)),
+                        const SizedBox(height: gap),
                         SizedBox(
                           width: 300,
                           child: Text(
                             "The Computer Science Society, run by the CSE department of NIT Silchar, aims to impart academic, technical and socio-cultural awareness to the students of our beloved college. Computer Science Engineering branch of NIT Silchar stands with the highest number of placements and talented minds.",
                             textAlign: TextAlign.center,
-                            style: TextStyle(height: 1.3),
+                            style: TextStyle(
+                                height: 1.3,
+                                color: Theme.of(context).backgroundColor),
                           ),
                         ),
-                        SizedBox(height: 80),
-                        Padding(
+                        const SizedBox(height: 80),
+                        const Padding(
                           padding: EdgeInsets.symmetric(vertical: 35),
                           child: Events(),
                         )
@@ -76,9 +79,10 @@ class HomePage extends StatelessWidget {
                         lottie: Assets.lottieRainMan.lottie,
                         fit: BoxFit.fitHeight),
                   ),
-                  const Text(
+                  Text(
                     "EXECUTIVE MEMBERS",
-                    style: textLarge,
+                    style: textLarge.copyWith(
+                        color: Theme.of(context).backgroundColor),
                   ),
                   const ExecutiveMembers(),
                   const SizedBox(height: 80),
@@ -92,7 +96,9 @@ class HomePage extends StatelessWidget {
                           fit: BoxFit.fitHeight,
                         ),
                       ),
-                      const Text("UPCOMING EVENTS", style: textLarge),
+                      Text("UPCOMING EVENTS",
+                          style: textLarge.copyWith(
+                              color: Theme.of(context).backgroundColor)),
                     ],
                   ),
                   Row(

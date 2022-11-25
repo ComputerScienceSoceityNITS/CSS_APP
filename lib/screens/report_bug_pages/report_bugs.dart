@@ -1,9 +1,8 @@
 import 'dart:convert';
-import 'package:cssapp/ReportBugsPage/widgets/custom_form_field.dart';
+import 'widgets/custom_form_field.dart';
 import 'package:cssapp/configs/configs.dart';
 import 'package:cssapp/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
 
 class ReportBugs extends StatefulWidget {
@@ -76,12 +75,12 @@ class _ReportBugsState extends State<ReportBugs> {
           child: Builder(builder: (context) {
             return FloatingActionButton(
                 elevation: 12,
-                child: const Icon(
+                child: Icon(
                   Icons.arrow_back,
-                  color: Colors.black,
+                  color: Theme.of(context).canvasColor,
                   size: 33,
                 ),
-                backgroundColor: Colors.white,
+                backgroundColor: Theme.of(context).backgroundColor,
                 onPressed: () {
                   Navigator.pop(context);
                 });
@@ -160,7 +159,11 @@ class _ReportBugsState extends State<ReportBugs> {
                                     height: 15,
                                     width: 15,
                                   )
-                                : const Text("Send Message"),
+                                : Text(
+                                    "Send Message",
+                                    style: TextStyle(
+                                        color: Theme.of(context).canvasColor),
+                                  ),
                           ),
                           const SizedBox(height: 10),
                           Column(
@@ -198,7 +201,9 @@ class _ReportBugsState extends State<ReportBugs> {
                             width: 300,
                             child: Text(
                               "Diclaimer: Reporting to CSS must be formal. Here, you can register ideas and suggestions for the website and everything CSS. Please avoid unnecessary messages and spams. Strict actions will be taken against those violating these rules.",
-                              style: textSmall.copyWith(height: 1.2),
+                              style: textSmall.copyWith(
+                                  height: 1.2,
+                                  color: Theme.of(context).backgroundColor),
                               textAlign: TextAlign.center,
                             ),
                           ),

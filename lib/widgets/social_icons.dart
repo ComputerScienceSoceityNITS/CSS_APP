@@ -13,10 +13,7 @@ class SocialIcons extends StatelessWidget {
     return GestureDetector(
       child: SizedBox(
         width: size,
-        child: Icon(
-          icon,
-          color: Colors.white,
-        ),
+        child: Icon(icon, color: Theme.of(context).backgroundColor),
       ),
       onTap: () => launch(link ?? ''),
     );

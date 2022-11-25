@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:cssapp/configs/configs.dart';
 
 class CSSText extends StatelessWidget {
@@ -6,9 +6,14 @@ class CSSText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Text largeText(String text) {
+      return Text(text,
+          style: textLarge.copyWith(color: Theme.of(context).backgroundColor));
+    }
+
     return Column(
       children: [
-        const Text('COMPUTER', style: textLarge),
+        largeText('COMPUTER'),
         Container(
           margin: const EdgeInsets.symmetric(vertical: 10),
           padding: const EdgeInsets.symmetric(
@@ -19,12 +24,9 @@ class CSSText extends StatelessWidget {
             color: Pallet.accentColor,
             borderRadius: BorderRadius.circular(10),
           ),
-          child: const Text(
-            'SCIENCE',
-            style: textLarge,
-          ),
+          child: largeText('SCIENCE'),
         ),
-        const Text('SOCIETY', style: textLarge)
+        largeText('SOCIETY')
       ],
     );
   }

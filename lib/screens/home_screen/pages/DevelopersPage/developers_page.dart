@@ -13,7 +13,6 @@ class _DevelopersPageState extends State<DevelopersPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -30,11 +29,11 @@ class _DevelopersPageState extends State<DevelopersPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            const Text(
+                            Text(
                               "OUR",
                               style: TextStyle(
                                 fontSize: 39,
-                                color: Colors.white,
+                                color: Theme.of(context).backgroundColor,
                                 fontFamily: 'Cormorant Unicase',
                                 fontWeight: FontWeight.bold,
                               ),
@@ -44,7 +43,9 @@ class _DevelopersPageState extends State<DevelopersPage> {
                             ),
                             Text("team".toUpperCase(),
                                 textAlign: TextAlign.center,
-                                style: textLargeSpaced),
+                                style: textLargeSpaced.copyWith(
+                                  color: Theme.of(context).backgroundColor,
+                                )),
                           ],
                         ),
                         Container(

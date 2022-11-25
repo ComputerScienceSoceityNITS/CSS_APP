@@ -1,4 +1,7 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:cssapp/state_handlers/theme/theme_handler.dart';
+import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'pages/EventsPage/events_page.dart';
 import 'pages/GalleryPage/gallery.dart';
 import 'pages/MembersPage/members_screen.dart';
@@ -51,42 +54,43 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: NavigationDrawer(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.fromLTRB(8, 25, 0, 0),
-          child: Builder(builder: (context) {
-            return FloatingActionButton(
-              elevation: 12,
-              child: const Icon(
-                Icons.more_vert,
-                color: Colors.black,
-                size: 33,
-              ),
-              backgroundColor: Colors.white,
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-            );
-          }),
-        ),
-        body: PageView(
-          controller: _pageController,
-          children: _screens,
-          onPageChanged: _onPageChanged,
-          physics: const NeverScrollableScrollPhysics(),
-        ),
-        bottomNavigationBar: ConvexAppBar(
-          onTap: _onItemTapped,
-          initialActiveIndex: _selectedIndex,
-          backgroundColor: Pallet.accentColor,
-          items: const [
-            TabItem(icon: Icons.home, title: ''),
-            TabItem(icon: Icons.event, title: ''),
-            TabItem(icon: Icons.groups, title: ''),
-            TabItem(icon: Icons.picture_in_picture, title: ''),
-            TabItem(icon: Icons.computer, title: ''),
-          ],
-        ));
+      drawer: NavigationDrawer(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.fromLTRB(8, 25, 0, 0),
+        child: Builder(builder: (context) {
+          return FloatingActionButton(
+            elevation: 12,
+            child: Icon(
+              Icons.more_vert,
+              color: Theme.of(context).canvasColor,
+              size: 33,
+            ),
+            backgroundColor: Theme.of(context).backgroundColor,
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+          );
+        }),
+      ),
+      body: PageView(
+        controller: _pageController,
+        children: _screens,
+        onPageChanged: _onPageChanged,
+        physics: const NeverScrollableScrollPhysics(),
+      ),
+      bottomNavigationBar: ConvexAppBar(
+        onTap: _onItemTapped,
+        initialActiveIndex: _selectedIndex,
+        backgroundColor: Pallet.accentColor,
+        items: const [
+          TabItem(icon: Icons.home, title: ''),
+          TabItem(icon: Icons.event, title: ''),
+          TabItem(icon: Icons.groups, title: ''),
+          TabItem(icon: Icons.picture_in_picture, title: ''),
+          TabItem(icon: Icons.computer, title: ''),
+        ],
+      ),
+    );
   }
 }

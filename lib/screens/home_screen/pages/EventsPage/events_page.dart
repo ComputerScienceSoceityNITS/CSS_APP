@@ -52,7 +52,7 @@ class _EventsPageState extends State<EventsPage> {
                         style: textStylisedCormorantSmall.copyWith(
                           color: technoEventsSelected
                               ? Pallet.accentColor
-                              : Colors.white,
+                              : Theme.of(context).backgroundColor,
                         ),
                       ),
                     ),
@@ -64,9 +64,10 @@ class _EventsPageState extends State<EventsPage> {
                       child: Text(
                         "Cultural Events",
                         style: textStylisedCormorantSmall.copyWith(
-                            color: !technoEventsSelected
-                                ? Pallet.accentColor
-                                : Colors.white),
+                          color: !technoEventsSelected
+                              ? Pallet.accentColor
+                              : Theme.of(context).backgroundColor,
+                        ),
                       ),
                     ),
                   ],

@@ -24,18 +24,20 @@ class Events extends StatelessWidget {
       link: "https://www.facebook.com/csenitsabacus",
     ),
     Event(
-        title: "BITSCRIBE",
-        desc:
-            "Every year, the Computer Science society excels in doing something new and innovative. It doesn’t remain dormant. The newsletter ‘bitscribe’ is a recent gift for the students of NIT Silchar from the society.It consists of articles by alumni as well as the current students of CSE which are full of motivation and knowledge. The newsletter requires a lot of effort and unity which shows the potential and efforts of the society.Whatever the society does, it never compromises with quality!",
-        img: Assets.bgMagazine,
-        link:
-            "https://issuu.com/bitscribe/docs/bitscribe_1_?fbclid=IwAR3WTcvsRco6gI-enMchIkBfhzKInZIgliMYlxi-TLOb1SxVK_7-sH7mJyQ"),
+      title: "BITSCRIBE",
+      desc:
+          "Every year, the Computer Science society excels in doing something new and innovative. It doesn’t remain dormant. The newsletter ‘bitscribe’ is a recent gift for the students of NIT Silchar from the society.It consists of articles by alumni as well as the current students of CSE which are full of motivation and knowledge. The newsletter requires a lot of effort and unity which shows the potential and efforts of the society.Whatever the society does, it never compromises with quality!",
+      img: Assets.bgMagazine,
+      link:
+          "https://issuu.com/bitscribe/docs/bitscribe_1_?fbclid=IwAR3WTcvsRco6gI-enMchIkBfhzKInZIgliMYlxi-TLOb1SxVK_7-sH7mJyQ",
+    ),
     Event(
-        title: "LIT WEEK",
-        desc:
-            "The annual Computer Science and Engineering week - Abacus, is right around the corner.” Yeah, this is how the excitement begins each year, for the Annual week of the CSE dept. in which different games and competitions takes place where everyone gets a cool opportunity to prove their skills down and claim the prize money.But the most unique point about it is that it gives you, the freshers, the opportunity to become organizers, to present your ideas, instead of just participating and enables you to learn numerous things.",
-        img: Assets.bgFlower,
-        link: "https://www.facebook.com/CSS.NITSilchar")
+      title: "LIT WEEK",
+      desc:
+          "The annual Computer Science and Engineering week - Abacus, is right around the corner.” Yeah, this is how the excitement begins each year, for the Annual week of the CSE dept. in which different games and competitions takes place where everyone gets a cool opportunity to prove their skills down and claim the prize money.But the most unique point about it is that it gives you, the freshers, the opportunity to become organizers, to present your ideas, instead of just participating and enables you to learn numerous things.",
+      img: Assets.bgFlower,
+      link: "https://www.facebook.com/CSS.NITSilchar",
+    )
   ];
 
   const Events({Key? key}) : super(key: key);

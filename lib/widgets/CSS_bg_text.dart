@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:cssapp/configs/configs.dart';
+import 'package:flutter/material.dart';
 
 class CSSBGText extends StatelessWidget {
   const CSSBGText({Key? key}) : super(key: key);
@@ -13,7 +13,8 @@ class CSSBGText extends StatelessWidget {
         child: Text(
           'Computer\nScience\nSociety',
           textAlign: TextAlign.left,
-          style: textBGLarge,
+          style: textBGLarge.copyWith(
+              color: Theme.of(context).backgroundColor.withOpacity(0.1)),
         ),
       ),
     );

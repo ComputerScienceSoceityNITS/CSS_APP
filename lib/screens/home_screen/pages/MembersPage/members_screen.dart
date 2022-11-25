@@ -29,44 +29,44 @@ class _MembersPageState extends State<MembersPage> {
     return Consumer<MemberApi>(
       builder: (BuildContext context, MemberApi handler, _) {
         return Scaffold(
-            backgroundColor: Colors.black,
             body: SafeArea(
-              child: SingleChildScrollView(
-                child: Column(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const SizedBox(height: 100),
+                Column(
                   children: [
-                    const SizedBox(height: 100),
-                    Column(
-                      children: [
-                        const Text("MEMBERS",
-                            textAlign: TextAlign.center,
-                            style: textLargeSpaced),
-                        const SizedBox(width: 17, height: 30),
-                        Align(
-                          alignment: Alignment.bottomRight,
-                          child: Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: CustomDropDown(
-                              onChanged: (String? updateSession) {
-                                setState(() {
-                                  session = reverseMapSession[updateSession!]!;
-                                });
-                              },
-                              items: Session.values
-                                  .map((session) => mapSession[session]!)
-                                  .toList(),
-                              dropdownValue: mapSession[session],
-                            ),
-                          ),
+                    Text("MEMBERS",
+                        textAlign: TextAlign.center,
+                        style: textLargeSpaced.copyWith(
+                            color: Theme.of(context).backgroundColor)),
+                    const SizedBox(width: 17, height: 30),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: CustomDropDown(
+                          onChanged: (String? updateSession) {
+                            setState(() {
+                              session = reverseMapSession[updateSession!]!;
+                            });
+                          },
+                          items: Session.values
+                              .map((session) => mapSession[session]!)
+                              .toList(),
+                          dropdownValue: mapSession[session],
                         ),
-                      ],
+                      ),
                     ),
-                    ...(Role.values).map((wing) {
-                      return MembersScroll(posts: members[session], wing: wing);
-                    }).toList(),
                   ],
                 ),
-              ),
-            ));
+                ...(Role.values).map((wing) {
+                  return MembersScroll(posts: members[session], wing: wing);
+                }).toList(),
+              ],
+            ),
+          ),
+        ));
       },
     );
   }

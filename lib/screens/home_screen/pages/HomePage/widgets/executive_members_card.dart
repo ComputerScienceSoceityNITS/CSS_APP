@@ -34,7 +34,7 @@ class ExecutiveMembers extends StatelessWidget {
           direction: Axis.vertical,
           spacing: 10,
           children: members.map((_ExecutiveMember entry) {
-            return entry.card();
+            return entry.card(context);
           }).toList()),
     ));
   }
@@ -54,13 +54,13 @@ class _ExecutiveMember {
       required this.details,
       required this.email});
 
-  Widget card() {
+  Widget card(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
       width: 270,
       height: 300,
       child: Card(
-        color: Pallet.darkCardBGColor,
+        color: Theme.of(context).canvasColor,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -87,7 +87,8 @@ class _ExecutiveMember {
                   child: Text(
                     title,
                     textAlign: TextAlign.center,
-                    style: textSmallBold,
+                    style: textSmallBold.copyWith(
+                        color: Theme.of(context).backgroundColor),
                   ),
                 ),
               ),
@@ -99,9 +100,18 @@ class _ExecutiveMember {
                 crossAxisAlignment: WrapCrossAlignment.center,
                 spacing: 10,
                 children: [
-                  Text(name, textAlign: TextAlign.center, style: textSmall),
-                  Text(details, textAlign: TextAlign.center, style: textSmall),
-                  Text(email, textAlign: TextAlign.center, style: textSmall),
+                  Text(name,
+                      textAlign: TextAlign.center,
+                      style: textSmall.copyWith(
+                          color: Theme.of(context).backgroundColor)),
+                  Text(details,
+                      textAlign: TextAlign.center,
+                      style: textSmall.copyWith(
+                          color: Theme.of(context).backgroundColor)),
+                  Text(email,
+                      textAlign: TextAlign.center,
+                      style: textSmall.copyWith(
+                          color: Theme.of(context).backgroundColor)),
                 ],
               ),
             )
