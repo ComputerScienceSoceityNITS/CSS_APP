@@ -14,12 +14,6 @@ void main() async {
   // -------------------- Initializing Storage Handler --------------------
   await StorageHandler().initPreferences();
   _themeHandler = ThemeHandler();
-  await _themeHandler.init();
-
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      systemNavigationBarColor: _themeHandler.themeMode == ThemeMode.light
-          ? Colors.white
-          : Colors.black));
 
   runApp(const CSSApp());
 }
@@ -34,7 +28,9 @@ class CSSApp extends StatefulWidget {
 class _CSSAppState extends State<CSSApp> {
   void themeListener() {
     if (mounted) {
-      setState(() {});
+      setState(() {
+        StorageHandler().toggleDarkTheme();
+      });
     }
   }
 
