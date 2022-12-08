@@ -18,14 +18,15 @@ class CustomFormField extends StatelessWidget {
       style: textRegular,
       controller: controller,
       decoration: InputDecoration(
-        enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white)),
-        focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white)),
+        enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Theme.of(context).backgroundColor)),
+        focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Theme.of(context).backgroundColor)),
         border: const OutlineInputBorder(),
         prefixIcon: IconTheme(
-            data: const IconThemeData(color: Colors.white), child: Icon(icon)),
-        labelStyle: const TextStyle(color: Colors.white),
+            data: IconThemeData(color: Theme.of(context).backgroundColor),
+            child: Icon(icon)),
+        labelStyle: TextStyle(color: Theme.of(context).backgroundColor),
         labelText: labelText,
       ),
     );

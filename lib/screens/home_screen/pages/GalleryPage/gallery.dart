@@ -17,7 +17,6 @@ class _GalleryPageState extends State<GalleryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: SizedBox(
         height: (MediaQuery.of(context).orientation == Orientation.landscape
             ? MediaQuery.of(context).size.width -
@@ -25,25 +24,7 @@ class _GalleryPageState extends State<GalleryPage> {
             : MediaQuery.of(context).size.height -
                 MediaQuery.of(context).padding.top),
         child: SizedBox(
-          // Column(
-          //   children: [
-          //     SizedBox(
-          //       height: 200,
-          //     ),
-          //     Container(
-          //       child: Lottie.asset('assets/techno.json'),
-          //       // width: ,
-          //     ),
-          //     MediaQuery.of(context).orientation == Orientation.portrait
-          //         ? Container(
-          //             child: Lottie.asset('assets/techno.json'),
-          //           )
-          //         : Container(),
-          //   ],
-          // ),
-          // SizedBox(
           width: double.infinity,
-          // height: double.infinity,
           child: Stack(
             children: [
               Container(
@@ -63,7 +44,6 @@ class _GalleryPageState extends State<GalleryPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    // child: Text("Things end but memories last forever"),
                     margin: const EdgeInsets.only(bottom: 10),
                     padding: const EdgeInsets.fromLTRB(0, 80, 0, 0),
                     alignment: Alignment.topCenter,
@@ -78,7 +58,7 @@ class _GalleryPageState extends State<GalleryPage> {
                             width: 60,
                             height: 63,
                             child: Card(
-                              color: const Color(0xFFBC4E9C),
+                              color: Pallet.accentColor,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5)),
                               child: const Padding(
@@ -96,11 +76,11 @@ class _GalleryPageState extends State<GalleryPage> {
                               ),
                             ),
                           ),
-                          const Text(
+                          Text(
                             "ALLERY",
                             style: TextStyle(
                               fontSize: 30,
-                              color: Colors.white,
+                              color: Theme.of(context).backgroundColor,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -109,12 +89,12 @@ class _GalleryPageState extends State<GalleryPage> {
                   Container(
                     alignment: Alignment.center,
                     height: 30,
-                    child: const Text(
+                    child: Text(
                       "Things end but memories last forever",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 20,
-                          color: Colors.white,
+                          color: Theme.of(context).backgroundColor,
                           fontWeight: FontWeight.bold,
                           fontFamily: "Italianno"),
                     ),
@@ -137,8 +117,8 @@ class _GalleryPageState extends State<GalleryPage> {
                           style: TextStyle(
                             fontSize: 20,
                             color: esperanzaSelected
-                                ? const Color(0xFFBC4E9C)
-                                : Colors.white,
+                                ? Pallet.accentColor
+                                : Theme.of(context).backgroundColor,
                             fontFamily: 'Cormorant Unicase',
                           ),
                         ),
@@ -155,8 +135,8 @@ class _GalleryPageState extends State<GalleryPage> {
                           style: TextStyle(
                             fontSize: 20,
                             color: esperanzaSelected
-                                ? Colors.white
-                                : const Color(0xFFBC4E9C),
+                                ? Theme.of(context).backgroundColor
+                                : Pallet.accentColor,
                             fontFamily: 'Cormorant Unicase',
                           ),
                         ),

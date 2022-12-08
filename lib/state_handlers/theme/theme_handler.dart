@@ -1,5 +1,6 @@
 import 'package:cssapp/utils/storage_handler.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class ThemeHandler extends ChangeNotifier {
   ThemeHandler? _themeHandler;
@@ -8,19 +9,27 @@ class ThemeHandler extends ChangeNotifier {
   ThemeHandler({ThemeHandler? themeHandler}) {
     _themeHandler = themeHandler;
     _themeMode =
-    StorageHandler().isDarkTheme == true ? ThemeMode.dark : ThemeMode.light;
+        StorageHandler().isDarkTheme() ? ThemeMode.dark : ThemeMode.light;
+    setSystemNavColor();
   }
 
   ThemeMode get themeMode => _themeHandler?.themeMode ?? _themeMode;
 
+  void setSystemNavColor() {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        systemNavigationBarColor:
+            _themeMode == ThemeMode.light ? Colors.white : Colors.black));
+  }
+
   Future<void> toggleTheme() async {
+    notifyListeners();
+
     if (_themeHandler == null) {
       _themeMode =
-      _themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
-      StorageHandler().setDarkTheme( _themeMode == ThemeMode.dark);
+          !StorageHandler().isDarkTheme() ? ThemeMode.light : ThemeMode.dark;
+      setSystemNavColor();
     } else {
       _themeHandler!.toggleTheme();
     }
-    notifyListeners();
   }
 }

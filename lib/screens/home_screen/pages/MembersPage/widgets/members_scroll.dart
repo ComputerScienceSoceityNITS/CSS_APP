@@ -26,11 +26,15 @@ class MembersScroll extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(mapRole[wing] ?? '',
-                        textAlign: TextAlign.justify, style: textSmallBold),
+                        textAlign: TextAlign.justify,
+                        style: textSmallBold.copyWith(
+                            color: Theme.of(context).backgroundColor)),
                     const SizedBox(width: 10),
                     if (wing != Role.head)
-                      const Text("MEMBERS",
-                          textAlign: TextAlign.left, style: textSmallBold)
+                      Text("MEMBERS",
+                          textAlign: TextAlign.left,
+                          style: textSmallBold.copyWith(
+                              color: Theme.of(context).backgroundColor))
                   ],
                 ),
               ),

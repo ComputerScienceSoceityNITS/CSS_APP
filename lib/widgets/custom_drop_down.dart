@@ -19,7 +19,8 @@ class CustomDropDown extends StatelessWidget {
       width: 90,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          border: Border.all(color: Colors.white, width: 1)),
+          border:
+              Border.all(color: Theme.of(context).backgroundColor, width: 1)),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
           iconSize: 10,
@@ -32,7 +33,8 @@ class CustomDropDown extends StatelessWidget {
                 value: value,
                 child: Text(
                   value,
-                  style: textRegular.copyWith(color: Pallet.white),
+                  style: textRegular.copyWith(
+                      color: Theme.of(context).backgroundColor),
                 ),
               );
             },

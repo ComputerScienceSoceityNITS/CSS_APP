@@ -10,6 +10,7 @@ const TextStyle textLarge = TextStyle(
   color: Colors.white,
   fontSize: 33.98,
   fontFamily: 'Anton',
+  letterSpacing: 1.6,
   fontWeight: FontWeight.w900,
 );
 

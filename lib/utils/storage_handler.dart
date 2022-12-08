@@ -6,13 +6,15 @@ class StorageHandler {
   static SharedPreferences? _preferences;
 
   // ----------------------------- Getter Methods -----------------------------
-  bool get isDarkTheme =>
-      _preferences?.getBool('isDarkTheme') ??
-      SchedulerBinding.instance.window.platformBrightness == Brightness.dark;
+  bool isDarkTheme() {
+    return _preferences?.getBool('isDarkTheme') ??
+        SchedulerBinding.instance.window.platformBrightness == Brightness.dark;
+  }
 
   // ----------------------------- Setter Methods -----------------------------
-  Future<void> setDarkTheme(bool isDarkTheme) async {
-    await _preferences?.setBool('isDarkTheme-', isDarkTheme);
+  Future<void> toggleDarkTheme() async {
+    await _preferences?.setBool('isDarkTheme', !isDarkTheme());
+    print(isDarkTheme());
   }
 
   Future<void> initPreferences() async {

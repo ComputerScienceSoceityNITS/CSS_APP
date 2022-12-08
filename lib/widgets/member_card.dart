@@ -1,3 +1,4 @@
+import 'package:cssapp/configs/configs.dart';
 import 'package:fade_shimmer/fade_shimmer.dart';
 
 import 'social_icons.dart';
@@ -47,7 +48,6 @@ class MemberCard extends StatelessWidget {
                 height: 250,
                 width: 200,
                 child: Card(
-                  elevation: 20,
                   semanticContainer: true,
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   shape: RoundedRectangleBorder(
@@ -64,11 +64,11 @@ class MemberCard extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
-                    height: 73,
+                    height: 75,
                     width: 195,
                     decoration: BoxDecoration(
-                      color: Color(0xFFBC4E9C).withOpacity(0.7),
-                      borderRadius: BorderRadius.only(
+                      color: Pallet.accentColor.withOpacity(0.7),
+                      borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(75.0),
                           bottomLeft: Radius.circular(15.0),
                           bottomRight: Radius.circular(15.0)),

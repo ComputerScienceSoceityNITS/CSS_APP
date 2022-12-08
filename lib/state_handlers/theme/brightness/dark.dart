@@ -5,8 +5,10 @@ ThemeData darkTheme = ThemeData(
   primaryColor: Pallet.darkPrimaryColor,
   scaffoldBackgroundColor: Pallet.darkPrimaryColor,
   fontFamily: 'Archivo',
+  backgroundColor: Pallet.darkCardBGColor,
+  canvasColor: Pallet.darkPrimaryColor,
   colorScheme: ColorScheme.fromSwatch(
-    primarySwatch: Pallet.darkPrimarySwatch,
+    primarySwatch: Pallet.primarySwatch,
     brightness: Brightness.dark,
   ).copyWith(secondary: Pallet.darkSecondaryColor),
   textTheme: const TextTheme().apply(
