@@ -75,7 +75,9 @@ class _EventDialogState extends State<EventDialog>
                     Align(
                       alignment: Alignment.centerRight,
                       child: ExpandedButton(
-                        child: const Text("x"),
+                        child: const Text(
+                          "x",
+                        ),
                         onTap: () {
                           scaleAnimation = CurvedAnimation(
                               parent: controller, curve: Curves.easeInOut);
@@ -92,6 +94,9 @@ class _EventDialogState extends State<EventDialog>
                     SingleChildScrollView(
                       child: Text(
                         widget.desc,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
                         textAlign: TextAlign.justify,
                       ),
                     ),
