@@ -1,8 +1,8 @@
-import './main.dart';
+import 'package:cssapp/state_handlers/members/member_api.dart';
 import 'package:flutter/material.dart';
-import 'package:cssapp/HomePage/home_screen.dart';
-import './MembersPage/members_screen.dart';
-import 'Models/api_call.dart';
+import 'package:cssapp/screens/home_screen/home_screen.dart';
+import 'package:provider/provider.dart';
+import 'configs/configs.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -12,36 +12,39 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
+  @override
   void initState() {
     super.initState();
-    Api.getData1();
-    Api.getData2();
-    Api.getData3();
-    navigatetohome();
+    getData();
   }
 
-  navigatetohome() async {
-    await Future.delayed(const Duration(milliseconds: 1500), () {});
-    Navigator.pushReplacement(
+  Future<void> getData() async {
+    Provider.of<MemberApi>(context, listen: false).getAllData();
+    Future.delayed(const Duration(milliseconds: 1500)).then(
+      (value) => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-            builder: (context) => HomePage(
-                  initialIndex: 0,
-                )));
+          builder: (context) => const HomeScreen(
+            initialIndex: 0,
+          ),
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black,
-        body: Center(
-            child: SizedBox(
+      body: Center(
+        child: SizedBox(
           height: 200,
           width: 200,
-          child: Image.asset(
-            "assets/logo.png",
+          child: Image(
+            image: Assets.cssLogo.image,
             fit: BoxFit.contain,
           ),
-        )));
+        ),
+      ),
+    );
   }
 }
