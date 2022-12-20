@@ -57,19 +57,20 @@ class _HomeScreenState extends State<HomeScreen> {
       endDrawer: NavigationDrawer(),
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       floatingActionButton: Padding(
-        padding: const EdgeInsets.fromLTRB(8, 25, 0, 0),
+        padding: const EdgeInsets.fromLTRB(8, 8, 0, 0),
         child: Builder(builder: (context) {
           return FloatingActionButton(
-            elevation: 12,
+            elevation: 100,
             child: Icon(
-              Icons.more_vert,
-              color: Theme.of(context).canvasColor,
+              Icons.menu,
+              color: Theme.of(context).backgroundColor,
               size: 33,
             ),
-            backgroundColor: Theme.of(context).backgroundColor,
+            backgroundColor: Theme.of(context).backgroundColor.withOpacity(0),
             onPressed: () {
               Scaffold.of(context).openEndDrawer();
             },
+            foregroundColor: Theme.of(context).backgroundColor,
           );
         }),
       ),
