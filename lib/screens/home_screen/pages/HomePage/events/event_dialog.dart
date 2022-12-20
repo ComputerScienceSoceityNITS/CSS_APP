@@ -127,7 +127,7 @@ class _EventDialogState extends State<EventDialog> {
                                   child: Text(
                                     "x",
                                     style:
-                                        Theme.of(context).textTheme.bodyText1,
+                                        Theme.of(context).textTheme.bodyText1?.copyWith(color: Colors.white,fontSize: 30),
                                   ),
                                   onTap: () async {
                                     await exit();
@@ -141,7 +141,7 @@ class _EventDialogState extends State<EventDialog> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyText1
-                                    ?.copyWith(fontSize: 17, height: 1.2),
+                                    ?.copyWith(fontSize: 17, height: 1.2,color: Colors.white),
                               ),
                               const SizedBox(height: 15),
                               Row(
