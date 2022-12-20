@@ -43,7 +43,8 @@ Map<String, Session> reverseMapSession = {
 };
 
 class MemberApi extends ChangeNotifier {
-  final String apiLink = "https://css-website.herokuapp.com/api/admin/members/";
+  final String apiLink =
+      "https://tasty-crab-hosiery.cyclic.app/api/admin/members/";
 
   Map<Session, Map<Role, List<Member>>> members =
       {}; // First map maps to the session and the inner map maps to the role
