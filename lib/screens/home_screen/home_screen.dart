@@ -54,8 +54,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavigationDrawer(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+      endDrawer: NavigationDrawer(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       floatingActionButton: Padding(
         padding: const EdgeInsets.fromLTRB(8, 25, 0, 0),
         child: Builder(builder: (context) {
@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             backgroundColor: Theme.of(context).backgroundColor,
             onPressed: () {
-              Scaffold.of(context).openDrawer();
+              Scaffold.of(context).openEndDrawer();
             },
           );
         }),

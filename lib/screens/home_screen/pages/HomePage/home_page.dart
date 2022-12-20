@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
               child: Column(
                 children: [
                   Align(
-                    alignment: Alignment.topRight,
+                    alignment: Alignment.topLeft,
                     child: SizedBox(
                       child: LottieBuilder(
                           lottie: Assets.lottieCSS.lottie, height: 80),
