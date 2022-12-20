@@ -16,7 +16,7 @@ class SocialIcons extends StatelessWidget {
         child: Icon(
           icon,
           color: Theme.of(context).backgroundColor,
-          size: 16,
+          size: size,
         ),
       ),
       onTap: () => launch(link ?? ''),
