@@ -52,7 +52,7 @@ class _DevelopersPageState extends State<DevelopersPage> {
                           alignment: Alignment.topLeft,
                           height: 200,
                           child: AnimatedOpacity(
-                            opacity: 0.7,
+                            opacity: 1,
                             duration: const Duration(milliseconds: 10),
                             child: Assets.lottieTeam,
                           ),

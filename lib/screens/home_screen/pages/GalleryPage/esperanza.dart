@@ -4,6 +4,8 @@ import 'package:lottie/lottie.dart';
 import 'package:cssapp/configs/configs.dart';
 
 class Esperanza extends StatefulWidget {
+  const Esperanza({Key? key}) : super(key: key);
+
   @override
   State<Esperanza> createState() => _EsperanzaState();
 }
@@ -33,7 +35,7 @@ class _EsperanzaState extends State<Esperanza> {
         child: CarouselSlider.builder(
           itemCount: esperanzaPics.length,
           itemBuilder: (context, index, realIndex) {
-            return buildImage(esperanzaPics[index]!, index);
+            return buildImage(esperanzaPics[index], index);
           },
           options: CarouselOptions(
               enlargeCenterPage: true,

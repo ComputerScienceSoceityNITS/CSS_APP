@@ -4,11 +4,14 @@ import 'package:lottie/lottie.dart';
 import 'package:cssapp/configs/configs.dart';
 
 class Abacus extends StatefulWidget {
+  const Abacus({Key? key}) : super(key: key);
+
   @override
   State<Abacus> createState() => _AbacusState();
 }
 
 class _AbacusState extends State<Abacus> {
+  // ignore: non_constant_identifier_names
   final abacus_pics = [
     Assets.eventAbacus1,
     Assets.eventAbacus2,
