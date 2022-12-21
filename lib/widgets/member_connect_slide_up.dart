@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, unused_shown_name, unnecessary_this, unrelated_type_equality_checks
+
 import 'package:cssapp/configs/configs.dart';
 import 'package:fade_shimmer/fade_shimmer.dart';
 
@@ -33,7 +35,7 @@ class ConnectMember extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: 10,
         ),
         height: 4,
@@ -53,7 +55,7 @@ class ConnectMember extends StatelessWidget {
             children: [
               Text(
                 this.name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 25,
                 ),
               ),
@@ -62,11 +64,11 @@ class ConnectMember extends StatelessWidget {
                 width: 200,
                 color: Theme.of(context).backgroundColor.withOpacity(0.5),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(this.role),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               if (fb != Null ||
