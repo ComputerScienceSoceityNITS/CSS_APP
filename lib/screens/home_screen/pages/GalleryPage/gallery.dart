@@ -28,14 +28,14 @@ class _GalleryPageState extends State<GalleryPage> {
           child: Stack(
             children: [
               Container(
-                alignment: Alignment.bottomLeft,
+                alignment: Alignment.bottomRight,
                 height: 200,
                 child: AnimatedOpacity(
-                  opacity: 0.6,
-                  duration: const Duration(milliseconds: 0),
+                  opacity: 0.7,
+                  duration: const Duration(milliseconds: 10),
                   child: LottieBuilder(
                     lottie: Assets.lottieSingSong.lottie,
-                    frameRate: FrameRate(2),
+                    frameRate: FrameRate(1),
                   ),
                 ),
               ),
@@ -88,15 +88,16 @@ class _GalleryPageState extends State<GalleryPage> {
                       )),
                   Container(
                     alignment: Alignment.center,
-                    height: 30,
+                    height: 60,
                     child: Text(
-                      "Things end but memories last forever",
+                      "Things end but \nMemories last forever",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 27,
+                          //color: Colors.pinkAccent,
                           color: Theme.of(context).backgroundColor,
                           fontWeight: FontWeight.bold,
-                          fontFamily: "Italianno"),
+                          fontFamily: 'EastSeaDokdo'),
                     ),
                   ),
                   const SizedBox(
@@ -116,6 +117,9 @@ class _GalleryPageState extends State<GalleryPage> {
                           "Esperanza",
                           style: TextStyle(
                             fontSize: 20,
+                            fontWeight: esperanzaSelected
+                                ? FontWeight.bold
+                                : FontWeight.normal,
                             color: esperanzaSelected
                                 ? Pallet.accentColor
                                 : Theme.of(context).backgroundColor,
@@ -134,6 +138,9 @@ class _GalleryPageState extends State<GalleryPage> {
                           "Abacus",
                           style: TextStyle(
                             fontSize: 20,
+                            fontWeight: esperanzaSelected
+                                ? FontWeight.normal
+                                : FontWeight.bold,
                             color: esperanzaSelected
                                 ? Theme.of(context).backgroundColor
                                 : Pallet.accentColor,
@@ -148,7 +155,8 @@ class _GalleryPageState extends State<GalleryPage> {
                             Orientation.landscape
                         ? MediaQuery.of(context).size.width * 0.10
                         : MediaQuery.of(context).size.height * 0.55),
-                    child: esperanzaSelected ? Esperanza() : Abacus(),
+                    child:
+                        esperanzaSelected ? const Esperanza() : const Abacus(),
                   ),
                 ],
               ),
