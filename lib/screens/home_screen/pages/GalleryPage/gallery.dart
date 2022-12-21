@@ -28,11 +28,11 @@ class _GalleryPageState extends State<GalleryPage> {
           child: Stack(
             children: [
               Container(
-                alignment: Alignment.bottomRight,
+                alignment: Alignment.bottomLeft,
                 height: 200,
                 child: AnimatedOpacity(
-                  opacity: 0.7,
-                  duration: const Duration(milliseconds: 10),
+                  opacity: 0.6,
+                  duration: const Duration(milliseconds: 0),
                   child: LottieBuilder(
                     lottie: Assets.lottieSingSong.lottie,
                     frameRate: FrameRate(2),
