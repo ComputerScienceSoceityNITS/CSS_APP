@@ -1,60 +1,87 @@
-import 'package:cssapp/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'event_dialog.dart';
 
-class Event extends StatelessWidget {
+class Event extends StatefulWidget {
+  final Key? key;
   final String title;
   final String desc;
   final Image img;
   final String link;
-  const Event({
-    Key? key,
-    required this.title,
-    required this.desc,
-    required this.img,
-    this.link = "",
-  }) : super(key: key);
+  final double height;
+  const Event(
+      {this.key,
+      required this.title,
+      required this.desc,
+      required this.img,
+      this.link = "",
+      this.height = 60})
+      : super(key: key);
+
+  @override
+  State<Event> createState() => _EventState();
+}
+
+class _EventState extends State<Event> {
+  bool isVisible = true;
+  GlobalKey containerKey = GlobalKey();
+  Duration movingDuration = const Duration(milliseconds: 300);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        showDialog(
-          context: context,
-          builder: (BuildContext context) => EventDialog(
-            desc: desc,
-            link: link,
-            img: img,
-          ),
-        );
+        setState(() {
+          isVisible = false;
+        });
+        Navigator.push(
+            context,
+            PageRouteBuilder(
+                opaque: false,
+                barrierColor: Colors.black.withOpacity(0.7),
+                transitionDuration: Duration.zero,
+                reverseTransitionDuration: Duration.zero,
+                pageBuilder: (BuildContext context, _, __) {
+                  return EventDialog(
+                    desc: widget.desc,
+                    link: widget.link,
+                    img: widget.img,
+                    height: widget.height,
+                    width: 300,
+                    movingDuration: movingDuration,
+                    parentKey: containerKey,
+                  );
+                })).then((value) => setState(() => isVisible = true));
       },
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 20),
-        padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
-        width: double.infinity,
-        height: 60,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          image: DecorationImage(
-            image: img.image,
-            fit: BoxFit.cover,
-            opacity: 0.75,
-          ),
-        ),
+      child: Opacity(
+        opacity: isVisible ? 1 : 0,
         child: Container(
-          alignment: Alignment.center,
-          child: Text(
-            title,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-                color: Colors.white, fontSize: 30, fontWeight: FontWeight.w900),
+          key: containerKey,
+          margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+          width: double.infinity,
+          height: widget.height,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            image: DecorationImage(
+              image: widget.img.image,
+              fit: BoxFit.cover,
+              opacity: 0.75,
+            ),
+          ),
+          child: Container(
+            alignment: Alignment.center,
+            child: Text(
+              widget.title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontWeight: FontWeight.w900,
+                  decoration: TextDecoration.none),
+            ),
           ),
         ),
       ),
     );
   }
 }
-
-/*
-
- */
