@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, unused_shown_name
+
 import 'package:cssapp/configs/configs.dart';
 import 'package:cssapp/widgets/member_connect_slide_up.dart';
 import 'package:fade_shimmer/fade_shimmer.dart';
@@ -44,12 +46,12 @@ class MemberCard extends StatelessWidget {
             ),
           )
         : Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5.0),
-          child: GestureDetector(
+            padding: const EdgeInsets.symmetric(horizontal: 5.0),
+            child: GestureDetector(
               onTap: () {
                 showModalBottomSheet(
                   context: context,
-                  shape: RoundedRectangleBorder(
+                  shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30),
@@ -134,8 +136,8 @@ class MemberCard extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 10),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 8.0),
+                            const Padding(
+                              padding: EdgeInsets.only(right: 8.0),
                               child: Text(
                                 "Click to Connect",
                                 style: TextStyle(
@@ -180,6 +182,6 @@ class MemberCard extends StatelessWidget {
                 ],
               ),
             ),
-        );
+          );
   }
 }

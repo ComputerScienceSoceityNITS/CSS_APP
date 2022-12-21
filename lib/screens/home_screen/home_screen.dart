@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:cssapp/state_handlers/theme/theme_handler.dart';
 import 'package:flutter/services.dart';

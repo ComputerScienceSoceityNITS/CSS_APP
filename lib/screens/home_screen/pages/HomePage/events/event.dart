@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'event_dialog.dart';
 
 class Event extends StatefulWidget {
+  // ignore: overridden_fields, annotate_overrides
   final Key? key;
   final String title;
   final String desc;

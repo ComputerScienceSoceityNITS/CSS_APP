@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 import 'widgets/custom_form_field.dart';
 import 'package:cssapp/configs/configs.dart';
@@ -51,6 +53,7 @@ class _ReportBugsState extends State<ReportBugs> {
     } catch (e) {
       return e.toString();
     }
+    return null;
   }
 
   void _showToast(BuildContext context) {
