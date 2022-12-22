@@ -161,7 +161,7 @@ class _GalleryPageState extends State<GalleryPage> {
                 ],
               ),
               const SizedBox(
-                height: 16,
+                height: 25,
               ),
             ],
           ),
