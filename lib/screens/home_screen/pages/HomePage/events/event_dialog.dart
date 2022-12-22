@@ -126,8 +126,11 @@ class _EventDialogState extends State<EventDialog> {
                                 child: ExpandedButton(
                                   child: Text(
                                     "x",
-                                    style:
-                                        Theme.of(context).textTheme.bodyText1?.copyWith(color: Colors.white,fontSize: 30),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1
+                                        ?.copyWith(
+                                            color: Colors.red, fontSize: 30),
                                   ),
                                   onTap: () async {
                                     await exit();
@@ -141,7 +144,10 @@ class _EventDialogState extends State<EventDialog> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyText1
-                                    ?.copyWith(fontSize: 17, height: 1.2,color: Colors.white),
+                                    ?.copyWith(
+                                        fontSize: 17,
+                                        height: 1.2,
+                                        color: Colors.white),
                               ),
                               const SizedBox(height: 15),
                               Row(
@@ -163,7 +169,8 @@ class _EventDialogState extends State<EventDialog> {
                                                     ?.copyWith(
                                                         fontWeight:
                                                             FontWeight.bold,
-                                                        fontSize: 12),
+                                                        fontSize: 12,
+                                                        color: Colors.blue),
                                               ),
                                               const Icon(
                                                 Icons.arrow_right,
