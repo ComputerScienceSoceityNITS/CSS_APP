@@ -1,6 +1,7 @@
 import 'package:cssapp/configs/configs.dart';
 import 'package:fade_shimmer/fade_shimmer.dart';
 
+import 'bottomSheetControllerBar.dart';
 import 'social_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -32,16 +33,7 @@ class ConnectMember extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      Container(
-        margin: EdgeInsets.only(
-          top: 10,
-        ),
-        height: 4,
-        width: 100,
-        decoration: BoxDecoration(
-            color: Theme.of(context).backgroundColor.withOpacity(0.5),
-            borderRadius: BorderRadius.circular(2)),
-      ),
+      BottomSheetControllerBar(),
       Padding(
         padding: const EdgeInsets.symmetric(vertical: 78.0),
         child: Container(
