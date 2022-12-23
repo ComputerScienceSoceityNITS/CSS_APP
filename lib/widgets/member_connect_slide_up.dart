@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, unused_shown_name, prefer_const_constructors, unnecessary_this, unrelated_type_equality_checks
+
 import 'package:cssapp/configs/configs.dart';
 import 'package:fade_shimmer/fade_shimmer.dart';
 

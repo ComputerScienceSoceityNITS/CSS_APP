@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:cssapp/configs/configs.dart';
 import 'package:flutter/material.dart';
 

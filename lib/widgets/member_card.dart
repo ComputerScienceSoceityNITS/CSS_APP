@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, unused_shown_name
+
 import 'package:cssapp/configs/configs.dart';
 import 'package:cssapp/widgets/member_connect_slide_up.dart';
 import 'package:fade_shimmer/fade_shimmer.dart';
@@ -49,7 +51,7 @@ class MemberCard extends StatelessWidget {
               onTap: () {
                 showModalBottomSheet(
                   context: context,
-                  shape: RoundedRectangleBorder(
+                  shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30),
@@ -137,11 +139,10 @@ class MemberCard extends StatelessWidget {
                                 color: Colors.white,
                               ),
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 8.0),
+
+                            const SizedBox(height: 10),
+                            const Padding(
+                              padding: EdgeInsets.only(right: 8.0),
                               child: Text(
                                 "Click to Connect",
                                 style: TextStyle(
