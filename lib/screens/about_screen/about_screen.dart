@@ -37,7 +37,7 @@ class _AboutUsState extends State<AboutUs> {
       body: SafeArea(
         child: Stack(
           children: [
-            const CSSBGText(),
+            // const CSSBGText(),
             LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) {
                 return SingleChildScrollView(
@@ -86,7 +86,7 @@ class _AboutUsState extends State<AboutUs> {
                                 style: textLarge.copyWith(
                                     color: Theme.of(context).backgroundColor)),
                             _Link(
-                                child: Assets.cssLogoLight,
+                                child: Assets.cssLogoDark,
                                 link: 'https://nitscss.live/',
                                 text: "CSS Website"),
                             const _Link(
@@ -100,7 +100,8 @@ class _AboutUsState extends State<AboutUs> {
                                     'https://www.youtube.com/channel/UC8tCBXmdKueuFODn_IngQrg',
                                 text: "Youtube"),
                             Padding(
-                              padding: EdgeInsets.only(top: 30, bottom: 10),
+                              padding:
+                                  const EdgeInsets.only(top: 30, bottom: 10),
                               child: Text(
                                 "©2021 Computer Science Society. All Rights Reserved",
                                 textAlign: TextAlign.center,
@@ -135,6 +136,7 @@ class _Link extends StatelessWidget {
       this.icon,
       required this.link,
       required this.text,
+      // ignore: unused_element
       this.size = 30})
       : assert(child != null || icon != null,
             "child and icon both cannot be null"),
