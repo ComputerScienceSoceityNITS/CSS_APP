@@ -43,11 +43,12 @@ class _EventState extends State<Event> {
                 reverseTransitionDuration: Duration.zero,
                 pageBuilder: (BuildContext context, _, __) {
                   return EventDialog(
+                    title: widget.title,
                     desc: widget.desc,
                     link: widget.link,
                     img: widget.img,
                     height: widget.height,
-                    width: 300,
+                    width: 350,
                     movingDuration: movingDuration,
                     parentKey: containerKey,
                   );

@@ -1,9 +1,12 @@
+import 'package:cssapp/configs/configurations/pallet.dart';
+import 'package:cssapp/configs/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/widgets/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class EventDialog extends StatefulWidget {
   final Image img;
+  final String title;
   final String desc;
   final String? link;
   final double height;
@@ -15,6 +18,7 @@ class EventDialog extends StatefulWidget {
   const EventDialog(
       {Key? key,
       required this.img,
+      required this.title,
       required this.desc,
       this.link,
       required this.height,
@@ -112,7 +116,7 @@ class _EventDialogState extends State<EventDialog> {
                       height: screenSize.height * widget.coverScreenPercentage,
                       decoration: BoxDecoration(
                         color: Colors.black.withOpacity(0.7),
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(5),
                       ),
                     ),
                     Padding(
@@ -137,6 +141,20 @@ class _EventDialogState extends State<EventDialog> {
                                     Navigator.pop(context);
                                   },
                                 ),
+                              ),
+                              Text(
+                                widget.title,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1
+                                    ?.copyWith(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                              ),
+                              SizedBox(
+                                height: 40,
                               ),
                               Text(
                                 widget.desc,
@@ -167,10 +185,12 @@ class _EventDialogState extends State<EventDialog> {
                                                     .textTheme
                                                     .bodyText1
                                                     ?.copyWith(
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize: 12,
-                                                        color: Colors.blue),
+
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 12,
+                                                      color: Pallet.accentColor,
+                                                    ),
                                               ),
                                               const Icon(
                                                 Icons.arrow_right,

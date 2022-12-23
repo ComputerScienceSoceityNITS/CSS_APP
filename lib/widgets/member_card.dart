@@ -99,10 +99,11 @@ class MemberCard extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: Pallet.accentColor.withOpacity(0.7),
                           borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(15.0),
-                              topRight: Radius.circular(15.0),
-                              bottomLeft: Radius.circular(15.0),
-                              bottomRight: Radius.circular(15.0)),
+                            topLeft: Radius.circular(15.0),
+                            topRight: Radius.circular(15.0),
+                            bottomLeft: Radius.circular(15.0),
+                            bottomRight: Radius.circular(15.0),
+                          ),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -113,7 +114,9 @@ class MemberCard extends StatelessWidget {
                                 role,
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
-                                    color: Colors.white, fontSize: 12),
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                ),
                               ),
                             ),
                             Padding(
@@ -122,9 +125,10 @@ class MemberCard extends StatelessWidget {
                                 name,
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w900),
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w900,
+                                ),
                               ),
                             ),
                             Padding(
@@ -135,6 +139,7 @@ class MemberCard extends StatelessWidget {
                                 color: Colors.white,
                               ),
                             ),
+
                             const SizedBox(height: 10),
                             const Padding(
                               padding: EdgeInsets.only(right: 8.0),
@@ -146,34 +151,6 @@ class MemberCard extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            // if (fb != null ||
-                            //     git != null ||
-                            //     linkedin != null ||
-                            //     insta != null)
-                            // Padding(
-                            //   padding: const EdgeInsets.only(right: 10),
-                            //   child: Wrap(
-                            //     spacing: 10,
-                            //     children: [
-                            //       if (fb != null)
-                            //         SocialIcons(
-                            //             link: fb,
-                            //             icon: FontAwesomeIcons.facebook),
-                            //       if (git != null)
-                            //         SocialIcons(
-                            //             link: git,
-                            //             icon: FontAwesomeIcons.github),
-                            //       if (linkedin != null)
-                            //         SocialIcons(
-                            //             link: linkedin,
-                            //             icon: FontAwesomeIcons.linkedin),
-                            //       if (insta != null)
-                            //         SocialIcons(
-                            //             link: insta,
-                            //             icon: FontAwesomeIcons.instagram)
-                            //     ],
-                            //   ),
-                            // ),
                           ],
                         ),
                       ),
