@@ -134,7 +134,7 @@ class _EventDialogState extends State<EventDialog> {
                                         .textTheme
                                         .bodyText1
                                         ?.copyWith(
-                                            color: Colors.white, fontSize: 30),
+                                            color: Colors.red, fontSize: 30),
                                   ),
                                   onTap: () async {
                                     await exit();
@@ -185,6 +185,7 @@ class _EventDialogState extends State<EventDialog> {
                                                     .textTheme
                                                     .bodyText1
                                                     ?.copyWith(
+
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       fontSize: 12,
