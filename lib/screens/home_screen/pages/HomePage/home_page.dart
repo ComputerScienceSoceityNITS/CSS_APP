@@ -32,6 +32,10 @@ class HomePage extends StatelessWidget {
                   const Text(
                     "Department of Computer Science and Engineering\nNational Institute of Technology, Silchar",
                     textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: 'Quintessential',
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: gap),
                   Padding(

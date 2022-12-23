@@ -93,8 +93,7 @@ class _GalleryPageState extends State<GalleryPage> {
                       "Things end but \nMemories last forever",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 27,
-                          //color: Colors.pinkAccent,
+                          fontSize: 20,
                           color: Theme.of(context).backgroundColor,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'EastSeaDokdo'),
