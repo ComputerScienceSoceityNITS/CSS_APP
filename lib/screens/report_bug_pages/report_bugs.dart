@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 import 'package:cssapp/state_handlers/theme/brightness/dark.dart';
 import 'package:cssapp/state_handlers/theme/brightness/light.dart';
@@ -64,6 +66,7 @@ class _ReportBugsState extends State<ReportBugs> {
     } catch (e) {
       return e.toString();
     }
+    return null;
   }
 
   void _showToast(BuildContext context) {

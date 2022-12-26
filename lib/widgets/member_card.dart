@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, unused_shown_name
+
 import 'package:cssapp/configs/configs.dart';
 import 'package:cssapp/widgets/member_connect_slide_up.dart';
 import 'package:fade_shimmer/fade_shimmer.dart';
@@ -43,120 +45,142 @@ class MemberCard extends StatelessWidget {
               baseColor: Color(0xff999aa1),
             ),
           )
-        : GestureDetector(
-            onTap: () {
-              showModalBottomSheet(
-                context: context,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
-                  ),
-                ),
-                isScrollControlled: true,
-                builder: (context) => SingleChildScrollView(
-                  child: ConnectMember(
-                    imageLink: imageLink,
-                    role: role,
-                    name: name,
-                    session: session,
-                    fb: fb,
-                    git: git,
-                    insta: insta,
-                    linkedin: linkedin,
-                  ),
-                ),
-              );
-            },
-            child: Stack(
-              children: [
-                SizedBox(
-                  height: 250,
-                  width: 200,
-                  child: Card(
-                    semanticContainer: true,
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Image(
-                      image: CachedNetworkImageProvider(imageLink),
-                      fit: BoxFit.cover,
+        : Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5.0),
+            child: GestureDetector(
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
                     ),
                   ),
-                ),
-                Positioned.fill(
-                  bottom: 3,
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
-                      height: 75,
-                      width: 195,
-                      decoration: BoxDecoration(
-                        color: Pallet.accentColor.withOpacity(0.7),
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(75.0),
-                            bottomLeft: Radius.circular(15.0),
-                            bottomRight: Radius.circular(15.0)),
+                  isScrollControlled: true,
+                  builder: (context) => SingleChildScrollView(
+                    child: ConnectMember(
+                      imageLink: imageLink,
+                      role: role,
+                      name: name,
+                      session: session,
+                      fb: fb,
+                      git: git,
+                      insta: insta,
+                      linkedin: linkedin,
+                    ),
+                  ),
+                );
+              },
+              child: Stack(
+                children: [
+                  SizedBox(
+                    height: 250,
+                    width: 200,
+                    child: Card(
+                      semanticContainer: true,
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              role,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                  color: Colors.white, fontSize: 10),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 8),
-                            child: Text(
-                              name,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w900),
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          if (fb != null ||
-                              git != null ||
-                              linkedin != null ||
-                              insta != null)
+                      child: Image(
+                        image: CachedNetworkImageProvider(imageLink),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Positioned.fill(
+                    bottom: 3,
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        height: 75,
+                        width: 195,
+                        decoration: BoxDecoration(
+                          color: Pallet.accentColor.withOpacity(0.7),
+                          borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(15.0),
+                              topRight: Radius.circular(15.0),
+                              bottomLeft: Radius.circular(15.0),
+                              bottomRight: Radius.circular(15.0)),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
                             Padding(
-                              padding: const EdgeInsets.only(right: 10),
-                              child: Wrap(
-                                spacing: 10,
-                                children: [
-                                  if (fb != null)
-                                    SocialIcons(
-                                        link: fb,
-                                        icon: FontAwesomeIcons.facebook),
-                                  if (git != null)
-                                    SocialIcons(
-                                        link: git,
-                                        icon: FontAwesomeIcons.github),
-                                  if (linkedin != null)
-                                    SocialIcons(
-                                        link: linkedin,
-                                        icon: FontAwesomeIcons.linkedin),
-                                  if (insta != null)
-                                    SocialIcons(
-                                        link: insta,
-                                        icon: FontAwesomeIcons.instagram)
-                                ],
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                role,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 12),
                               ),
-                            )
-                        ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8),
+                              child: Text(
+                                name,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w900),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8.0),
+                              child: Container(
+                                height: 0.5,
+                                width: 140,
+                                color: Colors.white,
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            const Padding(
+                              padding: EdgeInsets.only(right: 8.0),
+                              child: Text(
+                                "Click to Connect",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                ),
+                              ),
+                            ),
+                            // if (fb != null ||
+                            //     git != null ||
+                            //     linkedin != null ||
+                            //     insta != null)
+                            // Padding(
+                            //   padding: const EdgeInsets.only(right: 10),
+                            //   child: Wrap(
+                            //     spacing: 10,
+                            //     children: [
+                            //       if (fb != null)
+                            //         SocialIcons(
+                            //             link: fb,
+                            //             icon: FontAwesomeIcons.facebook),
+                            //       if (git != null)
+                            //         SocialIcons(
+                            //             link: git,
+                            //             icon: FontAwesomeIcons.github),
+                            //       if (linkedin != null)
+                            //         SocialIcons(
+                            //             link: linkedin,
+                            //             icon: FontAwesomeIcons.linkedin),
+                            //       if (insta != null)
+                            //         SocialIcons(
+                            //             link: insta,
+                            //             icon: FontAwesomeIcons.instagram)
+                            //     ],
+                            //   ),
+                            // ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
   }
