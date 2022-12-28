@@ -22,13 +22,14 @@ class _EventsState extends State<Events> {
     return Padding(
       padding: const EdgeInsets.only(top: 30),
       child: SizedBox(
-          height: (320 * widget.cards.length).toDouble(),
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: widget.cards,
-          )),
+        height: (320 * widget.cards.length).toDouble(),
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: widget.cards,
+        ),
+      ),
     );
   }
 }
