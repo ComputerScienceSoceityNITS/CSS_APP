@@ -1,6 +1,9 @@
 // ignore_for_file: avoid_print
 
 import 'dart:convert';
+import 'package:cssapp/state_handlers/theme/brightness/dark.dart';
+import 'package:cssapp/state_handlers/theme/brightness/light.dart';
+
 import 'widgets/custom_form_field.dart';
 import 'package:cssapp/configs/configs.dart';
 import 'package:cssapp/widgets/widgets.dart';
@@ -15,6 +18,16 @@ class ReportBugs extends StatefulWidget {
 }
 
 class _ReportBugsState extends State<ReportBugs> {
+  bool _iconBool = true;
+  IconData _iconlight = Icons.light_mode;
+  IconData _icondark = Icons.dark_mode;
+  // ThemeData _lighttheme = ThemeData(
+  //   brightness: Brightness.light,
+  // );
+  // ThemeData _darktheme = ThemeData(
+  //   brightness: Brightness.dark,
+  // );
+
   bool isLoading = false;
   String? errorText;
   final nameController = TextEditingController();
@@ -70,7 +83,9 @@ class _ReportBugsState extends State<ReportBugs> {
 
   @override
   Widget build(BuildContext ctx) {
-    return Scaffold(
+    return MaterialApp(
+      theme: _iconBool ? lightTheme : darkTheme,
+      home: Scaffold(
         resizeToAvoidBottomInset: false,
         floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
         floatingActionButton: Padding(
@@ -91,7 +106,23 @@ class _ReportBugsState extends State<ReportBugs> {
         ),
         body: SafeArea(
           child: Stack(
+
             children: [
+              Container(
+                padding: EdgeInsets.all(15),
+                alignment: Alignment.topRight,
+                child: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  _iconBool = !_iconBool;
+                                });
+                              },
+                              icon: Icon(
+                                _iconBool ? Icons.dark_mode : Icons.light_mode,
+                                size: 50,
+                              ),
+                            ),
+              ),
               const CSSBGText(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -206,10 +237,12 @@ class _ReportBugsState extends State<ReportBugs> {
                               "Diclaimer: Reporting to CSS must be formal. Here, you can register ideas and suggestions for the website and everything CSS. Please avoid unnecessary messages and spams. Strict actions will be taken against those violating these rules.",
                               style: textSmall.copyWith(
                                   height: 1.2,
-                                  color: Theme.of(context).backgroundColor),
+                                  color:
+                                      !_iconBool ? Colors.white : Colors.black),
                               textAlign: TextAlign.center,
                             ),
                           ),
+                          
                         ],
                       ),
                     )
@@ -218,6 +251,8 @@ class _ReportBugsState extends State<ReportBugs> {
               ),
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
