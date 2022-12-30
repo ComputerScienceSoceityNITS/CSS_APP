@@ -1,6 +1,6 @@
 // ignore_for_file: unused_import, prefer_final_fields, unused_local_variable, sized_box_for_whitespace
 
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cssapp/widgets/carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:cssapp/configs/configs.dart';

@@ -1,3 +1,4 @@
+import 'package:cssapp/screens/home_screen/pages/HomePage/widgets/carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/configs/configs.dart';
 import 'events/events.dart';
@@ -124,6 +125,13 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(height: 70),
+                  Text("ANNOUNCEMENTS",
+                      style: textLarge.copyWith(
+                          color: Theme.of(context).backgroundColor)),
+                  Carousel(
+                    screenSize: MediaQuery.of(context).size,
+                  )
                 ],
               ),
             ),
