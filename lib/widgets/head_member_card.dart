@@ -11,7 +11,7 @@ import 'package:cssapp/state_handlers/members/member_api.dart'
     show Role, Session;
 import 'package:cached_network_image/cached_network_image.dart';
 
-class MemberCard extends StatelessWidget {
+class HeadMemberCard extends StatelessWidget {
   final String imageLink;
   final String role;
   final String name;
@@ -20,7 +20,7 @@ class MemberCard extends StatelessWidget {
   final String? git;
   final String? linkedin;
   final String? insta;
-  const MemberCard(
+  const HeadMemberCard(
       {Key? key,
       required this.imageLink,
       required this.role,
@@ -102,7 +102,7 @@ class MemberCard extends StatelessWidget {
                           height: 75,
                           width: double.infinity,
                           decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.4),
+                            color: Pallet.accentColor.withOpacity(0.7),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(15.0),
                               topRight: Radius.circular(15.0),
