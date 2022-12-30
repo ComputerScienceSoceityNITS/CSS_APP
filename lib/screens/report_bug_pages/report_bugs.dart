@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'dart:convert';
+import 'package:cssapp/screens/home_screen/home_screen.dart';
 import 'package:cssapp/state_handlers/theme/brightness/dark.dart';
 import 'package:cssapp/state_handlers/theme/brightness/light.dart';
 
@@ -83,174 +84,161 @@ class _ReportBugsState extends State<ReportBugs> {
 
   @override
   Widget build(BuildContext ctx) {
-    return MaterialApp(
-      theme: _iconBool ? lightTheme : darkTheme,
-      home: Scaffold(
-        resizeToAvoidBottomInset: false,
-        floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.fromLTRB(8, 25, 0, 0),
-          child: Builder(builder: (context) {
-            return FloatingActionButton(
-                elevation: 12,
-                child: Icon(
-                  Icons.arrow_back,
-                  color: Theme.of(context).canvasColor,
-                  size: 33,
-                ),
-                backgroundColor: Theme.of(context).backgroundColor,
-                onPressed: () {
-                  Navigator.pop(context);
-                });
-          }),
-        ),
-        body: SafeArea(
-          child: Stack(
-
-            children: [
-              Container(
-                padding: EdgeInsets.all(15),
-                alignment: Alignment.topRight,
-                child: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  _iconBool = !_iconBool;
-                                });
-                              },
-                              icon: Icon(
-                                _iconBool ? Icons.dark_mode : Icons.light_mode,
-                                size: 50,
-                              ),
-                            ),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.fromLTRB(8, 25, 0, 0),
+        child: Builder(builder: (context) {
+          return FloatingActionButton(
+              elevation: 12,
+              child: Icon(
+                Icons.arrow_back,
+                color: Theme.of(context).canvasColor,
+                size: 33,
               ),
-              const CSSBGText(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Form(
-                      child: Column(
-                        children: [
-                          CustomFormField(
-                              controller: nameController,
-                              labelText: 'Name(optional)',
-                              icon: Icons.account_circle),
-                          const SizedBox(height: 25),
-                          CustomFormField(
-                            controller: emailController,
-                            labelText: 'Email Address',
-                            icon: Icons.email,
-                          ),
-                          const SizedBox(height: 25),
-                          CustomFormField(
-                            controller: subjectController,
-                            labelText: 'Subject',
-                            icon: Icons.subject,
-                          ),
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          CustomFormField(
-                            controller: messageController,
-                            labelText: 'Your message',
-                            icon: Icons.message,
-                          ),
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          ElevatedButton(
-                            onPressed: () async {
-                              if (emailController.text.isEmpty ||
-                                  subjectController.text.isEmpty ||
-                                  messageController.text.isEmpty) {
-                                setState(() {
-                                  errorText = "Please fill all fields!";
-                                });
-                              } else {
-                                setState(() {
-                                  isLoading = true;
-                                });
-                                sendEmail().then((String? err) => setState(() {
-                                      errorText = err;
-                                      isLoading = false;
-                                      if (err == null) {
-                                        nameController.clear();
-                                        emailController.clear();
-                                        subjectController.clear();
-                                        messageController.clear();
-                                        _showToast(ctx);
-                                      }
-                                    }));
-                              }
-                            },
-                            child: isLoading
-                                ? const SizedBox(
-                                    child: CircularProgressIndicator(
-                                      color: Colors.white,
-                                      strokeWidth: 2,
-                                    ),
-                                    height: 15,
-                                    width: 15,
-                                  )
-                                : Text(
-                                    "Send Message",
-                                    style: TextStyle(
-                                        color: Theme.of(context).canvasColor),
+              backgroundColor: Theme.of(context).backgroundColor,
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const HomeScreen(
+                      initialIndex: 0,
+                    ),
+                  ),
+                );
+              });
+        }),
+      ),
+      body: SafeArea(
+        child: Stack(
+          children: [
+            const CSSBGText(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Form(
+                    child: Column(
+                      children: [
+                        CustomFormField(
+                            controller: nameController,
+                            labelText: 'Name(optional)',
+                            icon: Icons.account_circle),
+                        const SizedBox(height: 25),
+                        CustomFormField(
+                          controller: emailController,
+                          labelText: 'Email Address',
+                          icon: Icons.email,
+                        ),
+                        const SizedBox(height: 25),
+                        CustomFormField(
+                          controller: subjectController,
+                          labelText: 'Subject',
+                          icon: Icons.subject,
+                        ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        CustomFormField(
+                          controller: messageController,
+                          labelText: 'Your message',
+                          icon: Icons.message,
+                        ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        ElevatedButton(
+                          onPressed: () async {
+                            if (emailController.text.isEmpty ||
+                                subjectController.text.isEmpty ||
+                                messageController.text.isEmpty) {
+                              setState(() {
+                                errorText = "Please fill all fields!";
+                              });
+                            } else {
+                              setState(() {
+                                isLoading = true;
+                              });
+                              sendEmail().then((String? err) => setState(() {
+                                    errorText = err;
+                                    isLoading = false;
+                                    if (err == null) {
+                                      nameController.clear();
+                                      emailController.clear();
+                                      subjectController.clear();
+                                      messageController.clear();
+                                      _showToast(ctx);
+                                    }
+                                  }));
+                            }
+                          },
+                          child: isLoading
+                              ? const SizedBox(
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                    strokeWidth: 2,
                                   ),
-                          ),
-                          const SizedBox(height: 10),
-                          Column(
-                            children: <Widget>[
-                              errorText != null
-                                  ? Padding(
-                                      padding: const EdgeInsets.all(6.0),
-                                      child: SingleChildScrollView(
-                                        scrollDirection: Axis.horizontal,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            const Icon(
-                                              Icons.error,
-                                              color: Colors.red,
-                                            ),
-                                            const SizedBox(width: 10),
-                                            Text(
-                                              errorText!,
-                                              style: const TextStyle(
-                                                  color: Colors.red),
-                                            )
-                                          ],
-                                        ),
+                                  height: 15,
+                                  width: 15,
+                                )
+                              : Text(
+                                  "Send Message",
+                                  style: TextStyle(
+                                      color: Theme.of(context).canvasColor),
+                                ),
+                        ),
+                        const SizedBox(height: 10),
+                        Column(
+                          children: <Widget>[
+                            errorText != null
+                                ? Padding(
+                                    padding: const EdgeInsets.all(6.0),
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          const Icon(
+                                            Icons.error,
+                                            color: Colors.red,
+                                          ),
+                                          const SizedBox(width: 10),
+                                          Text(
+                                            errorText!,
+                                            style: const TextStyle(
+                                                color: Colors.red),
+                                          )
+                                        ],
                                       ),
-                                    )
-                                  : const SizedBox.shrink(),
-                            ],
-                          ),
-                          const SizedBox(height: 35),
-                          SizedBox(
-                            width: 300,
-                            child: Text(
-                              "Diclaimer: Reporting to CSS must be formal. Here, you can register ideas and suggestions for the website and everything CSS. Please avoid unnecessary messages and spams. Strict actions will be taken against those violating these rules.",
-                              style: textSmall.copyWith(
-                                  height: 1.2,
-                                  color:
-                                      !_iconBool ? Colors.white : Colors.black),
-                              textAlign: TextAlign.center,
+                                    ),
+                                  )
+                                : const SizedBox.shrink(),
+                          ],
+                        ),
+                        const SizedBox(height: 35),
+                        SizedBox(
+                          width: 300,
+                          child: Text(
+                            "Diclaimer: Reporting to CSS must be formal. Here, you can register ideas and suggestions for the website and everything CSS. Please avoid unnecessary messages and spams. Strict actions will be taken against those violating these rules.",
+                            style: textSmall.copyWith(
+                              height: 1.2,
+                              color: Theme.of(context).backgroundColor,
                             ),
+                            textAlign: TextAlign.center,
                           ),
-                          
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

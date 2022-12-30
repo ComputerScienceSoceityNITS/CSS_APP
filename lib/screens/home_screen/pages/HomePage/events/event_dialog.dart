@@ -1,5 +1,7 @@
 import 'package:cssapp/configs/configurations/pallet.dart';
 import 'package:cssapp/configs/text_style.dart';
+import 'package:cssapp/screens/home_screen/home_screen.dart';
+import 'package:cssapp/screens/home_screen/pages/EventsPage/events_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/widgets/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -134,7 +136,7 @@ class _EventDialogState extends State<EventDialog> {
                                         .textTheme
                                         .bodyText1
                                         ?.copyWith(
-                                            color: Colors.red, fontSize: 30),
+                                            color: Colors.white, fontSize: 30),
                                   ),
                                   onTap: () async {
                                     await exit();
@@ -173,7 +175,19 @@ class _EventDialogState extends State<EventDialog> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   GestureDetector(
-                                    onTap: () => launch(widget.link ?? ''),
+                                    onTap: (widget.link == null)
+                                        ? () {
+                                            Navigator.of(context).pop();
+                                            Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const HomeScreen(
+                                                  initialIndex: 1,
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                        : () => launch(widget.link ?? ''),
                                     child: widget.link != null
                                         ? Row(
                                             mainAxisAlignment:
@@ -185,7 +199,6 @@ class _EventDialogState extends State<EventDialog> {
                                                     .textTheme
                                                     .bodyText1
                                                     ?.copyWith(
-
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       fontSize: 12,
