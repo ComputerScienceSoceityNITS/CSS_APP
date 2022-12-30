@@ -91,29 +91,29 @@ class NavigationDrawer extends StatelessWidget {
     Navigator.of(context).pop();
     switch (index) {
       case 0:
-        Navigator.of(context).push(MaterialPageRoute(
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const HomeScreen(
             initialIndex: 0,
           ),
         ));
         break;
       case 1:
-        Navigator.of(context).push(MaterialPageRoute(
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const HomeScreen(initialIndex: 1),
         ));
         break;
       case 2:
-        Navigator.of(context).push(MaterialPageRoute(
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const HomeScreen(initialIndex: 2),
         ));
         break;
       case 3:
-        Navigator.of(context).push(MaterialPageRoute(
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const HomeScreen(initialIndex: 3),
         ));
         break;
       case 4:
-        Navigator.of(context).push(MaterialPageRoute(
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const HomeScreen(initialIndex: 4),
         ));
         break;
@@ -121,12 +121,12 @@ class NavigationDrawer extends StatelessWidget {
         Provider.of<ThemeHandler>(context, listen: false).toggleTheme();
         break;
       case 6:
-        Navigator.of(context).push(MaterialPageRoute(
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const AboutUs(),
         ));
         break;
       case 7:
-        Navigator.of(context).push(MaterialPageRoute(
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const ReportBugs(),
         ));
         break;
