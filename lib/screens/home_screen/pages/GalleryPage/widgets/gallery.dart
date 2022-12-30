@@ -77,7 +77,7 @@ class _GalleryState extends State<Gallery> {
             setState(() {
               _angle[index] = 0;
               _color[index] = const Color.fromARGB(255, 214, 50, 105);
-              _blendMode[index] = BlendMode.screen;
+              _blendMode[index] = BlendMode.dstATop;
               _blur[index] = 40.0;
               for (int i = 0; i < _check.length; i++) {
                 if (_check[i] == true) {

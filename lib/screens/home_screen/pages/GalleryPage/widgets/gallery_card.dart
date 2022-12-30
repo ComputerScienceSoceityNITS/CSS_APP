@@ -34,7 +34,9 @@ class GalleryCard extends StatelessWidget {
                 foregroundDecoration: BoxDecoration(
                     color: Theme.of(context).canvasColor,
                     backgroundBlendMode: bgBlendMode,
-                    border: Border.all(width: 0)),
+                    border: Theme.of(context).brightness == Brightness.dark
+                        ? Border.all(width: 0)
+                        : null),
                 decoration: BoxDecoration(
                   color: Theme.of(context).canvasColor,
                   boxShadow: [
