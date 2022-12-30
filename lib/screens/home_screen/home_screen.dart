@@ -5,7 +5,7 @@ import 'package:cssapp/state_handlers/theme/theme_handler.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'pages/EventsPage/events_page.dart';
-import 'pages/GalleryPage/gallery.dart';
+import 'pages/GalleryPage/gallery_page.dart';
 import 'pages/MembersPage/members_screen.dart';
 import 'pages/DevelopersPage/developers_page.dart';
 import 'package:flutter/material.dart';

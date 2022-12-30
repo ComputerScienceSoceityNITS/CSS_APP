@@ -1,5 +1,7 @@
 import 'package:cssapp/state_handlers/members/member_api.dart';
 import 'package:cssapp/state_handlers/theme/theme_handler.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import './splash.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,7 @@ void main() async {
   // -------------------- Initializing Storage Handler --------------------
   await StorageHandler().initPreferences();
   _themeHandler = ThemeHandler();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   runApp(const CSSApp());
 }
