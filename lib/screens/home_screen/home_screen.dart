@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Theme.of(context).backgroundColor,
               size: 33,
             ),
-            backgroundColor: Theme.of(context).backgroundColor.withOpacity(0),
+            backgroundColor: Theme.of(context).backgroundColor.withOpacity(0.0),
             onPressed: () {
               Scaffold.of(context).openEndDrawer();
             },

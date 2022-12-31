@@ -49,14 +49,15 @@ class MembersScroll extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     Member? member = posts?[wing]![index];
                     return MemberCard(
-                        imageLink: member?.imageLink ?? '',
-                        role: member?.role ?? mapRole[Role.technical]!,
-                        name: member?.name ?? '',
-                        session: member?.session ?? Session.session_20_21,
-                        fb: member?.fb,
-                        git: member?.git,
-                        linkedin: member?.linkedin,
-                        insta: member?.insta);
+                      imageLink: member?.imageLink ?? '',
+                      role: member?.role ?? mapRole[Role.technical]!,
+                      name: member?.name ?? '',
+                      session: member?.session ?? Session.session_20_21,
+                      fb: member?.fb,
+                      git: member?.git,
+                      linkedin: member?.linkedin,
+                      insta: member?.insta,
+                    );
                   },
                 ),
               )

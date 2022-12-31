@@ -1,28 +1,44 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:cssapp/configs/configs.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ExecutiveMembers extends StatelessWidget {
   const ExecutiveMembers({Key? key}) : super(key: key);
 
   static final List<_ExecutiveMember> members = [
     _ExecutiveMember(
-        title: "CONVENER",
-        img: Assets.framerMajhiSir,
-        name: "Mr. Umakanta majhi",
-        details: "Assistant Professor",
-        email: "umakanta@cse.nits.ac.in"),
+      title: "CONVENER",
+      img: Assets.framerMajhiSir,
+      name: "Mr. Umakanta majhi",
+      details: "Assistant Professor",
+      email: "umakanta@cse.nits.ac.in",
+      facebook_link: "https://www.google.com/",
+      github_link: "https://www.google.com/",
+      linkedin_link: "https://www.google.com/",
+    ),
     _ExecutiveMember(
-        title: "GENERAL SECRETARY",
-        img: Assets.framerSamikshaKulkarni,
-        name: "Samiksha Kulkarni",
-        details: "+91 6000844282",
-        email: ""),
+      title: "GENERAL SECRETARY",
+      img: Assets.framerSamikshaKulkarni,
+      name: "Samiksha Kulkarni",
+      details: "+91 6000844282",
+      email: "",
+      facebook_link: "https://www.google.com/",
+      github_link: "https://www.google.com/",
+      linkedin_link: "https://www.google.com/",
+    ),
     _ExecutiveMember(
-        title: "TECHNICAL HEAD",
-        img: Assets.framerAbhishekKumarJha,
-        name: "Abhishek Kumar Jha",
-        details: "+91 9101810767",
-        email: ""),
+      title: "TECHNICAL HEAD",
+      img: Assets.framerAbhishekKumarJha,
+      name: "Abhishek Kumar Jha",
+      details: "+91 9101810767",
+      email: "",
+      facebook_link: "https://www.google.com/",
+      github_link: "https://www.google.com/",
+      linkedin_link: "https://www.google.com/",
+    ),
   ];
 
   @override
@@ -46,20 +62,29 @@ class _ExecutiveMember {
   final String name;
   final String details;
   final String email;
+  final String? facebook_link;
+  final String? linkedin_link;
+  final String? github_link;
 
-  const _ExecutiveMember(
-      {required this.title,
-      required this.img,
-      required this.name,
-      required this.details,
-      required this.email});
+  const _ExecutiveMember({
+    required this.title,
+    required this.img,
+    required this.name,
+    required this.details,
+    required this.email,
+    required this.facebook_link,
+    required this.linkedin_link,
+    required this.github_link,
+  });
 
   Widget card(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
       width: 270,
-      height: 300,
+      height: 335,
       child: Card(
+        shadowColor: Colors.black,
+        elevation: 10,
         color: Theme.of(context).canvasColor,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -67,13 +92,39 @@ class _ExecutiveMember {
           children: [
             Padding(
               padding: const EdgeInsets.only(bottom: 8.0),
-              child: Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(image: img.image, fit: BoxFit.cover),
-                ),
+              child: Column(
+                children: [
+                  Container(
+                    width: 120,
+                    height: 5,
+                    decoration: BoxDecoration(color: Colors.black),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 5,
+                        height: 100,
+                        decoration: BoxDecoration(color: Colors.black),
+                      ),
+                      Container(
+                        width: 110,
+                        height: 140,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          image: DecorationImage(
+                              image: img.image, fit: BoxFit.cover),
+                        ),
+                      ),
+                      Container(
+                        width: 5,
+                        height: 100,
+                        decoration: BoxDecoration(color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 10),
@@ -81,6 +132,7 @@ class _ExecutiveMember {
               height: 40,
               width: 200,
               child: Card(
+                elevation: 5,
                 color: Pallet.accentColor,
                 child: Padding(
                   padding: const EdgeInsets.all(6.0),
@@ -94,7 +146,7 @@ class _ExecutiveMember {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(top: 10),
               child: Wrap(
                 direction: Axis.vertical,
                 crossAxisAlignment: WrapCrossAlignment.center,
@@ -103,18 +155,42 @@ class _ExecutiveMember {
                   Text(name,
                       textAlign: TextAlign.center,
                       style: textSmall.copyWith(
-                          color: Theme.of(context).backgroundColor)),
+                          color: Theme.of(context).backgroundColor,
+                          fontWeight: FontWeight.bold)),
                   Text(details,
                       textAlign: TextAlign.center,
                       style: textSmall.copyWith(
-                          color: Theme.of(context).backgroundColor)),
+                          color: Theme.of(context).backgroundColor,
+                          fontWeight: FontWeight.bold)),
                   Text(email,
                       textAlign: TextAlign.center,
                       style: textSmall.copyWith(
-                          color: Theme.of(context).backgroundColor)),
+                          color: Theme.of(context).backgroundColor,
+                          fontWeight: FontWeight.bold)),
                 ],
               ),
-            )
+            ),
+            Container(
+              width: 150,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    onPressed: () => launch(facebook_link ?? ''),
+                    icon: Icon(Icons.facebook),
+                  ),
+                  IconButton(
+                    onPressed: () => launch(linkedin_link ?? ' '),
+                    icon: Icon(FontAwesomeIcons.linkedin),
+                  ),
+                  IconButton(
+                      onPressed: () => launch(github_link ?? ' '),
+                      icon: title == 'CONVENER'
+                          ? Icon(FontAwesomeIcons.bookOpenReader)
+                          : Icon(FontAwesomeIcons.github))
+                ],
+              ),
+            ),
           ],
         ),
       ),
