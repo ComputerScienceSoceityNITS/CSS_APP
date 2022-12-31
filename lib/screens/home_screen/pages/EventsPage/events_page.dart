@@ -76,7 +76,8 @@ class _EventsPageState extends State<EventsPage> {
                         }),
                         child: Text(
                           "Techno Events",
-                          style: textStylisedCormorantSmall.copyWith(
+                          style: TextStyle(
+                            fontFamily: "Round Pop",
                             color: technoEventsSelected
                                 ? Pallet.accentColor
                                 : Theme.of(context).backgroundColor,
@@ -90,7 +91,8 @@ class _EventsPageState extends State<EventsPage> {
                         }),
                         child: Text(
                           "Cultural Events",
-                          style: textStylisedCormorantSmall.copyWith(
+                          style: TextStyle(
+                            fontFamily: "Round Pop",
                             color: !technoEventsSelected
                                 ? Pallet.accentColor
                                 : Theme.of(context).backgroundColor,
