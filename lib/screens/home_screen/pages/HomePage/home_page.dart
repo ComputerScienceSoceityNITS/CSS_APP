@@ -1,3 +1,4 @@
+import 'package:cssapp/screens/home_screen/pages/HomePage/widgets/carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/configs/configs.dart';
 import 'events/events.dart';
@@ -32,6 +33,10 @@ class HomePage extends StatelessWidget {
                   const Text(
                     "Department of Computer Science and Engineering\nNational Institute of Technology, Silchar",
                     textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: 'Quintessential',
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: gap),
                   Padding(
@@ -85,41 +90,13 @@ class HomePage extends StatelessWidget {
                         color: Theme.of(context).backgroundColor),
                   ),
                   const ExecutiveMembers(),
-                  const SizedBox(height: 80),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 100,
-                        height: 120,
-                        child: LottieBuilder(
-                          lottie: Assets.lottieBell.lottie,
-                          fit: BoxFit.fitHeight,
-                        ),
-                      ),
-                      Text("UPCOMING EVENTS",
-                          style: textLarge.copyWith(
-                              color: Theme.of(context).backgroundColor)),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        "Nothing to Show!\nCome back later",
-                        style: TextStyle(
-                            color: Pallet.grey,
-                            fontSize: 20,
-                            fontFamily: 'Anton',
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 150,
-                        child: LottieBuilder(
-                            lottie: Assets.lottieDrone.lottie,
-                            fit: BoxFit.fitHeight),
-                      ),
-                    ],
-                  ),
+                  const SizedBox(height: 50),
+                  Text("ANNOUNCEMENTS",
+                      style: textLarge.copyWith(
+                          color: Theme.of(context).backgroundColor)),
+                  Carousel(
+                    screenSize: MediaQuery.of(context).size,
+                  )
                 ],
               ),
             ),

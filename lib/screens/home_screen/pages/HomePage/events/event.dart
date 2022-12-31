@@ -43,11 +43,12 @@ class _EventState extends State<Event> {
                 reverseTransitionDuration: Duration.zero,
                 pageBuilder: (BuildContext context, _, __) {
                   return EventDialog(
+                    title: widget.title,
                     desc: widget.desc,
                     link: widget.link,
                     img: widget.img,
                     height: widget.height,
-                    width: 300,
+                    width: 350,
                     movingDuration: movingDuration,
                     parentKey: containerKey,
                   );
@@ -70,17 +71,46 @@ class _EventState extends State<Event> {
             ),
           ),
           child: Container(
-            alignment: Alignment.center,
-            child: Text(
-              widget.title,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                  fontWeight: FontWeight.w900,
-                  decoration: TextDecoration.none),
-            ),
-          ),
+              alignment: Alignment.center,
+              //stroke text for the event title
+              child: Stack(
+                children: [
+                  // Stroked text as border.
+                  Text(
+                    widget.title,
+                    style: TextStyle(
+                      fontSize: 24,
+                      foreground: Paint()
+                        ..style = PaintingStyle.stroke
+                        ..strokeWidth = 6
+                        ..color = Colors.black,
+                    ),
+                  ),
+                  // Solid text as fill.
+                  Text(
+                    widget.title,
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.grey[400],
+                    ),
+                  ),
+                ],
+              )
+              //
+              //
+              //
+              // Text(
+              //   widget.title,
+              //   textAlign: TextAlign.center,
+              //   style: const TextStyle(
+              //       color: Colors.white,
+              //       fontSize: 30,
+              //       fontWeight: FontWeight.w900,
+              //       decoration: TextDecoration.none,
+
+              //       ),
+              // ),
+              ),
         ),
       ),
     );

@@ -95,7 +95,11 @@ class Event extends StatelessWidget {
                 child: Text(
                   details ?? '',
                   textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white, fontSize: 10),
+                  // style: const TextStyle(color: Colors.white, fontSize: 10),
+                  style: textSmall.copyWith(
+                    color: Theme.of(context).backgroundColor,
+                    fontSize: 10,
+                  ),
                 ),
               ),
               ...events.map(

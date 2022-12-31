@@ -1,3 +1,4 @@
+import 'package:cssapp/widgets/head_member_card.dart';
 import 'package:cssapp/widgets/member_card.dart';
 import 'package:cssapp/configs/configs.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +49,8 @@ class MembersScroll extends StatelessWidget {
                   itemCount: posts == null ? 5 : posts![wing]!.length,
                   itemBuilder: (BuildContext context, int index) {
                     Member? member = posts?[wing]![index];
-                    return MemberCard(
+                    if (wing == Role.head) {
+                      return HeadMemberCard(
                         imageLink: member?.imageLink ?? '',
                         role: member?.role ?? mapRole[Role.technical]!,
                         name: member?.name ?? '',
@@ -56,7 +58,19 @@ class MembersScroll extends StatelessWidget {
                         fb: member?.fb,
                         git: member?.git,
                         linkedin: member?.linkedin,
-                        insta: member?.insta);
+                        insta: member?.insta,
+                      );
+                    }
+                    return MemberCard(
+                      imageLink: member?.imageLink ?? '',
+                      role: member?.role ?? mapRole[Role.technical]!,
+                      name: member?.name ?? '',
+                      session: member?.session ?? Session.session_20_21,
+                      fb: member?.fb,
+                      git: member?.git,
+                      linkedin: member?.linkedin,
+                      insta: member?.insta,
+                    );
                   },
                 ),
               )

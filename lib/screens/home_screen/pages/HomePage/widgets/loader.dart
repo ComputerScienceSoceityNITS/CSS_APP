@@ -6,11 +6,10 @@ class LottieLoader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedOpacity(
+    return Opacity(
       opacity: 0.3,
-      duration: const Duration(milliseconds: 10),
       child: Center(
-        child: Assets.lottieLoaderGif,
+        child: Assets.lottieLoader,
       ),
     );
   }
