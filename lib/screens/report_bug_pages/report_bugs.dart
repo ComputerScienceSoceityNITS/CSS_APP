@@ -106,22 +106,21 @@ class _ReportBugsState extends State<ReportBugs> {
         ),
         body: SafeArea(
           child: Stack(
-
             children: [
               Container(
                 padding: EdgeInsets.all(15),
                 alignment: Alignment.topRight,
                 child: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  _iconBool = !_iconBool;
-                                });
-                              },
-                              icon: Icon(
-                                _iconBool ? Icons.dark_mode : Icons.light_mode,
-                                size: 50,
-                              ),
-                            ),
+                  onPressed: () {
+                    setState(() {
+                      _iconBool = !_iconBool;
+                    });
+                  },
+                  icon: Icon(
+                    _iconBool ? Icons.dark_mode : Icons.light_mode,
+                    size: 50,
+                  ),
+                ),
               ),
               const CSSBGText(),
               Padding(
@@ -242,7 +241,6 @@ class _ReportBugsState extends State<ReportBugs> {
                               textAlign: TextAlign.center,
                             ),
                           ),
-                          
                         ],
                       ),
                     )

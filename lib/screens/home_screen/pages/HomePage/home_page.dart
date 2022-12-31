@@ -1,4 +1,5 @@
 import 'package:cssapp/screens/home_screen/pages/HomePage/widgets/carousel.dart';
+import 'package:cssapp/utils/storage_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/configs/configs.dart';
 import 'events/events.dart';
@@ -16,6 +17,30 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
+            !StorageHandler().isDarkTheme()
+                ? Container(
+                    height: double.infinity,
+                    width: double.infinity,
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        stops: [0.1, 0.3, 0.7, 0.8, 1],
+                        colors: [
+                          Color.fromARGB(138, 255, 64, 128),
+                          Color.fromARGB(125, 231, 186, 186),
+                          Color.fromARGB(170, 94, 144, 231),
+                          Color.fromARGB(132, 96, 125, 139),
+                          Color.fromARGB(170, 255, 64, 128)
+                        ],
+                      ),
+                    ),
+                  )
+                : Container(
+                    height: double.infinity,
+                    width: double.infinity,
+                    color: Colors.black,
+                  ),
             const CSSBGText(),
             const LottieLoader(),
             SingleChildScrollView(
