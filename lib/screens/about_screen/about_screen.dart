@@ -1,3 +1,4 @@
+import 'package:cssapp/screens/home_screen/home_screen.dart';
 import 'package:cssapp/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -30,6 +31,13 @@ class _AboutUsState extends State<AboutUs> {
             backgroundColor: Theme.of(context).backgroundColor,
             onPressed: () {
               Navigator.pop(context);
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const HomeScreen(
+                    initialIndex: 0,
+                  ),
+                ),
+              );
             },
           );
         }),
