@@ -34,13 +34,21 @@ class Event extends StatelessWidget {
             child: Text(
               stylisedChar ?? '',
               textAlign: TextAlign.right,
-              style: textStylisedBlackChancerySmall.copyWith(
-                  color: Pallet.accentColor),
+              // style: textStylisedBlackChancerySmall.copyWith(
+              //     color: Pallet.accentColor),
+
+              style: const TextStyle(
+                fontSize: 25,
+                color: Pallet.accentColor,
+                // fontFamily: "Round Pop"
+              ),
             ),
           ),
           Text(title,
               textAlign: TextAlign.center,
-              style: textStylisedBlackChancerySmall.copyWith(
+              style: TextStyle(
+                  fontSize: 25,
+                  // fontFamily: "Round Pop",
                   color: Theme.of(context).backgroundColor)),
         ],
       ),
@@ -50,7 +58,9 @@ class Event extends StatelessWidget {
         child: Text(
           titleLine2 ?? '',
           textAlign: TextAlign.center,
-          style: textStylisedBlackChancerySmall.copyWith(
+          style: TextStyle(
+              fontSize: 25,
+              // fontFamily: "Round Pop",
               color: Theme.of(context).backgroundColor),
         ),
       ),
@@ -96,9 +106,10 @@ class Event extends StatelessWidget {
                   details ?? '',
                   textAlign: TextAlign.center,
                   // style: const TextStyle(color: Colors.white, fontSize: 10),
-                  style: textSmall.copyWith(
+                  style: TextStyle(
+                    //fontFamily: "Round Pop",
                     color: Theme.of(context).backgroundColor,
-                    fontSize: 10,
+                    fontSize: 25,
                   ),
                 ),
               ),
@@ -106,7 +117,9 @@ class Event extends StatelessWidget {
                 (event) => Text(
                   event,
                   textAlign: TextAlign.center,
-                  style: textStylisedQuintessentialSmall.copyWith(
+                  style: TextStyle(
+                      fontSize: 25,
+                      //fontFamily: "Round Pop",
                       color: Pallet.accentColor),
                 ),
               )
