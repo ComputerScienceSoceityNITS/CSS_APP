@@ -64,27 +64,6 @@ class _DevelopersState extends State<Developers> {
 
     return Stack(
       children: [
-        // Positioned(
-        //   top: 5,
-        //   left: 5,
-        //   child: Align(
-        //     alignment: Alignment.topLeft,
-        //     child: Container(
-        //       height: 300,
-        //       width: 250,
-        //       decoration: BoxDecoration(
-        //         gradient: RadialGradient(
-        //           center: Alignment(0.1, 0.1),
-        //           colors: [
-        //             Pallet.accentColor.withOpacity(0.3),
-        //             Theme.of(context).canvasColor
-        //           ],
-        //           radius: 0.5,
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        // ),
         SingleChildScrollView(
           child: Column(
             children: [

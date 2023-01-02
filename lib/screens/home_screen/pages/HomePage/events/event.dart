@@ -67,7 +67,7 @@ class _EventState extends State<Event> {
             image: DecorationImage(
               image: widget.img.image,
               fit: BoxFit.cover,
-              opacity: 0.75,
+              opacity: 0.9,
             ),
           ),
           child: Container(
@@ -83,7 +83,7 @@ class _EventState extends State<Event> {
                       foreground: Paint()
                         ..style = PaintingStyle.stroke
                         ..strokeWidth = 6
-                        ..color = Colors.black,
+                        ..color = Colors.black.withOpacity(0.4),
                     ),
                   ),
                   // Solid text as fill.
@@ -91,7 +91,8 @@ class _EventState extends State<Event> {
                     widget.title,
                     style: TextStyle(
                       fontSize: 24,
-                      color: Colors.grey[400],
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ],
