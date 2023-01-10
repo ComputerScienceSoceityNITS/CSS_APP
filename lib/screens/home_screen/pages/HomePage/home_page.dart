@@ -37,11 +37,23 @@ class HomePage extends StatelessWidget {
                     ),
                   )
                 : Container(
-                    height: double.infinity,
-                    width: double.infinity,
-                    color: Colors.black,
+                    decoration: BoxDecoration(
+                      gradient: RadialGradient(
+                        colors: [
+                          Colors.white,
+                          Color.fromARGB(255, 250, 200, 124),
+                          Color.fromARGB(255, 255, 132, 173),
+                          Color.fromARGB(255, 251, 65, 127),
+                          Colors.black
+                        ],
+                        center: Alignment(-0.9, -0.5),
+                        focal: Alignment(-1.2, -0.3),
+                        stops: [0.04, 0.1, 0.3, 0.45, 1],
+                        radius: 0.6,
+                      ),
+                    ),
                   ),
-            const CSSBGText(),
+            const Positioned(child: const CSSBGText(), bottom: 500, left: 170),
             const LottieLoader(),
             SingleChildScrollView(
               child: Column(
@@ -76,29 +88,40 @@ class HomePage extends StatelessWidget {
                   Container(
                     width: double.infinity,
                     color: Theme.of(context).canvasColor,
-                    child: Column(
-                      children: [
-                        const SizedBox(height: gap),
-                        Text('ABOUT US',
-                            style: textLarge.copyWith(
-                                color: Theme.of(context).backgroundColor)),
-                        const SizedBox(height: gap),
-                        SizedBox(
-                          width: 300,
-                          child: Text(
-                            "The Computer Science Society, run by the CSE department of NIT Silchar, aims to impart academic, technical and socio-cultural awareness to the students of our beloved college. Computer Science Engineering branch of NIT Silchar stands with the highest number of placements and talented minds.",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                height: 1.3,
-                                color: Theme.of(context).backgroundColor),
-                          ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: RadialGradient(
+                          colors:
+                              Theme.of(context).brightness == Brightness.dark
+                                  ? [Colors.blue, Colors.black]
+                                  : [Colors.white, Colors.white],
+                          center: Alignment(0, -0.5),
                         ),
-                        const SizedBox(height: 80),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 35),
-                          child: Events(),
-                        )
-                      ],
+                      ),
+                      child: Column(
+                        children: [
+                          const SizedBox(height: gap),
+                          Text('ABOUT US',
+                              style: textLarge.copyWith(
+                                  color: Theme.of(context).backgroundColor)),
+                          const SizedBox(height: gap),
+                          SizedBox(
+                            width: 300,
+                            child: Text(
+                              "The Computer Science Society, run by the CSE department of NIT Silchar, aims to impart academic, technical and socio-cultural awareness to the students of our beloved college. Computer Science Engineering branch of NIT Silchar stands with the highest number of placements and talented minds.",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  height: 1.3,
+                                  color: Theme.of(context).backgroundColor),
+                            ),
+                          ),
+                          const SizedBox(height: 80),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 35),
+                            child: Events(),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(height: 30),
