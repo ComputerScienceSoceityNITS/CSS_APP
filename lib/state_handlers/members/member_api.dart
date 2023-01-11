@@ -43,7 +43,7 @@ Map<String, Session> reverseMapSession = {
 };
 
 class MemberApi extends ChangeNotifier {
-  final String apiLink = "https://tasty-crab-hosiery.cyclic.app/api/admin/members/";
+  final String apiLink = "http://css-cms.up.railway.app/api/admin/members/";
 
   Map<Session, Map<Role, List<Member>>> members =
       {}; // First map maps to the session and the inner map maps to the role
@@ -104,7 +104,7 @@ class MemberApi extends ChangeNotifier {
         } else if (r.toLowerCase().contains("ml")) {
           role2 = Role.mlWing;
         } else if (r.toLowerCase().contains("dev")) {
-            role2 = Role.devWing;
+          role2 = Role.devWing;
         } else if (r.toLowerCase().contains("literary")) {
           role2 = Role.literaryWing;
         } else if (r.toLowerCase().contains("cp")) {

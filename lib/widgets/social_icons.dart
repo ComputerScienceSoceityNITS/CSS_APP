@@ -19,7 +19,7 @@ class SocialIcons extends StatelessWidget {
           size: size,
         ),
       ),
-      onTap: () => launch(link ?? ''),
+      onTap: () => launchUrl(Uri.parse(link ?? '')),
     );
   }
 }

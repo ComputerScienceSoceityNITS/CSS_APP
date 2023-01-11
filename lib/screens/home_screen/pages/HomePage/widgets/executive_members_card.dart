@@ -1,10 +1,9 @@
-import 'package:cssapp/widgets/social_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/configs/configs.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'executive_member_bottomSheet.dart';
+import 'executive_member_bottom_sheet.dart';
 
+// TODO: WORK LEFT
 class ExecutiveMembers extends StatelessWidget {
   const ExecutiveMembers({Key? key}) : super(key: key);
 
@@ -16,7 +15,7 @@ class ExecutiveMembers extends StatelessWidget {
       details: "Assistant Professor",
       email: "umakanta@cse.nits.ac.in",
       faceBook: "https://www.facebook.com/bdlsni123",
-      LinkedIn: "https://www.linkedin.com/in/umakanta-majhi-43238576",
+      linkedin: "https://www.linkedin.com/in/umakanta-majhi-43238576",
       professorProfile: "http://cs.nits.ac.in/uma/",
     ),
     _ExecutiveMember(
@@ -26,7 +25,7 @@ class ExecutiveMembers extends StatelessWidget {
       details: "+91 6000844282",
       email: "",
       faceBook: "https://www.facebook.com/samiksha.kulkarni.5201",
-      LinkedIn: "https://www.linkedin.com/in/samiksha-kulkarni-aa5015185/",
+      linkedin: "https://www.linkedin.com/in/samiksha-kulkarni-aa5015185/",
       gitHub: "https://github.com/samiksha0408",
     ),
     _ExecutiveMember(
@@ -36,7 +35,7 @@ class ExecutiveMembers extends StatelessWidget {
       details: "+91 9101810767",
       email: "",
       faceBook: "https://www.facebook.com/kehsihba19",
-      LinkedIn: "https://www.linkedin.com/in/kehsihba19/",
+      linkedin: "https://www.linkedin.com/in/kehsihba19/",
       gitHub: "https://github.com/kehsihba19",
     ),
   ];
@@ -63,9 +62,10 @@ class _ExecutiveMember {
   final String details;
   final String email;
   final String faceBook;
-  final String LinkedIn;
+  final String linkedin;
   String? gitHub;
   String? professorProfile;
+  final double profileHeight = 120;
 
   _ExecutiveMember({
     required this.title,
@@ -74,7 +74,7 @@ class _ExecutiveMember {
     required this.details,
     required this.email,
     required this.faceBook,
-    required this.LinkedIn,
+    required this.linkedin,
     this.gitHub,
     this.professorProfile,
   });
@@ -84,7 +84,7 @@ class _ExecutiveMember {
       onTap: (() {
         showModalBottomSheet(
           context: context,
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30),
               topRight: Radius.circular(30),
@@ -97,7 +97,7 @@ class _ExecutiveMember {
               name: name,
               details: details,
               faceBook: faceBook,
-              LinkedIn: LinkedIn,
+              linkedIn: linkedin,
               gitHub: gitHub,
               professorProfile: professorProfile,
             );
@@ -105,80 +105,91 @@ class _ExecutiveMember {
         );
       }),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        margin: const EdgeInsets.symmetric(vertical: 10),
         width: 270,
-        height: 300,
-        child: Card(
+        height: 330,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
           color: Theme.of(context).canvasColor,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),
-                child: Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(image: img.image, fit: BoxFit.cover),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              SizedBox(
-                height: 40,
-                width: 200,
-                child: Card(
-                  color: Pallet.accentColor,
-                  child: Padding(
-                    padding: const EdgeInsets.all(6.0),
-                    child: Text(
-                      title,
-                      textAlign: TextAlign.center,
-                      style: textSmallBold.copyWith(
-                        color: Theme.of(context).canvasColor,
+                child: Stack(
+                  alignment: Alignment.topCenter,
+                  children: [
+                    Container(
+                      width: profileHeight * 0.75,
+                      height: profileHeight * 0.7,
+                      color: Theme.of(context).backgroundColor,
+                    ),
+                    Container(
+                      width: profileHeight * 0.65,
+                      height: profileHeight,
+                      margin: EdgeInsets.only(top: profileHeight * 0.05),
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: img.image, fit: BoxFit.cover),
                       ),
                     ),
+                  ],
+                )),
+            const SizedBox(height: 10),
+            SizedBox(
+              height: 40,
+              width: 200,
+              child: Card(
+                color: Pallet.accentColor,
+                child: Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: Text(
+                    title,
+                    textAlign: TextAlign.center,
+                    style: textSmallBold.copyWith(
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: Wrap(
-                  direction: Axis.vertical,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  spacing: 10,
-                  children: [
-                    Text(name,
-                        textAlign: TextAlign.center,
-                        style: textSmall.copyWith(
-                            color: Theme.of(context).backgroundColor)),
-                    Text(details,
-                        textAlign: TextAlign.center,
-                        style: textSmall.copyWith(
-                            color: Theme.of(context).backgroundColor)),
-                    Text(email,
-                        textAlign: TextAlign.center,
-                        style: textSmall.copyWith(
-                            color: Theme.of(context).backgroundColor)),
-                    Container(
-                      height: 1,
-                      width: 200,
-                      color: Theme.of(context).backgroundColor.withOpacity(0.5),
-                    ),
-                    Text(
-                      'Click to Connect',
-                      style: textSmall.copyWith(color: Pallet.accentColor),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Wrap(
+                direction: Axis.vertical,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 10,
+                children: [
+                  Text(name,
+                      textAlign: TextAlign.center,
+                      style: textSmall.copyWith(
+                          color: Theme.of(context).backgroundColor)),
+                  Text(details,
+                      textAlign: TextAlign.center,
+                      style: textSmall.copyWith(
+                          color: Theme.of(context).backgroundColor)),
+                  Text(email,
+                      textAlign: TextAlign.center,
+                      style: textSmall.copyWith(
+                          color: Theme.of(context).backgroundColor)),
+                  Container(
+                    height: 1,
+                    width: 200,
+                    color: Theme.of(context).backgroundColor.withOpacity(0.5),
+                  ),
+                  Text(
+                    'Click to Connect',
+                    style: textSmall.copyWith(color: Pallet.accentColor),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
   }
 }
-

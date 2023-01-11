@@ -72,27 +72,29 @@ class _GalleryState extends State<Gallery> {
   Widget build(BuildContext context) {
     cards.clear();
     for (int index = 0; index < widget.images.length; index++) {
-      cards.add(GalleryCard(
-          onTap: () {
-            setState(() {
-              _angle[index] = 0;
-              _color[index] = const Color.fromARGB(255, 214, 50, 105);
-              _blendMode[index] = BlendMode.dstATop;
-              _blur[index] = 40.0;
-              for (int i = 0; i < _check.length; i++) {
-                if (_check[i] == true) {
-                  _reset(i);
+      cards.add(
+        GalleryCard(
+            onTap: () {
+              setState(() {
+                _angle[index] = 0;
+                _color[index] = const Color.fromARGB(255, 214, 50, 105);
+                _blendMode[index] = BlendMode.dstATop;
+                _blur[index] = 40.0;
+                for (int i = 0; i < _check.length; i++) {
+                  if (_check[i] == true) {
+                    _reset(i);
+                  }
                 }
-              }
-              _check[index] = !_check[index];
-            });
-          },
-          bgBlendMode: _blendMode[index],
-          blurRadius: _blur[index],
-          color: _color[index],
-          angle: _angle[index],
-          img: widget.images[index],
-          title: widget.title));
+                _check[index] = !_check[index];
+              });
+            },
+            bgBlendMode: _blendMode[index],
+            blurRadius: _blur[index],
+            color: _color[index],
+            angle: _angle[index],
+            img: widget.images[index],
+            title: widget.title),
+      );
     }
     return Column(
       children: cards,
