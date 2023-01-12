@@ -52,31 +52,15 @@ flutter:
     - family: Anton
       fonts:
         - asset: assets/fonts/Anton-Regular.ttf
-    - family: Geostar Fill
-      fonts:
-        - asset: assets/fonts/GeostarFill-Regular.ttf
-          weight: 400
-    - family: ExtraOrnamentalNo2
-      fonts:
-        - asset: assets/fonts/ExtraOrnamentalNo2.ttf
-    - family: Italianno
-      fonts:
-        - asset: assets/fonts/Italianno-Regular.ttf
     - family: Cormorant Unicase
       fonts:
         - asset: assets/fonts/CormorantUnicase-Regular.ttf
     - family: EastSeaDokdo
       fonts:
         - asset: assets/fonts/EastSeaDokdo-Regular.ttf
-    - family: BlackChancery
-      fonts:
-        - asset: assets/fonts/BLKCHCRY.ttf
     - family: Archivo
       fonts:
         - asset: assets/fonts/Archivo-Regular.ttf
-    - family: Round Pop
+    - family: Segoe Font
       fonts:
-        - asset: assets/fonts/RoundPop-owwjd.ttf
-    - family: Quintessential
-      fonts:
-        - asset: assets/fonts/Quintessential-Regular.ttf
+        - asset: assets/fonts/segoe-font/segoesc.ttf

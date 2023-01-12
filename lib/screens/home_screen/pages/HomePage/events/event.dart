@@ -89,7 +89,7 @@ class _EventState extends State<Event> {
                   // Solid text as fill.
                   Text(
                     widget.title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 24,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

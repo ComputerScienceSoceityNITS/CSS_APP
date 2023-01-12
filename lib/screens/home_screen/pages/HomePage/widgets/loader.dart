@@ -8,9 +8,7 @@ class LottieLoader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Opacity(
       opacity: 0.3,
-      child: Center(
-        child: Assets.lottieLoader,
-      ),
+      child: Assets.lottieLoader,
     );
   }
 }
