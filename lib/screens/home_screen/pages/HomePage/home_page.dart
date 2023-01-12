@@ -55,7 +55,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-            const Positioned(child: CSSBGText(), bottom: 500, left: 170),
+            const Positioned(child: CSSBGText(), top: 100, left: 170),
             SingleChildScrollView(
               child: Column(
                 children: [
@@ -88,14 +88,21 @@ class HomePage extends StatelessWidget {
                   ),
                   Container(
                     width: double.infinity,
-                    color: Theme.of(context).canvasColor,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.white.withOpacity(0.3),
+                          Colors.white.withOpacity(0.3)
+                        ],
+                      ),
+                    ),
                     child: Container(
                       decoration: BoxDecoration(
                         gradient: RadialGradient(
                           colors:
                               Theme.of(context).brightness == Brightness.dark
-                                  ? [Colors.blue, Colors.black]
-                                  : [Colors.white, Colors.white],
+                                  ? [Colors.blue, Colors.transparent]
+                                  : [Colors.transparent, Colors.transparent],
                           center: const Alignment(0, -0.5),
                         ),
                       ),

@@ -24,9 +24,9 @@ dependencies:
   shared_preferences: ^2.0.15
   cached_network_image: ^3.2.2
   fade_shimmer: ^2.2.0
-  youtube_player_iframe: ^4.0.1
+  flutter_widget_from_html: ^0.9.1
   carousel_slider: ^4.2.1
-  stroke_text: ^0.0.2
+
 
 dev_dependencies:
   flutter_test:

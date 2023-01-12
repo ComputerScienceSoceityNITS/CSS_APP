@@ -13,11 +13,12 @@ enum Role {
   mlWing,
   designWing,
   literaryWing,
+  prWing,
   coHead,
   technical,
 }
 
-enum Session { session_19_20, session_20_21, session_21_22 }
+enum Session { session_19_20, session_20_21, session_21_22, session_22_23 }
 
 Map<Role, String> mapRole = {
   Role.head: "Heads",
@@ -27,6 +28,7 @@ Map<Role, String> mapRole = {
   Role.mlWing: "ML Wing",
   Role.designWing: "Design Wing",
   Role.literaryWing: "Literary Wing",
+  Role.prWing: "PR-Wing",
   Role.coHead: "Co-Head",
   Role.technical: "Technical"
 };
@@ -34,12 +36,14 @@ Map<Role, String> mapRole = {
 Map<Session, String> mapSession = {
   Session.session_19_20: "19-20",
   Session.session_20_21: "20-21",
-  Session.session_21_22: "21-22"
+  Session.session_21_22: "21-22",
+  Session.session_22_23: "22-23",
 };
 Map<String, Session> reverseMapSession = {
   "19-20": Session.session_19_20,
   "20-21": Session.session_20_21,
   "21-22": Session.session_21_22,
+  "22-23": Session.session_22_23
 };
 
 class MemberApi extends ChangeNotifier {
@@ -109,6 +113,8 @@ class MemberApi extends ChangeNotifier {
           role2 = Role.literaryWing;
         } else if (r.toLowerCase().contains("cp")) {
           role2 = Role.cpWing;
+        } else if (r.toLowerCase().contains("pr")) {
+          role2 = Role.prWing;
         } else {
           role2 = Role.technical;
         }
