@@ -122,11 +122,9 @@ class NavigationDrawer extends StatelessWidget {
         ));
         break;
       case 5:
-        launchUrl(
-          Uri.parse(
-            "https://issuu.com/bitscribe/docs/bitscribe_1_?fbclid=IwAR3WTcvsRco6gI-enMchIkBfhzKInZIgliMYlxi-TLOb1SxVK_7-sH7mJyQ",
-          ),
-        );
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => const BitscribeReaderScreen(),
+        ));
         break;
       case 6:
         Provider.of<ThemeHandler>(context, listen: false).toggleTheme();

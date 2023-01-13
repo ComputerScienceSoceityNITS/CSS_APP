@@ -25,7 +25,7 @@ class _CarouselState extends State<Carousel> {
         SizedBox(
           width: widget.screenSize.width * 0.8,
           child: HtmlWidget(
-            "<iframe src='$link'></iframe>",
+            "<video src='$link' controls></video>",
             baseUrl: Uri.parse(link),
           ),
         ),
