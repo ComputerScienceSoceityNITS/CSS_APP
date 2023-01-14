@@ -12,20 +12,16 @@ import 'package:cssapp/state_handlers/members/member_api.dart'
 import 'package:cached_network_image/cached_network_image.dart';
 
 class ConnectMember extends StatelessWidget {
-  final String imageLink;
   final String role;
   final String name;
-  final Session session;
   final String? fb;
   final String? git;
   final String? linkedin;
   final String? insta;
   const ConnectMember(
       {Key? key,
-      required this.imageLink,
       required this.role,
       required this.name,
-      required this.session,
       this.fb,
       this.git,
       this.linkedin,
@@ -63,32 +59,32 @@ class ConnectMember extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              if (fb != Null ||
-                  git != Null ||
-                  linkedin != Null ||
-                  insta != Null)
+              if (fb != null ||
+                  git != null ||
+                  linkedin != null ||
+                  insta != null)
                 Wrap(
                   spacing: 50,
                   children: [
-                    if (fb != Null)
+                    if (fb != null && fb!.isNotEmpty)
                       SocialIcons(
                         icon: FontAwesomeIcons.facebook,
                         link: fb,
                         size: 30,
                       ),
-                    if (git != Null)
+                    if (git != null && git!.isNotEmpty)
                       SocialIcons(
                         icon: FontAwesomeIcons.github,
                         link: git,
                         size: 30,
                       ),
-                    if (linkedin != Null)
+                    if (linkedin != null && linkedin!.isNotEmpty)
                       SocialIcons(
                         icon: FontAwesomeIcons.linkedin,
                         link: insta,
                         size: 30,
                       ),
-                    if (insta != Null)
+                    if (insta != null && insta!.isNotEmpty)
                       SocialIcons(
                         icon: FontAwesomeIcons.instagram,
                         link: insta,

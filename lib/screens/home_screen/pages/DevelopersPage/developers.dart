@@ -15,7 +15,7 @@ class Developers extends StatefulWidget {
 }
 
 class _DevelopersState extends State<Developers> {
-  Session selectedSession = Session.session_21_22;
+  Session selectedSession = Session.session_22_23;
   Map members = {};
 
   Widget positionHeading(BuildContext ctx, String title) {
@@ -105,7 +105,7 @@ class _DevelopersState extends State<Developers> {
                   scrollDirection: Axis.horizontal,
                   children: devWingHeads == null
                       ? [for (int i = 0; i < 5; i++) const Shimmer()]
-                      : devWingHeads!.map(
+                      : devWingHeads.map(
                           (Member member) {
                             return HeadMemberCard(
                               imageLink: member.imageLink,

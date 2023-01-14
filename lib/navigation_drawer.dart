@@ -1,9 +1,11 @@
 import 'package:cssapp/screens/about_screen//about_screen.dart';
 import 'package:cssapp/configs/configs.dart';
+import 'package:cssapp/screens/bitscribe_reader_screen/bitscribe_reader_screen.dart';
 import 'package:cssapp/state_handlers/theme/theme_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/screens/home_screen/home_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'screens/report_bug_pages/report_bugs.dart';
 
 class NavigationDrawer extends StatelessWidget {
@@ -14,6 +16,7 @@ class NavigationDrawer extends StatelessWidget {
     'MEMBERS',
     'GALLERY',
     'DEVELOPERS',
+    'BITSCRIBE',
     'THEME',
     'ABOUT US',
     'REPORT TO CSS',
@@ -24,6 +27,7 @@ class NavigationDrawer extends StatelessWidget {
     Icons.groups,
     Icons.picture_in_picture,
     Icons.laptop,
+    Icons.book_online,
     Icons.sunny,
     Icons.info,
     Icons.email,
@@ -118,14 +122,19 @@ class NavigationDrawer extends StatelessWidget {
         ));
         break;
       case 5:
-        Provider.of<ThemeHandler>(context, listen: false).toggleTheme();
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => const BitscribeReaderScreen(),
+        ));
         break;
       case 6:
+        Provider.of<ThemeHandler>(context, listen: false).toggleTheme();
+        break;
+      case 7:
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const AboutUs(),
         ));
         break;
-      case 7:
+      case 8:
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const ReportBugs(),
         ));

@@ -50,18 +50,14 @@ class Assets {
       Image.asset('assets/images/events/esperanza/esperanza5.jpeg');
   static final Image eventEsperanza6 =
       Image.asset('assets/images/events/esperanza/esperanza6.jpeg');
-  static final Image framerAbhishekKumarJha =
-      Image.asset('assets/images/framers/Abhishek_Kumar_Jha.jpg');
-  static final Image framerAsifBhaiya =
-      Image.asset('assets/images/framers/AsifBhaiya.jpeg');
-  static final Image framerMahendraBhaiya =
-      Image.asset('assets/images/framers/MahendraBhaiya.jpeg');
+  static final Image framerAbhishekBharadwaz =
+      Image.asset('assets/images/framers/Abhishek Bharadwaz.png');
+  static final Image framerSourabhShah =
+      Image.asset('assets/images/framers/Sourabh Shah.jpg');
+  static final Image framerTeresaLouis =
+      Image.asset('assets/images/framers/Teresa Louis.jpg');
   static final Image framerMajhiSir =
       Image.asset('assets/images/framers/MajhiSir.jpeg');
-  static final Image framerManishBhaiya =
-      Image.asset('assets/images/framers/ManishBhaiya.jpeg');
-  static final Image framerSamikshaKulkarni =
-      Image.asset('assets/images/framers/Samiksha_Kulkarni.jpeg');
   static final LottieBuilder lottieAccounting =
       Lottie.asset('assets/lottie/accounting.json');
   static final LottieBuilder lottieCSS = Lottie.asset('assets/lottie/CSS.json');

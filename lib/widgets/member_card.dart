@@ -60,10 +60,8 @@ class MemberCard extends StatelessWidget {
                   isScrollControlled: true,
                   builder: (context) => SingleChildScrollView(
                     child: ConnectMember(
-                      imageLink: imageLink,
                       role: role,
                       name: name,
-                      session: session,
                       fb: fb,
                       git: git,
                       insta: insta,

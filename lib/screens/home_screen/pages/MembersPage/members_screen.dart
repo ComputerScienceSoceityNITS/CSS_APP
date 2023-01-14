@@ -14,7 +14,7 @@ class MembersPage extends StatefulWidget {
 }
 
 class _MembersPageState extends State<MembersPage> {
-  Session session = Session.session_21_22;
+  Session session = Session.session_22_23;
 
   Map<Session, Map<Role, List<Member>>> members = {};
 
