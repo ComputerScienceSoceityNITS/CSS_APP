@@ -1,10 +1,4 @@
-// ignore_for_file: unused_import
-
-import 'dart:ui';
 import '../widgets/event.dart';
-import 'package:lottie/lottie.dart';
-import 'package:flutter/material.dart';
-import 'package:flip_card/flip_card.dart';
 import 'package:cssapp/configs/configs.dart';
 
 class TechnoCards {

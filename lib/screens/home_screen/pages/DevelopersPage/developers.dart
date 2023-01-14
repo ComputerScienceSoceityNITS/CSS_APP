@@ -1,14 +1,10 @@
-import 'dart:ui';
-
-import 'package:cssapp/configs/configurations/pallet.dart';
 import 'package:cssapp/state_handlers/members/member_api.dart';
-import 'package:cssapp/utils/storage_handler.dart';
 import 'package:cssapp/widgets/head_member_card.dart';
+import 'package:fade_shimmer/fade_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/state_handlers/members/member.dart';
 import 'package:cssapp/widgets/widgets.dart';
 import 'package:provider/provider.dart';
-
 import '../../../../configs/text_style.dart';
 
 class Developers extends StatefulWidget {
@@ -19,20 +15,18 @@ class Developers extends StatefulWidget {
 }
 
 class _DevelopersState extends State<Developers> {
-  Session selectedSession = Session.session_21_22;
+  Session selectedSession = Session.session_22_23;
   Map members = {};
 
-  Widget PositionHeading(BuildContext ctx, String title) {
+  Widget positionHeading(BuildContext ctx, String title) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20.0),
-      child: Container(
-        child: Text(
-          title.toUpperCase(),
-          textAlign: TextAlign.center,
-          style: textLargeSpaced.copyWith(
-            color: Theme.of(context).backgroundColor,
-            fontSize: 30,
-          ),
+      child: Text(
+        title.toUpperCase(),
+        textAlign: TextAlign.center,
+        style: textLargeSpaced.copyWith(
+          color: Theme.of(context).backgroundColor,
+          fontSize: 30,
         ),
       ),
     );
@@ -46,17 +40,17 @@ class _DevelopersState extends State<Developers> {
 
   @override
   Widget build(BuildContext context) {
-    Member technicalHead = members[selectedSession]![Role.head]?.firstWhere(
+    Member? technicalHead = members[selectedSession]?[Role.head]?.firstWhere(
         (Member m) => m.role.toLowerCase().contains("technical head"));
 
-    List<Member> devWingHeads = members[selectedSession]![Role.devWing]?.where(
+    List<Member>? devWingHeads = members[selectedSession]?[Role.devWing]?.where(
       (Member m) {
         return m.role.toLowerCase().contains("head");
       },
     ).toList();
 
-    List<Member> devWingMemberes =
-        members[selectedSession]![Role.devWing]?.where(
+    List<Member>? devWingMemberes =
+        members[selectedSession]?[Role.devWing]?.where(
       (Member m) {
         return !m.role.toLowerCase().contains("head");
       },
@@ -89,18 +83,10 @@ class _DevelopersState extends State<Developers> {
                   ),
                 ],
               ),
-              PositionHeading(context, "Technical Head"),
+              positionHeading(context, "Technical Head"),
               Container(
-                child: members[selectedSession] == null
-                    ? const Padding(
-                        padding: EdgeInsets.all(15.0),
-                        child: MemberCard(
-                          imageLink: '',
-                          role: '',
-                          name: 'name',
-                          session: Session.session_21_22,
-                        ),
-                      )
+                child: technicalHead == null
+                    ? const Shimmer()
                     : HeadMemberCard(
                         imageLink: technicalHead.imageLink,
                         role: technicalHead.role,
@@ -112,24 +98,13 @@ class _DevelopersState extends State<Developers> {
                         insta: technicalHead.insta,
                       ),
               ),
-              PositionHeading(context, "Dev Wing Heads"),
+              positionHeading(context, "Dev Wing Heads"),
               SizedBox(
                 height: 250,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: members[selectedSession] == null
-                      ? [
-                          for (int i = 0; i < 5; i++)
-                            const Padding(
-                              padding: EdgeInsets.all(15.0),
-                              child: MemberCard(
-                                imageLink: '',
-                                role: '',
-                                name: 'name',
-                                session: Session.session_21_22,
-                              ),
-                            ),
-                        ]
+                  children: devWingHeads == null
+                      ? [for (int i = 0; i < 5; i++) const Shimmer()]
                       : devWingHeads.map(
                           (Member member) {
                             return HeadMemberCard(
@@ -146,24 +121,13 @@ class _DevelopersState extends State<Developers> {
                         ).toList(),
                 ),
               ),
-              PositionHeading(context, "Dev Wing members"),
+              positionHeading(context, "Dev Wing members"),
               SizedBox(
                 height: 250,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: members[selectedSession] == null
-                      ? [
-                          for (int i = 0; i < 5; i++)
-                            const Padding(
-                              padding: EdgeInsets.all(15.0),
-                              child: MemberCard(
-                                imageLink: '',
-                                role: '',
-                                name: 'name',
-                                session: Session.session_21_22,
-                              ),
-                            ),
-                        ]
+                  children: devWingMemberes == null
+                      ? [for (int i = 0; i < 5; i++) const Shimmer()]
                       : devWingMemberes.map(
                           (Member member) {
                             return MemberCard(
@@ -180,10 +144,29 @@ class _DevelopersState extends State<Developers> {
                         ).toList(),
                 ),
               ),
+              const SizedBox(height: 50)
             ],
           ),
         ),
       ],
+    );
+  }
+}
+
+class Shimmer extends StatelessWidget {
+  const Shimmer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      child: FadeShimmer(
+        height: 250,
+        width: 200,
+        radius: 4,
+        highlightColor: Color(0xffc0c3d3),
+        baseColor: Color(0xff999aa1),
+      ),
     );
   }
 }

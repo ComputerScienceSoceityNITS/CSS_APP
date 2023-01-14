@@ -13,10 +13,6 @@ class Assets {
       Image.asset('assets/images/background/music_controller.jpeg');
   static final Image cssLogoDark =
       Image.asset('assets/images/CSS_logo/CSS_logo_dark.png');
-  static final Image cssLogoLight =
-      Image.asset('assets/images/CSS_logo/CSS_logo_light.png');
-  static final Image cssHorizontalLogo =
-      Image.asset('assets/images/CSS_logo/horizontal_logo.jpg');
   static final Image cssLogo = Image.asset('assets/images/CSS_logo/logo.png');
   static final Image eventTIMGAbacusIIT =
       Image.asset('assets/images/event_thumbnails/Abacus-Iit.png');
@@ -54,58 +50,27 @@ class Assets {
       Image.asset('assets/images/events/esperanza/esperanza5.jpeg');
   static final Image eventEsperanza6 =
       Image.asset('assets/images/events/esperanza/esperanza6.jpeg');
-  static final Image framerAbhishekKumarJha =
-      Image.asset('assets/images/framers/Abhishek_Kumar_Jha.jpg');
-  static final Image framerAsifBhaiya =
-      Image.asset('assets/images/framers/AsifBhaiya.jpeg');
-  static final Image framerMahendraBhaiya =
-      Image.asset('assets/images/framers/MahendraBhaiya.jpeg');
+  static final Image framerAbhishekBharadwaz =
+      Image.asset('assets/images/framers/Abhishek Bharadwaz.png');
+  static final Image framerSourabhShah =
+      Image.asset('assets/images/framers/Sourabh Shah.jpg');
+  static final Image framerTeresaLouis =
+      Image.asset('assets/images/framers/Teresa Louis.jpg');
   static final Image framerMajhiSir =
       Image.asset('assets/images/framers/MajhiSir.jpeg');
-  static final Image framerManishBhaiya =
-      Image.asset('assets/images/framers/ManishBhaiya.jpeg');
-  static final Image framerSamikshaKulkarni =
-      Image.asset('assets/images/framers/Samiksha_Kulkarni.jpeg');
-  static final Image lottieLoaderGif = Image.asset(
-    "assets/loader.gif",
-    repeat: ImageRepeat.repeatY,
-  );
-  static final Image lottieTechnoGif = Image.asset(
-    "assets/techno.gif",
-    repeat: ImageRepeat.repeatY,
-  );
-
   static final LottieBuilder lottieAccounting =
       Lottie.asset('assets/lottie/accounting.json');
-  static final LottieBuilder lottieBell =
-      Lottie.asset('assets/lottie/bell.json');
   static final LottieBuilder lottieCSS = Lottie.asset('assets/lottie/CSS.json');
-  static final LottieBuilder lottieCultureBG2 =
-      Lottie.asset('assets/lottie/culture_bg2.json');
-  static final LottieBuilder lottieDevelopers =
-      Lottie.asset('assets/lottie/developers.json');
-  static final LottieBuilder lottieDrone =
-      Lottie.asset('assets/lottie/drone.json');
   static final LottieBuilder lottieLoader =
       Lottie.asset('assets/lottie/loader.json');
-  static final LottieBuilder lottieMouseDown =
-      Lottie.asset('assets/lottie/mouse_down.json');
   static final LottieBuilder lottieNetworking =
       Lottie.asset('assets/lottie/networking.json');
-  static final LottieBuilder lottieNewFeatures =
-      Lottie.asset('assets/lottie/new_features.json');
-  static final LottieBuilder lottiePlay =
-      Lottie.asset('assets/lottie/play.json');
   static final LottieBuilder lottieRainMan =
       Lottie.asset('assets/lottie/rainman.json');
-  static final LottieBuilder lottieReportToCSS =
-      Lottie.asset('assets/lottie/Report_to_CSS.json');
   static final LottieBuilder lottieSingSong =
       Lottie.asset('assets/lottie/sing_song.json');
   static final LottieBuilder lottieTeam =
       Lottie.asset('assets/lottie/team.json');
   static final LottieBuilder lottieTechno =
       Lottie.asset('assets/lottie/techno.json');
-  static final LottieBuilder lottieWorkingMan =
-      Lottie.asset('assets/lottie/working_man.json');
 }

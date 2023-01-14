@@ -34,22 +34,20 @@ class Event extends StatelessWidget {
             child: Text(
               stylisedChar ?? '',
               textAlign: TextAlign.right,
-              // style: textStylisedBlackChancerySmall.copyWith(
-              //     color: Pallet.accentColor),
-
               style: const TextStyle(
                 fontSize: 25,
                 color: Pallet.accentColor,
-                // fontFamily: "Round Pop"
               ),
             ),
           ),
-          Text(title,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 25,
-                  // fontFamily: "Round Pop",
-                  color: Theme.of(context).backgroundColor)),
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 25,
+              color: Theme.of(context).backgroundColor,
+            ),
+          ),
         ],
       ),
       const SizedBox(width: 10),
@@ -59,13 +57,13 @@ class Event extends StatelessWidget {
           titleLine2 ?? '',
           textAlign: TextAlign.center,
           style: TextStyle(
-              fontSize: 25,
-              // fontFamily: "Round Pop",
-              color: Theme.of(context).backgroundColor),
+            fontSize: 25,
+            color: Theme.of(context).backgroundColor,
+          ),
         ),
       ),
     ];
-    return Padding(
+    return Container(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: FlipCard(
         fill: Fill.fillBack,
@@ -105,11 +103,9 @@ class Event extends StatelessWidget {
                 child: Text(
                   details ?? '',
                   textAlign: TextAlign.center,
-                  // style: const TextStyle(color: Colors.white, fontSize: 10),
                   style: TextStyle(
-                    //fontFamily: "Round Pop",
                     color: Theme.of(context).backgroundColor,
-                    fontSize: 25,
+                    fontSize: 11,
                   ),
                 ),
               ),
@@ -117,10 +113,8 @@ class Event extends StatelessWidget {
                 (event) => Text(
                   event,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontSize: 25,
-                      //fontFamily: "Round Pop",
-                      color: Pallet.accentColor),
+                  style: const TextStyle(
+                      fontSize: 17, height: 1.3, color: Pallet.accentColor),
                 ),
               )
             ],
@@ -137,17 +131,21 @@ class _BaseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRect(
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaY: 10, sigmaX: 10),
-        child: Container(
-          width: 230,
-          height: 300,
-          decoration: BoxDecoration(
-            color: Colors.grey.shade200.withOpacity(0.1),
-            border: Border.all(width: 0.5, color: Colors.grey),
+    return SingleChildScrollView(
+      child: ClipRect(
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaY: 10, sigmaX: 10),
+          child: Container(
+            width: 230,
+            height: 300,
+            decoration: BoxDecoration(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.grey.shade200.withOpacity(0.1)
+                  : Colors.grey.shade200.withOpacity(0.9),
+              border: Border.all(width: 0.5, color: Colors.grey),
+            ),
+            child: child,
           ),
-          child: child,
         ),
       ),
     );

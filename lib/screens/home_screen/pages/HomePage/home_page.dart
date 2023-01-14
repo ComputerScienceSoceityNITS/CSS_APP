@@ -1,4 +1,3 @@
-import 'package:cssapp/screens/home_screen/pages/HomePage/widgets/carousel.dart';
 import 'package:cssapp/utils/storage_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/configs/configs.dart';
@@ -41,20 +40,22 @@ class HomePage extends StatelessWidget {
                       gradient: RadialGradient(
                         colors: [
                           Colors.white,
-                          Color.fromARGB(255, 250, 200, 124),
-                          Color.fromARGB(255, 255, 132, 173),
-                          Color.fromARGB(255, 251, 65, 127),
+                          const Color.fromARGB(255, 250, 200, 124)
+                              .withOpacity(0.9),
+                          const Color.fromARGB(255, 255, 132, 173)
+                              .withOpacity(0.9),
+                          const Color.fromARGB(255, 251, 65, 127)
+                              .withOpacity(0.9),
                           Colors.black
                         ],
-                        center: Alignment(-0.9, -0.5),
-                        focal: Alignment(-1.2, -0.3),
-                        stops: [0.04, 0.1, 0.3, 0.45, 1],
+                        center: const Alignment(-0.9, -0.5),
+                        focal: const Alignment(-1.2, -0.3),
+                        stops: const [0.04, 0.1, 0.3, 0.45, 1],
                         radius: 0.6,
                       ),
                     ),
                   ),
-            const Positioned(child: const CSSBGText(), bottom: 500, left: 170),
-            const LottieLoader(),
+            const Positioned(child: CSSBGText(), top: 100, left: 170),
             SingleChildScrollView(
               child: Column(
                 children: [
@@ -87,15 +88,22 @@ class HomePage extends StatelessWidget {
                   ),
                   Container(
                     width: double.infinity,
-                    color: Theme.of(context).canvasColor,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.white.withOpacity(0.3),
+                          Colors.white.withOpacity(0.3)
+                        ],
+                      ),
+                    ),
                     child: Container(
                       decoration: BoxDecoration(
                         gradient: RadialGradient(
                           colors:
                               Theme.of(context).brightness == Brightness.dark
-                                  ? [Colors.blue, Colors.black]
-                                  : [Colors.white, Colors.white],
-                          center: Alignment(0, -0.5),
+                                  ? [Colors.blue, Colors.transparent]
+                                  : [Colors.transparent, Colors.transparent],
+                          center: const Alignment(0, -0.5),
                         ),
                       ),
                       child: Column(

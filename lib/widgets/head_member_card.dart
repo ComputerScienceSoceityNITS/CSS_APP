@@ -60,10 +60,8 @@ class HeadMemberCard extends StatelessWidget {
                   isScrollControlled: true,
                   builder: (context) => SingleChildScrollView(
                     child: ConnectMember(
-                      imageLink: imageLink,
                       role: role,
                       name: name,
-                      session: session,
                       fb: fb,
                       git: git,
                       insta: insta,
@@ -72,96 +70,91 @@ class HeadMemberCard extends StatelessWidget {
                   ),
                 );
               },
-              child: Container(
-                child: Stack(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Pallet.accentColor,
-                          width: 3
-                        ),
-                        borderRadius: BorderRadius.circular(18),
-                      ),
-                      child: SizedBox(
-                        height: 250,
-                        width: 200,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(15),
-                          child: Image(
-                            image: CachedNetworkImageProvider(imageLink),
-                            fit: BoxFit.cover,
-                          ),
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Pallet.accentColor, width: 3),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    child: SizedBox(
+                      height: 250,
+                      width: 200,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image(
+                          image: CachedNetworkImageProvider(imageLink),
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
-                    Positioned.fill(
-                      child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Container(
-                          height: 75,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: Pallet.accentColor.withOpacity(0.7),
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(15.0),
-                              topRight: Radius.circular(15.0),
-                              bottomLeft: Radius.circular(15.0),
-                              bottomRight: Radius.circular(15.0),
-                            ),
+                  ),
+                  Positioned.fill(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        height: 75,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Pallet.accentColor.withOpacity(0.7),
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(15.0),
+                            topRight: Radius.circular(15.0),
+                            bottomLeft: Radius.circular(15.0),
+                            bottomRight: Radius.circular(15.0),
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  role,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 8),
-                                child: Text(
-                                  name,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w900,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 8.0),
-                                child: Container(
-                                  height: 0.5,
-                                  width: 140,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                role,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
                                   color: Colors.white,
+                                  fontSize: 12,
                                 ),
                               ),
-                              const SizedBox(height: 10),
-                              const Padding(
-                                padding: EdgeInsets.only(right: 8.0),
-                                child: Text(
-                                  "Click to Connect",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 10,
-                                  ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8),
+                              child: Text(
+                                name,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w900,
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8.0),
+                              child: Container(
+                                height: 0.5,
+                                width: 140,
+                                color: Colors.white,
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            const Padding(
+                              padding: EdgeInsets.only(right: 8.0),
+                              child: Text(
+                                "Click to Connect",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           );

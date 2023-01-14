@@ -1,4 +1,3 @@
-import 'package:cssapp/utils/storage_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'tabs/esperanza.dart';
@@ -19,43 +18,17 @@ class _GalleryPageState extends State<GalleryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-      child: Stack(children: [
-        !StorageHandler().isDarkTheme()
-            ? Container(
-                height: double.infinity,
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    stops: [0.1, 0.3, 0.7, 0.8, 1],
-                    colors: [
-                      Color.fromARGB(138, 255, 64, 128),
-                      Color.fromARGB(125, 231, 186, 186),
-                      Color.fromARGB(170, 94, 144, 231),
-                      Color.fromARGB(132, 96, 125, 139),
-                      Color.fromARGB(170, 255, 64, 128)
-                    ],
-                  ),
-                ),
-              )
-            : Container(
-                height: double.infinity,
-                width: double.infinity,
-                color: Colors.black,
-              ),
-        SingleChildScrollView(
-          child: Stack(
+      child: ListView(
+        children: [
+          Stack(
             children: [
               Container(
                 alignment: Alignment.bottomRight,
                 height: 200,
-                child: AnimatedOpacity(
+                child: Opacity(
                   opacity: 0.7,
-                  duration: const Duration(milliseconds: 10),
                   child: LottieBuilder(
                     lottie: Assets.lottieSingSong.lottie,
-                    frameRate: FrameRate(1),
                   ),
                 ),
               ),
@@ -63,49 +36,41 @@ class _GalleryPageState extends State<GalleryPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 10),
-                    padding: const EdgeInsets.fromLTRB(0, 80, 0, 0),
-                    alignment: Alignment.topCenter,
+                  const SizedBox(
+                    height: 90,
                   ),
-                  Container(
-                      alignment: Alignment.center,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          SizedBox(
-                            width: 60,
-                            height: 63,
-                            child: Card(
-                              color: Pallet.accentColor,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5)),
-                              child: const Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: Text(
-                                  "G",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 48,
-                                    color: Colors.white,
-                                    fontFamily: 'ExtraOrnamentalNo2',
-                                    // fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Container(
+                        width: 50,
+                        height: 53,
+                        decoration: BoxDecoration(
+                            color: Pallet.accentColor,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: const Text(
+                          "G",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 36,
+                            color: Colors.white,
+                            fontFamily: 'Segoe Font',
+                            // fontWeight: FontWeight.bold,
                           ),
-                          Text(
-                            "ALLERY",
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: Theme.of(context).backgroundColor,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      )),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        "ALLERY",
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: Theme.of(context).backgroundColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
                   Container(
                     alignment: Alignment.center,
                     height: 60,
@@ -125,9 +90,6 @@ class _GalleryPageState extends State<GalleryPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // const SizedBox(
-                      //   width: 30,
-                      // ),
                       GestureDetector(
                         onTap: () => setState(() {
                           esperanzaSelected = true;
@@ -170,8 +132,7 @@ class _GalleryPageState extends State<GalleryPage> {
                     ],
                   ),
                   SizedBox(
-                    child:
-                        esperanzaSelected ? const Esperanza() : const Abacus(),
+                    child: esperanzaSelected ? Esperanza() : Abacus(),
                   ),
                 ],
               ),
@@ -180,8 +141,8 @@ class _GalleryPageState extends State<GalleryPage> {
               ),
             ],
           ),
-        ),
-      ]),
+        ],
+      ),
     ));
   }
 }

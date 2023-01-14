@@ -18,13 +18,11 @@ class EventText extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5),
             ),
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                "E",
-                textAlign: TextAlign.center,
-                style: textStylisedOrnamentalMedium,
-              ),
+            child: const Text(
+              "E",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontFamily: 'Segoe Font', color: Colors.white, fontSize: 40),
             ),
           ),
         ),

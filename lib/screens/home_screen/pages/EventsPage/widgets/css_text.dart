@@ -16,7 +16,14 @@ class CSSText extends StatelessWidget {
           border: Border.all(width: 0.5, color: Colors.grey),
         ),
         child: const Center(
-          child: Text("CSS", style: textStylisedGeostarSmall),
+          child: Text(
+            "CSS",
+            style: TextStyle(
+                fontFamily: 'Segoe Font',
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 24),
+          ),
         ),
         width: 100,
         height: 50,
