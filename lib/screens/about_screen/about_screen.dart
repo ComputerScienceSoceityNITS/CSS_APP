@@ -88,10 +88,6 @@ class _AboutUsState extends State<AboutUs> {
                             textAlign: TextAlign.center,
                             style: textLarge.copyWith(
                                 color: Theme.of(context).backgroundColor)),
-                        _Link(
-                            child: Assets.cssLogoDark,
-                            link: 'https://nitscss.live/',
-                            text: "CSS Website"),
                         const _Link(
                             icon: Icons.facebook,
                             link:
@@ -102,6 +98,16 @@ class _AboutUsState extends State<AboutUs> {
                             link:
                                 'https://www.youtube.com/channel/UC8tCBXmdKueuFODn_IngQrg',
                             text: "Youtube"),
+                               SizedBox(height: gap,),
+                        Text("WebSite",
+                            textAlign: TextAlign.center,
+                            style: textLarge.copyWith(
+                                color: Theme.of(context).backgroundColor)),
+                        _Link(
+                            child: Assets.cssLogoDark,
+                            link: 'https://nitscss.live/',
+                            text: "CSS Website"),
+                            SizedBox(height: gap,),
                         Padding(
                           padding: const EdgeInsets.only(top: 30, bottom: 10),
                           child: Text(

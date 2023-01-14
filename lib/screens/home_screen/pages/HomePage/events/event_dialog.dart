@@ -117,8 +117,8 @@ class _EventDialogState extends State<EventDialog> {
                     Container(
                       height: screenSize.height * widget.coverScreenPercentage,
                       decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.7),
-                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.black.withOpacity(0.6),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                     Padding(
@@ -170,52 +170,55 @@ class _EventDialogState extends State<EventDialog> {
                                         color: Colors.white),
                               ),
                               const SizedBox(height: 15),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  GestureDetector(
-                                    onTap: (widget.link == null)
-                                        ? () {
-                                            Navigator.of(context).pop();
-                                            Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const HomeScreen(
-                                                  initialIndex: 1,
-                                                ),
-                                              ),
-                                            );
-                                          }
-                                        : () => launch(widget.link ?? ''),
-                                    child: widget.link != null
-                                        ? Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                "Learn More",
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyText1
-                                                    ?.copyWith(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 12,
-                                                      color: Pallet.accentColor,
+                              widget.link != Null
+                                  ? Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        GestureDetector(
+                                          onTap: (widget.link == null)
+                                              ? () {
+                                                  Navigator.of(context).pop();
+                                                  Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const HomeScreen(
+                                                        initialIndex: 1,
+                                                      ),
                                                     ),
-                                              ),
-                                              const Icon(
-                                                Icons.arrow_right,
-                                                color: Colors.white,
-                                                size: 18,
-                                              ),
-                                            ],
-                                          )
-                                        : const SizedBox.shrink(),
-                                  ),
-                                ],
-                              ),
+                                                  );
+                                                }
+                                              : () => launch(widget.link ?? ''),
+                                          child: widget.title == "DEV WING "
+                                              ? Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      "Learn More",
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodyText1
+                                                          ?.copyWith(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontSize: 12,
+                                                            color: Pallet
+                                                                .accentColor,
+                                                          ),
+                                                    ),
+                                                    const Icon(
+                                                      Icons.arrow_right,
+                                                      color: Colors.white,
+                                                      size: 18,
+                                                    ),
+                                                  ],
+                                                )
+                                              : const SizedBox.shrink(),
+                                        ),
+                                      ],
+                                    )
+                                  : Row(),
                             ]),
                       ),
                     ),

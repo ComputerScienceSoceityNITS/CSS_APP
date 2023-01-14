@@ -9,39 +9,49 @@ class Events extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Event> events = [
       Event(
-        title: "ESPERANZA",
+        title: "EXECUTIVE WING ",
         desc:
-            "The event that excites every first-year guy and girl, which not only build their confidence but also add creativity to their levels. The main aim of this party is to give a warm welcome to the new comers. It is accompanied with so many colourful events and programs like ramp walk, traditional, fusion, and western dances, exhilarating singing performances, and splendid decoration, thus making it a soulful evening.",
-        img: Assets.bgMusicController,
+            "The Executive Wing of CSS is considered to be the backbone of the entire Computer Science Society. With the goal of making each and every event, module, and session organized under the banner of CSS a grand success, the wing manages, coordinates, and arranges resources and assets to ensure a smooth workflow among all the individual wings. The wing thus forms the binding force between the various sub-wings, thereby making every inch of hard work a grand success. ",
+        img: Assets.wing_executive,
+      ),
+       Event(
+        title: "DEV WING ",
+        desc:
+            "The Developers-Wing of CSS is one of the most significant parts of the society and is responsible for maintaining and upgrading the official Website and App of the Society. The wing is targeted to provide a platform for the junior members of the CSE branch to showcase and upskill their technical knowledge while working on industry-standard projects. It is an ever-growing and expanding group of enthusiastic developers that take pride in building real-world projects and contributing to the proper functioning of our society",
+        img: Assets.wing_dev,
+        link: "https://github.com/ComputerScienceSoceityNITS",
       ),
       Event(
-        title: "ENIGMA",
+        title: "CP WING",
         desc:
-            "Computer Science Society organizes coding contests for first year students. This contest being open to all enhances a good competitive environment for the students. The questions are made such that even students will little or basic Knowledge of programming can surely attempt the questions. Learning programming is now an essential skill for various placement interviews and our society encourages more and more participation in such activities",
-        img: Assets.bgCode,
+            "The CP-Wing is a crucial part of CSS which is responsible for the improvement of problem-solving skills, along with the strengthening of the core DSA concepts which also serves as a torchbearer for students in the field of CP. The CP-Wing works hard to produce better and more efficient coders, who will then be able to help take the world to even greater heights, exclusively for the benefit of our students. ",
+        img: Assets.wing_cp,
+      ),
+     
+      Event(
+        title: "ML WING ",
+        desc:
+            "The ML Wing of CSS is mainly responsible for developing a culture of machine learning and other aspects of artificial intelligence in our college. In order to help budding ML and AI enthusiasts, the wing also organize different events, workshops, speaker sessions, etc. in the domains of AI and ML. All the members of ML Wing are highly motivated and enthusiastic to work towards the greater good of the CSS society. ",
+        img: Assets.wing_ml,
       ),
       Event(
-        title: "ABACUS",
+        title: "PR WING  ",
         desc:
-            "The annual Computer Science and Engineering week - ABACUS! The excitement begins each year, for the Annual week of the CSE department in which different games and competitions takes place where everyone gets a cool opportunity to prove their skills down and claim the prize money.But the most unique point about it is that it gives you, the freshers, the opportunity to become organizers, to present your ideas, instead of just participating and enables you to learn numerous things.",
-        img: Assets.bgAbacus,
-        link: "https://www.facebook.com/csenitsabacus",
+            "The Public Relations Wing of the Computer Science Society, NIT Silchar Society is the division responsible for maintaining Relations of the Society with External Entities, Organizations, and Individuals. The PR Wing of the CSS, NIT Silchar works closely with other Wings of the society to ensure that all of the society’s activities are effectively carried out and hereby make an impression on the image of the Society holistically. ",
+        img: Assets.wing_pr,
       ),
       Event(
-        title: "BITSCRIBE",
+        title: "DESIGN WING ",
         desc:
-            "Every year, the Computer Science society excels in doing something new and innovative. It doesn’t remain dormant. The newsletter ‘bitscribe’ is a recent gift for the students of NIT Silchar from the society.It consists of articles by alumni as well as the current students of CSE which are full of motivation and knowledge. The newsletter requires a lot of effort and unity which shows the potential and efforts of the society.Whatever the society does, it never compromises with quality!",
-        img: Assets.bgMagazine,
-        link:
-            "https://issuu.com/bitscribe/docs/bitscribe_1_?fbclid=IwAR3WTcvsRco6gI-enMchIkBfhzKInZIgliMYlxi-TLOb1SxVK_7-sH7mJyQ",
+            "The Design Wing of CSS is a community of designers whose goal is to provide a good environment for designers to grow their existing talent and sharpen it by working on real-world projects for our society. It focuses on conducting introductory sessions on the basics of design and industry-standard tools such as Adobe Illustrator, Adobe Photoshop, Adobe Premiere Pro, Adobe After Effects, Figma, etc. The wing believes in the fact that everyone can be a designer with just a little bit of practice and dedication. ",
+        img: Assets.wing_design,
       ),
       Event(
-        title: "LIT WEEK",
+        title: "LITERARY WING ",
         desc:
-            "The annual Computer Science and Engineering week - Abacus, is right around the corner.” Yeah, this is how the excitement begins each year, for the Annual week of the CSE dept. in which different games and competitions takes place where everyone gets a cool opportunity to prove their skills down and claim the prize money.But the most unique point about it is that it gives you, the freshers, the opportunity to become organizers, to present your ideas, instead of just participating and enables you to learn numerous things.",
-        img: Assets.bgFlower,
-        link: "https://www.facebook.com/CSS.NITSilchar",
-      )
+            "The Literary wing of CSS takes care of all the literary work published and managed by the Computer Science Society of NIT Silchar. From social media posts, technical and website content for the official CSS website and Play Store application to description taglines of social media handles, the literary wing handles it all. BITSCRIBE, the annual magazine of the Computer Science Society, is also compiled and published by the literary wing. ",
+        img: Assets.wing_lit,
+      ),
     ];
 
     return Column(

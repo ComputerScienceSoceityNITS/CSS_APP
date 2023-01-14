@@ -63,6 +63,7 @@ class _EventState extends State<Event> {
           width: double.infinity,
           height: widget.height,
           decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.9),
             borderRadius: BorderRadius.circular(5),
             image: DecorationImage(
               image: widget.img.image,
@@ -82,8 +83,8 @@ class _EventState extends State<Event> {
                       fontSize: 24,
                       foreground: Paint()
                         ..style = PaintingStyle.stroke
-                        ..strokeWidth = 6
-                        ..color = Colors.black.withOpacity(0.4),
+                        ..strokeWidth = 8
+                        ..color = Colors.black.withOpacity(0.6),
                     ),
                   ),
                   // Solid text as fill.
