@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cssapp/configs/configs.dart';
 
+import '../../../../../widgets/member_connect_slide_up.dart';
 import 'executive_member_bottom_sheet.dart';
 
 // TODO: WORK LEFT
@@ -19,67 +20,79 @@ class ExecutiveMembers extends StatelessWidget {
       professorProfile: "http://cs.nits.ac.in/uma/",
     ),
     _ExecutiveMember(
-      title: "GENERAL SECRETARY",
-      img: Assets.framerSamikshaKulkarni,
-      name: "Samiksha Kulkarni",
-      details: "+91 6000844282",
+      title: "TECHNICAL HEAD",
+      img: Assets.framerSourabhShah,
+      name: "Sourabh Shah",
+      details: "",
       email: "",
-      faceBook: "https://www.facebook.com/samiksha.kulkarni.5201",
-      linkedin: "https://www.linkedin.com/in/samiksha-kulkarni-aa5015185/",
-      gitHub: "https://github.com/samiksha0408",
+      faceBook: "https://www.facebook.com/sourab579/",
+      linkedin: "https://www.linkedin.com/in/sourabh-shah-1b6225192/",
+      gitHub: "https://github.com/SRV1030",
     ),
     _ExecutiveMember(
-      title: "TECHNICAL HEAD",
-      img: Assets.framerAbhishekKumarJha,
-      name: "Abhishek Kumar Jha",
-      details: "+91 9101810767",
+      title: "GENERAL SECRETARY",
+      img: Assets.framerAbhishekBharadwaz,
+      name: "Abhishek Bharadwaz",
+      details: "",
       email: "",
-      faceBook: "https://www.facebook.com/kehsihba19",
-      linkedin: "https://www.linkedin.com/in/kehsihba19/",
-      gitHub: "https://github.com/kehsihba19",
+      faceBook: "https://www.facebook.com/bharadwaz.abhishek/",
+      insta: "https://www.instagram.com/bharadwaz_abhishek/",
+      linkedin: "https://www.linkedin.com/in/abhishek-bharadwaz/",
+      gitHub: "https://github.com/4Marsha1",
+    ),
+    _ExecutiveMember(
+      title: "PRESIDENT",
+      img: Assets.framerTeresaLouis,
+      name: "Teresa Louis",
+      details: "",
+      email: "",
+      faceBook: "https://www.facebook.com/teresa.louis1",
+      linkedin: "https://www.linkedin.com/in/teresa-louis-80974b1a0/",
+      gitHub: "https://github.com/tracyber",
     ),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        child: Padding(
-      padding: const EdgeInsets.fromLTRB(0, 35, 0, 35),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 35),
       child: Wrap(
-          direction: Axis.vertical,
-          spacing: 10,
-          children: members.map((_ExecutiveMember entry) {
-            return entry.card(context);
-          }).toList()),
-    ));
+        direction: Axis.vertical,
+        spacing: 10,
+        children: members,
+      ),
+    );
   }
 }
 
-class _ExecutiveMember {
+class _ExecutiveMember extends StatelessWidget {
   final String title;
   final Image img;
   final String name;
-  final String details;
-  final String email;
-  final String faceBook;
-  final String linkedin;
-  String? gitHub;
-  String? professorProfile;
+  final String? details;
+  final String? email;
+  final String? faceBook;
+  final String? linkedin;
+  final String? insta;
+  final String? gitHub;
+  final String? professorProfile;
   final double profileHeight = 120;
-
-  _ExecutiveMember({
+  const _ExecutiveMember({
+    Key? key,
     required this.title,
     required this.img,
     required this.name,
-    required this.details,
-    required this.email,
-    required this.faceBook,
-    required this.linkedin,
+    this.details,
+    this.email,
+    this.faceBook,
+    this.linkedin,
+    this.insta,
     this.gitHub,
     this.professorProfile,
-  });
+  }) : super(key: key);
 
-  Widget card(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (() {
         showModalBottomSheet(
@@ -91,17 +104,16 @@ class _ExecutiveMember {
             ),
           ),
           isScrollControlled: true,
-          builder: ((context) {
-            return ExecutiveMemberBottomSheet(
+          builder: (context) => SingleChildScrollView(
+            child: ConnectMember(
               role: title,
               name: name,
-              details: details,
-              faceBook: faceBook,
-              linkedIn: linkedin,
-              gitHub: gitHub,
-              professorProfile: professorProfile,
-            );
-          }),
+              fb: faceBook,
+              git: gitHub,
+              insta: insta,
+              linkedin: linkedin,
+            ),
+          ),
         );
       }),
       child: Container(
@@ -167,11 +179,11 @@ class _ExecutiveMember {
                       textAlign: TextAlign.center,
                       style: textSmall.copyWith(
                           color: Theme.of(context).backgroundColor)),
-                  Text(details,
+                  Text(details ?? '',
                       textAlign: TextAlign.center,
                       style: textSmall.copyWith(
                           color: Theme.of(context).backgroundColor)),
-                  Text(email,
+                  Text(email ?? '',
                       textAlign: TextAlign.center,
                       style: textSmall.copyWith(
                           color: Theme.of(context).backgroundColor)),
