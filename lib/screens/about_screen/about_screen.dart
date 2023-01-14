@@ -88,6 +88,8 @@ class _AboutUsState extends State<AboutUs> {
                             textAlign: TextAlign.center,
                             style: textLarge.copyWith(
                                 color: Theme.of(context).backgroundColor)),
+
+                        
                         const _Link(
                             icon: Icons.facebook,
                             link:
@@ -98,6 +100,7 @@ class _AboutUsState extends State<AboutUs> {
                             link:
                                 'https://www.youtube.com/channel/UC8tCBXmdKueuFODn_IngQrg',
                             text: "Youtube"),
+
                                SizedBox(height: gap,),
                         Text("WebSite",
                             textAlign: TextAlign.center,
