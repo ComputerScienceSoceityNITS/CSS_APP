@@ -2,6 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:lottie/lottie.dart';
 
 class Assets {
+  static final Image wing_pr = Image.asset('assets/wing_images/pr.jpg');
+  static final Image wing_cp = Image.asset('assets/wing_images/cp.png');
+  static final Image wing_dev = Image.asset('assets/wing_images/dev.jpg');
+  static final Image wing_executive =
+      Image.asset('assets/wing_images/executive.jpg');
+  static final Image wing_lit = Image.asset('assets/wing_images/lit.jpg');
+  static final Image wing_ml = Image.asset('assets/wing_images/ml.jpg');
+  static final Image wing_design = Image.asset('assets/wing_images/design.jpg');
+
   static final Image bgAbacus =
       Image.asset('assets/images/background/abacus.jpg');
   static final Image bgCode = Image.asset('assets/images/background/code.jpeg');
