@@ -68,7 +68,7 @@ class _EventState extends State<Event> {
             image: DecorationImage(
               image: widget.img.image,
               fit: BoxFit.cover,
-              opacity: 0.9,
+              opacity: 0.7,
             ),
           ),
           child: Container(

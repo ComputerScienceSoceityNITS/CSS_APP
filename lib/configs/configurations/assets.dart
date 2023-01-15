@@ -22,6 +22,8 @@ class Assets {
       Image.asset('assets/images/background/music_controller.jpeg');
   static final Image cssLogoDark =
       Image.asset('assets/images/CSS_logo/CSS_logo_dark.png');
+  static final Image cssLogoLight =
+      Image.asset('assets/images/CSS_logo/CSS_logo_light.png');
   static final Image cssLogo = Image.asset('assets/images/CSS_logo/logo.png');
   static final Image eventTIMGAbacusIIT =
       Image.asset('assets/images/event_thumbnails/Abacus-Iit.png');

@@ -2,6 +2,7 @@
 
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:cssapp/state_handlers/theme/theme_handler.dart';
+import 'package:cssapp/utils/storage_handler.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'pages/EventsPage/events_page.dart';
@@ -58,23 +59,50 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       endDrawer: NavigationDrawer(),
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.fromLTRB(8, 8, 0, 0),
-        child: Builder(builder: (context) {
-          return FloatingActionButton(
-            elevation: 100,
-            child: Icon(
-              Icons.menu,
-              color: Theme.of(context).backgroundColor,
-              size: 33,
-            ),
-            backgroundColor: Theme.of(context).backgroundColor.withOpacity(0),
-            onPressed: () {
-              Scaffold.of(context).openEndDrawer();
-            },
-            foregroundColor: Theme.of(context).backgroundColor,
-          );
-        }),
+      floatingActionButton: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(26, 8, 0, 0),
+            child: Builder(builder: (context) {
+              return FloatingActionButton(
+                elevation: 100,
+                child: Icon(
+                  StorageHandler().isDarkTheme()
+                      ? Icons.light_mode_outlined
+                      : Icons.dark_mode_outlined,
+                  color: StorageHandler().isDarkTheme() ? Colors.black : Colors.white,
+                  size: 33,
+                ),
+                backgroundColor: StorageHandler().isDarkTheme() ? Colors.white : Colors.pink,
+                onPressed: () {
+                  Provider.of<ThemeHandler>(context, listen: false)
+                      .toggleTheme();
+                },
+                foregroundColor: Theme.of(context).backgroundColor,
+              );
+            }),
+          ),
+          Spacer(),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8, 8, 0, 0),
+            child: Builder(builder: (context) {
+              return FloatingActionButton(
+                elevation: 100,
+                child: Icon(
+                  Icons.menu,
+                  color: Theme.of(context).backgroundColor,
+                  size: 33,
+                ),
+                backgroundColor:
+                    Theme.of(context).backgroundColor.withOpacity(0),
+                onPressed: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
+                foregroundColor: Theme.of(context).backgroundColor,
+              );
+            }),
+          ),
+        ],
       ),
       body: PageView(
         controller: _pageController,

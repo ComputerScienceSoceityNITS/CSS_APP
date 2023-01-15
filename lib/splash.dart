@@ -1,4 +1,5 @@
 import 'package:cssapp/state_handlers/members/member_api.dart';
+import 'package:cssapp/utils/storage_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/screens/home_screen/home_screen.dart';
 import 'package:provider/provider.dart';
@@ -37,10 +38,12 @@ class _SplashState extends State<Splash> {
     return Scaffold(
       body: Center(
         child: SizedBox(
-          height: 200,
-          width: 200,
+          height: 400,
+          width: 400,
           child: Image(
-            image: Assets.cssLogo.image,
+            image: StorageHandler().isDarkTheme()
+                ? Assets.cssLogoLight.image
+                : Assets.cssLogoDark.image,
             fit: BoxFit.contain,
           ),
         ),
