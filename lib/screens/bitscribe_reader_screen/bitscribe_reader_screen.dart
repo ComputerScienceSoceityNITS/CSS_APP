@@ -1,3 +1,5 @@
+// ignore_for_file: unused_catch_stack
+
 import 'dart:io';
 import 'package:cssapp/configs/configs.dart';
 import 'package:cssapp/screens/home_screen/home_screen.dart';

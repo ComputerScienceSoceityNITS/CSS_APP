@@ -15,13 +15,6 @@ class EventsPage extends StatefulWidget {
 
 class _EventsPageState extends State<EventsPage> {
   bool technoEventsSelected = true;
-  static final List<String> wingsname = [
-    "Executive wing",
-    "Dev wing",
-    "CP wing",
-    "PR wing",
-    "ML wing"
-  ];
 
   @override
   Widget build(BuildContext context) {

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 import 'package:cssapp/screens/home_screen/home_screen.dart';
 import 'widgets/custom_form_field.dart';
