@@ -70,16 +70,94 @@ class HeadMemberCard extends StatelessWidget {
                   ),
                 );
               },
+              child: head_card(imageLink: imageLink, role: role, name: name),
+            ),
+          );
+  }
+}
+
+class head_card extends StatelessWidget {
+  const head_card({
+    Key? key,
+    required this.imageLink,
+    required this.role,
+    required this.name,
+  }) : super(key: key);
+
+  final String imageLink;
+  final String role;
+  final String name;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 240,
+      height: 250,
+      child: Stack(
+        children: [
+          Align(
+            alignment: AlignmentDirectional.bottomCenter,
+            child: Container(
+              decoration: BoxDecoration(
+                  border: Border.all(
+                    width: 2,
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.black,
+                  ),
+                  borderRadius: BorderRadius.circular(10)),
+              width: 170,
+              height: 220,
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  margin: EdgeInsets.only(bottom: 8),
+                  height: 24,
+                  width: 100,
+                  padding: EdgeInsets.only(bottom: 10),
+                  child: Center(
+                    child: Text(
+                      "Click to Connect",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.black
+                            : Colors.white,
+                      ),
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 250, 141, 221),
+                      borderRadius: BorderRadius.circular(10)),
+                ),
+              ),
+              // color: Color.fromARGB(255, 251, 250, 250),
+            ),
+          ),
+          Align(
+            alignment: AlignmentDirectional.topCenter,
+            child: Container(
+              // decoration: BoxDecoration(borderRadius: BorderRadius.circular(18)),
+              width: 150,
+              height: 200,
+              // color: Color.fromARGB(255, 67, 54, 8),
               child: Stack(
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      border: Border.all(color: Pallet.accentColor, width: 3),
+                      border: Border.all(
+                        width: 2,
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : Colors.black,
+                      ),
                       borderRadius: BorderRadius.circular(18),
                     ),
                     child: SizedBox(
-                      height: 250,
-                      width: 200,
+                      height: 200,
+                      width: 180,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
                         child: Image(
@@ -96,7 +174,7 @@ class HeadMemberCard extends StatelessWidget {
                         height: 75,
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: Pallet.accentColor.withOpacity(0.7),
+                          color: Colors.black.withOpacity(0.4),
                           borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(15.0),
                             topRight: Radius.circular(15.0),
@@ -130,25 +208,6 @@ class HeadMemberCard extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 8.0),
-                              child: Container(
-                                height: 0.5,
-                                width: 140,
-                                color: Colors.white,
-                              ),
-                            ),
-                            const SizedBox(height: 10),
-                            const Padding(
-                              padding: EdgeInsets.only(right: 8.0),
-                              child: Text(
-                                "Click to Connect",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 10,
-                                ),
-                              ),
-                            ),
                           ],
                         ),
                       ),
@@ -157,6 +216,9 @@ class HeadMemberCard extends StatelessWidget {
                 ],
               ),
             ),
-          );
+          ),
+        ],
+      ),
+    );
   }
 }
