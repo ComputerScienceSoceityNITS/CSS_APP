@@ -45,6 +45,7 @@ flutter:
     - assets/images/background/
     - assets/images/CSS_logo/
     - assets/images/event_thumbnails/
+    # - assets/images/event_thumbnails/dev-workshop
     - assets/images/events/abacus/
     - assets/images/events/esperanza/
     - assets/images/framers/

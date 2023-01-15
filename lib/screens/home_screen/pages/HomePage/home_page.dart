@@ -55,7 +55,8 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-            const Positioned(child: CSSBGText(), top: 100, left: 170),
+            const Positioned(child: CSSBGText(), top: 230, left: 120),
+            //const Positioned(child: CSSBGText(), top: 100, left: 170),
             SingleChildScrollView(
               child: Column(
                 children: [
@@ -82,7 +83,7 @@ class HomePage extends StatelessWidget {
                     child: SizedBox(
                       width: double.infinity,
                       child: LottieBuilder(
-                          lottie: Assets.lottieNetworking.lottie,
+                          lottie: Assets.lottiecssremake.lottie,
                           fit: BoxFit.fitHeight),
                     ),
                   ),

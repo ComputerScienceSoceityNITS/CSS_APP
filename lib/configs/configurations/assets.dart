@@ -73,4 +73,6 @@ class Assets {
       Lottie.asset('assets/lottie/team.json');
   static final LottieBuilder lottieTechno =
       Lottie.asset('assets/lottie/techno.json');
+  static final LottieBuilder lottiecssremake =
+      Lottie.asset('assets/lottie/cssglobe.json');
 }
