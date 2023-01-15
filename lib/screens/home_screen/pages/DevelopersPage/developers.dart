@@ -49,7 +49,7 @@ class _DevelopersState extends State<Developers> {
       },
     ).toList();
 
-    List<Member>? devWingMemberes =
+    List<Member>? devWingMembers =
         members[selectedSession]?[Role.devWing]?.where(
       (Member m) {
         return !m.role.toLowerCase().contains("head");
@@ -84,7 +84,8 @@ class _DevelopersState extends State<Developers> {
                 ],
               ),
               positionHeading(context, "Technical Head"),
-              Container(
+              SizedBox(
+                height: 320,
                 child: technicalHead == null
                     ? const Shimmer()
                     : HeadMemberCard(
@@ -100,7 +101,7 @@ class _DevelopersState extends State<Developers> {
               ),
               positionHeading(context, "Dev Wing Heads"),
               SizedBox(
-                height: 250,
+                height: 320,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: devWingHeads == null
@@ -123,12 +124,12 @@ class _DevelopersState extends State<Developers> {
               ),
               positionHeading(context, "Dev Wing members"),
               SizedBox(
-                height: 250,
+                height: 320,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: devWingMemberes == null
+                  children: devWingMembers == null
                       ? [for (int i = 0; i < 5; i++) const Shimmer()]
-                      : devWingMemberes.map(
+                      : devWingMembers.map(
                           (Member member) {
                             return MemberCard(
                               imageLink: member.imageLink,

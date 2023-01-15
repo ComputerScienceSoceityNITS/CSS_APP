@@ -43,7 +43,7 @@ class MembersScroll extends StatelessWidget {
             if (posts == null ||
                 (posts![wing] != null && posts![wing]!.isNotEmpty))
               SizedBox(
-                height: 250,
+                height: 320,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: posts == null ? 5 : posts![wing]!.length,
