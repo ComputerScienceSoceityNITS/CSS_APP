@@ -17,7 +17,12 @@ enum Role {
   technical,
 }
 
-enum Session { session_19_20, session_20_21, session_21_22 }
+enum Session {
+  session_19_20,
+  session_20_21,
+  session_21_22,
+  session_22_23,
+}
 
 Map<Role, String> mapRole = {
   Role.head: "Heads",
@@ -34,16 +39,19 @@ Map<Role, String> mapRole = {
 Map<Session, String> mapSession = {
   Session.session_19_20: "19-20",
   Session.session_20_21: "20-21",
-  Session.session_21_22: "21-22"
+  Session.session_21_22: "21-22",
+  Session.session_22_23: "22-23"
 };
 Map<String, Session> reverseMapSession = {
   "19-20": Session.session_19_20,
   "20-21": Session.session_20_21,
   "21-22": Session.session_21_22,
+  "22-23": Session.session_22_23,
 };
 
 class MemberApi extends ChangeNotifier {
-  final String apiLink = "https://tasty-crab-hosiery.cyclic.app/api/admin/members/";
+  final String apiLink =
+      "http://css-cms.up.railway.app/api/admin/members/";
 
   Map<Session, Map<Role, List<Member>>> members =
       {}; // First map maps to the session and the inner map maps to the role
@@ -104,7 +112,7 @@ class MemberApi extends ChangeNotifier {
         } else if (r.toLowerCase().contains("ml")) {
           role2 = Role.mlWing;
         } else if (r.toLowerCase().contains("dev")) {
-            role2 = Role.devWing;
+          role2 = Role.devWing;
         } else if (r.toLowerCase().contains("literary")) {
           role2 = Role.literaryWing;
         } else if (r.toLowerCase().contains("cp")) {

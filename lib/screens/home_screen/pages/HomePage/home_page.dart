@@ -40,15 +40,15 @@ class HomePage extends StatelessWidget {
                     decoration: BoxDecoration(
                       gradient: RadialGradient(
                         colors: [
-                          Colors.white,
-                          Color.fromARGB(255, 250, 200, 124),
-                          Color.fromARGB(255, 255, 132, 173),
-                          Color.fromARGB(255, 251, 65, 127),
-                          Colors.black
+                          // Colors.white,
+                          // Color.fromARGB(255, 250, 200, 124),
+                          Color.fromARGB(255, 255, 132, 173).withOpacity(0.5),
+                          Color.fromARGB(255, 251, 65, 127).withOpacity(0.3),
+                          Colors.black.withOpacity(0.5)
                         ],
                         center: Alignment(-0.9, -0.5),
                         focal: Alignment(-1.2, -0.3),
-                        stops: [0.04, 0.1, 0.3, 0.45, 1],
+                        stops: [0.3, 0.75, 2],
                         radius: 0.6,
                       ),
                     ),
@@ -58,13 +58,16 @@ class HomePage extends StatelessWidget {
             SingleChildScrollView(
               child: Column(
                 children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: SizedBox(
-                      child: LottieBuilder(
-                          lottie: Assets.lottieCSS.lottie, height: 80),
-                    ),
+                  SizedBox(
+                    height: 80,
                   ),
+                  // Align(
+                  //   alignment: Alignment.topLeft,
+                  //   child: SizedBox(
+                  //     child: LottieBuilder(
+                  //         lottie: Assets.lottieCSS.lottie, height: 80),
+                  //   ),
+                  // ),
                   const CSSText(),
                   const SizedBox(height: gap),
                   const Text(
@@ -133,7 +136,7 @@ class HomePage extends StatelessWidget {
                         fit: BoxFit.fitHeight),
                   ),
                   Text(
-                    "EXECUTIVE MEMBERS",
+                    "PILLERS OF CSS",
                     style: textLarge.copyWith(
                         color: Theme.of(context).backgroundColor),
                   ),

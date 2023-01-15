@@ -20,17 +20,17 @@ class ConnectMember extends StatelessWidget {
   final String? git;
   final String? linkedin;
   final String? insta;
-  const ConnectMember(
-      {Key? key,
-      required this.imageLink,
-      required this.role,
-      required this.name,
-      required this.session,
-      this.fb,
-      this.git,
-      this.linkedin,
-      this.insta})
-      : super(key: key);
+  const ConnectMember({
+    Key? key,
+    required this.imageLink,
+    required this.role,
+    required this.name,
+    required this.session,
+    this.fb,
+    this.git,
+    this.linkedin,
+    this.insta,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +85,7 @@ class ConnectMember extends StatelessWidget {
                     if (linkedin != Null)
                       SocialIcons(
                         icon: FontAwesomeIcons.linkedin,
-                        link: insta,
+                        link: linkedin,
                         size: 30,
                       ),
                     if (insta != Null)

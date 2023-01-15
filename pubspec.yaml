@@ -27,6 +27,7 @@ dependencies:
   youtube_player_iframe: ^4.0.1
   carousel_slider: ^4.2.1
   stroke_text: ^0.0.2
+  flutter_dynamic_icon: ^2.1.0
 
 dev_dependencies:
   flutter_test:

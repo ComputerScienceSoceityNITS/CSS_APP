@@ -119,7 +119,9 @@ class _AboutUsState extends State<AboutUs> {
                                 style: textLarge.copyWith(
                                     color: Theme.of(context).backgroundColor)),
                             _Link(
-                                child: Assets.cssLogoDark,
+                                child: (StorageHandler().isDarkTheme())
+                                    ? Assets.cssLogoLight
+                                    : Assets.cssLogoDark,
                                 link: 'https://nitscss.live/',
                                 text: "CSS Website"),
                             const _Link(
