@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:cssapp/screens/about_screen//about_screen.dart';
 import 'package:cssapp/configs/configs.dart';
 import 'package:cssapp/screens/bitscribe_reader_screen/bitscribe_reader_screen.dart';

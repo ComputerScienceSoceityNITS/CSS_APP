@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, deprecated_member_use
+
 import 'package:cssapp/configs/configurations/pallet.dart';
 import 'package:cssapp/configs/text_style.dart';
 import 'package:cssapp/screens/home_screen/home_screen.dart';
@@ -155,7 +157,7 @@ class _EventDialogState extends State<EventDialog> {
                                       color: Colors.white,
                                     ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 40,
                               ),
                               Text(

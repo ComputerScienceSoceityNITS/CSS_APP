@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: todo
 // TODO: Optimise further
 class GalleryCard extends StatelessWidget {
   final void Function() onTap;

@@ -18,7 +18,12 @@ enum Role {
   technical,
 }
 
-enum Session { session_19_20, session_20_21, session_21_22, session_22_23 }
+enum Session {
+  //session_19_20,
+  session_20_21,
+  session_21_22,
+  session_22_23
+}
 
 Map<Role, String> mapRole = {
   Role.head: "Heads",
@@ -34,13 +39,13 @@ Map<Role, String> mapRole = {
 };
 
 Map<Session, String> mapSession = {
-  Session.session_19_20: "19-20",
+  //Session.session_19_20: "19-20",
   Session.session_20_21: "20-21",
   Session.session_21_22: "21-22",
   Session.session_22_23: "22-23",
 };
 Map<String, Session> reverseMapSession = {
-  "19-20": Session.session_19_20,
+  //"19-20": Session.session_19_20,
   "20-21": Session.session_20_21,
   "21-22": Session.session_21_22,
   "22-23": Session.session_22_23
