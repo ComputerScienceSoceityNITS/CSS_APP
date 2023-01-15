@@ -82,7 +82,7 @@ class HomePage extends StatelessWidget {
                     child: SizedBox(
                       width: double.infinity,
                       child: LottieBuilder(
-                          lottie: Assets.lottieNetworking.lottie,
+                          lottie: Assets.lottiecssremake.lottie,
                           fit: BoxFit.fitHeight),
                     ),
                   ),

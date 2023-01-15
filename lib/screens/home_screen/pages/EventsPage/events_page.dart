@@ -1,3 +1,5 @@
+// ignore: avoid_web_libraries_in_flutter
+
 import 'cards/techno_cards.dart';
 import 'cards/cultural_cards.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,13 @@ class EventsPage extends StatefulWidget {
 
 class _EventsPageState extends State<EventsPage> {
   bool technoEventsSelected = true;
+  static final List<String> wingsname = [
+    "Executive wing",
+    "Dev wing",
+    "CP wing",
+    "PR wing",
+    "ML wing"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -83,19 +92,27 @@ class _EventsPageState extends State<EventsPage> {
                   ],
                 ),
                 const SizedBox(height: 16),
-                technoEventsSelected
-                    ? Offstage(
-                        offstage: technoEventsSelected == false,
-                        child: Events(
-                            cards: TechnoCards.cards,
-                            lottie: Assets.lottieTechno),
-                      )
-                    : Offstage(
-                        offstage: technoEventsSelected == true,
-                        child: Events(
-                            cards: CulturalCards.cards,
-                            lottie: Assets.lottieLoader),
-                      ),
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        technoEventsSelected
+                            ? Offstage(
+                                offstage: technoEventsSelected == false,
+                                child: Events(
+                                    cards: TechnoCards.cards,
+                                    lottie: Assets.lottieTechno),
+                              )
+                            : Offstage(
+                                offstage: technoEventsSelected == true,
+                                child: Events(
+                                    cards: CulturalCards.cards,
+                                    lottie: Assets.lottieLoader),
+                              ),
+                      ],
+                    )
+                  ],
+                )
               ],
             ),
           ),
