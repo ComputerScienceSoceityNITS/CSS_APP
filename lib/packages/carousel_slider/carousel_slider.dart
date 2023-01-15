@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_generic_function_type_aliases, no_logic_in_create_state, prefer_conditional_assignment, sized_box_for_whitespace, prefer_is_empty
+
 library carousel_slider;
 
 import 'dart:async';
@@ -107,8 +109,7 @@ class CarouselSliderState extends State<CarouselSlider>
   @override
   void initState() {
     super.initState();
-    carouselState =
-        CarouselState(this.options, clearTimer, resumeTimer, this.changeMode);
+    carouselState = CarouselState(options, clearTimer, resumeTimer, changeMode);
 
     carouselState!.itemCount = widget.itemCount;
     carouselController.state = carouselState;

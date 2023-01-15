@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_void_to_null, annotate_overrides
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -9,7 +11,7 @@ import 'utils.dart';
 abstract class CarouselController {
   bool get ready;
 
-  Future<Null> get onReady;
+  Future<void> get onReady;
 
   Future<void> nextPage({Duration? duration, Curve? curve});
 
