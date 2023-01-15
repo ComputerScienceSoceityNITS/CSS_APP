@@ -59,13 +59,6 @@ class HomePage extends StatelessWidget {
             SingleChildScrollView(
               child: Column(
                 children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: SizedBox(
-                      child: LottieBuilder(
-                          lottie: Assets.lottieCSS.lottie, height: 80),
-                    ),
-                  ),
                   const CSSText(),
                   const SizedBox(height: gap),
                   const Text(
