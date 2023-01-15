@@ -49,6 +49,7 @@ flutter:
     - assets/images/events/esperanza/
     - assets/images/framers/
     - assets/lottie/
+    - assets/wing_images/
     - assets/
 
   fonts:
