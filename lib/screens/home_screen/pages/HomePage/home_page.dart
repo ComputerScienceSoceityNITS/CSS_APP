@@ -55,17 +55,11 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-            const Positioned(child: CSSBGText(), top: 100, left: 170),
+            const Positioned(child: CSSBGText(), top: 230, left: 120),
             SingleChildScrollView(
               child: Column(
                 children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: SizedBox(
-                      child: LottieBuilder(
-                          lottie: Assets.lottieCSS.lottie, height: 80),
-                    ),
-                  ),
+                  const SizedBox(height: 100),
                   const CSSText(),
                   const SizedBox(height: gap),
                   const Text(
