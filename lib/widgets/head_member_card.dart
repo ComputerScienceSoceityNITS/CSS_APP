@@ -34,50 +34,40 @@ class HeadMemberCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return imageLink.isEmpty
-        ? const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: FadeShimmer(
-              height: 250,
-              width: 200,
-              radius: 4,
-              highlightColor: Color(0xffc0c3d3),
-              baseColor: Color(0xff999aa1),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 7.0),
+      child: GestureDetector(
+        onTap: () {
+          showModalBottomSheet(
+            context: context,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+              ),
             ),
-          )
-        : Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 7.0),
-            child: GestureDetector(
-              onTap: () {
-                showModalBottomSheet(
-                  context: context,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                    ),
-                  ),
-                  isScrollControlled: true,
-                  builder: (context) => SingleChildScrollView(
-                    child: ConnectMember(
-                      role: role,
-                      name: name,
-                      fb: fb,
-                      git: git,
-                      insta: insta,
-                      linkedin: linkedin,
-                    ),
-                  ),
-                );
-              },
-              child: HeadCard(imageLink: imageLink, role: role, name: name),
+            isScrollControlled: true,
+            builder: (context) => SingleChildScrollView(
+              child: ConnectMember(
+                role: role,
+                name: name,
+                fb: fb,
+                git: git,
+                insta: insta,
+                linkedin: linkedin,
+              ),
             ),
           );
+        },
+        child: NameCard(imageLink: imageLink, role: role, name: name),
+      ),
+    );
   }
 }
 
-class HeadCard extends StatelessWidget {
-  const HeadCard({
+
+class NameCard extends StatelessWidget {
+  const NameCard({
     Key? key,
     required this.imageLink,
     required this.role,
@@ -108,26 +98,59 @@ class HeadCard extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    role,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Theme.of(context).canvasColor,
-                      fontSize: 10,
-                    ),
-                  ),
+                  imageLink.isEmpty
+                      ? const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: FadeShimmer(
+                            height: 7,
+                            width: 80,
+                            radius: 4,
+                            highlightColor: Color(0xffc0c3d3),
+                            baseColor: Color(0xff999aa1),
+                          ),
+                        )
+                      : Text(
+                          role,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Theme.of(context).canvasColor,
+                            fontSize: 10,
+                          ),
+                        ),
                   const SizedBox(height: 4),
-                  Text(
-                    name,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Theme.of(context).canvasColor,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w900,
-                    ),
-                  ),
+                  imageLink.isEmpty
+                      ? const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: FadeShimmer(
+                            height: 7,
+                            width: 100,
+                            radius: 4,
+                            highlightColor: Color(0xffc0c3d3),
+                            baseColor: Color(0xff999aa1),
+                          ),
+                        )
+                      : Text(
+                          name,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Theme.of(context).canvasColor,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
                   const SizedBox(height: 7),
-                  Container(
+                   imageLink.isEmpty
+                      ? const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: FadeShimmer(
+                            height: 40,
+                            width: 140,
+                            radius: 4,
+                            highlightColor: Color.fromARGB(255, 226, 95, 189),
+                            baseColor: Pallet.accentColor,
+                          ),
+                        )
+                      :Container(
                     width: 140,
                     height: 40,
                     alignment: Alignment.center,
@@ -164,31 +187,33 @@ class HeadCard extends StatelessWidget {
               height: 200,
               child: Stack(
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18),
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 8,
-                            spreadRadius: 6,
-                            color:
-                                Theme.of(context).brightness == Brightness.dark
-                                    ? Colors.black.withOpacity(0.25)
-                                    : Colors.white.withOpacity(0.12),
-                          )
-                        ]),
-                    child: SizedBox(
-                      height: 200,
-                      width: 210,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(15),
-                        child: Image(
-                          image: CachedNetworkImageProvider(imageLink),
-                          fit: BoxFit.cover,
+                  imageLink.isEmpty
+                      ? const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: FadeShimmer(
+                            height: 250,
+                            width: 200,
+                            radius: 4,
+                            highlightColor: Color(0xffc0c3d3),
+                            baseColor: Color(0xff999aa1),
+                          ),
+                        )
+                      : Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                          child: SizedBox(
+                            height: 200,
+                            width: 210,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(15),
+                              child: Image(
+                                image: CachedNetworkImageProvider(imageLink),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
