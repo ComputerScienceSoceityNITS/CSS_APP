@@ -71,7 +71,6 @@ class Assets {
       Image.asset('assets/images/framers/MajhiSir.jpeg');
   static final LottieBuilder lottieAccounting =
       Lottie.asset('assets/lottie/accounting.json');
-  static final LottieBuilder lottieCSS = Lottie.asset('assets/lottie/CSS.json');
   static final LottieBuilder lottieLoader =
       Lottie.asset('assets/lottie/loader.json');
   static final LottieBuilder lottieNetworking =

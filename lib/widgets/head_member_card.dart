@@ -70,14 +70,14 @@ class HeadMemberCard extends StatelessWidget {
                   ),
                 );
               },
-              child: head_card(imageLink: imageLink, role: role, name: name),
+              child: HeadCard(imageLink: imageLink, role: role, name: name),
             ),
           );
   }
 }
 
-class head_card extends StatelessWidget {
-  const head_card({
+class HeadCard extends StatelessWidget {
+  const HeadCard({
     Key? key,
     required this.imageLink,
     required this.role,
@@ -90,125 +90,101 @@ class head_card extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 240,
+    return SizedBox(
+      width: 230,
       height: 250,
       child: Stack(
         children: [
-          Align(
-            alignment: AlignmentDirectional.bottomCenter,
+          Positioned(
+            top: 30,
+            left: 5,
             child: Container(
               decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 2,
-                    color: Theme.of(context).brightness == Brightness.dark
-                        ? Colors.white
-                        : Colors.black,
+                color: Theme.of(context).backgroundColor,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              width: 220,
+              height: 270,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    role,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Theme.of(context).canvasColor,
+                      fontSize: 10,
+                    ),
                   ),
-                  borderRadius: BorderRadius.circular(10)),
-              width: 170,
-              height: 220,
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  margin: EdgeInsets.only(bottom: 8),
-                  height: 24,
-                  width: 100,
-                  padding: EdgeInsets.only(bottom: 10),
-                  child: Center(
-                    child: Text(
+                  const SizedBox(height: 4),
+                  Text(
+                    name,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Theme.of(context).canvasColor,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                  const SizedBox(height: 7),
+                  Container(
+                    width: 140,
+                    height: 40,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 7,
+                          spreadRadius: 2,
+                          offset: const Offset(0, 3),
+                          color: Colors.black.withOpacity(0.2),
+                        )
+                      ],
+                      color: Pallet.accentColor,
+                    ),
+                    child: const Text(
                       "Click to Connect",
-                      textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
-                        color: Theme.of(context).brightness == Brightness.dark
-                            ? Colors.black
-                            : Colors.white,
+                        color: Colors.white,
                       ),
                     ),
                   ),
-                  decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 250, 141, 221),
-                      borderRadius: BorderRadius.circular(10)),
-                ),
+                  const SizedBox(height: 10),
+                ],
               ),
-              // color: Color.fromARGB(255, 251, 250, 250),
             ),
           ),
           Align(
             alignment: AlignmentDirectional.topCenter,
-            child: Container(
-              // decoration: BoxDecoration(borderRadius: BorderRadius.circular(18)),
-              width: 150,
+            child: SizedBox(
+              width: 180,
               height: 200,
-              // color: Color.fromARGB(255, 67, 54, 8),
               child: Stack(
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 2,
-                        color: Theme.of(context).brightness == Brightness.dark
-                            ? Colors.white
-                            : Colors.black,
-                      ),
-                      borderRadius: BorderRadius.circular(18),
-                    ),
+                        borderRadius: BorderRadius.circular(18),
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 8,
+                            spreadRadius: 6,
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Colors.black.withOpacity(0.25)
+                                    : Colors.white.withOpacity(0.12),
+                          )
+                        ]),
                     child: SizedBox(
                       height: 200,
-                      width: 180,
+                      width: 210,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
                         child: Image(
                           image: CachedNetworkImageProvider(imageLink),
                           fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned.fill(
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Container(
-                        height: 75,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.4),
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(15.0),
-                            topRight: Radius.circular(15.0),
-                            bottomLeft: Radius.circular(15.0),
-                            bottomRight: Radius.circular(15.0),
-                          ),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                role,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 8),
-                              child: Text(
-                                name,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w900,
-                                ),
-                              ),
-                            ),
-                          ],
                         ),
                       ),
                     ),
