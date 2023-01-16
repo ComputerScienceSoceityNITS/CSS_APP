@@ -40,8 +40,8 @@ class HomePage extends StatelessWidget {
                       gradient: RadialGradient(
                         colors: [
                           Colors.white,
-                          const Color.fromARGB(255, 250, 200, 124)
-                              .withOpacity(0.9),
+                          // const Color.fromARGB(255, 250, 200, 124)
+                          //     .withOpacity(0.9),
                           const Color.fromARGB(255, 255, 132, 173)
                               .withOpacity(0.9),
                           const Color.fromARGB(255, 251, 65, 127)
@@ -50,8 +50,8 @@ class HomePage extends StatelessWidget {
                         ],
                         center: const Alignment(-0.9, -0.5),
                         focal: const Alignment(-1.2, -0.3),
-                        stops: const [0.04, 0.1, 0.3, 0.45, 1],
-                        radius: 0.6,
+                        stops: const [0.02, 0.2, 0.45, 1],
+                        radius: 0.8,
                       ),
                     ),
                   ),
@@ -59,7 +59,9 @@ class HomePage extends StatelessWidget {
             SingleChildScrollView(
               child: Column(
                 children: [
-                  const SizedBox(height: 100),
+                  SizedBox(
+                    height: 80,
+                  ),
                   const CSSText(),
                   const SizedBox(height: gap),
                   const Text(
@@ -76,8 +78,9 @@ class HomePage extends StatelessWidget {
                     child: SizedBox(
                       width: double.infinity,
                       child: LottieBuilder(
-                          lottie: Assets.lottiecssremake.lottie,
-                          fit: BoxFit.fitHeight),
+                        lottie: Assets.lottiecssremake.lottie,
+                        fit: BoxFit.fitHeight,
+                      ),
                     ),
                   ),
                   Container(

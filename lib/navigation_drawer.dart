@@ -19,7 +19,6 @@ class NavigationDrawer extends StatelessWidget {
     'GALLERY',
     'DEVELOPERS',
     'BITSCRIBE',
-    'THEME',
     'ABOUT US',
     'REPORT TO CSS',
   ];
@@ -30,7 +29,6 @@ class NavigationDrawer extends StatelessWidget {
     Icons.picture_in_picture,
     Icons.laptop,
     Icons.book_online,
-    Icons.sunny,
     Icons.info,
     Icons.email,
   ];
@@ -129,14 +127,11 @@ class NavigationDrawer extends StatelessWidget {
         ));
         break;
       case 6:
-        Provider.of<ThemeHandler>(context, listen: false).toggleTheme();
-        break;
-      case 7:
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const AboutUs(),
         ));
         break;
-      case 8:
+      case 7:
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const ReportBugs(),
         ));
