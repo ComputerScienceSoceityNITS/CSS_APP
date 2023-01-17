@@ -23,13 +23,13 @@ dependencies:
   shared_preferences: ^2.0.15
   cached_network_image: ^3.2.2
   fade_shimmer: ^2.2.0
-  flutter_widget_from_html: ^0.9.1
   carousel_slider: ^4.2.1
   sn_progress_dialog: ^1.0.9
   path_provider: ^2.0.11
   permission_handler: ^10.2.0
   syncfusion_flutter_pdfviewer: ^20.4.43
   fluttertoast: ^8.1.2
+  youtube_player_iframe: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -50,6 +50,7 @@ flutter:
     - assets/images/framers/
     - assets/lottie/
     - assets/wing_images/
+    - assets/images/gallery/
     - assets/
 
   fonts:

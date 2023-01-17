@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'tabs/esperanza.dart';
-import 'tabs/abacus.dart';
 import 'package:cssapp/configs/configs.dart';
+import 'widgets/gallery.dart';
 
 class GalleryPage extends StatefulWidget {
   const GalleryPage({Key? key}) : super(key: key);
@@ -12,8 +11,6 @@ class GalleryPage extends StatefulWidget {
 }
 
 class _GalleryPageState extends State<GalleryPage> {
-  bool esperanzaSelected = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,52 +84,8 @@ class _GalleryPageState extends State<GalleryPage> {
                   const SizedBox(
                     height: 48,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      GestureDetector(
-                        onTap: () => setState(() {
-                          esperanzaSelected = true;
-                        }),
-                        child: Text(
-                          "Esperanza",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: esperanzaSelected
-                                ? FontWeight.bold
-                                : FontWeight.normal,
-                            color: esperanzaSelected
-                                ? Pallet.accentColor
-                                : Theme.of(context).backgroundColor,
-                            fontFamily: 'Cormorant Unicase',
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 30,
-                      ),
-                      GestureDetector(
-                        onTap: () => setState(() {
-                          esperanzaSelected = false;
-                        }),
-                        child: Text(
-                          "Abacus",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: esperanzaSelected
-                                ? FontWeight.normal
-                                : FontWeight.bold,
-                            color: esperanzaSelected
-                                ? Theme.of(context).backgroundColor
-                                : Pallet.accentColor,
-                            fontFamily: 'Cormorant Unicase',
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    child: esperanzaSelected ? Esperanza() : Abacus(),
+                  const SizedBox(
+                    child: Gallery(),
                   ),
                 ],
               ),
