@@ -6,10 +6,10 @@ import 'package:cssapp/configs/configs.dart';
 class TechnoCards {
   static final List<Event> cards = [
     Event(
-      stylisedChar: "S",
-      title: "peaker",
-      titleLine2: "session",
-      thumbnail: Assets.eventTIMGAbacusIIT,
+      stylisedChar: "I",
+      title: "nspire Room",
+      //titleLine2: "session",
+      thumbnail: Assets.speakersession,
       imagepath: "assets/images/event_thumbnails/speakersession.jpeg",
       // events: const [
       //   "Chess",
@@ -24,10 +24,10 @@ class TechnoCards {
     ),
     Event(
       stylisedChar: "E",
-      title: "nigma",
-      //titleLine2: "IIT",
+      title: "nigma/",
+      titleLine2: "Enigma+",
       imagepath: "assets/images/event_thumbnails/Enigma.png",
-      thumbnail: Assets.eventTIMGEnigma,
+      thumbnail: Assets.enigma,
       events: const [
         // "Chess",
         // "Valorant Tournaments",
@@ -42,7 +42,7 @@ class TechnoCards {
       stylisedChar: "C",
       title: " Classes",
       //titleLine2: "IIT",
-      thumbnail: Assets.eventTIMGCClasses,
+      thumbnail: Assets.cclasses,
       imagepath: "assets/images/event_thumbnails/C-classes.png",
       events: const [
         // "Chess",
@@ -54,13 +54,12 @@ class TechnoCards {
           "Every year CSS organizes introductory to advanced-level classes in c programming for freshers which are taken by the cse sophomores themselves. The aim of the programme is to provide the students with a mentor who has followed the same path as themselves and can acknowledge and resolve the problems and struggles faced by the freshers as they gear up to pursue their careers in tech.",
       addBorderRadiusToThumbnail: true,
     ),
-    const Event(
+    Event(
       stylisedChar: "D",
       title: "ev",
       titleLine2: "Workshop",
       imagepath: "assets/images/event_thumbnails/devworkshop.png",
-      thumbnail: Image(
-          image: AssetImage("assets/images/event_thumbnails/devworkshop.png")),
+      thumbnail: Assets.devworkshop,
       // thumbnail,
       events: [
         // "Chess",
@@ -72,19 +71,19 @@ class TechnoCards {
           "CSS organizes numerous development workshops throughout the course of the year which are conducted by the dev wing. The objective of the workkshops is to help the students navigate through the challenging and mind-numbing concepts of fields like app dev, web dev, web3, etc and to provide them with a competitive edge in the corporate world.",
       addBorderRadiusToThumbnail: true,
     ),
-    Event(
-      stylisedChar: "A",
-      title: "BACUS",
-      // titleLine2: "TECH",
-      thumbnail: Assets.eventTIMGAbacusTech,
-      imagepath: "assets/images/event_thumbnails/abacus.png",
-      events: const [
-        // "Chess", "Valo", "Meme competition", "Article writing"
-      ],
-      details:
-          "Abacus is a one-week-long event organized by the CSS. The event garners participation from all CSE batches in the institute and comprises a plethora of exciting events like CSS wars, CSS hacks and many more. The event aims to provide a stress free week of fun for students to interact with each other, compete with their mates and win exciting prizes",
-      addBorderRadiusToThumbnail: true,
-    ),
+    // Event(
+    //   stylisedChar: "A",
+    //   title: "BACUS",
+    //   // titleLine2: "TECH",
+    //   thumbnail: Assets.abacus,
+    //   imagepath: "assets/images/event_thumbnails/abacus.png",
+    //   events: const [
+    //     // "Chess", "Valo", "Meme competition", "Article writing"
+    //   ],
+    //   details:
+    //       "Abacus is a one-week-long event organized by the CSS. The event garners participation from all CSE batches in the institute and comprises a plethora of exciting events like CSS wars, CSS hacks and many more. The event aims to provide a stress free week of fun for students to interact with each other, compete with their mates and win exciting prizes",
+    //   addBorderRadiusToThumbnail: true,
+    // ),
     // Event(
     //   stylisedChar: "A",
     //   title: "BACUS",
@@ -102,7 +101,7 @@ class TechnoCards {
       stylisedChar: "M",
       title: "L Session",
       // titleLine2: "HAC",
-      thumbnail: Assets.eventTIMGCSSHacks,
+      thumbnail: Assets.mlclasses,
       imagepath: "assets/images/event_thumbnails/mlclasses.jpeg",
       details:
           "Machine Learning is one of the fastest-growing domains in computer science with several applications in data analytics and leverage that to improve the extent and quality of performance in fields like A.I. The ML wing of CSS organizes ML sessions on a regular basis to mentor students and help them advance in the field and pursue a career in it.",
@@ -112,7 +111,7 @@ class TechnoCards {
     Event(
       stylisedChar: "C",
       title: "SS Hacks",
-      thumbnail: Assets.eventTIMGCSSHacks,
+      thumbnail: Assets.csshacks,
       imagepath: "assets/images/event_thumbnails/CSS-hack.png",
       details:
           "Conducted under the banner of Abacus by the dev wing, CSS Hacks as the name suggests is an annual hackathon. The hackathon caters to the participants with a series of intriguing and complicated problems as they compete with their peers for exciting prizes.",
@@ -122,7 +121,7 @@ class TechnoCards {
     Event(
       stylisedChar: "C",
       title: "SS Wars",
-      thumbnail: Assets.eventTIMGCSSHacks,
+      thumbnail: Assets.csswars,
       imagepath: "assets/images/event_thumbnails/csswars.jpeg",
       details:
           "Web design is one of the most sought out fields in computer science. CSS wars is conducted under the banner of Abacus by the dev wing and is an annual web development competition aimed at testing the prowess of the participants in HTML, CSS and Javascript.",
