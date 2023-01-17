@@ -85,8 +85,7 @@ class Event extends StatelessWidget {
                     borderRadius: BorderRadius.circular(100),
                     shape: BoxShape.rectangle,
                     image: DecorationImage(
-                        image: AssetImage(imagepath.toString()),
-                        fit: BoxFit.cover),
+                        image: thumbnail.image, fit: BoxFit.cover),
                   ),
                 ),
               ),
