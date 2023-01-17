@@ -138,13 +138,13 @@ class _ExecutiveMember extends StatelessWidget {
                   alignment: Alignment.topCenter,
                   children: [
                     Container(
-                      width: profileHeight * 0.75,
-                      height: profileHeight * 0.7,
+                      width: profileHeight * 1.06,
+                      height: profileHeight * 0.8,
                       color: Theme.of(context).backgroundColor,
                     ),
                     Container(
-                      width: profileHeight * 0.65,
-                      height: profileHeight,
+                      width: profileHeight * 0.9,
+                      height: profileHeight*1.1,
                       margin: EdgeInsets.only(top: profileHeight * 0.05),
                       decoration: BoxDecoration(
                         image: DecorationImage(
@@ -164,7 +164,7 @@ class _ExecutiveMember extends StatelessWidget {
                   child: Text(
                     title,
                     textAlign: TextAlign.center,
-                    style: textSmallBold.copyWith(
+                    style: textSmallBold.copyWith(fontSize: 18,
                       color: Colors.white,
                     ),
                   ),
@@ -180,8 +180,8 @@ class _ExecutiveMember extends StatelessWidget {
                 children: [
                   Text(name,
                       textAlign: TextAlign.center,
-                      style: textSmall.copyWith(
-                          color: Theme.of(context).backgroundColor)),
+                      style: TextStyle(
+                          color: Theme.of(context).backgroundColor,fontSize: 14),),
                   Text(details ?? '',
                       textAlign: TextAlign.center,
                       style: textSmall.copyWith(
@@ -197,7 +197,7 @@ class _ExecutiveMember extends StatelessWidget {
                   ),
                   Text(
                     'Click to Connect',
-                    style: textSmall.copyWith(color: Pallet.accentColor),
+                    style: textSmall.copyWith(color: Pallet.accentColor,fontSize: 15),
                   ),
                 ],
               ),

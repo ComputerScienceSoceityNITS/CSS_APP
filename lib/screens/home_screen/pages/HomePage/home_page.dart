@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cssapp/utils/storage_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/configs/configs.dart';
@@ -55,7 +57,6 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-            const Positioned(child: CSSBGText(), top: 230, left: 120),
             SingleChildScrollView(
               child: Column(
                 children: [
@@ -84,13 +85,20 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: double.infinity,
+                    width: min(MediaQuery.of(context).size.width * 0.9, 500),
                     decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.white, width: 1.5),
                       gradient: LinearGradient(
-                        colors: [
-                          Colors.white.withOpacity(0.3),
-                          Colors.white.withOpacity(0.3)
-                        ],
+                        colors: Theme.of(context).brightness == Brightness.dark
+                            ? [
+                                Colors.white.withOpacity(0.2),
+                                Colors.white.withOpacity(0.2),
+                              ]
+                            : [
+                                Colors.black.withOpacity(0.05),
+                                Colors.black.withOpacity(0.05)
+                              ],
                       ),
                     ),
                     child: Container(
@@ -138,7 +146,7 @@ class HomePage extends StatelessWidget {
                         fit: BoxFit.fitHeight),
                   ),
                   Text(
-                    "EXECUTIVE MEMBERS",
+                    "PILLARS OF CSS",
                     style: textLarge.copyWith(
                         color: Theme.of(context).backgroundColor),
                   ),
