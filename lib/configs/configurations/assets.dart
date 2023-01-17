@@ -71,6 +71,7 @@ class Assets {
   static late LottieBuilder lottieTechno;
   static late LottieBuilder lottieCssGlobeLight;
   static late LottieBuilder lottieCssGlobeDark;
+  static late LottieBuilder lottiemember;
   Assets() {
     wing_pr = Image.asset('assets/wing_images/pr.jpg');
     wing_cp = Image.asset('assets/wing_images/cp.png');
@@ -130,6 +131,9 @@ class Assets {
     lottieTechno = Lottie.asset('assets/lottie/techno.json');
     lottieCssGlobeLight = Lottie.asset('assets/lottie/cssglobe_light.json');
     lottieCssGlobeDark = Lottie.asset('assets/lottie/cssglobe_dark.json');
+
+    lottiemember = Lottie.asset('assets/lottie/member.json');
+
     algochemy = Image.asset('assets/images/event_thumbnails/algochemy.jpeg');
     chasecloud9 =
         Image.asset('assets/images/event_thumbnails/chasecloud9.jpeg');
@@ -160,5 +164,6 @@ class Assets {
     orientation = Image.asset('assets/images/event_thumbnails/orientation.jpg');
     speakersession =
         Image.asset('assets/images/event_thumbnails/speakersession.jpeg');
+
   }
 }
