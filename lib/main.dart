@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'state_handlers/theme/brightness/dark.dart';
 import 'state_handlers/theme/brightness/light.dart';
 import 'utils/storage_handler.dart';
+import 'configs/configs.dart';
 
 late ThemeHandler _themeHandler;
 void main() async {
@@ -49,6 +50,7 @@ class _CSSAppState extends State<CSSApp> {
 
   @override
   Widget build(BuildContext context) {
+    Assets();
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(

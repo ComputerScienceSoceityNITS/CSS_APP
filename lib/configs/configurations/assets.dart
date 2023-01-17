@@ -2,87 +2,114 @@ import 'package:flutter/cupertino.dart';
 import 'package:lottie/lottie.dart';
 
 class Assets {
-  static final Image wing_pr = Image.asset('assets/wing_images/pr.jpg');
-  static final Image wing_cp = Image.asset('assets/wing_images/cp.png');
-  static final Image wing_dev = Image.asset('assets/wing_images/dev.jpg');
-  static final Image wing_executive =
-      Image.asset('assets/wing_images/executive.jpg');
-  static final Image wing_lit = Image.asset('assets/wing_images/lit.jpg');
-  static final Image wing_ml = Image.asset('assets/wing_images/ml.jpg');
-  static final Image wing_design = Image.asset('assets/wing_images/design.jpg');
+  static late Image wing_pr;
+  static late Image wing_cp;
+  static late Image wing_dev;
+  static late Image wing_executive;
+  static late Image wing_lit;
+  static late Image wing_ml;
+  static late Image wing_design;
 
-  static final Image bgAbacus =
-      Image.asset('assets/images/background/abacus.jpg');
-  static final Image bgCode = Image.asset('assets/images/background/code.jpeg');
-  static final Image bgFlower =
-      Image.asset('assets/images/background/flower.jpeg');
-  static final Image bgMagazine =
-      Image.asset('assets/images/background/magazine.jpeg');
-  static final Image bgMusicController =
-      Image.asset('assets/images/background/music_controller.jpeg');
-  static final Image cssLogoDark =
-      Image.asset('assets/images/CSS_logo/CSS_logo_dark.png');
-  static final Image cssLogoLight =
-      Image.asset('assets/images/CSS_logo/CSS_logo_light.png');
-  static final Image cssLogo = Image.asset('assets/images/CSS_logo/logo.png');
-  static final Image eventTIMGAbacusIIT =
-      Image.asset('assets/images/event_thumbnails/Abacus-Iit.png');
-  static final Image eventTIMGAbacusTech =
-      Image.asset('assets/images/event_thumbnails/Abacus-tech.png');
-  static final Image eventTIMGCClasses =
-      Image.asset('assets/images/event_thumbnails/C-classes.png');
-  static final Image eventTIMGCSGo =
-      Image.asset('assets/images/event_thumbnails/cs-go.jpg');
-  static final Image eventTIMGCSSHacks =
-      Image.asset('assets/images/event_thumbnails/CSS-hack.png');
-  static final Image eventTIMGEnigma =
-      Image.asset('assets/images/event_thumbnails/Enigma.png');
-  static final Image eventTIMGFarewell =
-      Image.asset('assets/images/event_thumbnails/farewell.jpg');
-  static final Image eventTIMGFreshers =
-      Image.asset('assets/images/event_thumbnails/freshers.jpg');
-  static final Image eventTIMGOrientation =
-      Image.asset('assets/images/event_thumbnails/orientation.jpg');
-  static final Image eventAbacus1 =
-      Image.asset('assets/images/events/abacus/abacus1.jpeg');
-  static final Image eventAbacus2 =
-      Image.asset('assets/images/events/abacus/abacus2.jpeg');
-  static final Image eventAbacus3 =
-      Image.asset('assets/images/events/abacus/abacus3.jpeg');
-  static final Image eventEsperanza1 =
-      Image.asset('assets/images/events/esperanza/esperanza1.jpeg');
-  static final Image eventEsperanza2 =
-      Image.asset('assets/images/events/esperanza/esperanza2.jpeg');
-  static final Image eventEsperanza3 =
-      Image.asset('assets/images/events/esperanza/esperanza3.jpeg');
-  static final Image eventEsperanza4 =
-      Image.asset('assets/images/events/esperanza/esperanza4.jpeg');
-  static final Image eventEsperanza5 =
-      Image.asset('assets/images/events/esperanza/esperanza5.jpeg');
-  static final Image eventEsperanza6 =
-      Image.asset('assets/images/events/esperanza/esperanza6.jpeg');
-  static final Image framerAbhishekBharadwaz =
-      Image.asset('assets/images/framers/Abhishek Bharadwaz.png');
-  static final Image framerSourabhShah =
-      Image.asset('assets/images/framers/Sourabh Shah.jpg');
-  static final Image framerTeresaLouis =
-      Image.asset('assets/images/framers/Teresa Louis.jpg');
-  static final Image framerMajhiSir =
-      Image.asset('assets/images/framers/MajhiSir.jpeg');
-  static final LottieBuilder lottieAccounting =
-      Lottie.asset('assets/lottie/accounting.json');
-  static final LottieBuilder lottieLoader =
-      Lottie.asset('assets/lottie/loader.json');
-  static final LottieBuilder lottieNetworking =
-      Lottie.asset('assets/lottie/networking.json');
-  static final LottieBuilder lottieRainMan =
-      Lottie.asset('assets/lottie/rainman.json');
-  static final LottieBuilder lottieSingSong =
-      Lottie.asset('assets/lottie/sing_song.json');
-  static final LottieBuilder lottieTeam =
-      Lottie.asset('assets/lottie/team.json');
-  static final LottieBuilder lottieTechno =
-      Lottie.asset('assets/lottie/techno.json');
-  static final LottieBuilder lottiecssremake =
-      Lottie.asset('assets/lottie/cssglobe.json');
+  static late Image bgAbacus;
+  static late Image bgCode;
+  static late Image bgFlower;
+  static late Image bgMagazine;
+  static late Image bgMusicController;
+  static late Image cssLogoDark;
+  static late Image cssLogoLight;
+  static late Image cssLogo;
+  static late Image eventTIMGAbacusIIT;
+  static late Image eventTIMGAbacusTech;
+  static late Image eventTIMGCClasses;
+  static late Image eventTIMGCSGo;
+  static late Image eventTIMGCSSHacks;
+  static late Image eventTIMGEnigma;
+  static late Image eventTIMGFarewell;
+  static late Image eventTIMGFreshers;
+  static late Image eventTIMGOrientation;
+  static late Image eventAbacus1;
+  static late Image eventAbacus2;
+  static late Image eventAbacus3;
+  static late Image eventEsperanza1;
+  static late Image eventEsperanza2;
+  static late Image eventEsperanza3;
+  static late Image eventEsperanza4;
+  static late Image eventEsperanza5;
+  static late Image eventEsperanza6;
+  static late Image framerAbhishekBharadwaz;
+  static late Image framerSourabhShah;
+  static late Image framerTeresaLouis;
+  static late Image framerMajhiSir;
+  static late LottieBuilder lottieAccounting;
+  static late LottieBuilder lottieLoader;
+  static late LottieBuilder lottieNetworking;
+  static late LottieBuilder lottieRainMan;
+  static late LottieBuilder lottieSingSong;
+  static late LottieBuilder lottieTeam;
+  static late LottieBuilder lottieTechno;
+  static late LottieBuilder lottieCssGlobeLight;
+  static late LottieBuilder lottieCssGlobeDark;
+  Assets() {
+    wing_pr = Image.asset('assets/wing_images/pr.jpg');
+    wing_cp = Image.asset('assets/wing_images/cp.png');
+    wing_dev = Image.asset('assets/wing_images/dev.jpg');
+    wing_executive = Image.asset('assets/wing_images/executive.jpg');
+    wing_lit = Image.asset('assets/wing_images/lit.jpg');
+    wing_ml = Image.asset('assets/wing_images/ml.jpg');
+    wing_design = Image.asset('assets/wing_images/design.jpg');
+    bgAbacus = Image.asset('assets/images/background/abacus.jpg');
+    bgCode = Image.asset('assets/images/background/code.jpeg');
+    bgFlower = Image.asset('assets/images/background/flower.jpeg');
+    bgMagazine = Image.asset('assets/images/background/magazine.jpeg');
+    bgMusicController =
+        Image.asset('assets/images/background/music_controller.jpeg');
+    cssLogoDark = Image.asset('assets/images/CSS_logo/CSS_logo_dark.png');
+    cssLogoLight = Image.asset('assets/images/CSS_logo/CSS_logo_light.png');
+    cssLogo = Image.asset('assets/images/CSS_logo/logo.png');
+    eventTIMGAbacusIIT =
+        Image.asset('assets/images/event_thumbnails/Abacus-Iit.png');
+    eventTIMGAbacusTech =
+        Image.asset('assets/images/event_thumbnails/Abacus-tech.png');
+    eventTIMGCClasses =
+        Image.asset('assets/images/event_thumbnails/C-classes.png');
+    eventTIMGCSGo = Image.asset('assets/images/event_thumbnails/cs-go.jpg');
+    eventTIMGCSSHacks =
+        Image.asset('assets/images/event_thumbnails/CSS-hack.png');
+    eventTIMGEnigma = Image.asset('assets/images/event_thumbnails/Enigma.png');
+    eventTIMGFarewell =
+        Image.asset('assets/images/event_thumbnails/farewell.jpg');
+    eventTIMGFreshers =
+        Image.asset('assets/images/event_thumbnails/freshers.jpg');
+    eventTIMGOrientation =
+        Image.asset('assets/images/event_thumbnails/orientation.jpg');
+    eventAbacus1 = Image.asset('assets/images/events/abacus/abacus1.jpeg');
+    eventAbacus2 = Image.asset('assets/images/events/abacus/abacus2.jpeg');
+    eventAbacus3 = Image.asset('assets/images/events/abacus/abacus3.jpeg');
+    eventEsperanza1 =
+        Image.asset('assets/images/events/esperanza/esperanza1.jpeg');
+    eventEsperanza2 =
+        Image.asset('assets/images/events/esperanza/esperanza2.jpeg');
+    eventEsperanza3 =
+        Image.asset('assets/images/events/esperanza/esperanza3.jpeg');
+    eventEsperanza4 =
+        Image.asset('assets/images/events/esperanza/esperanza4.jpeg');
+    eventEsperanza5 =
+        Image.asset('assets/images/events/esperanza/esperanza5.jpeg');
+    eventEsperanza6 =
+        Image.asset('assets/images/events/esperanza/esperanza6.jpeg');
+    framerAbhishekBharadwaz =
+        Image.asset('assets/images/framers/Abhishek Bharadwaz.png');
+    framerSourabhShah = Image.asset('assets/images/framers/Sourabh Shah.jpg');
+    framerTeresaLouis = Image.asset('assets/images/framers/Teresa Louis.jpg');
+    framerMajhiSir = Image.asset('assets/images/framers/MajhiSir.jpeg');
+    lottieAccounting = Lottie.asset('assets/lottie/accounting.json');
+    lottieLoader = Lottie.asset('assets/lottie/loader.json');
+    lottieNetworking = Lottie.asset('assets/lottie/networking.json');
+    lottieRainMan = Lottie.asset('assets/lottie/rainman.json');
+    lottieSingSong = Lottie.asset('assets/lottie/sing_song.json');
+    lottieTeam = Lottie.asset('assets/lottie/team.json');
+    lottieTechno = Lottie.asset('assets/lottie/techno.json');
+    lottieCssGlobeLight = Lottie.asset('assets/lottie/cssglobe_light.json');
+    lottieCssGlobeDark = Lottie.asset('assets/lottie/cssglobe_dark.json');
+  }
 }
