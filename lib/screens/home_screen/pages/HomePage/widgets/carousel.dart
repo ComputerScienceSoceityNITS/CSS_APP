@@ -12,7 +12,7 @@ class Carousel extends StatefulWidget {
 
 class _CarouselState extends State<Carousel> {
   final List<String> videos = [
-    "https://youtu.be/_oyc3iyLxjI",
+    "https://youtu.be/MTOIyf_5hK8",
     "https://youtu.be/thDxyKlGHWE"
   ];
 
