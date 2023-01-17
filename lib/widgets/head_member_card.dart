@@ -59,15 +59,14 @@ class HeadMemberCard extends StatelessWidget {
             ),
           );
         },
-        child: NameCard(imageLink: imageLink, role: role, name: name),
+        child: HeadCard(imageLink: imageLink, role: role, name: name),
       ),
     );
   }
 }
 
-
-class NameCard extends StatelessWidget {
-  const NameCard({
+class HeadCard extends StatelessWidget {
+  const HeadCard({
     Key? key,
     required this.imageLink,
     required this.role,
@@ -98,25 +97,14 @@ class NameCard extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  imageLink.isEmpty
-                      ? const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: FadeShimmer(
-                            height: 7,
-                            width: 80,
-                            radius: 4,
-                            highlightColor: Color(0xffc0c3d3),
-                            baseColor: Color(0xff999aa1),
-                          ),
-                        )
-                      : Text(
-                          role,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Theme.of(context).canvasColor,
-                            fontSize: 10,
-                          ),
-                        ),
+                  Text(
+                    role,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Theme.of(context).canvasColor,
+                      fontSize: 10,
+                    ),
+                  ),
                   const SizedBox(height: 4),
                   imageLink.isEmpty
                       ? const Padding(
@@ -139,18 +127,7 @@ class NameCard extends StatelessWidget {
                           ),
                         ),
                   const SizedBox(height: 7),
-                   imageLink.isEmpty
-                      ? const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: FadeShimmer(
-                            height: 40,
-                            width: 140,
-                            radius: 4,
-                            highlightColor: Color.fromARGB(255, 226, 95, 189),
-                            baseColor: Pallet.accentColor,
-                          ),
-                        )
-                      :Container(
+                  Container(
                     width: 140,
                     height: 40,
                     alignment: Alignment.center,
@@ -187,33 +164,31 @@ class NameCard extends StatelessWidget {
               height: 200,
               child: Stack(
                 children: [
-                  imageLink.isEmpty
-                      ? const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: FadeShimmer(
-                            height: 250,
-                            width: 200,
-                            radius: 4,
-                            highlightColor: Color(0xffc0c3d3),
-                            baseColor: Color(0xff999aa1),
-                          ),
-                        )
-                      : Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(18),
-                          ),
-                          child: SizedBox(
-                            height: 200,
-                            width: 210,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(15),
-                              child: Image(
-                                image: CachedNetworkImageProvider(imageLink),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(18),
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 8,
+                            spreadRadius: 6,
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Colors.black.withOpacity(0.25)
+                                    : Colors.white.withOpacity(0.12),
+                          )
+                        ]),
+                    child: SizedBox(
+                      height: 200,
+                      width: 210,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image(
+                          image: CachedNetworkImageProvider(imageLink),
+                          fit: BoxFit.cover,
                         ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
