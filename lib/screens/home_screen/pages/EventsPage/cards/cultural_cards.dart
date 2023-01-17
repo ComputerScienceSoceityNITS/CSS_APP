@@ -26,7 +26,7 @@ class CulturalCards {
     Event(
       stylisedChar: "E",
       title: "sperenza",
-      thumbnail: Assets.eventTIMGFreshers,
+      thumbnail: Assets.esperenza,
       imagepath: "assets/images/event_thumbnails/esperenza.jpeg",
       details:
           "Hey there, get ready, it’s the Freshers, it’s the Esperanza! The event that excites every first-year guy and girl. The main aim of this party is to give a warm welcome to the new comers. It is accompanied with so many colourful events and programs and splendid decoration, thus making it a soulful evening.",
@@ -35,7 +35,7 @@ class CulturalCards {
     Event(
       stylisedChar: "C",
       title: "S-GO",
-      thumbnail: Assets.eventTIMGCSGo,
+      thumbnail: Assets.csgo,
       details:
           "Being part of the Computer Science Society and it’s legacy is an honour in no small sense.CSS organizes a plethora of fun events to commemorate the formation of society each year.The event is exclusively for second years CSE students and is organized by the second-year wing members themselves.",
       imagepath: "assets/images/event_thumbnails/cs-go.jpg",
@@ -49,7 +49,7 @@ class CulturalCards {
     Event(
       stylisedChar: "C",
       title: "SS Olympics",
-      thumbnail: Assets.eventTIMGCSGo,
+      thumbnail: Assets.cssolympics,
       details:
           "CSS Olympics is the annual sports week conducted by the Computer Science Society and garners participation from all CSE batches. It provides a platform for the students to demonstrate their athletic abilities while participating in a wide range of sporting activities.",
       imagepath: "assets/images/event_thumbnails/cssolympics.jpeg",
