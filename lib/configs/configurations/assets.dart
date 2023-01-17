@@ -27,19 +27,16 @@ class Assets {
   static late Image eventTIMGFarewell;
   static late Image eventTIMGFreshers;
   static late Image eventTIMGOrientation;
-  static late Image eventAbacus1;
-  static late Image eventAbacus2;
-  static late Image eventAbacus3;
-  static late Image eventEsperanza1;
-  static late Image eventEsperanza2;
-  static late Image eventEsperanza3;
-  static late Image eventEsperanza4;
-  static late Image eventEsperanza5;
-  static late Image eventEsperanza6;
   static late Image framerAbhishekBharadwaz;
   static late Image framerSourabhShah;
   static late Image framerTeresaLouis;
   static late Image framerMajhiSir;
+  static late Image galleryOrientation1;
+  static late Image galleryOrientation2;
+  static late Image galleryInspireRoom1;
+  static late Image galleryInspireRoom2;
+  static late Image galleryInspireRoom3;
+  static late Image galleryInspireRoom4;
   static late LottieBuilder lottieAccounting;
   static late LottieBuilder lottieLoader;
   static late LottieBuilder lottieNetworking;
@@ -82,26 +79,23 @@ class Assets {
         Image.asset('assets/images/event_thumbnails/freshers.jpg');
     eventTIMGOrientation =
         Image.asset('assets/images/event_thumbnails/orientation.jpg');
-    eventAbacus1 = Image.asset('assets/images/events/abacus/abacus1.jpeg');
-    eventAbacus2 = Image.asset('assets/images/events/abacus/abacus2.jpeg');
-    eventAbacus3 = Image.asset('assets/images/events/abacus/abacus3.jpeg');
-    eventEsperanza1 =
-        Image.asset('assets/images/events/esperanza/esperanza1.jpeg');
-    eventEsperanza2 =
-        Image.asset('assets/images/events/esperanza/esperanza2.jpeg');
-    eventEsperanza3 =
-        Image.asset('assets/images/events/esperanza/esperanza3.jpeg');
-    eventEsperanza4 =
-        Image.asset('assets/images/events/esperanza/esperanza4.jpeg');
-    eventEsperanza5 =
-        Image.asset('assets/images/events/esperanza/esperanza5.jpeg');
-    eventEsperanza6 =
-        Image.asset('assets/images/events/esperanza/esperanza6.jpeg');
     framerAbhishekBharadwaz =
         Image.asset('assets/images/framers/Abhishek Bharadwaz.png');
     framerSourabhShah = Image.asset('assets/images/framers/Sourabh Shah.jpg');
     framerTeresaLouis = Image.asset('assets/images/framers/Teresa Louis.jpg');
     framerMajhiSir = Image.asset('assets/images/framers/MajhiSir.jpeg');
+    galleryOrientation1 =
+        Image.asset('assets/images/gallery/CSS Orientation1-min.jpg');
+    galleryOrientation2 =
+        Image.asset('assets/images/gallery/CSS Orientation2-min.jpg');
+    galleryInspireRoom1 =
+        Image.asset('assets/images/gallery/Inspire Room1-min.jpg');
+    galleryInspireRoom2 =
+        Image.asset('assets/images/gallery/Inspire Room2-min.jpg');
+    galleryInspireRoom3 =
+        Image.asset('assets/images/gallery/Inspire Room3-min.jpg');
+    galleryInspireRoom4 =
+        Image.asset('assets/images/gallery/Inspire Room4-min.jpg');
     lottieAccounting = Lottie.asset('assets/lottie/accounting.json');
     lottieLoader = Lottie.asset('assets/lottie/loader.json');
     lottieNetworking = Lottie.asset('assets/lottie/networking.json');

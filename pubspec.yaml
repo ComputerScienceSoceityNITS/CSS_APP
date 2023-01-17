@@ -50,6 +50,7 @@ flutter:
     - assets/images/framers/
     - assets/lottie/
     - assets/wing_images/
+    - assets/images/gallery/
     - assets/
 
   fonts:
