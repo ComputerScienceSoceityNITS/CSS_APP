@@ -1,12 +1,10 @@
 import 'package:cssapp/screens/home_screen/pages/GalleryPage/widgets/gallery_card.dart';
 import 'package:flutter/material.dart';
 import "dart:math" as math;
+import 'package:cssapp/configs/configs.dart';
 
 class Gallery extends StatefulWidget {
-  final List<Image> images;
-  final String title;
-  const Gallery({Key? key, required this.images, required this.title})
-      : super(key: key);
+  const Gallery({Key? key}) : super(key: key);
 
   @override
   State<Gallery> createState() => _GalleryState();
@@ -17,6 +15,22 @@ class _GalleryState extends State<Gallery> {
   final List<Color> _color = [];
   final List<BlendMode> _blendMode = [];
   final List<double> _blur = [];
+  final List<Image> images = [
+    Assets.galleryInspireRoom4,
+    Assets.galleryInspireRoom2,
+    Assets.galleryOrientation1,
+    Assets.galleryInspireRoom3,
+    Assets.galleryOrientation2,
+    Assets.galleryInspireRoom1,
+  ];
+  final List<String> titles = [
+    "Inspire Room",
+    "Inspire Room",
+    "CSS Orientation 26",
+    "Inspire Room",
+    "CSS Orientation 26",
+    "Inspire Room"
+  ];
 
   /// is the current card active
   final List<bool> _check = [];
@@ -46,7 +60,7 @@ class _GalleryState extends State<Gallery> {
   @override
   void initState() {
     super.initState();
-    for (int i = 0; i < widget.images.length; i++) {
+    for (int i = 0; i < images.length; i++) {
       _blur.add(0.0);
       _check.add(false);
       _color.add(Colors.white);
@@ -71,7 +85,7 @@ class _GalleryState extends State<Gallery> {
   @override
   Widget build(BuildContext context) {
     cards.clear();
-    for (int index = 0; index < widget.images.length; index++) {
+    for (int index = 0; index < images.length; index++) {
       cards.add(
         GalleryCard(
             onTap: () {
@@ -92,8 +106,8 @@ class _GalleryState extends State<Gallery> {
             blurRadius: _blur[index],
             color: _color[index],
             angle: _angle[index],
-            img: widget.images[index],
-            title: widget.title),
+            img: images[index],
+            title: titles[index]),
       );
     }
     return Column(

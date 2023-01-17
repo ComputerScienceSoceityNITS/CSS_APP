@@ -2,6 +2,7 @@
 
 import 'dart:io';
 import 'package:cssapp/configs/configs.dart';
+import 'package:cssapp/navigation_drawer.dart';
 import 'package:cssapp/screens/home_screen/home_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -25,15 +26,17 @@ class _BitscribeReaderScreenState extends State<BitscribeReaderScreen> {
   int progress = 0;
   bool isDownloading = false;
   String path = '';
-  String bitscribeLink =
-      "http://drive.google.com/uc?id=1k8KajSna-Ftcx-Xsz8LQz8R_lX9iq0bP&export=download";
+  String bitscribePreviewLink =
+      "https://drive.google.com/uc?id=1-RMKYyHTgC0OR4dMaNgOnqWDgbE6inlK&export=download";
+  String bitscribeDownloadLink =
+      "https://drive.google.com/uc?id=1-Mh4-9_0ePRN8YMYjWHrsaFVZF967bOo&export=download";
   Future download(String savePath) async {
     if (await Permission.storage.request().isGranted) {
       if (!(await File(savePath).exists())) {
         try {
           isDownloading = true;
           http.StreamedResponse response = await http.Client()
-              .send(http.Request('GET', Uri.parse(bitscribeLink)));
+              .send(http.Request('GET', Uri.parse(bitscribeDownloadLink)));
           int total = response.contentLength ?? 0;
           List<int> bytes = [];
           int received = 0;
@@ -58,6 +61,11 @@ class _BitscribeReaderScreenState extends State<BitscribeReaderScreen> {
           Fluttertoast.showToast(msg: 'unknown error occurred');
           pd.close();
         }
+      } else {
+        pd.close();
+        Fluttertoast.showToast(
+            msg:
+                "pd.update(value: 100, msg: 'File already exists at $savePath");
       }
     }
   }
@@ -97,6 +105,7 @@ class _BitscribeReaderScreenState extends State<BitscribeReaderScreen> {
         progressValueColor: Pallet.darkPrimaryColor,
         msgMaxLines: 2,
         barrierDismissible: true,
+        barrierColor: Colors.black.withOpacity(0.7),
         hideValue: true,
         msgFontSize: 12,
         msgFontWeight: FontWeight.w600,
@@ -110,40 +119,100 @@ class _BitscribeReaderScreenState extends State<BitscribeReaderScreen> {
   @override
   Widget build(BuildContext context) {
     initPath();
-    return WillPopScope(
-      onWillPop: () async {
-        isDownloading = false;
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (BuildContext context) {
-          return const HomeScreen(initialIndex: 0);
-        }));
-        return true;
-      },
-      child: Scaffold(
-        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.only(bottom: 16),
-          child: Builder(builder: (context) {
-            return FloatingActionButton(
-              elevation: 100,
-              child: Icon(
-                Icons.download,
-                color: Theme.of(context).backgroundColor,
-                size: 20,
+    return Scaffold(
+      endDrawer: NavigationDrawer(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      floatingActionButton: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(26, 8, 0, 0),
+            child: Builder(builder: (context) {
+              return FloatingActionButton(
+                  elevation: 12,
+                  child: Icon(
+                    Icons.arrow_back,
+                    color: Theme.of(context).canvasColor,
+                    size: 33,
+                  ),
+                  backgroundColor: Theme.of(context).backgroundColor,
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const HomeScreen(
+                          initialIndex: 0,
+                        ),
+                      ),
+                    );
+                  });
+            }),
+          ),
+          Spacer(),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8, 8, 0, 0),
+            child: Builder(builder: (context) {
+              return FloatingActionButton(
+                elevation: 100,
+                child: Icon(
+                  Icons.menu,
+                  color: Theme.of(context).canvasColor,
+                  size: 33,
+                ),
+                backgroundColor: Theme.of(context).backgroundColor,
+                onPressed: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
+                foregroundColor: Theme.of(context).backgroundColor,
+              );
+            }),
+          ),
+        ],
+      ),
+      body: WillPopScope(
+        onWillPop: () async {
+          isDownloading = false;
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (BuildContext context) {
+            return const HomeScreen(initialIndex: 0);
+          }));
+          return true;
+        },
+        child: SafeArea(
+          child: Stack(
+            children: [
+              FutureBuilder<bool>(
+                future: Permission.storage.isGranted,
+                initialData: false,
+                builder: (BuildContext context, AsyncSnapshot<bool> isGranted) {
+                  return path.isNotEmpty &&
+                          isGranted.data == true &&
+                          File(path).existsSync()
+                      ? SfPdfViewer.file(File(path))
+                      : SfPdfViewer.network(bitscribePreviewLink);
+                },
               ),
-              backgroundColor: Theme.of(context).canvasColor,
-              onPressed: () {
-                startDownload();
-              },
-              foregroundColor: Theme.of(context).backgroundColor,
-            );
-          }),
-        ),
-        body: SafeArea(
-          child: SizedBox(
-            child: path.isNotEmpty && File(path).existsSync()
-                ? SfPdfViewer.file(File(path))
-                : SfPdfViewer.network(bitscribeLink),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 16, right: 16),
+                  child: Builder(builder: (context) {
+                    return FloatingActionButton(
+                      elevation: 100,
+                      child: Icon(
+                        Icons.download,
+                        color: Theme.of(context).backgroundColor,
+                        size: 20,
+                      ),
+                      backgroundColor: Theme.of(context).canvasColor,
+                      onPressed: () {
+                        startDownload();
+                      },
+                      foregroundColor: Theme.of(context).backgroundColor,
+                    );
+                  }),
+                ),
+              )
+            ],
           ),
         ),
       ),

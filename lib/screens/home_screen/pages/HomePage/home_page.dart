@@ -59,9 +59,7 @@ class HomePage extends StatelessWidget {
             SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(
-                    height: 80,
-                  ),
+                  const SizedBox(height: 80),
                   const CSSText(),
                   const SizedBox(height: gap),
                   const Text(
@@ -78,7 +76,9 @@ class HomePage extends StatelessWidget {
                     child: SizedBox(
                       width: double.infinity,
                       child: LottieBuilder(
-                        lottie: Assets.lottiecssremake.lottie,
+                        lottie: Theme.of(context).brightness == Brightness.dark
+                            ? Assets.lottieCssGlobeLight.lottie
+                            : Assets.lottieCssGlobeDark.lottie,
                         fit: BoxFit.fitHeight,
                       ),
                     ),
