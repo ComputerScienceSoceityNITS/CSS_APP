@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 import 'package:cssapp/screens/home_screen/home_screen.dart';
+import 'package:cssapp/state_handlers/theme/brightness/dark.dart';
 import 'widgets/custom_form_field.dart';
 import 'package:cssapp/configs/configs.dart';
 import 'package:cssapp/widgets/widgets.dart';
@@ -30,9 +31,9 @@ class _ReportBugsState extends State<ReportBugs> {
       String email = emailController.text.trim();
       String subject = subjectController.text;
       String message = messageController.text;
-      const serviceId = "service_rvef4wd";
-      const templateId = "template_ifh1o4d";
-      const userId = "CVD052yKVtaMl2d4n";
+      const serviceId = "service_7vrkdqn";
+      const templateId = "template_pr22b7c";
+      const userId = "Werdo0_kbsEnt1QpU";
       await Future.delayed(const Duration(seconds: 1));
       final response = await http.post(url,
           headers: {
@@ -100,7 +101,6 @@ class _ReportBugsState extends State<ReportBugs> {
       body: SafeArea(
         child: Stack(
           children: [
-            const CSSBGText(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Column(
@@ -134,6 +134,12 @@ class _ReportBugsState extends State<ReportBugs> {
                     height: 25,
                   ),
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor:
+                          Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : Colors.black,
+                    ),
                     onPressed: () async {
                       if (emailController.text.isEmpty ||
                           subjectController.text.isEmpty ||
@@ -167,10 +173,14 @@ class _ReportBugsState extends State<ReportBugs> {
                             height: 15,
                             width: 15,
                           )
-                        : Text(
-                            "Send Message",
-                            style:
-                                TextStyle(color: Theme.of(context).canvasColor),
+                        : Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8.0, vertical: 12),
+                            child: Text(
+                              "Send Message",
+                              style: TextStyle(
+                                  color: Theme.of(context).canvasColor),
+                            ),
                           ),
                   ),
                   const SizedBox(height: 10),
