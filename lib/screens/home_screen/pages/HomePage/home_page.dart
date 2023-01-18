@@ -77,12 +77,9 @@ class HomePage extends StatelessWidget {
                     padding: const EdgeInsets.all(25.0),
                     child: SizedBox(
                       width: double.infinity,
-                      child: LottieBuilder(
-                        lottie: Theme.of(context).brightness == Brightness.dark
-                            ? Assets.lottieCssGlobeLight.lottie
-                            : Assets.lottieCssGlobeDark.lottie,
-                        fit: BoxFit.fitHeight,
-                      ),
+                      child: Theme.of(context).brightness == Brightness.dark
+                          ? Assets.lottieCssGlobeLight
+                          : Assets.lottieCssGlobeDark,
                     ),
                   ),
                   Container(
@@ -142,9 +139,7 @@ class HomePage extends StatelessWidget {
                   Container(
                     alignment: Alignment.bottomLeft,
                     height: 200,
-                    child: LottieBuilder(
-                        lottie: Assets.lottieRainMan.lottie,
-                        fit: BoxFit.fitHeight),
+                    child: Assets.lottieRainMan,
                   ),
                   Text(
                     "PILLARS OF CSS",

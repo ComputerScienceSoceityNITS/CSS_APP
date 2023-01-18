@@ -136,37 +136,9 @@ class _EventsPageState extends State<EventsPage> {
                   ],
                 ),
                 const SizedBox(height: 16),
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Events(
-                            cards: cards[index], lottie: Assets.lottieLoader),
-
-                        // technoEventsSelected
-                        //     ? Offstage(
-                        //         offstage: technoEventsSelected == false,
-                        //         child: Events(
-                        //             cards: TechnoCards.cards,
-                        //             lottie: Assets.lottieTechno),
-                        //       )
-                        //     : Offstage(
-                        //         offstage: technoEventsSelected == true,
-                        //         child: Events(
-                        //             cards: CulturalCards.cards,
-                        //             lottie: Assets.lottieTechno),
-                        //       ),
-
-                        //  Offstage(
-                        //     offstage: technoEventsSelected == true,
-                        // child: Events(
-                        //     cards: CulturalCards.cards,
-                        //     lottie: Assets.lottieLoader),
-                        //   ),
-                      ],
-                    )
-                  ],
-                )
+                Events(
+                  cards: cards[index],
+                ),
               ],
             ),
           ),

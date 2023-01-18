@@ -41,9 +41,7 @@ class _MembersPageState extends State<MembersPage> {
                     opacity: 0.7,
                     child: Padding(
                       padding: const EdgeInsets.only(top: 40.0),
-                      child: LottieBuilder(
-                        lottie: Assets.lottiemember.lottie,
-                      ),
+                      child: Assets.lottieMember,
                     ),
                   ),
                 ),
