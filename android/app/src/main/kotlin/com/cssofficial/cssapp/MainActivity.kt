@@ -1,4 +1,4 @@
-package com.example.cssapp
+package com.cssofficial.cssapp
 
 import io.flutter.embedding.android.FlutterActivity
 
