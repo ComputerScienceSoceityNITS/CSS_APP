@@ -97,14 +97,25 @@ class NameCard extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    role,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Theme.of(context).canvasColor,
-                      fontSize: 10,
-                    ),
-                  ),
+                  imageLink.isEmpty
+                      ? const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: FadeShimmer(
+                            height: 7,
+                            width: 60,
+                            radius: 4,
+                            highlightColor: Color(0xffc0c3d3),
+                            baseColor: Color(0xff999aa1),
+                          ),
+                        )
+                      : Text(
+                          role,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Theme.of(context).canvasColor,
+                            fontSize: 10,
+                          ),
+                        ),
                   const SizedBox(height: 4),
                   imageLink.isEmpty
                       ? const Padding(
@@ -127,31 +138,42 @@ class NameCard extends StatelessWidget {
                           ),
                         ),
                   const SizedBox(height: 7),
-                  Container(
-                    width: 140,
-                    height: 40,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 7,
-                          spreadRadius: 2,
-                          offset: const Offset(0, 3),
-                          color: Colors.black.withOpacity(0.2),
+                  imageLink.isEmpty
+                      ? const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: FadeShimmer(
+                            height: 40,
+                            width: 140,
+                            radius: 4,
+                            highlightColor: Color.fromARGB(255, 241, 101, 201),
+                            baseColor: Pallet.accentColor,
+                          ),
                         )
-                      ],
-                      color: Pallet.accentColor,
-                    ),
-                    child: const Text(
-                      "Click to Connect",
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
+                      : Container(
+                          width: 140,
+                          height: 40,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 7,
+                                spreadRadius: 2,
+                                offset: const Offset(0, 3),
+                                color: Colors.black.withOpacity(0.2),
+                              )
+                            ],
+                            color: Pallet.accentColor,
+                          ),
+                          child: const Text(
+                            "Click to Connect",
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
                   const SizedBox(height: 10),
                 ],
               ),
@@ -159,7 +181,17 @@ class NameCard extends StatelessWidget {
           ),
           Align(
             alignment: AlignmentDirectional.topCenter,
-            child: SizedBox(
+            child: imageLink.isEmpty
+                      ? const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: FadeShimmer(
+                            height: 200,
+                            width: 180,
+                            radius: 4,
+                            highlightColor: Color(0xffc0c3d3),
+                            baseColor: Color(0xff999aa1),
+                          ),
+                        ):SizedBox(
               width: 180,
               height: 200,
               child: Stack(
