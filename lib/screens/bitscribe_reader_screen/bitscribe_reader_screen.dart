@@ -192,11 +192,11 @@ class _BitscribeReaderScreenState extends State<BitscribeReaderScreen> {
                 },
               ),
               Align(
-                alignment: Alignment.bottomRight,
+                alignment: Alignment.bottomCenter,
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 16, right: 16),
                   child: Builder(builder: (context) {
-                    return Container(
+                    return SizedBox(
                       width: MediaQuery.of(context).size.width * 0.7,
                       child: ElevatedButton(
                         style: ButtonStyle(
@@ -208,23 +208,26 @@ class _BitscribeReaderScreenState extends State<BitscribeReaderScreen> {
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.symmetric(vertical: 10),
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text(
-                                "Download the complete\nPDF here",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 20,
+                              const Expanded(
+                                flex: 4,
+                                child: Text(
+                                  "Download the complete PDF here",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
                                 ),
                               ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Icon(
-                                Icons.download,
-                                color: Theme.of(context).canvasColor,
-                                size: 28,
+                              Expanded(
+                                flex: 1,
+                                child: Icon(
+                                  Icons.download,
+                                  color: Theme.of(context).canvasColor,
+                                ),
                               ),
                             ],
                           ),
