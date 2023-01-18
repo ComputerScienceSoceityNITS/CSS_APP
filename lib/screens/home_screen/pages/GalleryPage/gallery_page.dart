@@ -24,9 +24,7 @@ class _GalleryPageState extends State<GalleryPage> {
                 height: 200,
                 child: Opacity(
                   opacity: 0.7,
-                  child: LottieBuilder(
-                    lottie: Assets.lottieSingSong.lottie,
-                  ),
+                  child: Assets.lottieSingSong,
                 ),
               ),
               Column(

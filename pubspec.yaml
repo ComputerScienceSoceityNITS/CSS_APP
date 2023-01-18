@@ -43,16 +43,12 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/background/
     - assets/images/CSS_logo/
     - assets/images/event_thumbnails/
-    - assets/images/events/abacus/
-    - assets/images/events/esperanza/
     - assets/images/framers/
+    - assets/images/gallery/
     - assets/lottie/
     - assets/wing_images/
-    - assets/images/gallery/
-    - assets/
 
   fonts:
     - family: Anton
