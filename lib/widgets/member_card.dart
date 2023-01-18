@@ -62,34 +62,6 @@ class MemberCard extends StatelessWidget {
         child: NameCard(imageLink: imageLink, role: role, name: name),
       ),
     );
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 7.0),
-      child: GestureDetector(
-        onTap: () {
-          showModalBottomSheet(
-            context: context,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30),
-                topRight: Radius.circular(30),
-              ),
-            ),
-            isScrollControlled: true,
-            builder: (context) => SingleChildScrollView(
-              child: ConnectMember(
-                role: role,
-                name: name,
-                fb: fb,
-                git: git,
-                insta: insta,
-                linkedin: linkedin,
-              ),
-            ),
-          );
-        },
-        child: NameCard(imageLink: imageLink, role: role, name: name),
-      ),
-    );
   }
 }
 
