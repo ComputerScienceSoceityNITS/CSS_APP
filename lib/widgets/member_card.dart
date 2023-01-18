@@ -182,39 +182,40 @@ class NameCard extends StatelessWidget {
           Align(
             alignment: AlignmentDirectional.topCenter,
             child: imageLink.isEmpty
-                      ? const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: FadeShimmer(
-                            height: 200,
-                            width: 180,
-                            radius: 4,
-                            highlightColor: Color(0xffc0c3d3),
-                            baseColor: Color(0xff999aa1),
-                          ),
-                        ):SizedBox(
-              width: 180,
-              height: 200,
-              child: Stack(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(18),
-                    ),
-                    child: SizedBox(
+                ? const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: FadeShimmer(
                       height: 200,
-                      width: 210,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(15),
-                        child: Image(
-                          image: CachedNetworkImageProvider(imageLink),
-                          fit: BoxFit.cover,
+                      width: 180,
+                      radius: 4,
+                      highlightColor: Color(0xffc0c3d3),
+                      baseColor: Color(0xff999aa1),
+                    ),
+                  )
+                : SizedBox(
+                    width: 180,
+                    height: 200,
+                    child: Stack(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                          child: SizedBox(
+                            height: 200,
+                            width: 210,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(15),
+                              child: Image(
+                                image: CachedNetworkImageProvider(imageLink),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-            ),
           ),
         ],
       ),
