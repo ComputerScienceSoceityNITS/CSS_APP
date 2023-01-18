@@ -81,7 +81,7 @@ class ConnectMember extends StatelessWidget {
                     if (linkedin != null && linkedin!.isNotEmpty)
                       SocialIcons(
                         icon: FontAwesomeIcons.linkedin,
-                        link: insta,
+                        link: linkedin,
                         size: 30,
                       ),
                     if (insta != null && insta!.isNotEmpty)
