@@ -144,7 +144,7 @@ class _ExecutiveMember extends StatelessWidget {
                     ),
                     Container(
                       width: profileHeight * 0.9,
-                      height: profileHeight*1.1,
+                      height: profileHeight * 1.1,
                       margin: EdgeInsets.only(top: profileHeight * 0.05),
                       decoration: BoxDecoration(
                         image: DecorationImage(
@@ -164,7 +164,8 @@ class _ExecutiveMember extends StatelessWidget {
                   child: Text(
                     title,
                     textAlign: TextAlign.center,
-                    style: textSmallBold.copyWith(fontSize: 18,
+                    style: textSmallBold.copyWith(
+                      fontSize: 18,
                       color: Colors.white,
                     ),
                   ),
@@ -178,18 +179,26 @@ class _ExecutiveMember extends StatelessWidget {
                 crossAxisAlignment: WrapCrossAlignment.center,
                 spacing: 10,
                 children: [
-                  Text(name,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Theme.of(context).backgroundColor,fontSize: 14),),
-                  Text(details ?? '',
-                      textAlign: TextAlign.center,
-                      style: textSmall.copyWith(
-                          color: Theme.of(context).backgroundColor)),
-                  Text(email ?? '',
-                      textAlign: TextAlign.center,
-                      style: textSmall.copyWith(
-                          color: Theme.of(context).backgroundColor)),
+                  Text(
+                    name,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Theme.of(context).backgroundColor,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  details != null && details!.isNotEmpty
+                      ? Text(details ?? '',
+                          textAlign: TextAlign.center,
+                          style: textSmall.copyWith(
+                              color: Theme.of(context).backgroundColor))
+                      : const SizedBox.shrink(),
+                  email != null && email!.isNotEmpty
+                      ? Text(email ?? '',
+                          textAlign: TextAlign.center,
+                          style: textSmall.copyWith(
+                              color: Theme.of(context).backgroundColor))
+                      : const SizedBox.shrink(),
                   Container(
                     height: 1,
                     width: 200,
@@ -197,7 +206,8 @@ class _ExecutiveMember extends StatelessWidget {
                   ),
                   Text(
                     'Click to Connect',
-                    style: textSmall.copyWith(color: Pallet.accentColor,fontSize: 15),
+                    style: textSmall.copyWith(
+                        color: Pallet.accentColor, fontSize: 15),
                   ),
                 ],
               ),

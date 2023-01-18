@@ -159,14 +159,75 @@ class Shimmer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      child: FadeShimmer(
-        height: 250,
-        width: 200,
-        radius: 4,
-        highlightColor: Color(0xffc0c3d3),
-        baseColor: Color(0xff999aa1),
+    return SizedBox(
+      width: 230,
+      height: 250,
+      child: Stack(
+        children: [
+          Positioned(
+            top: 30,
+            left: 5,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).backgroundColor,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              width: 220,
+              height: 270,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: FadeShimmer(
+                      height: 7,
+                      width: 60,
+                      radius: 4,
+                      highlightColor: Color(0xffc0c3d3),
+                      baseColor: Color(0xff999aa1),
+                    ),
+                  ),
+                  SizedBox(height: 4),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: FadeShimmer(
+                      height: 7,
+                      width: 100,
+                      radius: 4,
+                      highlightColor: Color(0xffc0c3d3),
+                      baseColor: Color(0xff999aa1),
+                    ),
+                  ),
+                  const SizedBox(height: 7),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: FadeShimmer(
+                      height: 40,
+                      width: 140,
+                      radius: 4,
+                      highlightColor: Color.fromARGB(255, 241, 101, 201),
+                      baseColor: Color.fromARGB(255, 215, 101, 139),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                ],
+              ),
+            ),
+          ),
+          Align(
+            alignment: AlignmentDirectional.topCenter,
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: FadeShimmer(
+                height: 200,
+                width: 180,
+                radius: 4,
+                highlightColor: Color(0xffc0c3d3),
+                baseColor: Color(0xff999aa1),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

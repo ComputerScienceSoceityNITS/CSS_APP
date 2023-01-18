@@ -25,6 +25,15 @@ class _DevelopersPageState extends State<DevelopersPage> {
                     alignment: Alignment.topCenter,
                     child: Stack(
                       children: [
+                        Container(
+                          alignment: Alignment.topLeft,
+                          height: 200,
+                          child: AnimatedOpacity(
+                            opacity: 1,
+                            duration: const Duration(milliseconds: 10),
+                            child: Assets.lottieTeam,
+                          ),
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -41,21 +50,12 @@ class _DevelopersPageState extends State<DevelopersPage> {
                             const SizedBox(
                               width: 10,
                             ),
-                            Text("team".toUpperCase(),
+                            Text(" Developers \n team".toUpperCase(),
                                 textAlign: TextAlign.center,
                                 style: textLargeSpaced.copyWith(
                                   color: Theme.of(context).backgroundColor,
                                 )),
                           ],
-                        ),
-                        Container(
-                          alignment: Alignment.topLeft,
-                          height: 200,
-                          child: AnimatedOpacity(
-                            opacity: 1,
-                            duration: const Duration(milliseconds: 10),
-                            child: Assets.lottieTeam,
-                          ),
                         ),
                       ],
                     )),

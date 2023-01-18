@@ -30,6 +30,11 @@ class Assets {
   static late Image galleryInspireRoom2;
   static late Image galleryInspireRoom3;
   static late Image galleryInspireRoom4;
+  static late Image mlProjectShowcase;
+  static late Image dsaMarathon;
+  static late Image openSourceHackathon;
+  static late Image designWorkshop;
+  static late Image hackathon;
   static late Image algochemy;
   static late Image chasecloud9;
   static late Image fictiouscypher;
@@ -54,7 +59,9 @@ class Assets {
   static late Image mlclasses;
   static late Image orientation;
   static late Image speakersession;
-
+  static late Image mlshowcase;
+  static late Image oshacathon;
+  static late Image designW;
   static late LottieBuilder lottieAccounting;
   static late LottieBuilder lottieRainMan;
   static late LottieBuilder lottieSingSong;
@@ -113,6 +120,11 @@ class Assets {
     lottieCssGlobeDark = Lottie.asset('assets/lottie/cssglobe_dark.json');
     lottieMember = Lottie.asset('assets/lottie/member.json');
 
+    mlProjectShowcase =
+        Image.asset('assets/images/event_thumbnails/ml_project_showcase.jpg');
+    hackathon = Image.asset('assets/images/event_thumbnails/hackathon.jpeg');
+    dsaMarathon =
+        Image.asset('assets/images/event_thumbnails/data_structure.jpeg');
     algochemy = Image.asset('assets/images/event_thumbnails/algochemy.jpeg');
     chasecloud9 =
         Image.asset('assets/images/event_thumbnails/chasecloud9.jpeg');
@@ -143,5 +155,13 @@ class Assets {
     orientation = Image.asset('assets/images/event_thumbnails/orientation.jpg');
     speakersession =
         Image.asset('assets/images/event_thumbnails/speakersession.jpeg');
+    mlProjectShowcase =
+        Image.asset('assets/images/event_thumbnails/ml_project_showcase.jpg');
+
+    dsaMarathon =
+        Image.asset('assets/images/event_thumbnails/dsamarathon.jpeg');
+
+    oshacathon = Image.asset('assets/images/event_thumbnails/hacathonos.jpeg');
+    designW = Image.asset('assets/images/event_thumbnails/designworkshop.jpeg');
   }
 }

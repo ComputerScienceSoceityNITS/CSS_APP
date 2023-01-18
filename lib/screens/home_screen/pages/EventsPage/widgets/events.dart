@@ -8,7 +8,8 @@ import 'package:cssapp/configs/configs.dart';
 class Events extends StatefulWidget {
   final List<Event> cards;
 
-  const Events({Key? key, required this.cards}) : super(key: key);
+  const Events({Key? key, required this.cards})
+      : super(key: key);
 
   @override
   _EventsState createState() => _EventsState();
