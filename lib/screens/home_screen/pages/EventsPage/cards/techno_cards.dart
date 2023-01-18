@@ -151,7 +151,7 @@ class TechnoCards {
       thumbnail: Assets.mlProjectShowcase,
       imagepath: "assets/images/event_thumbnails/csswars.jpeg",
       details:
-          "The Computer Science Society organizes hackathons throughout the course of the year which are open source.",
+          "The Computer Science Society organizes ML Project Showcase to given an insight to the world of Machine Learning.",
       events: const [],
       addBorderRadiusToThumbnail: true,
     ),
