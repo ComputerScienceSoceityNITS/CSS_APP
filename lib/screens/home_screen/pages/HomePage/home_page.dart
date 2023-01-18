@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
   static const double gap = 35;
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
         child: Stack(

@@ -196,18 +196,41 @@ class _BitscribeReaderScreenState extends State<BitscribeReaderScreen> {
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 16, right: 16),
                   child: Builder(builder: (context) {
-                    return FloatingActionButton(
-                      elevation: 100,
-                      child: Icon(
-                        Icons.download,
-                        color: Theme.of(context).backgroundColor,
-                        size: 20,
+                    return Container(
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                            Theme.of(context).backgroundColor,
+                          ),
+                          foregroundColor: MaterialStateProperty.all<Color>(
+                            Theme.of(context).canvasColor,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              Text(
+                                "Download the complete\nPDF here",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Icon(
+                                Icons.download,
+                                color: Theme.of(context).canvasColor,
+                                size: 28,
+                              ),
+                            ],
+                          ),
+                        ),
+                        onPressed: startDownload,
                       ),
-                      backgroundColor: Theme.of(context).canvasColor,
-                      onPressed: () {
-                        startDownload();
-                      },
-                      foregroundColor: Theme.of(context).backgroundColor,
                     );
                   }),
                 ),
