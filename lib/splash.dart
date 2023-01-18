@@ -24,6 +24,7 @@ class _SplashState extends State<Splash> {
   Future<void> getData() async {
     bool result = await InternetConnectionChecker().hasConnection;
     if (result) {
+      Provider.of<MemberApi>(context, listen: false).isOnline = true;
       Provider.of<MemberApi>(context, listen: false).getAllData();
     } else {
       Provider.of<MemberApi>(context, listen: false).isOnline = false;

@@ -9,15 +9,8 @@ class Assets {
   static late Image wing_lit;
   static late Image wing_ml;
   static late Image wing_design;
-
-  static late Image bgAbacus;
-  static late Image bgCode;
-  static late Image bgFlower;
-  static late Image bgMagazine;
-  static late Image bgMusicController;
   static late Image cssLogoDark;
   static late Image cssLogoLight;
-  static late Image cssLogo;
   static late Image eventTIMGAbacusIIT;
   static late Image eventTIMGAbacusTech;
   static late Image eventTIMGCClasses;
@@ -63,15 +56,12 @@ class Assets {
   static late Image speakersession;
 
   static late LottieBuilder lottieAccounting;
-  static late LottieBuilder lottieLoader;
-  static late LottieBuilder lottieNetworking;
   static late LottieBuilder lottieRainMan;
   static late LottieBuilder lottieSingSong;
   static late LottieBuilder lottieTeam;
-  static late LottieBuilder lottieTechno;
   static late LottieBuilder lottieCssGlobeLight;
   static late LottieBuilder lottieCssGlobeDark;
-  static late LottieBuilder lottiemember;
+  static late LottieBuilder lottieMember;
   Assets() {
     wing_pr = Image.asset('assets/wing_images/pr.jpg');
     wing_cp = Image.asset('assets/wing_images/cp.png');
@@ -80,15 +70,8 @@ class Assets {
     wing_lit = Image.asset('assets/wing_images/lit.jpg');
     wing_ml = Image.asset('assets/wing_images/ml.jpg');
     wing_design = Image.asset('assets/wing_images/design.jpg');
-    bgAbacus = Image.asset('assets/images/background/abacus.jpg');
-    bgCode = Image.asset('assets/images/background/code.jpeg');
-    bgFlower = Image.asset('assets/images/background/flower.jpeg');
-    bgMagazine = Image.asset('assets/images/background/magazine.jpeg');
-    bgMusicController =
-        Image.asset('assets/images/background/music_controller.jpeg');
     cssLogoDark = Image.asset('assets/images/CSS_logo/CSS_logo_dark.png');
     cssLogoLight = Image.asset('assets/images/CSS_logo/CSS_logo_light.png');
-    cssLogo = Image.asset('assets/images/CSS_logo/logo.png');
     eventTIMGAbacusIIT =
         Image.asset('assets/images/event_thumbnails/Abacus-Iit.png');
     eventTIMGAbacusTech =
@@ -123,16 +106,12 @@ class Assets {
     galleryInspireRoom4 =
         Image.asset('assets/images/gallery/Inspire Room4-min.jpg');
     lottieAccounting = Lottie.asset('assets/lottie/accounting.json');
-    lottieLoader = Lottie.asset('assets/lottie/loader.json');
-    lottieNetworking = Lottie.asset('assets/lottie/networking.json');
     lottieRainMan = Lottie.asset('assets/lottie/rainman.json');
     lottieSingSong = Lottie.asset('assets/lottie/sing_song.json');
     lottieTeam = Lottie.asset('assets/lottie/team.json');
-    lottieTechno = Lottie.asset('assets/lottie/techno.json');
     lottieCssGlobeLight = Lottie.asset('assets/lottie/cssglobe_light.json');
     lottieCssGlobeDark = Lottie.asset('assets/lottie/cssglobe_dark.json');
-
-    lottiemember = Lottie.asset('assets/lottie/member.json');
+    lottieMember = Lottie.asset('assets/lottie/member.json');
 
     algochemy = Image.asset('assets/images/event_thumbnails/algochemy.jpeg');
     chasecloud9 =
@@ -164,6 +143,5 @@ class Assets {
     orientation = Image.asset('assets/images/event_thumbnails/orientation.jpg');
     speakersession =
         Image.asset('assets/images/event_thumbnails/speakersession.jpeg');
-
   }
 }
