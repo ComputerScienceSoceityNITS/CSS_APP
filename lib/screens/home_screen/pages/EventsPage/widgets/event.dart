@@ -46,7 +46,7 @@ class Event extends StatelessWidget {
             title,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 25,
+              fontSize: 19,
               fontFamily: "Segoe Font",
               color: Theme.of(context).backgroundColor,
             ),
@@ -61,7 +61,7 @@ class Event extends StatelessWidget {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontFamily: "Segoe Font",
-            fontSize: 25,
+            fontSize: 20,
             color: Theme.of(context).backgroundColor,
           ),
         ),

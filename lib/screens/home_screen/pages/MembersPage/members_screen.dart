@@ -42,7 +42,7 @@ class _MembersPageState extends State<MembersPage> {
                     child: Padding(
                       padding: const EdgeInsets.only(top: 40.0),
                       child: LottieBuilder(
-                        lottie: Assets.lottiemember.lottie,
+                        lottie: Assets.lottieMember.lottie,
                       ),
                     ),
                   ),

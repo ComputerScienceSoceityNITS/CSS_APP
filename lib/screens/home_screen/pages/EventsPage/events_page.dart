@@ -141,7 +141,7 @@ class _EventsPageState extends State<EventsPage> {
                     Row(
                       children: [
                         Events(
-                            cards: cards[index], lottie: Assets.lottieLoader),
+                            cards: cards[index]),
 
                         // technoEventsSelected
                         //     ? Offstage(

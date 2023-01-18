@@ -23,22 +23,6 @@ class TechnoCards {
       addBorderRadiusToThumbnail: true,
     ),
     Event(
-      stylisedChar: "E",
-      title: "nigma/",
-      titleLine2: "Enigma+",
-      imagepath: "assets/images/event_thumbnails/Enigma.png",
-      thumbnail: Assets.enigma,
-      events: const [
-        // "Chess",
-        // "Valorant Tournaments",
-        // "Scrible",
-        // "General Quiz"
-      ],
-      details:
-          "Having established a trail of success stories with NIT Silchar CSE students and alumni being placed in top companies around the globe, the CSS of NIT Silchar understands the importance of competitive programming and its role in cracking international hackathons and MNCs. Enigma is a weekly coding contest organized by the CP wing aimed to make the students comfortable with the level and format of such questions and to provide them with a competitive edge in their endeavors.",
-      addBorderRadiusToThumbnail: false,
-    ),
-    Event(
       stylisedChar: "C",
       title: " Classes",
       //titleLine2: "IIT",
@@ -55,6 +39,18 @@ class TechnoCards {
       addBorderRadiusToThumbnail: true,
     ),
     Event(
+      stylisedChar: "E",
+      title: "nigma/",
+      titleLine2: "Enigma+",
+      imagepath: "assets/images/event_thumbnails/Enigma.png",
+      thumbnail: Assets.enigma,
+      events: const [],
+      details:
+          "Having established a trail of success stories with NIT Silchar CSE students and alumni being placed in top companies around the globe, the CSS of NIT Silchar understands the importance of competitive programming and its role in cracking international hackathons and MNCs. Enigma is a weekly coding contest organized by the CP wing aimed to make the students comfortable with the level and format of such questions and to provide them with a competitive edge in their endeavors.",
+      addBorderRadiusToThumbnail: false,
+    ),
+
+    Event(
       stylisedChar: "D",
       title: "ev",
       titleLine2: "Workshop",
@@ -69,6 +65,85 @@ class TechnoCards {
       ],
       details:
           "CSS organizes numerous development workshops throughout the course of the year which are conducted by the dev wing. The objective of the workkshops is to help the students navigate through the challenging and mind-numbing concepts of fields like app dev, web dev, web3, etc and to provide them with a competitive edge in the corporate world.",
+      addBorderRadiusToThumbnail: true,
+    ),
+    Event(
+      stylisedChar: "D",
+      title: "SA",
+      titleLine2: "Marathon",
+      thumbnail: Assets.dsaMarathon,
+      imagepath: "",
+      // thumbnail,
+      events: [
+        // "Chess",
+        // "Valorant Tournaments",
+        // "Scrible",
+        // "General Quiz"
+      ],
+      details:
+          "The Computer Science Society organizes DSA marathon events to help the students improve their DSA skills which can help them in their carrer and improve their coding skills as well as in creating a competetive enviornment among the students",
+      addBorderRadiusToThumbnail: true,
+    ),
+   Event(
+      stylisedChar: "D",
+      title: "esign",
+      titleLine2: "Workshop",
+      thumbnail: Assets.dsaMarathon,
+      imagepath: "",
+      // thumbnail,
+      events: [
+        // "Chess",
+        // "Valorant Tournaments",
+        // "Scrible",
+        // "General Quiz"
+      ],
+      details:
+          "The Computer Science Society organizes DSA marathon events to help the students improve their DSA skills which can help them in their carrer and improve their coding skills as well as in creating a competetive enviornment among the students",
+      addBorderRadiusToThumbnail: true,
+    ),
+       Event(
+      stylisedChar: "M",
+      title: "L Project",
+      titleLine2: "Showcase",
+      thumbnail: Assets.dsaMarathon,
+      imagepath: "",
+      // thumbnail,
+      events: [
+        // "Chess",
+        // "Valorant Tournaments",
+        // "Scrible",
+        // "General Quiz"
+      ],
+      details:
+          "The Computer Science Society organizes DSA marathon events to help the students improve their DSA skills which can help them in their carrer and improve their coding skills as well as in creating a competetive enviornment among the students",
+      addBorderRadiusToThumbnail: true,
+    ),
+    Event(
+      stylisedChar: "M",
+      title: "L Project",
+      titleLine2: "Showcase",
+      thumbnail: Assets.devworkshop,
+      imagepath: "",
+      // thumbnail,
+      events: [
+        // "Chess",
+        // "Valorant Tournaments",
+        // "Scrible",
+        // "General Quiz"
+      ],
+      details:
+          "The Computer Science Society organizes DSA marathon events to help the students improve their DSA skills which can help them in their carrer and improve their coding skills as well as in creating a competetive enviornment among the students",
+      addBorderRadiusToThumbnail: true,
+    ),
+    Event(
+      stylisedChar: "O",
+      title: "penSourc",
+      titleLine2: "Hackathon",
+      imagepath: "assets/images/event_thumbnails/hackathon.jpeg",
+      thumbnail: Assets.hackathon,
+      events: const [],
+      details:
+          "The Computer Science Society organizes hackathons throughout the course of the year which are open source. It’s a great opportunity to get to know others that have the same interests  and it is a great add up to your CV",
       addBorderRadiusToThumbnail: true,
     ),
     // Event(
