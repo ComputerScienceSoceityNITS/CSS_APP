@@ -206,9 +206,22 @@ class NameCard extends StatelessWidget {
                             width: 210,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(15),
-                              child: Image(
-                                image: CachedNetworkImageProvider(imageLink),
+                              child: CachedNetworkImage(
                                 fit: BoxFit.cover,
+                                imageUrl: imageLink,
+                                progressIndicatorBuilder: (_, __, ___) {
+                                  return const Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 10),
+                                    child: FadeShimmer(
+                                      height: 200,
+                                      width: 180,
+                                      radius: 4,
+                                      highlightColor: Color(0xffc0c3d3),
+                                      baseColor: Color(0xff999aa1),
+                                    ),
+                                  );
+                                },
                               ),
                             ),
                           ),

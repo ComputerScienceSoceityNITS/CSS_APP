@@ -35,6 +35,13 @@ class _DevelopersState extends State<Developers> {
   @override
   void initState() {
     super.initState();
+    Provider.of<MemberApi>(context, listen: false).getAllData().then((value) =>
+        members = Provider.of<MemberApi>(context, listen: false).members);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     members = Provider.of<MemberApi>(context, listen: false).members;
   }
 
