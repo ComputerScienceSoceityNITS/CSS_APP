@@ -21,8 +21,16 @@ class _MembersPageState extends State<MembersPage> {
 
   @override
   void initState() {
-    members = Provider.of<MemberApi>(context, listen: false).members;
+    Provider.of<MemberApi>(context, listen: false).getAllData().then((value) =>
+        members = Provider.of<MemberApi>(context, listen: false).members);
+
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    members = Provider.of<MemberApi>(context, listen: false).members;
   }
 
   @override

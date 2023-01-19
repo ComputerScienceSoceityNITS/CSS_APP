@@ -25,7 +25,6 @@ class _SplashState extends State<Splash> {
     bool result = await InternetConnectionChecker().hasConnection;
     if (result) {
       Provider.of<MemberApi>(context, listen: false).isOnline = true;
-      Provider.of<MemberApi>(context, listen: false).getAllData();
     } else {
       Provider.of<MemberApi>(context, listen: false).isOnline = false;
       Fluttertoast.showToast(msg: "Couldn't connect to the internet");
