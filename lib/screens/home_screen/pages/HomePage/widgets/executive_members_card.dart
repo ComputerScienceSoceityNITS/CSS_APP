@@ -177,14 +177,14 @@ class _ExecutiveMember extends StatelessWidget {
               child: Wrap(
                 direction: Axis.vertical,
                 crossAxisAlignment: WrapCrossAlignment.center,
-                spacing: 10,
+                spacing: 6,
                 children: [
                   Text(
                     name,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Theme.of(context).backgroundColor,
-                        fontSize: 14,
+                        fontSize: 13,
                         fontWeight: FontWeight.w500),
                   ),
                   details != null && details!.isNotEmpty

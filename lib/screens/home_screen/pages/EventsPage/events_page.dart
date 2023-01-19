@@ -135,13 +135,12 @@ class _EventsPageState extends State<EventsPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 25),
                 Column(
                   children: [
                     Row(
                       children: [
-                        Events(
-                            cards: cards[index]),
+                        Events(cards: cards[index]),
 
                         // technoEventsSelected
                         //     ? Offstage(
