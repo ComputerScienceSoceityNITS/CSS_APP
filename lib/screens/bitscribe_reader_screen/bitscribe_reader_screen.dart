@@ -120,7 +120,7 @@ class _BitscribeReaderScreenState extends State<BitscribeReaderScreen> {
   Widget build(BuildContext context) {
     initPath();
     return Scaffold(
-      endDrawer: NavigationDrawer(),
+      // endDrawer: NavigationDrawer(),
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       floatingActionButton: Row(
         children: [
