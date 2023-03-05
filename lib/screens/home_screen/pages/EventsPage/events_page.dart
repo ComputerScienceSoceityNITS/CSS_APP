@@ -74,10 +74,16 @@ class _EventsPageState extends State<EventsPage> {
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => engima_page(),
-                                ));
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => engima_page(),
+                              ),
+                            );
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //       builder: (context) => engima_page(),
+                            //     ));
                           },
                           child: Card(
                             shape: RoundedRectangleBorder(
