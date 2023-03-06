@@ -1,3 +1,4 @@
+import 'package:cssapp/screens/auth_screen/auth_screen.dart';
 import 'package:cssapp/state_handlers/members/member_api.dart';
 import 'package:cssapp/utils/storage_handler.dart';
 import 'package:flutter/material.dart';
@@ -33,9 +34,10 @@ class _SplashState extends State<Splash> {
       (value) => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const HomeScreen(
-            initialIndex: 0,
-          ),
+          builder: (context) => const AuthScreen(),
+          // builder: (context) => const HomeScreen(
+          //   initialIndex: 0,
+          // ),
         ),
       ),
     );
