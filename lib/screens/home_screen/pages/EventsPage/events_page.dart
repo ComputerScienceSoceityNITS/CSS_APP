@@ -88,7 +88,7 @@ class _EventsPageState extends State<EventsPage> {
                           child: Card(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50)),
-                            margin: EdgeInsets.all(20),
+                            margin: const EdgeInsets.all(20),
                             child: Container(
                               child: Image.asset(
                                 "assets/images/event_thumbnails/enigmaa.jpg",
@@ -108,11 +108,11 @@ class _EventsPageState extends State<EventsPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => abacus_page(),
+                                  builder: (context) => const abacus_page(),
                                 ));
                           },
                           child: Card(
-                            margin: EdgeInsets.all(20),
+                            margin: const EdgeInsets.all(20),
                             child: Container(
                               child: Image.asset(
                                 "assets/images/event_thumbnails/abacus.png",
@@ -131,10 +131,7 @@ class _EventsPageState extends State<EventsPage> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Enigma_text(),
-                        Abacus_text(),
-                      ],
+                      children: const [Enigma_text(), Abacus_text()],
                     ),
                   ],
                 ),
@@ -162,10 +159,7 @@ class _EventsPageState extends State<EventsPage> {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    const SizedBox(width: 20),
-                                    SizedBox(
-                                      height: 40,
-                                    ),
+                                    const SizedBox(width: 60),
                                     GestureDetector(
                                       onTap: () => setState(() {
                                         technoEventsSelected = true;

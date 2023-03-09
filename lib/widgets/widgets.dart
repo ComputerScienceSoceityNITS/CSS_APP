@@ -1,4 +1,4 @@
-export 'expanded_button.dart';
+export 'buttons/expanded_button.dart';
 export 'custom_drop_down.dart';
 export 'member_card.dart';
 export 'social_icons.dart';
