@@ -1,6 +1,7 @@
 import 'package:cssapp/configs/configurations/pallet.dart';
+import 'package:cssapp/screens/home_screen/pages/EventsPage/widgets/abacus_event_widget.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/widgets/enigma_text.dart';
-import 'package:cssapp/screens/home_screen/pages/EventsPage/widgets/single_event_widget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -75,18 +76,9 @@ class abacus_page extends StatelessWidget {
                       height: 20,
                     ),
                     Container(
-                      width: double.infinity,
-                      height: 530,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          SingleEventWidget(),
-                          SingleEventWidget(),
-                          SingleEventWidget(),
-                          SingleEventWidget(),
-                        ],
-                      ),
-                    ),
+                        width: double.infinity,
+                        height: MediaQuery.of(context).size.height * 0.65,
+                        child: abacusEventWidget()),
                   ],
                 ),
               ),

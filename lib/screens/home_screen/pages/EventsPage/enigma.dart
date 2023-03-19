@@ -1,6 +1,7 @@
 import 'package:cssapp/configs/configurations/pallet.dart';
+import 'package:cssapp/screens/home_screen/pages/EventsPage/widgets/enigma_event_widget.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/widgets/enigma_text.dart';
-import 'package:cssapp/screens/home_screen/pages/EventsPage/widgets/single_event_widget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -77,19 +78,14 @@ class engima_page extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.underline),
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                     Container(
                       width: double.infinity,
-                      height: 530,
+                      height: MediaQuery.of(context).size.height * 0.65,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: [
-                          SingleEventWidget(),
-                          SingleEventWidget(),
-                          SingleEventWidget(),
-                          SingleEventWidget(),
+                          enigmaEventWidget(),
                         ],
                       ),
                     ),
