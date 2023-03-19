@@ -1,13 +1,15 @@
 import 'package:cssapp/configs/configurations/pallet.dart';
 import 'package:flutter/material.dart';
 
-class EventRegistration extends StatelessWidget {
+class AbacusEventRegistration extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Event Registration',
+        title: Center(
+          child: Text(
+            'Abacus ',
+          ),
         ),
         backgroundColor: Pallet.accentColor,
       ),
@@ -34,7 +36,7 @@ class EventRegistration extends StatelessWidget {
                           width: 20,
                         ),
                         Text(
-                          "Engima",
+                          "Event Name",
                           style: TextStyle(
                             fontSize: 40,
                             fontWeight: FontWeight.bold,
@@ -44,35 +46,65 @@ class EventRegistration extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: 28,
+                      height: 20,
                     ),
-                    Text(
-                      'Date : 24/03/2023',
-                      style: TextStyle(
-                        fontSize: 16,
-                        // color: Colors.black,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      'Time : 9:15 AM',
-                      style: TextStyle(
-                        fontSize: 16,
-                        // color: Colors.black,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      'Organiser : Priyabrat',
-                      style: TextStyle(
-                        fontSize: 16,
-                        // color: Colors.black,
-                      ),
-                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 28,
+                              ),
+                              Text(
+                                'Start Date : 24/03/2023  \nEnd Date : 24/03/2023 ',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  // color: Colors.black,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 6,
+                              ),
+                              Text(
+                                'Time : 9:15 AM',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  // color: Colors.black,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 6,
+                              ),
+                              Text(
+                                'Organiser : Priyabrat',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  // color: Colors.black,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 6,
+                              ),
+                              Text(
+                                'Min : 1  Max : 5',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  // color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ]),
                     // Text(
                     //   'We are delighted to invite your organization, Bosscoder Academy, as a Co-sponsor of this engaging session of our club. Web Blitz is a comprehensive program guiding beginners to dive into the exciting field of Web Development. Through this, one can gain a good grip on HTML, CSS, JavaScript and get hands-on experience by building their own projects at the end of the workshop',
                     //   maxLines: 5,
@@ -89,12 +121,14 @@ class EventRegistration extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              Text(
-                'Fill the Application',
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    decoration: TextDecoration.underline),
+              Center(
+                child: Text(
+                  'Register Yourself',
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline),
+                ),
               ),
               Container(
                 height: 500,
