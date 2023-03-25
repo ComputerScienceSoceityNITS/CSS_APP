@@ -1,5 +1,6 @@
 import 'package:cssapp/screens/auth_screen/auth_screen.dart';
 import 'package:cssapp/state_handlers/members/member_api.dart';
+import 'package:cssapp/utils/network_engine.dart';
 import 'package:cssapp/utils/storage_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/screens/home_screen/home_screen.dart';
@@ -30,15 +31,14 @@ class _SplashState extends State<Splash> {
       Provider.of<MemberApi>(context, listen: false).isOnline = false;
       Fluttertoast.showToast(msg: "Couldn't connect to the internet");
     }
+    Widget page = const AuthScreen();
+    if (await NetworkEngine.isUserLoggedIn()) {
+      page = const HomeScreen(initialIndex: 0);
+    }
     Future.delayed(const Duration(milliseconds: 1500)).then(
       (value) => Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
-          builder: (context) => const AuthScreen(),
-          // builder: (context) => const HomeScreen(
-          //   initialIndex: 0,
-          // ),
-        ),
+        MaterialPageRoute(builder: (context) => page),
       ),
     );
   }
