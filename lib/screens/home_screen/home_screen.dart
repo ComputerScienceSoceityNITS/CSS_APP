@@ -1,16 +1,13 @@
-// ignore_for_file: unused_import
-
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:cssapp/state_handlers/theme/theme_handler.dart';
 import 'package:cssapp/utils/storage_handler.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'pages/EventsPage/events_page.dart';
 import 'pages/GalleryPage/gallery_page.dart';
 import 'pages/MembersPage/members_screen.dart';
 import 'pages/DevelopersPage/developers_page.dart';
 import 'package:flutter/material.dart';
-import 'package:cssapp/navigation_drawer.dart';
+import 'custom_navigation_drawer.dart';
 import 'pages/HomePage/home_page.dart';
 import 'package:cssapp/configs/configs.dart';
 
@@ -57,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // endDrawer: NavigationDrawer(),
+      endDrawer: CustomNavigationDrawer(),
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       floatingActionButton: Row(
         children: [
@@ -70,10 +67,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   StorageHandler().isDarkTheme()
                       ? Icons.light_mode_outlined
                       : Icons.dark_mode_outlined,
-                  color: StorageHandler().isDarkTheme() ? Colors.black : Colors.white,
+                  color: StorageHandler().isDarkTheme()
+                      ? Colors.black
+                      : Colors.white,
                   size: 33,
                 ),
-                backgroundColor: StorageHandler().isDarkTheme() ? Colors.white : Colors.pink,
+                backgroundColor:
+                    StorageHandler().isDarkTheme() ? Colors.white : Colors.pink,
                 onPressed: () {
                   Provider.of<ThemeHandler>(context, listen: false)
                       .toggleTheme();

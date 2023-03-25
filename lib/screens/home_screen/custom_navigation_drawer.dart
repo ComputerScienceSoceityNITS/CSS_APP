@@ -2,15 +2,17 @@
 
 import 'package:cssapp/screens/about_screen//about_screen.dart';
 import 'package:cssapp/configs/configs.dart';
+import 'package:cssapp/screens/auth_screen/auth_screen.dart';
 import 'package:cssapp/screens/bitscribe_reader_screen/bitscribe_reader_screen.dart';
 import 'package:cssapp/state_handlers/theme/theme_handler.dart';
+import 'package:cssapp/utils/network_engine.dart';
 import 'package:flutter/material.dart';
 import 'package:cssapp/screens/home_screen/home_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'screens/report_bug_pages/report_bugs.dart';
+import '../report_bug_pages/report_bugs.dart';
 
-class NavigationDrawer extends StatelessWidget {
+class CustomNavigationDrawer extends StatelessWidget {
   final padding = const EdgeInsets.symmetric(horizontal: 50);
   final List<String> navigationTexts = [
     'HOME',
@@ -21,6 +23,7 @@ class NavigationDrawer extends StatelessWidget {
     'BITSCRIBE',
     'ABOUT US',
     'REPORT TO CSS',
+    'LOG OUT'
   ];
   final List<IconData> icons = [
     Icons.home,
@@ -31,10 +34,11 @@ class NavigationDrawer extends StatelessWidget {
     Icons.book_online,
     Icons.info,
     Icons.email,
+    Icons.logout
   ];
   final List<int> onPressedMoveToPage = [0, 1, 2, 3, 6];
 
-  NavigationDrawer({Key? key}) : super(key: key);
+  CustomNavigationDrawer({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -135,6 +139,12 @@ class NavigationDrawer extends StatelessWidget {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const ReportBugs(),
         ));
+        break;
+      case 8:
+        NetworkEngine.signOut().then(
+            (value) => Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => const AuthScreen(),
+                )));
         break;
     }
   }

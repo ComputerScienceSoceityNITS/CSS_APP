@@ -12,6 +12,22 @@ class NetworkEngine {
   static const String registerUser = "/api/admin/user/signup";
   static const String loginUser = "/api/admin/user/login";
 
+  static const String _cookieDirName = "/.cookies/";
+
+  static Future<bool> isUserLoggedIn() async {
+    final Directory appDocDir = await getApplicationDocumentsDirectory();
+    Directory cookiesDir = Directory(appDocDir.path + _cookieDirName);
+    return await cookiesDir.exists();
+  }
+
+  static Future<void> signOut() async {
+    final Directory appDocDir = await getApplicationDocumentsDirectory();
+    Directory cookiesDir = Directory(appDocDir.path + _cookieDirName);
+    if (await cookiesDir.exists()) {
+      await cookiesDir.delete(recursive: true);
+    }
+  }
+
   static Future<Dio> getDio() async {
     Dio dio = Dio(
       BaseOptions(
@@ -27,7 +43,8 @@ class NetworkEngine {
     final String appDocPath = appDocDir.path;
     final jar = PersistCookieJar(
       ignoreExpires: true,
-      storage: FileStorage(appDocPath + "/.cookies/"),
+      persistSession: true,
+      storage: FileStorage(appDocPath + _cookieDirName),
     );
     dio.interceptors.add(CookieManager(jar));
 
