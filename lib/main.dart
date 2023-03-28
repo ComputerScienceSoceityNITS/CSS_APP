@@ -1,5 +1,6 @@
 import 'package:cssapp/state_handlers/members/member_api.dart';
 import 'package:cssapp/state_handlers/theme/theme_handler.dart';
+import 'package:cssapp/state_handlers/user/user_handler.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import './splash.dart';
@@ -58,6 +59,7 @@ class _CSSAppState extends State<CSSApp> {
               ThemeHandler(themeHandler: _themeHandler),
         ),
         ChangeNotifierProvider(create: (BuildContext context) => MemberApi()),
+        ChangeNotifierProvider(create: (BuildContext context) => UserHandler()),
       ],
       child: MaterialApp(
         title: 'CSS App',

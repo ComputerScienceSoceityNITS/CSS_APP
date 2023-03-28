@@ -1,11 +1,14 @@
 import 'dart:convert';
 
+import 'package:cssapp/state_handlers/user/user_handler.dart';
+import 'package:cssapp/state_handlers/user/user_model.dart';
 import 'package:cssapp/widgets/buttons/active_button.dart';
 import 'package:cssapp/widgets/buttons/ghost_button.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:cssapp/utils/network_engine.dart';
+import 'package:provider/provider.dart';
 import 'custom_text_field.dart';
 import 'package:cssapp/screens/home_screen/home_screen.dart';
 
@@ -78,14 +81,12 @@ class _SignInPageState extends State<SignInPage> {
                                 isLoading = true;
                               });
                               try {
-                                Response res =
-                                    await (await NetworkEngine.getDio()).post(
-                                  NetworkEngine.loginUser,
-                                  data: json.encode({
-                                    'password': passwordController.text,
-                                    'email': emailController.text,
-                                  }),
-                                );
+                                Response res = await Provider.of<UserHandler>(
+                                        context,
+                                        listen: false)
+                                    .login(
+                                        password: passwordController.text,
+                                        email: emailController.text);
                                 setState(() {
                                   isLoading = false;
                                 });
@@ -93,10 +94,12 @@ class _SignInPageState extends State<SignInPage> {
                                     res.statusCode! < 200 ||
                                     res.statusCode! >= 300) {
                                   Fluttertoast.showToast(
-                                      msg: res.data['message']);
+                                      msg: res.data['message']?["error"] ??
+                                          "Unknown Error");
                                 } else {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (BuildContext context) {
+                                  Navigator.of(context).pushReplacement(
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) {
                                     return const HomeScreen(
                                       initialIndex: 0,
                                     );
@@ -107,8 +110,9 @@ class _SignInPageState extends State<SignInPage> {
                                 if (e.response?.data['message'] != null) {
                                   err = e.response?.data['message'];
                                 } else {
-                                  if (e.response != null) {
-                                    err = e.response.toString();
+                                  if (e.response?.data['error'] != null) {
+                                    err = e.response?.data['error'] ??
+                                        "Unknown Error";
                                   } else {
                                     err = e.message ?? 'Unknown Error';
                                   }

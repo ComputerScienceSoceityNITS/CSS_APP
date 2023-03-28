@@ -1,27 +1,29 @@
 import 'package:cssapp/configs/configurations/pallet.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/abacuseventregistration.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/enigmaeventregistration.dart';
-
+import 'package:cssapp/state_handlers/user/user_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../utils/network_engine.dart';
 
-class enigmaEventWidget extends StatefulWidget {
+class EnigmaEvent extends StatefulWidget {
+  const EnigmaEvent({Key? key}) : super(key: key);
+
   @override
-  State<enigmaEventWidget> createState() => _enigmaEventWidgetState();
+  State<EnigmaEvent> createState() => _EnigmaEventState();
 }
 
-class _enigmaEventWidgetState extends State<enigmaEventWidget> {
+class _EnigmaEventState extends State<EnigmaEvent> {
   List<dynamic> eventdetails = [];
-
+  bool isLoading = false;
   Future<List> fetcheventdetails() async {
-    print('test');
-    final dio = await NetworkEngine.getDio();
-
     try {
       final response =
-          await dio.get('https://css-cms.onrender.com/api/admin/enigma');
+          await (await NetworkEngine.getDio()).get('/api/admin/enigma');
 
       if ((response.statusCode ?? 400) >= 200 &&
           (response.statusCode ?? 400) < 300) {
@@ -40,13 +42,12 @@ class _enigmaEventWidgetState extends State<enigmaEventWidget> {
     return FutureBuilder(
         future: fetcheventdetails(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if (snapshot.hasData) {
+          if (snapshot.hasData && !isLoading) {
             eventdetails = snapshot.data;
             return ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: eventdetails.length,
                 itemBuilder: (context, int index) {
-                  print(index);
                   return Container(
                     width: MediaQuery.of(context).size.width * 0.6,
                     padding: EdgeInsets.all(8),
@@ -87,9 +88,41 @@ class _enigmaEventWidgetState extends State<enigmaEventWidget> {
                         Text(
                             "Question-setters: ${eventdetails[index]["questionSetters"]}"),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () async {
+                            if (!Provider.of<UserHandler>(context)
+                                .user!
+                                .registeredEnigmas
+                                .contains(
+                                    eventdetails[index]!['_id'].toString())) {
+                              setState(() {
+                                isLoading = true;
+                              });
+                              Response res = await Provider.of<UserHandler>(
+                                      context,
+                                      listen: false)
+                                  .registerEnigma(eventdetails[index]['_id']);
+
+                              if ((res.statusCode ?? 400) >= 200 &&
+                                  (res.statusCode ?? 400) < 300) {
+                                Fluttertoast.showToast(
+                                    msg: res.data['error'] ?? 'Unknown Error');
+                              }
+                            } else {
+                              launchUrl(Uri.parse(
+                                  "https://codeforces.com/contestRegistration/1808"));
+                            }
+                            setState(() {
+                              isLoading = false;
+                            });
+                          },
                           child: Text(
-                            "Register Here",
+                            Provider.of<UserHandler>(context)
+                                    .user!
+                                    .registeredEnigmas
+                                    .contains(
+                                        eventdetails[index]!['_id'].toString())
+                                ? "Go to Contest"
+                                : "Register Here",
                           ),
                         ),
                       ],
@@ -97,7 +130,7 @@ class _enigmaEventWidgetState extends State<enigmaEventWidget> {
                   );
                 });
           } else {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
         });
   }

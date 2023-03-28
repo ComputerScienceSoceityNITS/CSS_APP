@@ -11,10 +11,15 @@ class NetworkEngine {
 
   static const String registerUser = "/api/admin/user/signup";
   static const String loginUser = "/api/admin/user/login";
+  static const String fetchUser = "/api/admin/user/";
 
   static const String _cookieDirName = "/.cookies/";
 
-  static Future<bool> isUserLoggedIn() async {
+  static String registerEnigma(String id) {
+    return '/api/admin/enigma/register/$id';
+  }
+
+  static Future<bool> doesCookieDirExists() async {
     final Directory appDocDir = await getApplicationDocumentsDirectory();
     Directory cookiesDir = Directory(appDocDir.path + _cookieDirName);
     return await cookiesDir.exists();

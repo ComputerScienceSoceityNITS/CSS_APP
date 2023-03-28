@@ -82,7 +82,7 @@ class engima_page extends StatelessWidget {
                     Container(
                         width: double.infinity,
                         height: MediaQuery.of(context).size.height * 0.4,
-                        child: enigmaEventWidget()),
+                        child: EnigmaEvent()),
                   ],
                 ),
               ),
