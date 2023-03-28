@@ -80,61 +80,15 @@ class engima_page extends StatelessWidget {
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                     Container(
-                      width: double.infinity,
-                      height: MediaQuery.of(context).size.height * 0.65,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          enigmaEventWidget(),
-                        ],
-                      ),
-                    ),
+                        width: double.infinity,
+                        height: MediaQuery.of(context).size.height * 0.4,
+                        child: enigmaEventWidget()),
                   ],
                 ),
               ),
               SizedBox(
                 height: 10,
               ),
-              // const Text(
-              //   "WHY?",
-              //   style: TextStyle(fontSize: 30),
-              // ),
-              // Text(
-              //   "Lorensisodap doandjanfafafdf",
-              //   style: TextStyle(fontSize: 20),
-              // ),
-              // SizedBox(
-              //   height: 28,
-              // ),
-              // const Text(
-              //   "WHAT?",
-              //   style: TextStyle(fontSize: 30),
-              // ),
-              // Text(
-              //   "Lorensisodap doandjanfafafdf",
-              //   style: TextStyle(fontSize: 20),
-              // ),
-              // SizedBox(
-              //   height: 28,
-              // ),
-              // const Text(
-              //   "ADVANTAGES",
-              //   style: TextStyle(fontSize: 30),
-              // ),
-              // Text(
-              //   "Lorensisodap doandjanfafafdf",
-              //   style: TextStyle(fontSize: 20),
-              // ),
-              // SizedBox(height: 60,),
-              // const Text(
-              //   "MORE ABOUT ENIGMA",
-              //   style: TextStyle(fontSize: 30),
-              // ),
-              // Text(
-              //   "Lorensisodap doandjanfafafdf",
-              //   style: TextStyle(fontSize: 20),
-              // ),
-              // SizedBox(height: 30,),
             ],
           ),
         ),

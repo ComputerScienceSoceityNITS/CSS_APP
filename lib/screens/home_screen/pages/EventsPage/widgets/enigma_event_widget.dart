@@ -1,13 +1,18 @@
 import 'package:cssapp/configs/configurations/pallet.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/abacuseventregistration.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/enigmaeventregistration.dart';
-import 'package:dio/dio.dart';
 
 import 'package:flutter/material.dart';
+import 'package:dio/dio.dart';
 
 import '../../../../../utils/network_engine.dart';
 
-class enigmaEventWidget extends StatelessWidget {
+class enigmaEventWidget extends StatefulWidget {
+  @override
+  State<enigmaEventWidget> createState() => _enigmaEventWidgetState();
+}
+
+class _enigmaEventWidgetState extends State<enigmaEventWidget> {
   List<dynamic> eventdetails = [];
 
   Future<List> fetcheventdetails() async {
@@ -21,7 +26,7 @@ class enigmaEventWidget extends StatelessWidget {
       if ((response.statusCode ?? 400) >= 200 &&
           (response.statusCode ?? 400) < 300) {
         final responseData = response.data;
-        return responseData["events"];
+        return responseData["enigmas"];
       } else {
         throw Exception('Failed to fetch events');
       }
@@ -43,9 +48,8 @@ class enigmaEventWidget extends StatelessWidget {
                 itemBuilder: (context, int index) {
                   print(index);
                   return Container(
-                    width: 220,
-                    height: 530,
-                    padding: EdgeInsets.all(10),
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    padding: EdgeInsets.all(8),
                     margin: EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                       color: Pallet.accentColor,
@@ -53,70 +57,37 @@ class enigmaEventWidget extends StatelessWidget {
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SingleChildScrollView(
-                          child: Container(
-                            height: 450,
-                            width: double.infinity,
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: 200,
-                                  height: 250,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: eventdetails[index]?["coverPic"]
-                                              ?["url"] !=
-                                          null
-                                      ? Image.network(
-                                          eventdetails[index]["coverPic"]
-                                              ["url"],
-                                          fit: BoxFit.cover,
-                                        )
-                                      : SizedBox(),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  eventdetails[index]["name"],
-                                  style: TextStyle(
-                                      fontSize: 20, color: Colors.white),
-                                ),
-                                Text(
-                                  '${eventdetails[index]["startDate"]}     ${eventdetails[index]["startTime"]}',
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.white),
-                                ),
-                                SizedBox(
-                                  height: 16,
-                                ),
-                                Text(
-                                  eventdetails[index]["description"],
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                  maxLines: 8,
-                                  textAlign: TextAlign.justify,
-                                ),
-                              ],
-                            ),
+                        Container(
+                          margin: EdgeInsets.all(20),
+                          width: 200,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(10),
                           ),
+                          child: Image.asset(
+                              "assets/images/event_thumbnails/Enigma.png",
+                              fit: BoxFit.cover),
                         ),
-                        SizedBox(
-                          height: 20,
+                        Text(
+                          "Enigma",
+                          style: TextStyle(
+                              fontSize: 19,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
                         ),
+                        Text(
+                          'Start : ${eventdetails[index]!["startDate"].toString()}  ${eventdetails[index]!["startTime"].toString()}',
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
+                        Text(
+                            "Duration :  ${eventdetails[index]!["durationInHrs"]} hours"),
+                        Text(
+                            "Question-setters: ${eventdetails[index]["questionSetters"]}"),
                         ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => EnigmaEventRegistration(),
-                              ),
-                            );
-                          },
+                          onPressed: () {},
                           child: Text(
                             "Register Here",
                           ),

@@ -61,7 +61,7 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
                       children: [
                         SingleChildScrollView(
                           child: Container(
-                            height: 450,
+                            height: MediaQuery.of(context).size.height * 0.47,
                             width: double.infinity,
                             child: Column(
                               children: [
@@ -88,7 +88,9 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
                                 Text(
                                   eventdetails[index]["name"],
                                   style: TextStyle(
-                                      fontSize: 20, color: Colors.white),
+                                      fontSize: 19,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 Text(
                                   '${eventdetails[index]["startDate"]}     ${eventdetails[index]["startTime"]}',
@@ -96,7 +98,7 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
                                       fontSize: 16, color: Colors.white),
                                 ),
                                 SizedBox(
-                                  height: 16,
+                                  height: 13,
                                 ),
                                 Text(
                                   eventdetails[index]["description"],
@@ -118,7 +120,7 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => EnigmaEventRegistration(),
+                                builder: (context) => AbacusEventRegistration(),
                               ),
                             );
                           },

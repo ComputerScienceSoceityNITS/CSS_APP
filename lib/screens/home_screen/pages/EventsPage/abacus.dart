@@ -68,7 +68,7 @@ class abacus_page extends StatelessWidget {
                     const Text(
                       'Time Stamp',
                       style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 30,
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.underline),
                     ),
@@ -85,46 +85,6 @@ class abacus_page extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              // const Text(
-              //   "WHY?",
-              //   style: TextStyle(fontSize: 30),
-              // ),
-              // Text(
-              //   "Lorensisodap doandjanfafafdf",
-              //   style: TextStyle(fontSize: 20),
-              // ),
-              // SizedBox(
-              //   height: 28,
-              // ),
-              // const Text(
-              //   "WHAT?",
-              //   style: TextStyle(fontSize: 30),
-              // ),
-              // Text(
-              //   "Lorensisodap doandjanfafafdf",
-              //   style: TextStyle(fontSize: 20),
-              // ),
-              // SizedBox(
-              //   height: 28,
-              // ),
-              // const Text(
-              //   "ADVANTAGES",
-              //   style: TextStyle(fontSize: 30),
-              // ),
-              // Text(
-              //   "Lorensisodap doandjanfafafdf",
-              //   style: TextStyle(fontSize: 20),
-              // ),
-              // SizedBox(height: 60,),
-              // const Text(
-              //   "MORE ABOUT ENIGMA",
-              //   style: TextStyle(fontSize: 30),
-              // ),
-              // Text(
-              //   "Lorensisodap doandjanfafafdf",
-              //   style: TextStyle(fontSize: 20),
-              // ),
-              // SizedBox(height: 30,),
             ],
           ),
         ),
