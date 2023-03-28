@@ -1,10 +1,12 @@
 import 'dart:convert';
 
 import 'package:cssapp/screens/home_screen/home_screen.dart';
+import 'package:cssapp/state_handlers/user/user_handler.dart';
 import 'package:cssapp/utils/network_engine.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
 import 'custom_text_field.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -112,24 +114,19 @@ class _SignUpPageState extends State<SignUpPage> {
                                 isLoading = true;
                               });
                               try {
-                                Map data = {
-                                  'name': nameController.text,
-                                  'password': passwordController.text,
-                                  'email': emailController.text,
-                                  'scholarID': scholarIDController.text,
-                                };
-                                if (confirmPassController.text.isNotEmpty) {
-                                  data['codeforces'] =
-                                      codeforcesHandlerController.text;
-                                }
-                                if (githubHandleController.text.isNotEmpty) {
-                                  data['githubHandle'] =
-                                      githubHandleController.text;
-                                }
-                                Response res =
-                                    await (await NetworkEngine.getDio()).post(
-                                        NetworkEngine.registerUser,
-                                        data: json.encode(data));
+                                Response res = await Provider.of<UserHandler>(
+                                        context,
+                                        listen: false)
+                                    .createUser(
+                                        name: nameController.text,
+                                        password: passwordController.text,
+                                        email: emailController.text,
+                                        scholarID: scholarIDController.text,
+                                        codeforcesHandle:
+                                            codeforcesHandlerController.text,
+                                        githubHandle:
+                                            githubHandleController.text);
+
                                 setState(() {
                                   isLoading = false;
                                 });
@@ -151,8 +148,9 @@ class _SignUpPageState extends State<SignUpPage> {
                                 if (e.response?.data['message'] != null) {
                                   err = e.response?.data['message'];
                                 } else {
-                                  if (e.response != null) {
-                                    err = e.response.toString();
+                                  if (e.response?.data['error'] != null) {
+                                    err = e.response?.data['error'] ??
+                                        "Unknown Error";
                                   } else {
                                     err = e.message ?? 'Unknown Error';
                                   }
