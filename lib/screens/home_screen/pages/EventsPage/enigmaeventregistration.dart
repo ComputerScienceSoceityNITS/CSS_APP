@@ -1,17 +1,42 @@
 import 'package:cssapp/configs/configurations/pallet.dart';
+import 'package:cssapp/utils/network_engine.dart';
 import 'package:flutter/material.dart';
+import 'package:dio/dio.dart';
 
-class EnigmaEventRegistration extends StatelessWidget {
+class EnigmaEventRegistration extends StatefulWidget {
+  @override
+  State<EnigmaEventRegistration> createState() =>
+      _EnigmaEventRegistrationState();
+}
+
+class _EnigmaEventRegistrationState extends State<EnigmaEventRegistration> {
+  late int index = 0;
+
+  List<dynamic> eventdetails = [];
+  Future<List> getdetail() async {
+    final dio = await NetworkEngine.getDio();
+
+    try {
+      final response =
+          await dio.get('https://css-cms.onrender.com/api/admin/enigma');
+
+      if ((response.statusCode ?? 400) >= 200 &&
+          (response.statusCode ?? 400) < 300) {
+        final responseData = response.data;
+        return responseData["enigmas"];
+      } else {
+        throw Exception('Failed to fetch events');
+      }
+    } on DioError catch (e) {
+      throw Exception('Failed to fetch events: ${e.message}');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            'Enigma',
-          ),
-        ),
-        backgroundColor: Pallet.accentColor,
+        backgroundColor: Colors.transparent,
       ),
       body: SafeArea(
         child: SizedBox(
@@ -36,7 +61,7 @@ class EnigmaEventRegistration extends StatelessWidget {
                           width: 20,
                         ),
                         Text(
-                          "Event Name",
+                          "Enigma",
                           style: TextStyle(
                             fontSize: 40,
                             fontWeight: FontWeight.bold,
@@ -57,13 +82,13 @@ class EnigmaEventRegistration extends StatelessWidget {
                               SizedBox(
                                 height: 28,
                               ),
-                              Text(
-                                'Start Date : 24/03/2023  \nEnd Date : 24/03/2023 ',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  // color: Colors.black,
-                                ),
-                              ),
+                              // Text(
+                              //   'Start Date : ${eventdetails[index]!["startTime"]}  \nEnd Date : ${eventdetails[index]["startTime"]} ',
+                              //   style: TextStyle(
+                              //     fontSize: 16,
+                              //     // color: Colors.black,
+                              //   ),
+                              // ),
                               SizedBox(
                                 height: 6,
                               ),
@@ -105,16 +130,6 @@ class EnigmaEventRegistration extends StatelessWidget {
                             ),
                           ),
                         ]),
-                    // Text(
-                    //   'We are delighted to invite your organization, Bosscoder Academy, as a Co-sponsor of this engaging session of our club. Web Blitz is a comprehensive program guiding beginners to dive into the exciting field of Web Development. Through this, one can gain a good grip on HTML, CSS, JavaScript and get hands-on experience by building their own projects at the end of the workshop',
-                    //   maxLines: 5,
-                    //   overflow: TextOverflow.ellipsis,
-                    //   textAlign: TextAlign.justify,
-                    //   style: TextStyle(
-                    //     fontSize: 16,
-                    //     color: Colors.black,
-                    //   ),
-                    // ),
                   ],
                 ),
               ),
@@ -151,27 +166,9 @@ class EnigmaEventRegistration extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Team Name',
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Team Name',
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Team Name',
-                      ),
-                    ),
+                    ElevatedButton(
+                        onPressed: () {},
+                        child: Text("Register in CodeForces")),
                     SizedBox(
                       height: 30,
                     ),
