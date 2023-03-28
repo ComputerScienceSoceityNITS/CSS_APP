@@ -48,7 +48,6 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                 scrollDirection: Axis.horizontal,
                 itemCount: eventdetails.length,
                 itemBuilder: (context, int index) {
-                  print(index);
                   return Container(
                     width: MediaQuery.of(context).size.width * 0.6,
                     padding: EdgeInsets.all(8),
@@ -90,11 +89,11 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                             "Question-setters: ${eventdetails[index]["questionSetters"]}"),
                         ElevatedButton(
                           onPressed: () async {
-                            if (!Provider.of<UserHandler>(context,
-                                    listen: false)
+                            if (!Provider.of<UserHandler>(context)
                                 .user!
-                                .registeredAbacusEvents
-                                .contains(eventdetails[index]!['_id'])) {
+                                .registeredEnigmas
+                                .contains(
+                                    eventdetails[index]!['_id'].toString())) {
                               setState(() {
                                 isLoading = true;
                               });
@@ -109,7 +108,8 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                                     msg: res.data['error'] ?? 'Unknown Error');
                               }
                             } else {
-                              launchUrl(eventdetails[index]!["cfContestLink"]);
+                              launchUrl(Uri.parse(
+                                  "https://codeforces.com/contestRegistration/1808"));
                             }
                             setState(() {
                               isLoading = false;
@@ -118,8 +118,9 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                           child: Text(
                             Provider.of<UserHandler>(context)
                                     .user!
-                                    .registeredAbacusEvents
-                                    .contains(eventdetails[index]!['_id'])
+                                    .registeredEnigmas
+                                    .contains(
+                                        eventdetails[index]!['_id'].toString())
                                 ? "Go to Contest"
                                 : "Register Here",
                           ),

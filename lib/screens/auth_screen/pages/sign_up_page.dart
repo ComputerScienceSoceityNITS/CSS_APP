@@ -2,7 +2,8 @@ import 'dart:convert';
 
 import 'package:cssapp/screens/home_screen/home_screen.dart';
 import 'package:cssapp/state_handlers/user/user_handler.dart';
-import 'package:cssapp/utils/network_engine.dart';
+import 'package:cssapp/widgets/buttons/ghost_button.dart';
+import 'package:cssapp/widgets/buttons/active_button.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -95,7 +96,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       },
                     ),
                     CustomTextField(
-                      label: 'Codeforces Handle',
+                      label:
+                          'Codeforces Handle (This field is required to join Enigma)',
                       controller: codeforcesHandlerController,
                     ),
                     CustomTextField(
@@ -106,8 +108,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ElevatedButton(
-                          onPressed: () async {
+                        ActiveButton(
+                          onTap: () async {
                             FocusManager.instance.primaryFocus?.unfocus();
                             if (_formKey.currentState!.validate()) {
                               setState(() {
@@ -136,8 +138,9 @@ class _SignUpPageState extends State<SignUpPage> {
                                   Fluttertoast.showToast(
                                       msg: res.data['message']);
                                 } else {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (BuildContext context) {
+                                  Navigator.of(context).pushReplacement(
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) {
                                     return const HomeScreen(
                                       initialIndex: 0,
                                     );
@@ -163,21 +166,12 @@ class _SignUpPageState extends State<SignUpPage> {
                               });
                             }
                           },
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Theme.of(context).brightness ==
-                                      Brightness.dark
-                                  ? Colors.white
-                                  : Colors.black87),
-                          child: const Text('Sign Up'),
+                          label: 'Sign Up',
                         ),
-                        TextButton(
-                            onPressed: widget.onTapSignIn,
-                            style: TextButton.styleFrom(
-                                foregroundColor: Theme.of(context).brightness ==
-                                        Brightness.dark
-                                    ? Colors.white
-                                    : Colors.black87),
-                            child: const Text('Sign in')),
+                        GhostButton(
+                          onTap: widget.onTapSignIn,
+                          label: 'Sign In',
+                        ),
                       ],
                     ),
                     const SizedBox(height: 20),

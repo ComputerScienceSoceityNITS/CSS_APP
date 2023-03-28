@@ -97,8 +97,9 @@ class _SignInPageState extends State<SignInPage> {
                                       msg: res.data['message']?["error"] ??
                                           "Unknown Error");
                                 } else {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (BuildContext context) {
+                                  Navigator.of(context).pushReplacement(
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) {
                                     return const HomeScreen(
                                       initialIndex: 0,
                                     );

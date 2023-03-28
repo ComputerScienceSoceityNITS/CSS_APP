@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cssapp/screens/auth_screen/auth_screen.dart';
 import 'package:cssapp/state_handlers/members/member_api.dart';
 import 'package:cssapp/state_handlers/user/user_handler.dart';
@@ -32,7 +34,9 @@ class _SplashState extends State<Splash> {
       Provider.of<MemberApi>(context, listen: false).isOnline = false;
       Fluttertoast.showToast(msg: "Couldn't connect to the internet");
     }
-    await Provider.of<UserHandler>(context, listen: false).fetchUser();
+    if (await NetworkEngine.doesCookieDirExists()) {
+      await Provider.of<UserHandler>(context, listen: false).fetchUser();
+    }
     Widget page = const AuthScreen();
     if (Provider.of<UserHandler>(context, listen: false).user != null) {
       page = const HomeScreen(initialIndex: 0);
