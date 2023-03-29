@@ -41,6 +41,7 @@ class NetworkEngine {
           'content-type': "application/json",
           'X-Requested-With': 'XMLHttpRequest',
         },
+        validateStatus: (status) => true,
         baseUrl: _baseUrl,
       ),
     );
