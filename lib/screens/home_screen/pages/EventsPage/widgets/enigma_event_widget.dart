@@ -4,6 +4,7 @@ import 'package:cssapp/screens/home_screen/pages/EventsPage/enigmaeventregistrat
 import 'package:cssapp/state_handlers/user/user_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -88,8 +89,21 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                         Text(
                             "Question-setters: ${eventdetails[index]["questionSetters"]}"),
                         ElevatedButton(
+                          onLongPress: () async {
+                            if (Provider.of<UserHandler>(context, listen: false)
+                                .user!
+                                .registeredEnigmas
+                                .contains(
+                                    eventdetails[index]!['_id'].toString())) {
+                              await Clipboard.setData(ClipboardData(
+                                  text: eventdetails[index]!["cfContestLink"]));
+                              Fluttertoast.showToast(
+                                  msg: "Contest link copied to clipboard");
+                            }
+                          },
                           onPressed: () async {
-                            if (!Provider.of<UserHandler>(context)
+                            if (!Provider.of<UserHandler>(context,
+                                    listen: false)
                                 .user!
                                 .registeredEnigmas
                                 .contains(
@@ -108,8 +122,10 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                                     msg: res.data['error'] ?? 'Unknown Error');
                               }
                             } else {
-                              launchUrl(Uri.parse(
-                                  "https://codeforces.com/contestRegistration/1808"));
+                              launchUrl(
+                                  Uri.parse(
+                                      eventdetails[index]!["cfContestLink"]),
+                                  mode: LaunchMode.externalApplication);
                             }
                             setState(() {
                               isLoading = false;
