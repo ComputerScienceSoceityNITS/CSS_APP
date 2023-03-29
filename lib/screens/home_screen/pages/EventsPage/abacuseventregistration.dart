@@ -1,15 +1,37 @@
+import 'dart:convert';
+
 import 'package:cssapp/configs/configurations/pallet.dart';
+import 'package:cssapp/models/memberModel.dart';
+import 'package:cssapp/provider/abacusRegistrationProvider.dart';
+import 'package:cssapp/screens/home_screen/pages/EventsPage/models/eventModel.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 
 class AbacusEventRegistration extends StatelessWidget {
+  final EventModel event;
+  AbacusEventRegistration({required this.event});
   @override
   Widget build(BuildContext context) {
+    int min = event.minTeamSize;
+    int max = event.maxTeamSize;
+    List<TextEditingController> nameControllers = [];
+    List<TextEditingController> idControllers = [];
+    TextEditingController teamNameController = TextEditingController();
+    TextEditingController teamLeaderNameController = TextEditingController();
+    TextEditingController teamLeaderScholarIdController =
+        TextEditingController();
+    for (int i = 0; i < max - 1; i++) {
+      TextEditingController nameController = TextEditingController();
+      TextEditingController idController = TextEditingController();
+      nameControllers.add(nameController);
+      idControllers.add(idController);
+    }
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            'Abacus ',
-          ),
+        title: const Text(
+          'Abacus ',
         ),
         backgroundColor: Pallet.accentColor,
       ),
@@ -29,15 +51,15 @@ class AbacusEventRegistration extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        CircleAvatar(
-                          child: Icon(Icons.people),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
+                        // const CircleAvatar(
+                        //   child: Icon(Icons.people),
+                        // ),
+                        // const SizedBox(
+                        //   width: 20,
+                        // ),
                         Text(
-                          "Event Name",
-                          style: TextStyle(
+                          "${event.name}",
+                          style: const TextStyle(
                             fontSize: 40,
                             fontWeight: FontWeight.bold,
                             // color: Colors.black,
@@ -45,51 +67,61 @@ class AbacusEventRegistration extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 height: 28,
                               ),
                               Text(
-                                'Start Date : 24/03/2023  \nEnd Date : 24/03/2023 ',
-                                style: TextStyle(
+                                'Start Date : ${event.startDate}',
+                                style: const TextStyle(
                                   fontSize: 16,
                                   // color: Colors.black,
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 6,
                               ),
                               Text(
-                                'Time : 9:15 AM',
-                                style: TextStyle(
+                                'End Date : ${event.endDate}',
+                                style: const TextStyle(
                                   fontSize: 16,
                                   // color: Colors.black,
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 6,
                               ),
                               Text(
-                                'Organiser : Priyabrat',
-                                style: TextStyle(
+                                'Time : ${event.startTime}',
+                                style: const TextStyle(
                                   fontSize: 16,
                                   // color: Colors.black,
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 6,
                               ),
                               Text(
-                                'Min : 1  Max : 5',
-                                style: TextStyle(
+                                'Group Link : ${event.groupLink}',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  // color: Colors.black,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 6,
+                              ),
+                              Text(
+                                'Min : ${event.minTeamSize}  Max : ${event.maxTeamSize}',
+                                style: const TextStyle(
                                   fontSize: 16,
                                   // color: Colors.black,
                                 ),
@@ -103,6 +135,7 @@ class AbacusEventRegistration extends StatelessWidget {
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10),
                             ),
+                            child: Image.network(event.coverPic.url),
                           ),
                         ]),
                     // Text(
@@ -118,10 +151,10 @@ class AbacusEventRegistration extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              Center(
+              const Center(
                 child: Text(
                   'Register Yourself',
                   style: TextStyle(
@@ -130,59 +163,164 @@ class AbacusEventRegistration extends StatelessWidget {
                       decoration: TextDecoration.underline),
                 ),
               ),
-              Container(
+              SizedBox(
                 height: 500,
-                padding: EdgeInsets.all(10),
                 child: Column(
                   children: [
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Team Name',
+                    Container(
+                      height: 440,
+                      padding: const EdgeInsets.all(10),
+                      child: ListView(
+                        children: [
+                          TextFormField(
+                            controller: teamNameController,
+                            decoration: const InputDecoration(
+                              labelText: 'Team Name',
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          TextFormField(
+                            controller: teamLeaderNameController,
+                            decoration: const InputDecoration(
+                              labelText: 'Team Leader Name',
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          TextFormField(
+                            controller: teamLeaderScholarIdController,
+                            decoration: const InputDecoration(
+                              labelText: 'Team Leader Scholar Id',
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          for (int i = 0; i < max - 1; i++)
+                            Column(
+                              children: [
+                                TextFormField(
+                                  controller: nameControllers[i],
+                                  decoration: InputDecoration(
+                                    labelText: (i >= min - 1)
+                                        ? 'Member ${i + 1} Name (Optional)'
+                                        : 'Member ${i + 1} Name',
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                TextFormField(
+                                  controller: idControllers[i],
+                                  decoration: InputDecoration(
+                                    labelText: (i >= min - 1)
+                                        ? 'Member ${i + 1} Scholar Id (Optional)'
+                                        : 'Member ${i + 1} Scholar Id',
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                              ],
+                            ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                        ],
                       ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Team Name',
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Team Name',
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Team Name',
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Team Name',
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30,
                     ),
                     ElevatedButton(
-                      onPressed: () {},
-                      child: Text('Submit'),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Pallet.accentColor,
+                          foregroundColor: Colors.white),
+                      onPressed: () async {
+                        List<MemberModel> members = [];
+
+                        for (int i = 0; i < max - 1; i++) {
+                          if (nameControllers[i].text.isNotEmpty) {
+                            MemberModel member = MemberModel(
+                              name: nameControllers[i].text,
+                              scholarId: idControllers[i].text,
+                            );
+                            members.add(member);
+                          }
+                          print(event.id);
+                        }
+                        Response res =
+                            await Provider.of<AbacusRegistrationProvider>(
+                                    context,
+                                    listen: false)
+                                .register(
+                                    eventId: event.id,
+                                    teamName: teamNameController.text,
+                                    teamLeaderScholarID:
+                                        teamLeaderScholarIdController.text,
+                                    members: members);
+                        var jsonResponse = await jsonDecode(res.toString());
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) =>
+                                RegistrationPopUp(
+                                  isSuccess: (res.statusCode == 201),
+                                  msg: jsonResponse["message"],
+                                ));
+                      },
+                      child: const Text(
+                        'Submit',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class RegistrationPopUp extends StatelessWidget {
+  final bool isSuccess;
+  final String msg;
+  RegistrationPopUp({
+    required this.isSuccess,
+    required this.msg,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      content: Container(
+        width: 200,
+        height: 200,
+        // color: Theme.of(context).,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                LottieBuilder.asset(
+                  (isSuccess) ? 'assets/lottie/registration_success.json' : 'assets/lottie/registration_failed.json',
+                  height: 70,
+                  width: 70,
+                ),
+                SizedBox(height: 30),
+                Text(
+                  msg,
+                  maxLines: 5,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           ),
         ),
       ),

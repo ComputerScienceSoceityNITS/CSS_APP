@@ -1,9 +1,15 @@
+import 'dart:convert';
+
 import 'package:cssapp/configs/configurations/pallet.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/abacuseventregistration.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/enigmaeventregistration.dart';
+import 'package:cssapp/screens/home_screen/pages/EventsPage/models/eventModel.dart';
 
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/services.dart';
+
+import 'package:http/http.dart' as http;
 
 import '../../../../../utils/network_engine.dart';
 
@@ -15,21 +21,47 @@ class abacusEventWidget extends StatefulWidget {
 class _abacusEventWidgetState extends State<abacusEventWidget> {
   List<dynamic> eventdetails = [];
 
-  Future<List> fetcheventdetails() async {
-    print('test');
+  Future<List<EventModel>> fetcheventdetails() async {
     final dio = await NetworkEngine.getDio();
-
     try {
-      final response =
-          await dio.get('https://css-cms.onrender.com/api/admin/abacus/');
+      var response = await (await NetworkEngine.getDio())
+          .get(('https://css-cms.onrender.com/api/admin/abacus/'));
 
-      if ((response.statusCode ?? 400) >= 200 &&
-          (response.statusCode ?? 400) < 300) {
-        final responseData = response.data;
-        return responseData["events"];
-      } else {
-        throw Exception('Failed to fetch events');
+      var jsonResponse = await jsonDecode(response.toString());
+      print(jsonResponse);
+      int len = jsonResponse["events"].length;
+      print(len);
+      List<EventModel> events = [];
+
+      for (int i = 0; i < len; i++) {
+        CoverPic coverPic = CoverPic(
+          public_id: jsonResponse["events"][i]["coverPic"]["public_id"],
+          url: jsonResponse["events"][i]["coverPic"]["url"],
+        );
+        EventModel event = EventModel(
+          coverPic: coverPic,
+          id: jsonResponse["events"][i]["_id"],
+          name: jsonResponse["events"][i]["name"],
+          description: jsonResponse["events"][i]["description"],
+          startDate: jsonResponse["events"][i]["startDate"],
+          endDate: jsonResponse["events"][i]["endDate"],
+          startTime: jsonResponse["events"][i]["startTime"],
+          eventType: jsonResponse["events"][i]["eventType"],
+          groupLink: jsonResponse["events"][i]["groupLink"],
+          minTeamSize: jsonResponse["events"][i]["minTeamSize"],
+          maxTeamSize: jsonResponse["events"][i]["maxTeamSize"],
+        );
+        print(event.name);
+
+        events.add(event);
       }
+
+      return events;
+      // if ((response.statusCode ?? 400) >= 200 &&
+      //     (response.statusCode ?? 400) < 300) {
+      // } else {
+      //   throw Exception('Failed to fetch events');
+      // }
     } on DioError catch (e) {
       throw Exception('Failed to fetch events: ${e.message}');
     }
@@ -41,15 +73,14 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
         future: fetcheventdetails(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
-            eventdetails = snapshot.data;
+            List<EventModel> event = snapshot.data;
             return ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: eventdetails.length,
+                itemCount: event.length,
                 itemBuilder: (context, int index) {
-                  print(index);
+                  // print(index);
                   return Container(
-                    width: 220,
-                    height: 530,
+                    width: 260,
                     padding: EdgeInsets.all(10),
                     margin: EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
@@ -61,23 +92,18 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
                       children: [
                         SingleChildScrollView(
                           child: Container(
-                            height: 450,
                             width: double.infinity,
                             child: Column(
                               children: [
                                 Container(
-                                  width: 200,
-                                  height: 250,
+                                  width: 240,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
-                                  child: eventdetails[index]?["coverPic"]
-                                              ?["url"] !=
-                                          null
+                                  child: event[index].coverPic.url != null
                                       ? Image.network(
-                                          eventdetails[index]["coverPic"]
-                                              ["url"],
+                                          event[index].coverPic.url,
                                           fit: BoxFit.cover,
                                         )
                                       : SizedBox(),
@@ -86,20 +112,25 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
                                   height: 10,
                                 ),
                                 Text(
-                                  eventdetails[index]["name"],
+                                  event[index].name,
                                   style: TextStyle(
-                                      fontSize: 20, color: Colors.white),
+                                    fontSize: 30,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
                                 ),
                                 Text(
-                                  '${eventdetails[index]["startDate"]}     ${eventdetails[index]["startTime"]}',
+                                  '${event[index].startDate}     ${event[index].startDate}',
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.white),
                                 ),
                                 SizedBox(
-                                  height: 16,
+                                  height: 26,
                                 ),
                                 Text(
-                                  eventdetails[index]["description"],
+                                  event[index].description,
                                   style: TextStyle(
                                     color: Colors.white,
                                   ),
@@ -118,7 +149,9 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => EnigmaEventRegistration(),
+                                builder: (context) => AbacusEventRegistration(
+                                  event: event[index],
+                                ),
                               ),
                             );
                           },

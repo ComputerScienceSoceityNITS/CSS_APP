@@ -60,9 +60,6 @@ flutter:
     - family: Cormorant Unicase
       fonts:
         - asset: assets/fonts/CormorantUnicase-Regular.ttf
-    - family: EastSeaDokdo
-      fonts:
-        - asset: assets/fonts/EastSeaDokdo-Regular.ttf
     - family: Archivo
       fonts:
         - asset: assets/fonts/Archivo-Regular.ttf

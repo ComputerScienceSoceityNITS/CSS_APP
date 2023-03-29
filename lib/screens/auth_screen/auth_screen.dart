@@ -39,7 +39,6 @@ class _AuthScreenState extends State<AuthScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print(currentPage);
     return Scaffold(
       body: SafeArea(
         child: Column(
