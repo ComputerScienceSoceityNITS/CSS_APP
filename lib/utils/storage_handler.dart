@@ -16,7 +16,7 @@ class StorageHandler {
   // ----------------------------- Setter Methods -----------------------------
   Future<void> toggleDarkTheme() async {
     await _preferences?.setBool('isDarkTheme', !isDarkTheme());
-    print(isDarkTheme());
+    // print(isDarkTheme());
   }
 
   Future<void> initPreferences() async {

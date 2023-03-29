@@ -51,7 +51,6 @@ class _ReportBugsState extends State<ReportBugs> {
               "message": message
             }
           }));
-      print(response.statusCode);
     } catch (e) {
       return e.toString();
     }

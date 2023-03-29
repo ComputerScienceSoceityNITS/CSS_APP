@@ -1,3 +1,4 @@
+import 'package:cssapp/provider/abacusRegistrationProvider.dart';
 import 'package:cssapp/state_handlers/members/member_api.dart';
 import 'package:cssapp/state_handlers/theme/theme_handler.dart';
 import 'package:cssapp/state_handlers/user/user_handler.dart';
@@ -59,6 +60,8 @@ class _CSSAppState extends State<CSSApp> {
               ThemeHandler(themeHandler: _themeHandler),
         ),
         ChangeNotifierProvider(create: (BuildContext context) => MemberApi()),
+        ChangeNotifierProvider(
+            create: (BuildContext context) => AbacusRegistrationProvider()),
         ChangeNotifierProvider(create: (BuildContext context) => UserHandler()),
       ],
       child: MaterialApp(
