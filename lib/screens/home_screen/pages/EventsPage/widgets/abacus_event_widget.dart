@@ -92,6 +92,8 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
                       children: [
                         SingleChildScrollView(
                           child: Container(
+
+                            height: MediaQuery.of(context).size.height * 0.47,
                             width: double.infinity,
                             child: Column(
                               children: [
@@ -114,12 +116,10 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
                                 Text(
                                   event[index].name,
                                   style: TextStyle(
-                                    fontSize: 30,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
+
+                                      fontSize: 19,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 Text(
                                   '${event[index].startDate}     ${event[index].startDate}',
@@ -127,7 +127,7 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
                                       fontSize: 16, color: Colors.white),
                                 ),
                                 SizedBox(
-                                  height: 26,
+                                  height: 13,
                                 ),
                                 Text(
                                   event[index].description,

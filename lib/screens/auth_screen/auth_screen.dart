@@ -1,7 +1,10 @@
 import 'package:cssapp/configs/configs.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'pages/sign_in_page.dart';
 import 'pages/sign_up_page.dart';
+import 'package:cssapp/utils/storage_handler.dart';
+import 'package:cssapp/state_handlers/theme/theme_handler.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({Key? key}) : super(key: key);
@@ -40,6 +43,26 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(top: 10.0),
+        child: FloatingActionButton(
+          elevation: 100,
+          child: Icon(
+            StorageHandler().isDarkTheme()
+                ? Icons.light_mode_outlined
+                : Icons.dark_mode_outlined,
+            color: StorageHandler().isDarkTheme() ? Colors.black : Colors.white,
+            size: 33,
+          ),
+          backgroundColor:
+              StorageHandler().isDarkTheme() ? Colors.white : Colors.pink,
+          onPressed: () {
+            Provider.of<ThemeHandler>(context, listen: false).toggleTheme();
+          },
+          foregroundColor: Theme.of(context).backgroundColor,
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [

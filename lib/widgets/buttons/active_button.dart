@@ -15,7 +15,15 @@ class ActiveButton extends StatelessWidget {
           backgroundColor: Theme.of(context).brightness == Brightness.dark
               ? Colors.white
               : Colors.black87),
-      child: label == null ? child! : Text(label!),
+      child: label == null
+          ? child!
+          : Text(
+              label!,
+              style: TextStyle(
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.black87
+                      : Colors.white),
+            ),
     );
   }
 }
