@@ -8,8 +8,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import './widgets/abacus_text.dart';
 
-class engima_page extends StatelessWidget {
-  const engima_page({Key? key}) : super(key: key);
+class EnigmaPage extends StatelessWidget {
+  const EnigmaPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

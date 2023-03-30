@@ -25,17 +25,17 @@ class TechnoCards {
           "Every year CSS organizes introductory to advanced-level classes in c programming for freshers which are taken by the cse sophomores themselves. The aim of the programme is to provide the students with a mentor who has followed the same path as themselves and can acknowledge and resolve the problems and struggles faced by the freshers as they gear up to pursue their careers in tech.",
       addBorderRadiusToThumbnail: true,
     ),
-    Event(
-      stylisedChar: "E",
-      title: "nigma/",
-      titleLine2: "Enigma+",
-      imagepath: "assets/images/event_thumbnails/Enigma.png",
-      thumbnail: Assets.enigma,
-      events: const [],
-      details:
-          "Having established a trail of success stories with NIT Silchar CSE students and alumni being placed in top companies around the globe, the CSS of NIT Silchar understands the importance of competitive programming and its role in cracking international hackathons and MNCs. Enigma is a weekly coding contest organized by the CP wing aimed to make the students comfortable with the level and format of such questions and to provide them with a competitive edge in their endeavors.",
-      addBorderRadiusToThumbnail: false,
-    ),
+    // Event(
+    //   stylisedChar: "E",
+    //   title: "nigma/",
+    //   titleLine2: "Enigma+",
+    //   imagepath: "assets/images/event_thumbnails/Enigma.png",
+    //   thumbnail: Assets.enigma,
+    //   events: const [],
+    //   details:
+    //       "Having established a trail of success stories with NIT Silchar CSE students and alumni being placed in top companies around the globe, the CSS of NIT Silchar understands the importance of competitive programming and its role in cracking international hackathons and MNCs. Enigma is a weekly coding contest organized by the CP wing aimed to make the students comfortable with the level and format of such questions and to provide them with a competitive edge in their endeavors.",
+    //   addBorderRadiusToThumbnail: false,
+    // ),
     Event(
       stylisedChar: "D",
       title: "evelopment",

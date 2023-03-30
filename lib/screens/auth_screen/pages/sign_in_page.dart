@@ -46,7 +46,7 @@ class _SignInPageState extends State<SignInPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CustomTextField(
-                      label: 'Email',
+                      label: 'Email( Institute )',
                       controller: emailController,
                       validator: (String? str) {
                         if (!RegExp(
@@ -94,7 +94,7 @@ class _SignInPageState extends State<SignInPage> {
                                     res.statusCode! < 200 ||
                                     res.statusCode! >= 300) {
                                   Fluttertoast.showToast(
-                                      msg: res.data['message']?["error"] ??
+                                      msg: res.data?["error"] ??
                                           "Unknown Error");
                                 } else {
                                   Navigator.of(context).pushReplacement(

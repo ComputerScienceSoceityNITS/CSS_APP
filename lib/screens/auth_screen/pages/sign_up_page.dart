@@ -65,7 +65,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       validator: emptyValidator,
                     ),
                     CustomTextField(
-                      label: 'Email',
+                      label: 'Email( Institute )',
                       controller: emailController,
                       validator: (String? str) {
                         if (!RegExp(

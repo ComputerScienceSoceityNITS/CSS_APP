@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:cssapp/configs/configurations/pallet.dart';
-import 'package:cssapp/screens/home_screen/pages/EventsPage/abacuseventregistration.dart';
+import 'package:cssapp/screens/home_screen/pages/EventsPage/abacus_event_registration.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/enigmaeventregistration.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/models/eventModel.dart';
 
@@ -22,7 +22,6 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
   List<dynamic> eventdetails = [];
 
   Future<List<EventModel>> fetcheventdetails() async {
-    final dio = await NetworkEngine.getDio();
     try {
       var response = await (await NetworkEngine.getDio())
           .get(('https://css-cms.onrender.com/api/admin/abacus/'));
@@ -90,60 +89,43 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        SingleChildScrollView(
-                          child: Container(
-
-                            height: MediaQuery.of(context).size.height * 0.47,
-                            width: double.infinity,
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: 240,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: event[index].coverPic.url != null
-                                      ? Image.network(
-                                          event[index].coverPic.url,
-                                          fit: BoxFit.cover,
-                                        )
-                                      : SizedBox(),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  event[index].name,
-                                  style: TextStyle(
-
-                                      fontSize: 19,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  '${event[index].startDate}     ${event[index].startDate}',
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.white),
-                                ),
-                                SizedBox(
-                                  height: 13,
-                                ),
-                                Text(
-                                  event[index].description,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                  maxLines: 8,
-                                  textAlign: TextAlign.justify,
-                                ),
-                              ],
+                        Container(
+                          width: 240,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: event[index].coverPic.url != null
+                              ? Image.network(
+                                  event[index].coverPic.url,
+                                  fit: BoxFit.cover,
+                                )
+                              : SizedBox(),
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          event[index].name,
+                          style: const TextStyle(
+                              fontSize: 19,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          '${event[index].startDate}   -   ${event[index].startDate}',
+                          style: const TextStyle(
+                              fontSize: 16, color: Colors.white),
+                        ),
+                        const SizedBox(height: 13),
+                        Expanded(
+                          child: SingleChildScrollView(
+                            child: Text(
+                              event[index].description,
+                              style: const TextStyle(color: Colors.white),
+                              textAlign: TextAlign.justify,
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 20,
-                        ),
+                        const SizedBox(height: 20),
                         ElevatedButton(
                           onPressed: () {
                             Navigator.push(
@@ -155,16 +137,14 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
                               ),
                             );
                           },
-                          child: Text(
-                            "Register Here",
-                          ),
+                          child: const Text("Register Here"),
                         ),
                       ],
                     ),
                   );
                 });
           } else {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
         });
   }

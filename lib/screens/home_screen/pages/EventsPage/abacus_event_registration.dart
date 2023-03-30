@@ -6,8 +6,11 @@ import 'package:cssapp/provider/abacusRegistrationProvider.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/models/eventModel.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AbacusEventRegistration extends StatelessWidget {
   final EventModel event;
@@ -109,13 +112,24 @@ class AbacusEventRegistration extends StatelessWidget {
                               const SizedBox(
                                 height: 6,
                               ),
-                              Text(
-                                'Group Link : ${event.groupLink}',
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  // color: Colors.black,
-                                ),
-                              ),
+                              ElevatedButton(
+                                  onPressed: () {
+                                    launchUrl(Uri.parse(event.groupLink),
+                                        mode: LaunchMode.externalApplication);
+                                  },
+                                  onLongPress: () async {
+                                    await Clipboard.setData(
+                                        ClipboardData(text: event.groupLink));
+                                    Fluttertoast.showToast(
+                                        msg:
+                                            "Contest link copied to clipboard");
+                                  },
+                                  child: Text(
+                                    'Group Link',
+                                    style: TextStyle(
+                                        color: Theme.of(context).canvasColor,
+                                        fontSize: 16),
+                                  )),
                               const SizedBox(
                                 height: 6,
                               ),
@@ -221,58 +235,19 @@ class AbacusEventRegistration extends StatelessWidget {
                                         : 'Member ${i + 1} Scholar Id',
                                   ),
                                 ),
-                                const SizedBox(
-                                  height: 30,
-                                ),
+                                const SizedBox(height: 30),
                               ],
                             ),
-                          const SizedBox(
-                            height: 30,
-                          ),
+                          const SizedBox(height: 30),
+                          SubmitButton(
+                              max: max,
+                              nameControllers: nameControllers,
+                              idControllers: idControllers,
+                              event: event,
+                              teamLeaderScholarIdController:
+                                  teamLeaderScholarIdController,
+                              teamNameController: teamNameController)
                         ],
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Pallet.accentColor,
-                          foregroundColor: Colors.white),
-                      onPressed: () async {
-                        List<MemberModel> members = [];
-
-                        for (int i = 0; i < max - 1; i++) {
-                          if (nameControllers[i].text.isNotEmpty) {
-                            MemberModel member = MemberModel(
-                              name: nameControllers[i].text,
-                              scholarId: idControllers[i].text,
-                            );
-                            members.add(member);
-                          }
-                          print(event.id);
-                        }
-                        Response res =
-                            await Provider.of<AbacusRegistrationProvider>(
-                                    context,
-                                    listen: false)
-                                .register(
-                                    eventId: event.id,
-                                    teamName: teamNameController.text,
-                                    teamLeaderScholarID:
-                                        teamLeaderScholarIdController.text,
-                                    members: members);
-                        var jsonResponse = await jsonDecode(res.toString());
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) =>
-                                RegistrationPopUp(
-                                  isSuccess: (res.statusCode == 201),
-                                  msg: jsonResponse["message"],
-                                ));
-                      },
-                      child: const Text(
-                        'Submit',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
                       ),
                     ),
                   ],
@@ -282,6 +257,82 @@ class AbacusEventRegistration extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class SubmitButton extends StatefulWidget {
+  final int max;
+  final List<TextEditingController> nameControllers, idControllers;
+  final EventModel event;
+  final TextEditingController teamNameController, teamLeaderScholarIdController;
+  const SubmitButton(
+      {Key? key,
+      required this.max,
+      required this.nameControllers,
+      required this.idControllers,
+      required this.event,
+      required this.teamLeaderScholarIdController,
+      required this.teamNameController})
+      : super(key: key);
+
+  @override
+  State<SubmitButton> createState() => _SubmitButtonState();
+}
+
+class _SubmitButtonState extends State<SubmitButton> {
+  bool isLoading = false;
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Pallet.accentColor,
+        foregroundColor: Colors.white,
+      ),
+      onPressed: () async {
+        setState(() {
+          isLoading = true;
+        });
+        List<MemberModel> members = [];
+        for (int i = 0; i < widget.max - 1; i++) {
+          if (widget.nameControllers[i].text.isNotEmpty) {
+            MemberModel member = MemberModel(
+              name: widget.nameControllers[i].text,
+              scholarId: widget.idControllers[i].text,
+            );
+            members.add(member);
+          }
+        }
+        Response res = await Provider.of<AbacusRegistrationProvider>(context,
+                listen: false)
+            .register(
+                eventId: widget.event.id,
+                teamName: widget.teamNameController.text,
+                teamLeaderScholarID: widget.teamLeaderScholarIdController.text,
+                members: members);
+        var jsonResponse = await jsonDecode(res.toString());
+        setState(() {
+          isLoading = false;
+        });
+        showDialog(
+            context: context,
+            builder: (BuildContext context) => RegistrationPopUp(
+                  isSuccess: (res.statusCode == 201),
+                  msg: jsonResponse["message"],
+                ));
+      },
+      child: isLoading
+          ? const SizedBox(
+              height: 10,
+              width: 10,
+              child: CircularProgressIndicator(),
+            )
+          : const Text(
+              'Submit',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
     );
   }
 }
@@ -308,7 +359,9 @@ class RegistrationPopUp extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 LottieBuilder.asset(
-                  (isSuccess) ? 'assets/lottie/registration_success.json' : 'assets/lottie/registration_failed.json',
+                  (isSuccess)
+                      ? 'assets/lottie/registration_success.json'
+                      : 'assets/lottie/registration_failed.json',
                   height: 70,
                   width: 70,
                 ),

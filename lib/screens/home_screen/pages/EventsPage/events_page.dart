@@ -76,7 +76,7 @@ class _EventsPageState extends State<EventsPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => engima_page(),
+                            builder: (context) => const EnigmaPage(),
                           ),
                         );
                         // Navigator.push(
@@ -108,7 +108,7 @@ class _EventsPageState extends State<EventsPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const abacus_page(),
+                              builder: (context) => const AbacusPage(),
                             ));
                       },
                       child: Card(
@@ -131,7 +131,7 @@ class _EventsPageState extends State<EventsPage> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [Enigma_text(), Abacus_text()],
+                  children: const [EnigmaText(), AbacusText()],
                 ),
               ],
             ),
@@ -214,9 +214,7 @@ class _EventsPageState extends State<EventsPage> {
                                 const SizedBox(width: 30),
                               ],
                             ),
-                            SizedBox(
-                              height: 50,
-                            ),
+                            const SizedBox(height: 50),
                             Column(
                               children: [
                                 Row(

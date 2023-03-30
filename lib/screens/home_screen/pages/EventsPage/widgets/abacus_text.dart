@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cssapp/configs/configs.dart';
 
-class Abacus_text extends StatelessWidget {
-  const Abacus_text({Key? key}) : super(key: key);
+class AbacusText extends StatelessWidget {
+  const AbacusText({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

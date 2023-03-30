@@ -62,7 +62,9 @@ class UserHandler extends ChangeNotifier {
     Response res =
         await (await NetworkEngine.getDio()).get(NetworkEngine.fetchUser);
 
-    if ((res.statusCode ?? 400) >= 200 && (res.statusCode ?? 400) < 300) {
+    if ((res.statusCode ?? 400) >= 200 &&
+        (res.statusCode ?? 400) < 300 &&
+        res.data?['user'] != null) {
       user = UserModel.read(res.data);
     }
     return res;
