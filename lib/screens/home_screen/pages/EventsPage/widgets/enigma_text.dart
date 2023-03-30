@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cssapp/configs/configs.dart';
 
-class Enigma_text extends StatelessWidget {
-  const Enigma_text({Key? key}) : super(key: key);
+class EnigmaText extends StatelessWidget {
+  const EnigmaText({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

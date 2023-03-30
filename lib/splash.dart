@@ -30,12 +30,12 @@ class _SplashState extends State<Splash> {
     bool result = await InternetConnectionChecker().hasConnection;
     if (result) {
       Provider.of<MemberApi>(context, listen: false).isOnline = true;
+      if (await NetworkEngine.doesCookieDirExists()) {
+        await Provider.of<UserHandler>(context, listen: false).fetchUser();
+      }
     } else {
       Provider.of<MemberApi>(context, listen: false).isOnline = false;
       Fluttertoast.showToast(msg: "Couldn't connect to the internet");
-    }
-    if (await NetworkEngine.doesCookieDirExists()) {
-      await Provider.of<UserHandler>(context, listen: false).fetchUser();
     }
     Widget page = const AuthScreen();
     if (Provider.of<UserHandler>(context, listen: false).user != null) {
@@ -52,17 +52,25 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SizedBox(
-          height: 400,
-          width: 400,
-          child: Image(
-            image: StorageHandler().isDarkTheme()
-                ? Assets.cssLogoLight.image
-                : Assets.cssLogoDark.image,
-            fit: BoxFit.contain,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          SizedBox(
+            height: 400,
+            width: 400,
+            child: Image(
+              image: StorageHandler().isDarkTheme()
+                  ? Assets.cssLogoLight.image
+                  : Assets.cssLogoDark.image,
+              fit: BoxFit.contain,
+            ),
           ),
-        ),
+          const SizedBox(
+            height: 30,
+            width: 30,
+            child: CircularProgressIndicator(),
+          ),
+        ],
       ),
     );
   }

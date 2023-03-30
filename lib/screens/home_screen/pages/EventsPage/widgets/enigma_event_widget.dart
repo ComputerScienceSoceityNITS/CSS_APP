@@ -1,5 +1,5 @@
 import 'package:cssapp/configs/configurations/pallet.dart';
-import 'package:cssapp/screens/home_screen/pages/EventsPage/abacuseventregistration.dart';
+import 'package:cssapp/screens/home_screen/pages/EventsPage/abacus_event_registration.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/enigmaeventregistration.dart';
 import 'package:cssapp/state_handlers/user/user_handler.dart';
 import 'package:flutter/material.dart';
