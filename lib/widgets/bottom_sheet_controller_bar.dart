@@ -14,7 +14,7 @@ class BottomSheetControllerBar extends StatelessWidget {
       height: 4,
       width: 100,
       decoration: BoxDecoration(
-          color: Theme.of(context).backgroundColor.withOpacity(0.5),
+          color: Theme.of(context).colorScheme.background.withOpacity(0.5),
           borderRadius: BorderRadius.circular(2)),
     );
   }
