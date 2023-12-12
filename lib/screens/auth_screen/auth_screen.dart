@@ -14,6 +14,9 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
+  static const double iconSize = 33;
+  static const double elevation = 100;
+  static const double topPadding = 10.0;
   double currentPage = 0;
   late final PageController pageController;
   late final List<Widget> items;
@@ -45,15 +48,15 @@ class _AuthScreenState extends State<AuthScreen> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
       floatingActionButton: Padding(
-        padding: const EdgeInsets.only(top: 10.0),
+        padding: const EdgeInsets.only(top: topPadding),
         child: FloatingActionButton(
-          elevation: 100,
+          elevation: elevation,
           child: Icon(
             StorageHandler().isDarkTheme()
                 ? Icons.light_mode_outlined
                 : Icons.dark_mode_outlined,
             color: StorageHandler().isDarkTheme() ? Colors.black : Colors.white,
-            size: 33,
+            size: iconSize,
           ),
           backgroundColor:
               StorageHandler().isDarkTheme() ? Colors.white : Colors.pink,
