@@ -15,7 +15,7 @@ class SocialIcons extends StatelessWidget {
         width: size,
         child: Icon(
           icon,
-          color: Theme.of(context).backgroundColor,
+          color: Theme.of(context).colorScheme.background,
           size: size,
         ),
       ),

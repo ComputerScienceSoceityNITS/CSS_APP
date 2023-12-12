@@ -1,5 +1,3 @@
-
-
 import 'package:cssapp/screens/home_screen/home_screen.dart';
 import 'package:cssapp/state_handlers/user/user_handler.dart';
 import 'package:cssapp/widgets/buttons/ghost_button.dart';
@@ -12,6 +10,7 @@ import 'custom_text_field.dart';
 
 class SignUpPage extends StatefulWidget {
   final void Function()? onTapSignIn;
+
   const SignUpPage({Key? key, required this.onTapSignIn}) : super(key: key);
 
   @override
