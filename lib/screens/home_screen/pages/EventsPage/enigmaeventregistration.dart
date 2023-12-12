@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
 class EnigmaEventRegistration extends StatefulWidget {
+  const EnigmaEventRegistration({Key? key}) : super(key: key);
+
   @override
   State<EnigmaEventRegistration> createState() =>
       _EnigmaEventRegistrationState();
@@ -52,7 +54,7 @@ class _EnigmaEventRegistrationState extends State<EnigmaEventRegistration> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
+                    const Row(
                       children: [
                         CircleAvatar(
                           child: Icon(Icons.people),
@@ -70,13 +72,13 @@ class _EnigmaEventRegistrationState extends State<EnigmaEventRegistration> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Column(
+                          const Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               SizedBox(
@@ -133,10 +135,10 @@ class _EnigmaEventRegistrationState extends State<EnigmaEventRegistration> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              Center(
+              const Center(
                 child: Text(
                   'Register Yourself',
                   style: TextStyle(
@@ -147,34 +149,34 @@ class _EnigmaEventRegistrationState extends State<EnigmaEventRegistration> {
               ),
               Container(
                 height: 500,
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Column(
                   children: [
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Team Name',
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Team Name',
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     ElevatedButton(
                         onPressed: () {},
-                        child: Text("Register in CodeForces")),
-                    SizedBox(
+                        child: const Text("Register in CodeForces")),
+                    const SizedBox(
                       height: 30,
                     ),
                     ElevatedButton(
                       onPressed: () {},
-                      child: Text('Submit'),
+                      child: const Text('Submit'),
                     ),
                   ],
                 ),

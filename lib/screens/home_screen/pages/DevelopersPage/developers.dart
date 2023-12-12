@@ -25,7 +25,7 @@ class _DevelopersState extends State<Developers> {
         title.toUpperCase(),
         textAlign: TextAlign.center,
         style: textLargeSpaced.copyWith(
-          color: Theme.of(context).backgroundColor,
+          color: Theme.of(context).colorScheme.background,
           fontSize: 30,
         ),
       ),
@@ -176,15 +176,15 @@ class Shimmer extends StatelessWidget {
             left: 5,
             child: Container(
               decoration: BoxDecoration(
-                color: Theme.of(context).backgroundColor,
+                color: Theme.of(context).colorScheme.background,
                 borderRadius: BorderRadius.circular(10),
               ),
               width: 220,
               height: 270,
-              child: Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     child: FadeShimmer(
                       height: 7,
@@ -195,7 +195,7 @@ class Shimmer extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 4),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     child: FadeShimmer(
                       height: 7,
@@ -205,8 +205,8 @@ class Shimmer extends StatelessWidget {
                       baseColor: Color(0xff999aa1),
                     ),
                   ),
-                  const SizedBox(height: 7),
-                  const Padding(
+                  SizedBox(height: 7),
+                  Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     child: FadeShimmer(
                       height: 40,
@@ -216,14 +216,14 @@ class Shimmer extends StatelessWidget {
                       baseColor: Color.fromARGB(255, 215, 101, 139),
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10),
                 ],
               ),
             ),
           ),
-          Align(
+          const Align(
             alignment: AlignmentDirectional.topCenter,
-            child: const Padding(
+            child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: FadeShimmer(
                 height: 200,

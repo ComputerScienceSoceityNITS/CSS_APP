@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:cssapp/screens/auth_screen/auth_screen.dart';
 import 'package:cssapp/state_handlers/members/member_api.dart';
 import 'package:cssapp/state_handlers/user/user_handler.dart';

@@ -63,7 +63,7 @@ class _AuthScreenState extends State<AuthScreen> {
           onPressed: () {
             Provider.of<ThemeHandler>(context, listen: false).toggleTheme();
           },
-          foregroundColor: Theme.of(context).backgroundColor,
+          foregroundColor: Theme.of(context).colorScheme.background,
         ),
       ),
       body: SafeArea(

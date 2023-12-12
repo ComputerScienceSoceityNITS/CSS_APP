@@ -49,14 +49,14 @@ class _EventsPageState extends State<EventsPage> {
         child: ListView(
           controller: scroll,
           children: [
-            Stack(
+            const Stack(
               alignment: Alignment.topCenter,
               children: [
-                const AccountingAnimation(),
+                AccountingAnimation(),
                 Padding(
-                  padding: const EdgeInsets.only(top: 100),
+                  padding: EdgeInsets.only(top: 100),
                   child: Column(
-                    children: const [
+                    children: [
                       CSSText(),
                       EventText(),
                       TagText(),
@@ -129,9 +129,9 @@ class _EventsPageState extends State<EventsPage> {
                     ),
                   ],
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [EnigmaText(), AbacusText()],
+                  children: [EnigmaText(), AbacusText()],
                 ),
               ],
             ),
@@ -181,7 +181,7 @@ class _EventsPageState extends State<EventsPage> {
                                           : FontWeight.normal,
                                       color: technoEventsSelected
                                           ? Pallet.accentColor
-                                          : Theme.of(context).backgroundColor,
+                                          : Theme.of(context).colorScheme.background,
                                     ),
                                   ),
                                 ),
@@ -207,7 +207,7 @@ class _EventsPageState extends State<EventsPage> {
                                           : FontWeight.normal,
                                       color: culturaleventsselected
                                           ? Pallet.accentColor
-                                          : Theme.of(context).backgroundColor,
+                                          : Theme.of(context).colorScheme.background,
                                     ),
                                   ),
                                 ),
@@ -228,7 +228,7 @@ class _EventsPageState extends State<EventsPage> {
                         ),
                       )
                     : Center(
-                        child: Container(
+                        child: SizedBox(
                           height: 100,
                           child: Lottie.asset(
                               "assets/lottie/scrolldownarrow.json"),

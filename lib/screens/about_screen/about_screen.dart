@@ -30,7 +30,7 @@ class _AboutUsState extends State<AboutUs> {
               color: Theme.of(context).canvasColor,
               size: iconSize,
             ),
-            backgroundColor: Theme.of(context).backgroundColor,
+            backgroundColor: Theme.of(context).colorScheme.background,
             onPressed: () {
               Navigator.pop(context);
               Navigator.of(context).push(

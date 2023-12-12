@@ -31,7 +31,7 @@ class Link extends StatelessWidget {
           const SizedBox(width: 13),
           Text(text,
               style: textRegular.copyWith(
-                  color: Theme.of(context).backgroundColor)),
+                  color: Theme.of(context).colorScheme.background)),
         ],
       ),
     );
