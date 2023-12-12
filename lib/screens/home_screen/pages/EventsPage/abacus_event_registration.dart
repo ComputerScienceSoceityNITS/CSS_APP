@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:cssapp/configs/configurations/pallet.dart';
-import 'package:cssapp/models/memberModel.dart';
-import 'package:cssapp/provider/abacusRegistrationProvider.dart';
+import 'package:cssapp/models/member_model.dart';
+import 'package:cssapp/provider/abacus_registration_provider.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/models/eventModel.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';

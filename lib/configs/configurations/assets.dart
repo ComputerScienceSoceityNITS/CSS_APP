@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:lottie/lottie.dart';
 
 class Assets {
-  static late Image wing_pr;
-  static late Image wing_cp;
-  static late Image wing_dev;
-  static late Image wing_executive;
-  static late Image wing_lit;
-  static late Image wing_ml;
-  static late Image wing_design;
+  static late Image wingPr;
+  static late Image wingCp;
+  static late Image wingDev;
+  static late Image wingExecutive;
+  static late Image wingLit;
+  static late Image wingMl;
+  static late Image wingDesign;
   static late Image cssLogoDark;
   static late Image cssLogoLight;
   static late Image eventTIMGAbacusIIT;
@@ -70,13 +70,13 @@ class Assets {
   static late LottieBuilder lottieCssGlobeDark;
   static late LottieBuilder lottieMember;
   Assets() {
-    wing_pr = Image.asset('assets/wing_images/pr.jpg');
-    wing_cp = Image.asset('assets/wing_images/cp.png');
-    wing_dev = Image.asset('assets/wing_images/dev.jpg');
-    wing_executive = Image.asset('assets/wing_images/executive.jpg');
-    wing_lit = Image.asset('assets/wing_images/lit.jpg');
-    wing_ml = Image.asset('assets/wing_images/ml.jpg');
-    wing_design = Image.asset('assets/wing_images/design.jpg');
+    wingPr = Image.asset('assets/wing_images/pr.jpg');
+    wingCp = Image.asset('assets/wing_images/cp.png');
+    wingDev = Image.asset('assets/wing_images/dev.jpg');
+    wingExecutive = Image.asset('assets/wing_images/executive.jpg');
+    wingLit = Image.asset('assets/wing_images/lit.jpg');
+    wingMl = Image.asset('assets/wing_images/ml.jpg');
+    wingDesign = Image.asset('assets/wing_images/design.jpg');
     cssLogoDark = Image.asset('assets/images/CSS_logo/CSS_logo_dark.png');
     cssLogoLight = Image.asset('assets/images/CSS_logo/CSS_logo_light.png');
     eventTIMGAbacusIIT =

@@ -50,7 +50,7 @@ class ConnectMember extends StatelessWidget {
               Container(
                 height: 1,
                 width: 200,
-                color: Theme.of(context).backgroundColor.withOpacity(0.5),
+                color: Theme.of(context).colorScheme.background.withOpacity(0.5),
               ),
               SizedBox(
                 height: 10,

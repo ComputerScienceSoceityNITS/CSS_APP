@@ -1,7 +1,5 @@
 // ignore_for_file: file_names
 
-import 'package:cssapp/state_handlers/theme/brightness/dark.dart';
-import 'package:cssapp/state_handlers/theme/brightness/light.dart';
 import 'package:cssapp/utils/storage_handler.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +18,7 @@ class CSSBGText extends StatelessWidget {
             foreground: Paint()
               ..style = PaintingStyle.stroke
               ..strokeWidth = 8
-              ..color =!StorageHandler().isDarkTheme()? Color.fromARGB(255, 4, 5, 6).withOpacity(0.6):Colors.grey.withOpacity(0.6),
+              ..color =!StorageHandler().isDarkTheme()? const Color.fromARGB(255, 4, 5, 6).withOpacity(0.6):Colors.grey.withOpacity(0.6),
           ),
         ),
         // Solid text as fill.
@@ -28,7 +26,7 @@ class CSSBGText extends StatelessWidget {
           'CSS',
           style: TextStyle(
             fontSize: 70,
-            color:!StorageHandler().isDarkTheme()? Colors.grey.withOpacity(0.6):Color.fromARGB(255, 4, 5, 6).withOpacity(0.6),
+            color:!StorageHandler().isDarkTheme()? Colors.grey.withOpacity(0.6):const Color.fromARGB(255, 4, 5, 6).withOpacity(0.6),
           ),
         ),
       ],
