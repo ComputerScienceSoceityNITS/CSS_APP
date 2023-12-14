@@ -134,7 +134,7 @@ class _BitscribeReaderScreenState extends State<BitscribeReaderScreen> {
                     color: Theme.of(context).canvasColor,
                     size: 33,
                   ),
-                  backgroundColor: Theme.of(context).backgroundColor,
+                  backgroundColor: Theme.of(context).colorScheme.background,
                   onPressed: () {
                     Navigator.pop(context);
                     Navigator.of(context).push(
@@ -147,7 +147,7 @@ class _BitscribeReaderScreenState extends State<BitscribeReaderScreen> {
                   });
             }),
           ),
-          Spacer(),
+          const Spacer(),
           Padding(
             padding: const EdgeInsets.fromLTRB(8, 8, 0, 0),
             child: Builder(builder: (context) {
@@ -158,11 +158,11 @@ class _BitscribeReaderScreenState extends State<BitscribeReaderScreen> {
                   color: Theme.of(context).canvasColor,
                   size: 33,
                 ),
-                backgroundColor: Theme.of(context).backgroundColor,
+                backgroundColor: Theme.of(context).colorScheme.background,
                 onPressed: () {
                   Scaffold.of(context).openEndDrawer();
                 },
-                foregroundColor: Theme.of(context).backgroundColor,
+                foregroundColor: Theme.of(context).colorScheme.background,
               );
             }),
           ),
@@ -201,14 +201,14 @@ class _BitscribeReaderScreenState extends State<BitscribeReaderScreen> {
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
-                            Theme.of(context).backgroundColor,
+                            Theme.of(context).colorScheme.background,
                           ),
                           foregroundColor: MaterialStateProperty.all<Color>(
                             Theme.of(context).canvasColor,
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.symmetric(vertical: 10),
+                          padding: const EdgeInsets.symmetric(vertical: 10),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [

@@ -84,7 +84,7 @@ class _ReportBugsState extends State<ReportBugs> {
                 color: Theme.of(context).canvasColor,
                 size: 33,
               ),
-              backgroundColor: Theme.of(context).backgroundColor,
+              backgroundColor: Theme.of(context).colorScheme.background,
               onPressed: () {
                 Navigator.pop(context);
                 Navigator.of(context).push(
@@ -217,7 +217,7 @@ class _ReportBugsState extends State<ReportBugs> {
                       "Diclaimer: Reporting to CSS must be formal. Here, you can register ideas and suggestions for the website and everything CSS. Please avoid unnecessary messages and spams. Strict actions will be taken against those violating these rules.",
                       style: textSmall.copyWith(
                         height: 1.2,
-                        color: Theme.of(context).backgroundColor,
+                        color: Theme.of(context).colorScheme.background,
                       ),
                       textAlign: TextAlign.center,
                     ),

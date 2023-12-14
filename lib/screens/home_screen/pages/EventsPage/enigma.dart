@@ -3,8 +3,6 @@ import 'package:cssapp/screens/home_screen/pages/EventsPage/widgets/enigma_event
 import 'package:cssapp/screens/home_screen/pages/EventsPage/widgets/enigma_text.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import './widgets/abacus_text.dart';
 
@@ -28,7 +26,7 @@ class EnigmaPage extends StatelessWidget {
                 ),
                 decoration:
                     BoxDecoration(color: Pallet.accentColor.withOpacity(0.3)),
-                child: Column(
+                child: const Column(
                   children: [
                     Row(
                       children: [
@@ -65,10 +63,10 @@ class EnigmaPage extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 0,
                     ),
                     const Text(
@@ -79,14 +77,14 @@ class EnigmaPage extends StatelessWidget {
                           decoration: TextDecoration.underline),
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-                    Container(
+                    SizedBox(
                         width: double.infinity,
                         height: MediaQuery.of(context).size.height * 0.4,
-                        child: EnigmaEvent()),
+                        child: const EnigmaEvent()),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
             ],

@@ -3,8 +3,6 @@ import 'package:cssapp/screens/home_screen/pages/EventsPage/widgets/abacus_event
 import 'package:cssapp/screens/home_screen/pages/EventsPage/widgets/enigma_text.dart';
 import 'widgets/read_more.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import './widgets/abacus_text.dart';
 
@@ -29,10 +27,10 @@ class AbacusPage extends StatelessWidget {
                 ),
                 decoration:
                     BoxDecoration(color: Pallet.accentColor.withOpacity(0.3)),
-                child: Column(
+                child: const Column(
                   children: [
                     Row(
-                      children: const [
+                      children: [
                         CircleAvatar(child: Icon(Icons.people)),
                         SizedBox(width: 20),
                         Text(
@@ -42,7 +40,7 @@ class AbacusPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 28),
+                    SizedBox(height: 28),
                     ReadMore(
                       text:
                           'We are delighted to invite your organization, Bosscoder Academy, as a Co-sponsor of this engaging session of our club. Web Blitz is a comprehensive program guiding beginners to dive into the exciting field of Web Development. Through this, one can gain a good grip on HTML, CSS, JavaScript and get hands-on experience by building their own projects at the end of the workshop',

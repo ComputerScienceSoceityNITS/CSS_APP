@@ -56,8 +56,8 @@ class CustomNavigationDrawer extends StatelessWidget {
             },
             separatorBuilder: (BuildContext context, int index) {
               return index == 4
-                  ? Column(
-                      children: const [
+                  ? const Column(
+                      children: [
                         SizedBox(height: 24),
                         Divider(color: Colors.grey),
                         SizedBox(height: 24),
@@ -83,12 +83,12 @@ class CustomNavigationDrawer extends StatelessWidget {
     return ListTile(
       leading: Icon(
         icon,
-        color: Theme.of(context).backgroundColor,
+        color: Theme.of(context).colorScheme.background,
         size: 23,
       ),
       title: Text(
         text,
-        style: textSmallBold.copyWith(color: Theme.of(context).backgroundColor),
+        style: textSmallBold.copyWith(color: Theme.of(context).colorScheme.background),
       ),
       hoverColor: hoverColor,
       onTap: onPressed,

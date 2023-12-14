@@ -1,19 +1,16 @@
-import 'dart:convert';
-
 import 'package:cssapp/state_handlers/user/user_handler.dart';
-import 'package:cssapp/state_handlers/user/user_model.dart';
 import 'package:cssapp/widgets/buttons/active_button.dart';
 import 'package:cssapp/widgets/buttons/ghost_button.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:cssapp/utils/network_engine.dart';
 import 'package:provider/provider.dart';
 import 'custom_text_field.dart';
 import 'package:cssapp/screens/home_screen/home_screen.dart';
 
 class SignInPage extends StatefulWidget {
   final void Function() onTapSignUp;
+
   const SignInPage({Key? key, required this.onTapSignUp}) : super(key: key);
 
   @override
@@ -25,14 +22,16 @@ class _SignInPageState extends State<SignInPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool isLoading = false;
+  static const double height = 20;
+  static const double boxSize = 50;
 
   @override
   Widget build(BuildContext context) {
     return isLoading
         ? const Center(
             child: SizedBox(
-              height: 50,
-              width: 50,
+              height: boxSize,
+              width: boxSize,
               child: CircularProgressIndicator(),
             ),
           )
@@ -69,7 +68,7 @@ class _SignInPageState extends State<SignInPage> {
                         return null;
                       },
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: height),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -133,7 +132,7 @@ class _SignInPageState extends State<SignInPage> {
                         )
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: height),
                   ],
                 ),
               ),
