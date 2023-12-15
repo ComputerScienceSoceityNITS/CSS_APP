@@ -15,7 +15,7 @@ class MembersPage extends StatefulWidget {
 }
 
 class _MembersPageState extends State<MembersPage> {
-  Session session = Session.session_22_23;
+  Session session = Session.session_23_24;
 
   Map<Session, Map<Role, List<Member>>> members = {};
 
@@ -86,7 +86,7 @@ class _MembersPageState extends State<MembersPage> {
                               "EMBER",
                               style: TextStyle(
                                 fontSize: 30,
-                                color: Theme.of(context).backgroundColor,
+                                color: Theme.of(context).colorScheme.background,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

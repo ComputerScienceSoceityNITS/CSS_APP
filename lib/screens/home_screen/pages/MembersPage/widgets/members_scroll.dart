@@ -29,13 +29,13 @@ class MembersScroll extends StatelessWidget {
                     Text(mapRole[wing] ?? '',
                         textAlign: TextAlign.justify,
                         style: textSmallBold.copyWith(
-                            color: Theme.of(context).backgroundColor)),
+                            color: Theme.of(context).colorScheme.background)),
                     const SizedBox(width: 10),
                     if (wing != Role.head)
                       Text("MEMBERS",
                           textAlign: TextAlign.left,
                           style: textSmallBold.copyWith(
-                              color: Theme.of(context).backgroundColor))
+                              color: Theme.of(context).colorScheme.background))
                   ],
                 ),
               ),
