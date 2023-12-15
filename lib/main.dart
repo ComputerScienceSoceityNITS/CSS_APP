@@ -1,4 +1,4 @@
-import 'package:cssapp/provider/abacusRegistrationProvider.dart';
+import 'package:cssapp/provider/abacus_registration_provider.dart';
 import 'package:cssapp/state_handlers/members/member_api.dart';
 import 'package:cssapp/state_handlers/theme/theme_handler.dart';
 import 'package:cssapp/state_handlers/user/user_handler.dart';

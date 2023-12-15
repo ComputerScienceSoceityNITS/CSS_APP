@@ -42,7 +42,7 @@ class _DevelopersPageState extends State<DevelopersPage> {
                               "OUR",
                               style: TextStyle(
                                 fontSize: 39,
-                                color: Theme.of(context).backgroundColor,
+                                color: Theme.of(context).colorScheme.background,
                                 fontFamily: 'Cormorant Unicase',
                                 fontWeight: FontWeight.bold,
                               ),
@@ -53,7 +53,7 @@ class _DevelopersPageState extends State<DevelopersPage> {
                             Text(" Developers \n team".toUpperCase(),
                                 textAlign: TextAlign.center,
                                 style: textLargeSpaced.copyWith(
-                                  color: Theme.of(context).backgroundColor,
+                                  color: Theme.of(context).colorScheme.background,
                                 )),
                           ],
                         ),

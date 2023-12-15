@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class Pallet {
   static const Color accentColor = Color(0xFFBC4E9C);
   static const Color darkPrimaryColor = Colors.black;
-  // ignore: todo
-  static const MaterialColor primarySwatch = Colors.grey; // TODO: Change
+  static const MaterialColor primarySwatch = Colors.grey;
   static const Color darkSecondaryColor = Colors.white;
   static const Color darkCardBGColor = Colors.white;
   static const Color lightPrimaryColor = Colors.white;

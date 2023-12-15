@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:cssapp/configs/configurations/pallet.dart';
-import 'package:cssapp/models/memberModel.dart';
-import 'package:cssapp/provider/abacusRegistrationProvider.dart';
+import 'package:cssapp/models/member_model.dart';
+import 'package:cssapp/provider/abacus_registration_provider.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/models/eventModel.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class AbacusEventRegistration extends StatelessWidget {
   final EventModel event;
-  AbacusEventRegistration({required this.event});
+  const AbacusEventRegistration({Key? key, required this.event}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     int min = event.minTeamSize;
@@ -61,7 +61,7 @@ class AbacusEventRegistration extends StatelessWidget {
                         //   width: 20,
                         // ),
                         Text(
-                          "${event.name}",
+                          event.name,
                           style: const TextStyle(
                             fontSize: 40,
                             fontWeight: FontWeight.bold,
@@ -340,15 +340,15 @@ class _SubmitButtonState extends State<SubmitButton> {
 class RegistrationPopUp extends StatelessWidget {
   final bool isSuccess;
   final String msg;
-  RegistrationPopUp({
+  const RegistrationPopUp({Key? key,
     required this.isSuccess,
     required this.msg,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: Container(
+      content: SizedBox(
         width: 200,
         height: 200,
         // color: Theme.of(context).,
@@ -365,7 +365,7 @@ class RegistrationPopUp extends StatelessWidget {
                   height: 70,
                   width: 70,
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Text(
                   msg,
                   maxLines: 5,

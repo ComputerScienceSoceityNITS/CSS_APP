@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:cssapp/screens/home_screen/home_screen.dart';
 import 'package:cssapp/state_handlers/user/user_handler.dart';
 import 'package:cssapp/widgets/buttons/ghost_button.dart';
@@ -12,6 +10,7 @@ import 'custom_text_field.dart';
 
 class SignUpPage extends StatefulWidget {
   final void Function()? onTapSignIn;
+
   const SignUpPage({Key? key, required this.onTapSignIn}) : super(key: key);
 
   @override
@@ -28,6 +27,8 @@ class _SignUpPageState extends State<SignUpPage> {
       codeforcesHandlerController = TextEditingController(),
       githubHandleController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  static const double height = 20;
+  static const double boxSize = 50;
 
   String? emptyValidator(String? str) {
     if (str == null || str.isEmpty) {
@@ -41,8 +42,8 @@ class _SignUpPageState extends State<SignUpPage> {
     return isLoading
         ? const Center(
             child: SizedBox(
-              height: 50,
-              width: 50,
+              height: boxSize,
+              width: boxSize,
               child: CircularProgressIndicator(),
             ),
           )
@@ -104,7 +105,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       label: 'Github Handle',
                       controller: githubHandleController,
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: height),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -174,7 +175,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: height),
                   ],
                 ),
               ),

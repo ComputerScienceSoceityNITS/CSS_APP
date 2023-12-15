@@ -20,14 +20,14 @@ class CustomFormField extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Theme.of(context).backgroundColor)),
+            borderSide: BorderSide(color: Theme.of(context).colorScheme.background)),
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Theme.of(context).backgroundColor)),
+            borderSide: BorderSide(color: Theme.of(context).colorScheme.background)),
         border: const OutlineInputBorder(),
         prefixIcon: IconTheme(
-            data: IconThemeData(color: Theme.of(context).backgroundColor),
+            data: IconThemeData(color: Theme.of(context).colorScheme.background),
             child: Icon(icon)),
-        labelStyle: TextStyle(color: Theme.of(context).backgroundColor),
+        labelStyle: TextStyle(color: Theme.of(context).colorScheme.background),
         labelText: labelText,
       ),
     );

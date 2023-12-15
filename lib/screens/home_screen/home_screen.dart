@@ -78,11 +78,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   Provider.of<ThemeHandler>(context, listen: false)
                       .toggleTheme();
                 },
-                foregroundColor: Theme.of(context).backgroundColor,
+                foregroundColor: Theme.of(context).colorScheme.background,
               );
             }),
           ),
-          Spacer(),
+          const Spacer(),
           Padding(
             padding: const EdgeInsets.fromLTRB(8, 8, 0, 0),
             child: Builder(builder: (context) {
@@ -90,15 +90,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 elevation: 100,
                 child: Icon(
                   Icons.menu,
-                  color: Theme.of(context).backgroundColor,
+                  color: Theme.of(context).colorScheme.background,
                   size: 33,
                 ),
                 backgroundColor:
-                    Theme.of(context).backgroundColor.withOpacity(0),
+                    Theme.of(context).colorScheme.background.withOpacity(0),
                 onPressed: () {
                   Scaffold.of(context).openEndDrawer();
                 },
-                foregroundColor: Theme.of(context).backgroundColor,
+                foregroundColor: Theme.of(context).colorScheme.background,
               );
             }),
           ),
