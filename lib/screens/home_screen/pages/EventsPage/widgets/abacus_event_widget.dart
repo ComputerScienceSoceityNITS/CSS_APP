@@ -2,23 +2,22 @@ import 'dart:convert';
 
 import 'package:cssapp/configs/configurations/pallet.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/abacus_event_registration.dart';
-import 'package:cssapp/screens/home_screen/pages/EventsPage/enigmaeventregistration.dart';
-import 'package:cssapp/screens/home_screen/pages/EventsPage/models/eventModel.dart';
+import 'package:cssapp/screens/home_screen/pages/EventsPage/models/event_model.dart';
 
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/services.dart';
 
-import 'package:http/http.dart' as http;
 
 import '../../../../../utils/network_engine.dart';
 
-class abacusEventWidget extends StatefulWidget {
+class AbacusEventWidget extends StatefulWidget {
+  const AbacusEventWidget({Key? key}) : super(key: key);
+
   @override
-  State<abacusEventWidget> createState() => _abacusEventWidgetState();
+  State<AbacusEventWidget> createState() => _AbacusEventWidgetState();
 }
 
-class _abacusEventWidgetState extends State<abacusEventWidget> {
+class _AbacusEventWidgetState extends State<AbacusEventWidget> {
   List<dynamic> eventdetails = [];
 
   Future<List<EventModel>> fetcheventdetails() async {
@@ -34,7 +33,7 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
 
       for (int i = 0; i < len; i++) {
         CoverPic coverPic = CoverPic(
-          public_id: jsonResponse["events"][i]["coverPic"]["public_id"],
+          publicId: jsonResponse["events"][i]["coverPic"]["public_id"],
           url: jsonResponse["events"][i]["coverPic"]["url"],
         );
         EventModel event = EventModel(
@@ -61,7 +60,7 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
       // } else {
       //   throw Exception('Failed to fetch events');
       // }
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw Exception('Failed to fetch events: ${e.message}');
     }
   }
@@ -80,8 +79,8 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
                   // print(index);
                   return Container(
                     width: 260,
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                       color: Pallet.accentColor,
                       borderRadius: BorderRadius.circular(10),
@@ -100,7 +99,7 @@ class _abacusEventWidgetState extends State<abacusEventWidget> {
                                   event[index].coverPic.url,
                                   fit: BoxFit.cover,
                                 )
-                              : SizedBox(),
+                              : const SizedBox(),
                         ),
                         const SizedBox(height: 10),
                         Text(

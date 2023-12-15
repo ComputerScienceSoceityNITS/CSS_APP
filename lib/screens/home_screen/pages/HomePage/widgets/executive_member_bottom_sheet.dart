@@ -38,7 +38,7 @@ class ExecutiveMemberBottomSheet extends StatelessWidget {
                 Text(
                   "EXECUTIVE MEMBER",
                   style: textSmallBold.copyWith(
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                     fontSize: 20,
                   ),
                 ),

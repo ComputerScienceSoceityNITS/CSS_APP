@@ -10,7 +10,6 @@ class HomePage extends StatelessWidget {
   static const double gap = 35;
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -88,13 +87,13 @@ class HomePage extends StatelessWidget {
                   Text(
                     "PILLARS OF CSS",
                     style: textLarge.copyWith(
-                        color: Theme.of(context).backgroundColor),
+                        color: Theme.of(context).colorScheme.background),
                   ),
                   const ExecutiveMembers(),
                   const SizedBox(height: 50),
                   Text("ANNOUNCEMENTS",
                       style: textLarge.copyWith(
-                          color: Theme.of(context).backgroundColor)),
+                          color: Theme.of(context).colorScheme.background)),
                   Carousel(
                     screenSize: MediaQuery.of(context).size,
                   )

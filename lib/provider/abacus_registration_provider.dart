@@ -23,7 +23,7 @@ class AbacusRegistrationProvider with ChangeNotifier {
       "memberScholarIDs": memberScholarIDs,
     };
 
-    var jsonData = await jsonEncode(parameters);
+    var jsonData = jsonEncode(parameters);
 
     print(jsonData);
     print('$apiUrl$eventId');

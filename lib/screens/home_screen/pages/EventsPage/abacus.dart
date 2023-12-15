@@ -1,10 +1,7 @@
 import 'package:cssapp/configs/configurations/pallet.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/widgets/abacus_event_widget.dart';
-import 'package:cssapp/screens/home_screen/pages/EventsPage/widgets/enigma_text.dart';
 import 'widgets/read_more.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import './widgets/abacus_text.dart';
 
 class AbacusPage extends StatelessWidget {
   const AbacusPage({Key? key}) : super(key: key);
@@ -61,7 +58,7 @@ class AbacusPage extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height * 0.65,
-                  child: abacusEventWidget()),
+                  child: const AbacusEventWidget()),
               const SizedBox(height: 10),
             ],
           ),

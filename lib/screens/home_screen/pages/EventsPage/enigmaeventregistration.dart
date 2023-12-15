@@ -29,7 +29,7 @@ class _EnigmaEventRegistrationState extends State<EnigmaEventRegistration> {
       } else {
         throw Exception('Failed to fetch events');
       }
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw Exception('Failed to fetch events: ${e.message}');
     }
   }

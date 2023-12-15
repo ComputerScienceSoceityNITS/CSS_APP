@@ -1,9 +1,9 @@
 class CoverPic {
-  final String public_id;
+  final String publicId;
   final String url;
 
   CoverPic({
-    required this.public_id,
+    required this.publicId,
     required this.url,
   });
 }

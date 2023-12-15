@@ -140,7 +140,7 @@ class _ExecutiveMember extends StatelessWidget {
                     Container(
                       width: profileHeight * 1.06,
                       height: profileHeight * 0.8,
-                      color: Theme.of(context).backgroundColor,
+                      color: Theme.of(context).colorScheme.background,
                     ),
                     Container(
                       width: profileHeight * 0.9,
@@ -183,7 +183,7 @@ class _ExecutiveMember extends StatelessWidget {
                     name,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Theme.of(context).backgroundColor,
+                        color: Theme.of(context).colorScheme.background,
                         fontSize: 13,
                         fontWeight: FontWeight.w500),
                   ),
@@ -191,18 +191,18 @@ class _ExecutiveMember extends StatelessWidget {
                       ? Text(details ?? '',
                           textAlign: TextAlign.center,
                           style: textSmall.copyWith(
-                              color: Theme.of(context).backgroundColor))
+                              color: Theme.of(context).colorScheme.background))
                       : const SizedBox.shrink(),
                   email != null && email!.isNotEmpty
                       ? Text(email ?? '',
                           textAlign: TextAlign.center,
                           style: textSmall.copyWith(
-                              color: Theme.of(context).backgroundColor))
+                              color: Theme.of(context).colorScheme.background))
                       : const SizedBox.shrink(),
                   Container(
                     height: 1,
                     width: 200,
-                    color: Theme.of(context).backgroundColor.withOpacity(0.5),
+                    color: Theme.of(context).colorScheme.background.withOpacity(0.5),
                   ),
                   Text(
                     'Click to Connect',
