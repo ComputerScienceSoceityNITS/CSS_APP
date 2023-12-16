@@ -69,6 +69,7 @@ class Assets {
   static late LottieBuilder lottieCssGlobeLight;
   static late LottieBuilder lottieCssGlobeDark;
   static late LottieBuilder lottieMember;
+  static late LottieBuilder lottieGallery;
   Assets() {
     wingPr = Image.asset('assets/wing_images/pr.jpg');
     wingCp = Image.asset('assets/wing_images/cp.png');
@@ -119,6 +120,7 @@ class Assets {
     lottieCssGlobeLight = Lottie.asset('assets/lottie/cssglobe_light.json');
     lottieCssGlobeDark = Lottie.asset('assets/lottie/cssglobe_dark.json');
     lottieMember = Lottie.asset('assets/lottie/member.json');
+    lottieGallery = Lottie.asset('assets/lottie/gallerylottiebright.json'); 
 
     mlProjectShowcase =
         Image.asset('assets/images/event_thumbnails/ml_project_showcase.jpg');
