@@ -2,10 +2,8 @@
 
 import 'dart:convert';
 import 'package:cssapp/screens/home_screen/home_screen.dart';
-import 'package:cssapp/state_handlers/theme/brightness/dark.dart';
 import 'widgets/custom_form_field.dart';
 import 'package:cssapp/configs/configs.dart';
-import 'package:cssapp/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 

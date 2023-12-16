@@ -9,7 +9,7 @@ class CSSText extends StatelessWidget {
     Text largeText({required String text, Color? color}) {
       return Text(text,
           style: textLarge.copyWith(
-              color: color ?? Theme.of(context).backgroundColor));
+              color: color ?? Theme.of(context).colorScheme.background));
     }
 
     return Column(

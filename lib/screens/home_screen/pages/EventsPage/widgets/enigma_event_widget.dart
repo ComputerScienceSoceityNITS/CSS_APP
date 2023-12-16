@@ -1,6 +1,4 @@
 import 'package:cssapp/configs/configurations/pallet.dart';
-import 'package:cssapp/screens/home_screen/pages/EventsPage/abacus_event_registration.dart';
-import 'package:cssapp/screens/home_screen/pages/EventsPage/enigmaeventregistration.dart';
 import 'package:cssapp/state_handlers/user/user_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
@@ -33,7 +31,7 @@ class _EnigmaEventState extends State<EnigmaEvent> {
       } else {
         throw Exception('Failed to fetch events');
       }
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw Exception('Failed to fetch events: ${e.message}');
     }
   }
@@ -51,8 +49,8 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                 itemBuilder: (context, int index) {
                   return Container(
                     width: MediaQuery.of(context).size.width * 0.6,
-                    padding: EdgeInsets.all(8),
-                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.all(8),
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                       color: Pallet.accentColor,
                       borderRadius: BorderRadius.circular(10),
@@ -62,7 +60,7 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          margin: EdgeInsets.all(20),
+                          margin: const EdgeInsets.all(20),
                           width: 200,
                           height: 100,
                           decoration: BoxDecoration(
@@ -73,7 +71,7 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                               "assets/images/event_thumbnails/Enigma.png",
                               fit: BoxFit.cover),
                         ),
-                        Text(
+                        const Text(
                           "Enigma",
                           style: TextStyle(
                               fontSize: 19,
@@ -82,7 +80,7 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                         ),
                         Text(
                           'Start : ${eventdetails[index]!["startDate"].toString()}  ${eventdetails[index]!["startTime"].toString()}',
-                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          style: const TextStyle(fontSize: 16, color: Colors.white),
                         ),
                         Text(
                             "Duration :  ${eventdetails[index]!["durationInHrs"]} hours"),

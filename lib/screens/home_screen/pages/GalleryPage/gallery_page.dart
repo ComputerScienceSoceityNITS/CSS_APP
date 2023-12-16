@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:cssapp/configs/configs.dart';
 import 'widgets/gallery.dart';
 
@@ -60,7 +59,7 @@ class _GalleryPageState extends State<GalleryPage> {
                         "ALLERY",
                         style: TextStyle(
                           fontSize: 30,
-                          color: Theme.of(context).backgroundColor,
+                          color: Theme.of(context).colorScheme.background,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -73,8 +72,8 @@ class _GalleryPageState extends State<GalleryPage> {
                       "A Picture is \nWorth a Thousand Words",
                       textAlign: TextAlign.center,
                       style: TextStyle(
+                          color: Theme.of(context).colorScheme.background,
                           fontSize: 15,
-                          color: Theme.of(context).backgroundColor,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Segoe Font'),
                     ),

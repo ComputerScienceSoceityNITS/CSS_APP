@@ -172,7 +172,7 @@ class _EventDialogState extends State<EventDialog> {
                                         color: Colors.white),
                               ),
                               const SizedBox(height: 15),
-                              widget.link != Null
+                              widget.link != null
                                   ? Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -220,7 +220,7 @@ class _EventDialogState extends State<EventDialog> {
                                         ),
                                       ],
                                     )
-                                  : Row(),
+                                  : const Row(),
                             ]),
                       ),
                     ),

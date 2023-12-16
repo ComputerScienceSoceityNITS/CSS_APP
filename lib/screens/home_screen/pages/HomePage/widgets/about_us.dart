@@ -40,7 +40,7 @@ class AboutUs extends StatelessWidget {
             SizedBox(height: gap),
             Text('ABOUT US',
                 style: textLarge.copyWith(
-                    color: Theme.of(context).backgroundColor)),
+                    color: Theme.of(context).colorScheme.background)),
             SizedBox(height: gap),
             SizedBox(
               width: 300,
@@ -48,7 +48,7 @@ class AboutUs extends StatelessWidget {
                 "The Computer Science Society, run by the CSE department of NIT Silchar, aims to impart academic, technical and socio-cultural awareness to the students of our beloved college. Computer Science Engineering branch of NIT Silchar stands with the highest number of placements and talented minds.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    height: 1.3, color: Theme.of(context).backgroundColor),
+                    height: 1.3, color: Theme.of(context).colorScheme.background),
               ),
             ),
             const SizedBox(height: 80),

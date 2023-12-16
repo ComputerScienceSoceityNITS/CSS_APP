@@ -104,7 +104,7 @@ class _SignInPageState extends State<SignInPage> {
                                     );
                                   }));
                                 }
-                              } on DioError catch (e) {
+                              } on DioException catch (e) {
                                 String err;
                                 if (e.response?.data['message'] != null) {
                                   err = e.response?.data['message'];

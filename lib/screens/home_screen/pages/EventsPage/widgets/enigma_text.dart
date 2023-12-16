@@ -31,7 +31,7 @@ class EnigmaText extends StatelessWidget {
           style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).backgroundColor),
+              color: Theme.of(context).colorScheme.background),
         ),
       ],
     );

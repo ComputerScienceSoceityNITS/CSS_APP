@@ -1,10 +1,7 @@
 import 'package:cssapp/configs/configurations/pallet.dart';
 import 'package:cssapp/screens/home_screen/pages/EventsPage/widgets/enigma_event_widget.dart';
-import 'package:cssapp/screens/home_screen/pages/EventsPage/widgets/enigma_text.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import './widgets/abacus_text.dart';
 
 class EnigmaPage extends StatelessWidget {
   const EnigmaPage({Key? key}) : super(key: key);

@@ -15,7 +15,7 @@ class TagText extends StatelessWidget {
               style: TextStyle(
                   fontSize: 20,
                   fontFamily: "EastSeaDokdo",
-                  color: Theme.of(context).backgroundColor)),
+                  color: Theme.of(context).colorScheme.background)),
           const Text("Enjoy",
               style: TextStyle(
                   fontSize: 20,
@@ -25,7 +25,7 @@ class TagText extends StatelessWidget {
               style: TextStyle(
                   fontSize: 20,
                   fontFamily: "EastSeaDokdo",
-                  color: Theme.of(context).backgroundColor)),
+                  color: Theme.of(context).colorScheme.background)),
         ],
       ),
     );

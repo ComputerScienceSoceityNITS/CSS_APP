@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 
 import '../widgets/event.dart';
 import 'package:cssapp/configs/configs.dart';
