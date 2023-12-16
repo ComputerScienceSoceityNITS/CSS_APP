@@ -23,7 +23,7 @@ class _GalleryPageState extends State<GalleryPage> {
                 height: 200,
                 child: Opacity(
                   opacity: 0.7,
-                  child: Assets.lottieSingSong,
+                  child: Assets.lottieGallery,
                 ),
               ),
               Column(
@@ -34,15 +34,15 @@ class _GalleryPageState extends State<GalleryPage> {
                     height: 90,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Container(
                         width: 50,
-                        height: 53,
+                        height: 50,
                         decoration: BoxDecoration(
-                            color: Pallet.accentColor,
-                            borderRadius: BorderRadius.circular(5)),
+                            color: const Color.fromARGB(255, 241, 59, 190),
+                            borderRadius: BorderRadius.circular(50)),
                         child: const Text(
                           "G",
                           textAlign: TextAlign.center,
@@ -54,7 +54,7 @@ class _GalleryPageState extends State<GalleryPage> {
                           ),
                         ),
                       ),
-                      const SizedBox(width: 10),
+                      const SizedBox(width:7),
                       Text(
                         "ALLERY",
                         style: TextStyle(
@@ -66,16 +66,16 @@ class _GalleryPageState extends State<GalleryPage> {
                     ],
                   ),
                   Container(
-                    alignment: Alignment.center,
+                    alignment: Alignment.bottomLeft,
                     height: 60,
                     child: Text(
-                      "Things end but \nMemories last forever",
+                      "A Picture is \nWorth a Thousand Words",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 20,
                           color: Theme.of(context).colorScheme.background,
+                          fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          fontFamily: 'EastSeaDokdo'),
+                          fontFamily: 'Segoe Font'),
                     ),
                   ),
                   const SizedBox(
