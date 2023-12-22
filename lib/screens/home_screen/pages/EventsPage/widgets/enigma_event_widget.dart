@@ -19,6 +19,7 @@ class EnigmaEvent extends StatefulWidget {
 class _EnigmaEventState extends State<EnigmaEvent> {
   List<dynamic> eventdetails = [];
   bool isLoading = false;
+
   Future<List> fetcheventdetails() async {
     try {
       final response =
@@ -36,6 +37,152 @@ class _EnigmaEventState extends State<EnigmaEvent> {
     }
   }
 
+  // Function to categorize events
+  Map<String, List<dynamic>> categorizeEvents(List<dynamic> events) {
+    final upcomingEvents = <dynamic>[];
+    final liveEvents = <dynamic>[];
+    final pastEvents = <dynamic>[];
+
+    final now = DateTime.now();
+
+    for (final event in events) {
+      final startDate = DateTime.parse(event["startDate"]);
+      final endDate = startDate.add(Duration(hours: event["durationInHrs"]));
+
+      if (endDate.isBefore(now)) {
+        pastEvents.add(event);
+      } else if (startDate.isAfter(now)) {
+        upcomingEvents.add(event);
+      } else {
+        liveEvents.add(event);
+      }
+    }
+
+    return {
+      'upcoming': upcomingEvents,
+      'live': liveEvents,
+      'past': pastEvents,
+    };
+  }
+
+  Widget _buildSection(String title, List<dynamic> events) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: Text(
+            title,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+        ),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.5,
+          child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: eventdetails.length,
+              itemBuilder: (context, int index) {
+                return Container(
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  padding: const EdgeInsets.all(8),
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                    color: Pallet.accentColor,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.all(20),
+                        width: 200,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Image.asset(
+                            "assets/images/event_thumbnails/Enigma.png",
+                            fit: BoxFit.cover),
+                      ),
+                      const Text(
+                        "Enigma",
+                        style: TextStyle(
+                            fontSize: 19,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        'Start : ${eventdetails[index]!["startDate"].toString()}  ${eventdetails[index]!["startTime"].toString()}',
+                        style: const TextStyle(fontSize: 16, color: Colors.white),
+                      ),
+                      Text(
+                          "Duration :  ${eventdetails[index]!["durationInHrs"]} hours"),
+                      Text(
+                          "Question-setters: ${eventdetails[index]["questionSetters"]}"),
+                      ElevatedButton(
+                        onLongPress: () async {
+                          if (Provider.of<UserHandler>(context, listen: false)
+                              .user!
+                              .registeredEnigmas
+                              .contains(
+                              eventdetails[index]!['_id'].toString())) {
+                            await Clipboard.setData(ClipboardData(
+                                text: eventdetails[index]!["cfContestLink"]));
+                            Fluttertoast.showToast(
+                                msg: "Contest link copied to clipboard");
+                          }
+                        },
+                        onPressed: () async {
+                          if (!Provider.of<UserHandler>(context,
+                              listen: false)
+                              .user!
+                              .registeredEnigmas
+                              .contains(
+                              eventdetails[index]!['_id'].toString())) {
+                            setState(() {
+                              isLoading = true;
+                            });
+                            Response res = await Provider.of<UserHandler>(
+                                context,
+                                listen: false)
+                                .registerEnigma(eventdetails[index]['_id']);
+
+                            if ((res.statusCode ?? 400) >= 200 &&
+                                (res.statusCode ?? 400) < 300) {
+                              Fluttertoast.showToast(
+                                  msg: res.data['error'] ?? 'Unknown Error');
+                            }
+                          } else {
+                            launchUrl(
+                                Uri.parse(
+                                    eventdetails[index]!["cfContestLink"]),
+                                mode: LaunchMode.externalApplication);
+                          }
+                          setState(() {
+                            isLoading = false;
+                          });
+                        },
+                        child: Text(
+                          Provider.of<UserHandler>(context)
+                              .user!
+                              .registeredEnigmas
+                              .contains(
+                              eventdetails[index]!['_id'].toString())
+                              ? "Go to Contest"
+                              : "Register Here",
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              })
+        )
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -43,106 +190,18 @@ class _EnigmaEventState extends State<EnigmaEvent> {
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData && !isLoading) {
             eventdetails = snapshot.data;
-            return ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: eventdetails.length,
-                itemBuilder: (context, int index) {
-                  return Container(
-                    width: MediaQuery.of(context).size.width * 0.6,
-                    padding: const EdgeInsets.all(8),
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                      color: Pallet.accentColor,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.all(20),
-                          width: 200,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Image.asset(
-                              "assets/images/event_thumbnails/Enigma.png",
-                              fit: BoxFit.cover),
-                        ),
-                        const Text(
-                          "Enigma",
-                          style: TextStyle(
-                              fontSize: 19,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          'Start : ${eventdetails[index]!["startDate"].toString()}  ${eventdetails[index]!["startTime"].toString()}',
-                          style: const TextStyle(fontSize: 16, color: Colors.white),
-                        ),
-                        Text(
-                            "Duration :  ${eventdetails[index]!["durationInHrs"]} hours"),
-                        Text(
-                            "Question-setters: ${eventdetails[index]["questionSetters"]}"),
-                        ElevatedButton(
-                          onLongPress: () async {
-                            if (Provider.of<UserHandler>(context, listen: false)
-                                .user!
-                                .registeredEnigmas
-                                .contains(
-                                    eventdetails[index]!['_id'].toString())) {
-                              await Clipboard.setData(ClipboardData(
-                                  text: eventdetails[index]!["cfContestLink"]));
-                              Fluttertoast.showToast(
-                                  msg: "Contest link copied to clipboard");
-                            }
-                          },
-                          onPressed: () async {
-                            if (!Provider.of<UserHandler>(context,
-                                    listen: false)
-                                .user!
-                                .registeredEnigmas
-                                .contains(
-                                    eventdetails[index]!['_id'].toString())) {
-                              setState(() {
-                                isLoading = true;
-                              });
-                              Response res = await Provider.of<UserHandler>(
-                                      context,
-                                      listen: false)
-                                  .registerEnigma(eventdetails[index]['_id']);
-
-                              if ((res.statusCode ?? 400) >= 200 &&
-                                  (res.statusCode ?? 400) < 300) {
-                                Fluttertoast.showToast(
-                                    msg: res.data['error'] ?? 'Unknown Error');
-                              }
-                            } else {
-                              launchUrl(
-                                  Uri.parse(
-                                      eventdetails[index]!["cfContestLink"]),
-                                  mode: LaunchMode.externalApplication);
-                            }
-                            setState(() {
-                              isLoading = false;
-                            });
-                          },
-                          child: Text(
-                            Provider.of<UserHandler>(context)
-                                    .user!
-                                    .registeredEnigmas
-                                    .contains(
-                                        eventdetails[index]!['_id'].toString())
-                                ? "Go to Contest"
-                                : "Register Here",
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                });
+            eventdetails.sort(
+              (a, b) => a["startDate"].compareTo(b["startDate"]),
+            );
+            final categorizedEvents = categorizeEvents(eventdetails);
+            return ListView(
+              scrollDirection: Axis.vertical,
+              children: [
+                _buildSection('Upcoming', categorizedEvents['upcoming']!),
+                _buildSection('Live', categorizedEvents['live']!),
+                _buildSection('Past', categorizedEvents['past']!),
+              ],
+            );
           } else {
             return const Center(child: CircularProgressIndicator());
           }
