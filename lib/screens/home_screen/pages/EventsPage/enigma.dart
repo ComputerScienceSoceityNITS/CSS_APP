@@ -34,7 +34,7 @@ class EnigmaPage extends StatelessWidget {
                           width: 20,
                         ),
                         Text(
-                          "Engima",
+                          "Enigma",
                           style: TextStyle(
                             fontSize: 40,
                             fontWeight: FontWeight.bold,

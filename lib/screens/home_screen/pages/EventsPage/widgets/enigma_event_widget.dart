@@ -197,13 +197,35 @@ class _EnigmaEventState extends State<EnigmaEvent> {
               length: 3, // Number of tabs (Live, Upcoming, Past)
               child: Scaffold(
                 appBar: AppBar(
-                  backgroundColor: Pallet.accentColor,
+                  automaticallyImplyLeading: false,
+                  centerTitle: true,
+                  backgroundColor: Pallet.darkPrimaryColor,
                   title: const Text('Enigma Events'),
-                  bottom: const TabBar(
+                  bottom: TabBar(
+                    labelColor: Colors.white,
+                    indicator: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Pallet.accentColor,
+                    ),
                     tabs: [
-                      Tab(text: 'Live'),
-                      Tab(text: 'Upcoming'),
-                      Tab(text: 'Past'),
+                      Tab(
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.33,
+                          child: Center(child: Text('Live')),
+                        ),
+                      ),
+                      Tab(
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.33,
+                          child: Center(child: Text('Upcoming')),
+                        ),
+                      ),
+                      Tab(
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.33,
+                          child: Center(child: Text('Past')),
+                        ),
+                      ),
                     ],
                   ),
                 ),
