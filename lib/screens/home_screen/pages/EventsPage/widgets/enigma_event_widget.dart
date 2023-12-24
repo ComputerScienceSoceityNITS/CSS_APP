@@ -19,6 +19,7 @@ class EnigmaEvent extends StatefulWidget {
 class _EnigmaEventState extends State<EnigmaEvent> {
   List<dynamic> eventdetails = [];
   bool isLoading = false;
+
   Future<List> fetcheventdetails() async {
     try {
       final response =
@@ -31,25 +32,58 @@ class _EnigmaEventState extends State<EnigmaEvent> {
       } else {
         throw Exception('Failed to fetch events');
       }
-    } on DioException catch (e) {
+    } on DioError catch (e) {
       throw Exception('Failed to fetch events: ${e.message}');
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: fetcheventdetails(),
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if (snapshot.hasData && !isLoading) {
-            eventdetails = snapshot.data;
-            return ListView.builder(
+  // Function to categorize events
+  Map<String, List<dynamic>> categorizeEvents(List<dynamic> events) {
+    final upcomingEvents = <dynamic>[];
+    final liveEvents = <dynamic>[];
+    final pastEvents = <dynamic>[];
+
+    final now = DateTime.now();
+
+    for (final event in events) {
+      final startDate = DateTime.parse(event["startDate"]);
+      final endDate = startDate.add(Duration(hours: event["durationInHrs"]));
+
+      if (endDate.isBefore(now)) {
+        pastEvents.add(event);
+      } else if (startDate.isAfter(now)) {
+        upcomingEvents.add(event);
+      } else {
+        liveEvents.add(event);
+      }
+    }
+
+    return {
+      'upcoming': upcomingEvents,
+      'live': liveEvents,
+      'past': pastEvents,
+    };
+  }
+
+  Widget _buildSection(String title, List<dynamic> events) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: Text(
+            title,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+        ),
+        SizedBox(
+            height: MediaQuery.of(context).size.height * 0.4,
+            child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: eventdetails.length,
                 itemBuilder: (context, int index) {
                   return Container(
                     width: MediaQuery.of(context).size.width * 0.6,
-                    padding: const EdgeInsets.all(8),
                     margin: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                       color: Pallet.accentColor,
@@ -80,7 +114,8 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                         ),
                         Text(
                           'Start : ${eventdetails[index]!["startDate"].toString()}  ${eventdetails[index]!["startTime"].toString()}',
-                          style: const TextStyle(fontSize: 16, color: Colors.white),
+                          style: const TextStyle(
+                              fontSize: 16, color: Colors.white),
                         ),
                         Text(
                             "Duration :  ${eventdetails[index]!["durationInHrs"]} hours"),
@@ -142,7 +177,67 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                       ],
                     ),
                   );
-                });
+                }))
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: fetcheventdetails(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.hasData && !isLoading) {
+            eventdetails = snapshot.data;
+            eventdetails.sort(
+              (a, b) => a["startDate"].compareTo(b["startDate"]),
+            );
+            final categorizedEvents = categorizeEvents(eventdetails);
+            return DefaultTabController(
+              length: 3, // Number of tabs (Live, Upcoming, Past)
+              child: Scaffold(
+                appBar: AppBar(
+                  automaticallyImplyLeading: false,
+                  centerTitle: true,
+                  backgroundColor: Pallet.darkPrimaryColor,
+                  title: const Text('Enigma Events'),
+                  bottom: TabBar(
+                    labelColor: Colors.white,
+                    indicator: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Pallet.accentColor,
+                    ),
+                    tabs: [
+                      Tab(
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.33,
+                          child: Center(child: Text('Live')),
+                        ),
+                      ),
+                      Tab(
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.33,
+                          child: Center(child: Text('Upcoming')),
+                        ),
+                      ),
+                      Tab(
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.33,
+                          child: Center(child: Text('Past')),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                body: TabBarView(
+                  children: [
+                    _buildSection('Live', categorizedEvents['live']!),
+                    _buildSection('Upcoming', categorizedEvents['upcoming']!),
+                    _buildSection('Past', categorizedEvents['past']!),
+                  ],
+                ),
+              ),
+            );
           } else {
             return const Center(child: CircularProgressIndicator());
           }

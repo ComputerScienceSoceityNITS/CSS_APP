@@ -34,7 +34,7 @@ class EnigmaPage extends StatelessWidget {
                           width: 20,
                         ),
                         Text(
-                          "Engima",
+                          "Enigma",
                           style: TextStyle(
                             fontSize: 40,
                             fontWeight: FontWeight.bold,
@@ -60,29 +60,15 @@ class EnigmaPage extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(8),
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 0,
-                    ),
-                    const Text(
-                      'Time Stamp',
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline),
-                    ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                     SizedBox(
                         width: double.infinity,
-                        height: MediaQuery.of(context).size.height * 0.4,
+                        height: MediaQuery.of(context).size.height * 0.6,
                         child: const EnigmaEvent()),
                   ],
                 ),
-              ),
-              const SizedBox(
-                height: 10,
               ),
             ],
           ),
