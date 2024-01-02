@@ -28,7 +28,7 @@ class _EnigmaEventState extends State<EnigmaEvent> {
       if ((response.statusCode ?? 400) >= 200 &&
           (response.statusCode ?? 400) < 300) {
         final responseData = response.data;
-        return responseData["enigmas"];
+        return responseData["enigmas"] ?? [];
       } else {
         throw Exception('Failed to fetch events');
       }
@@ -46,15 +46,20 @@ class _EnigmaEventState extends State<EnigmaEvent> {
     final now = DateTime.now();
 
     for (final event in events) {
-      final startDate = DateTime.parse(event["startDate"]);
-      final endDate = startDate.add(Duration(hours: event["durationInHrs"]));
+      final startDate = DateTime.parse(event?["startDate"] ??
+          '');
+      final durationInHrs = event?["durationInHrs"] as int?;
 
-      if (endDate.isBefore(now)) {
-        pastEvents.add(event);
-      } else if (startDate.isAfter(now)) {
-        upcomingEvents.add(event);
-      } else {
-        liveEvents.add(event);
+      if (durationInHrs != null) {
+        final endDate = startDate.add(Duration(hours: durationInHrs));
+
+        if (endDate.isBefore(now)) {
+          pastEvents.add(event);
+        } else if (startDate.isAfter(now)) {
+          upcomingEvents.add(event);
+        } else {
+          liveEvents.add(event);
+        }
       }
     }
 
@@ -65,7 +70,10 @@ class _EnigmaEventState extends State<EnigmaEvent> {
     };
   }
 
-  Widget _buildSection(String title, List<dynamic> events) {
+  Widget _buildSection(String title, List<dynamic>? events) {
+    if (events == null || events.isEmpty) {
+      return SizedBox();
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -82,6 +90,9 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                 scrollDirection: Axis.horizontal,
                 itemCount: eventdetails.length,
                 itemBuilder: (context, int index) {
+                  if (eventdetails[index] == null || eventdetails.isEmpty) {
+                    return SizedBox();
+                  }
                   return Container(
                     width: MediaQuery.of(context).size.width * 0.6,
                     margin: const EdgeInsets.symmetric(horizontal: 10),
@@ -118,7 +129,7 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                               fontSize: 16, color: Colors.white),
                         ),
                         Text(
-                            "Duration :  ${eventdetails[index]!["durationInHrs"]} hours"),
+                            "Duration :  ${eventdetails[index]!["durationInHrs"] ?? 0} hours"),
                         Text(
                             "Question-setters: ${eventdetails[index]["questionSetters"]}"),
                         ElevatedButton(
@@ -189,6 +200,13 @@ class _EnigmaEventState extends State<EnigmaEvent> {
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData && !isLoading) {
             eventdetails = snapshot.data;
+
+            if (eventdetails.isEmpty) {
+              return Center(
+                  child: Text(
+                      'No events available')); // Handle null or empty eventdetails
+            }
+
             eventdetails.sort(
               (a, b) => a["startDate"].compareTo(b["startDate"]),
             );
