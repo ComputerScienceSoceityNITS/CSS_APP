@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'user_model.dart';
 import 'package:cssapp/utils/network_engine.dart';
+import 'package:cssapp/utils/storage_handler.dart';
 
 class UserHandler extends ChangeNotifier {
   UserModel? user;
@@ -54,6 +55,8 @@ class UserHandler extends ChangeNotifier {
 
     if ((res.statusCode ?? 400) >= 200 && (res.statusCode ?? 400) < 300) {
       user = UserModel.read(res.data);
+      // Storing user details in local storage on successful login
+      StorageHandler().saveUserToLocalStorage(user!);
     }
     return res;
   }
@@ -66,6 +69,9 @@ class UserHandler extends ChangeNotifier {
         (res.statusCode ?? 400) < 300 &&
         res.data?['user'] != null) {
       user = UserModel.read(res.data);
+    } else {
+      // Loading user from local storage
+      user = await StorageHandler().loadUserFromLocalStorage();
     }
     return res;
   }
