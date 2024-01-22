@@ -71,7 +71,7 @@ class _EnigmaEventState extends State<EnigmaEvent> {
 
   Widget _buildSection(String title, List<dynamic>? events) {
     if (events == null || events.isEmpty) {
-      return SizedBox();
+      return const SizedBox();
     }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,7 +90,7 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                 itemCount: eventdetails.length,
                 itemBuilder: (context, int index) {
                   if (eventdetails[index] == null || eventdetails.isEmpty) {
-                    return SizedBox();
+                    return const SizedBox();
                   }
                   return Container(
                     width: MediaQuery.of(context).size.width * 0.6,
@@ -144,35 +144,12 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                                   msg: "Contest link copied to clipboard");
                             }
                           },
-                          onPressed: () async {
-                            if (!Provider.of<UserHandler>(context,
-                                    listen: false)
-                                .user!
-                                .registeredEnigmas
-                                .contains(
-                                    eventdetails[index]!['_id'].toString())) {
-                              setState(() {
-                                isLoading = true;
-                              });
-                              Response res = await Provider.of<UserHandler>(
-                                      context,
-                                      listen: false)
-                                  .registerEnigma(eventdetails[index]['_id']);
-
-                              if ((res.statusCode ?? 400) >= 200 &&
-                                  (res.statusCode ?? 400) < 300) {
-                                Fluttertoast.showToast(
-                                    msg: res.data['error'] ?? 'Unknown Error');
-                              }
-                            } else {
-                              launchUrl(
-                                  Uri.parse(
-                                      eventdetails[index]!["cfContestLink"]),
-                                  mode: LaunchMode.externalApplication);
-                            }
-                            setState(() {
-                              isLoading = false;
-                            });
+                          onPressed: () {
+                            launchUrl(
+                              Uri.parse(eventdetails[index]!["cfContestLink"]),
+                              //If you want to launch in external app and not in CSS
+                              // mode: LaunchMode.externalApplication
+                            );
                           },
                           child: Text(
                             Provider.of<UserHandler>(context)
@@ -184,6 +161,64 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                                 : "Register Here",
                           ),
                         ),
+                        Provider.of<UserHandler>(context)
+                                .user!
+                                .registeredEnigmas
+                                .contains(
+                                    eventdetails[index]!['_id'].toString())
+                            ? const Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text("Already registered"),
+                            )
+                            : Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Flexible(
+                                      child: Text("Have you registered?")),
+                                  Flexible(
+                                    child: ElevatedButton(
+                                        onPressed: () async {
+                                          if (!Provider.of<UserHandler>(context,
+                                                  listen: false)
+                                              .user!
+                                              .registeredEnigmas
+                                              .contains(
+                                                  eventdetails[index]!['_id']
+                                                      .toString())) {
+                                            setState(() {
+                                              isLoading = true;
+                                            });
+                                            Response res = await Provider.of<
+                                                        UserHandler>(context,
+                                                    listen: false)
+                                                .registerEnigma(
+                                                    eventdetails[index]['_id']);
+
+                                            if ((res.statusCode ?? 400) >=
+                                                    200 &&
+                                                (res.statusCode ?? 400) < 300) {
+                                              Fluttertoast.showToast(
+                                                  msg: res.data['error'] ??
+                                                      'Unknown Error');
+                                            }
+                                          }
+                                          setState(() {
+                                            isLoading = false;
+                                          });
+                                        },
+                                        child: const Text("Yes")),
+                                  ),
+                                  Flexible(
+                                    child: ElevatedButton(
+                                        onPressed: () {
+                                          Fluttertoast.showToast(
+                                              msg:
+                                                  "Please register for the contest");
+                                        },
+                                        child: const Text("No")),
+                                  )
+                                ],
+                              ),
                       ],
                     ),
                   );
@@ -201,7 +236,7 @@ class _EnigmaEventState extends State<EnigmaEvent> {
             eventdetails = snapshot.data;
 
             if (eventdetails.isEmpty) {
-              return Center(
+              return const Center(
                   child: Text(
                       'No events available')); // Handle null or empty eventdetails
             }
@@ -228,19 +263,19 @@ class _EnigmaEventState extends State<EnigmaEvent> {
                       Tab(
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width * 0.33,
-                          child: Center(child: Text('Live')),
+                          child: const Center(child: Text('Live')),
                         ),
                       ),
                       Tab(
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width * 0.33,
-                          child: Center(child: Text('Upcoming')),
+                          child: const Center(child: Text('Upcoming')),
                         ),
                       ),
                       Tab(
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width * 0.33,
-                          child: Center(child: Text('Past')),
+                          child: const Center(child: Text('Past')),
                         ),
                       ),
                     ],
