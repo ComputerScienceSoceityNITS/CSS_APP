@@ -34,6 +34,10 @@ class _SplashState extends State<Splash> {
     } else {
       Provider.of<MemberApi>(context, listen: false).isOnline = false;
       Fluttertoast.showToast(msg: "Couldn't connect to the internet");
+      // Fetching user from local storage in case of no internet
+      if (await NetworkEngine.doesCookieDirExists()) {
+        await Provider.of<UserHandler>(context, listen: false).fetchUser();
+      }
     }
     Widget page = const AuthScreen();
     if (Provider.of<UserHandler>(context, listen: false).user != null) {

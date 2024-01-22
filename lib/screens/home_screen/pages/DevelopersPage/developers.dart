@@ -15,7 +15,7 @@ class Developers extends StatefulWidget {
 }
 
 class _DevelopersState extends State<Developers> {
-  Session selectedSession = Session.session_22_23;
+  Session selectedSession = Session.session_23_24;
   Map members = {};
 
   Widget positionHeading(BuildContext ctx, String title) {
