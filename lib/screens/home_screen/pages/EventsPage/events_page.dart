@@ -79,11 +79,6 @@ class _EventsPageState extends State<EventsPage> {
                             builder: (context) => const EnigmaPage(),
                           ),
                         );
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //       builder: (context) => engima_page(),
-                        //     ));
                       },
                       child: Card(
                         shape: RoundedRectangleBorder(

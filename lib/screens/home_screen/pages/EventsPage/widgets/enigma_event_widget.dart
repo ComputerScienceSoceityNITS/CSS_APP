@@ -46,8 +46,7 @@ class _EnigmaEventState extends State<EnigmaEvent> {
     final now = DateTime.now();
 
     for (final event in events) {
-      final startDate = DateTime.parse(event?["startDate"] ??
-          '');
+      final startDate = DateTime.parse(event?["startDate"] ?? '');
       final durationInHrs = event?["durationInHrs"] as int?;
 
       if (durationInHrs != null) {

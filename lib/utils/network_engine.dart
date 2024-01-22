@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cssapp/utils/storage_handler.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
@@ -26,6 +27,8 @@ class NetworkEngine {
   }
 
   static Future<void> signOut() async {
+    // Delete all user data from local storage on logout
+    StorageHandler().clearAllData();
     final Directory appDocDir = await getApplicationDocumentsDirectory();
     Directory cookiesDir = Directory(appDocDir.path + _cookieDirName);
     if (await cookiesDir.exists()) {

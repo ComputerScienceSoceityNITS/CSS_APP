@@ -31,6 +31,10 @@ class StorageHandler {
     await _preferences?.setString('user', user.toJson());
   }
 
+  Future<void> clearAllData() async {
+  await _preferences?.clear();
+}
+
   Future<void> initPreferences() async {
     _preferences = await SharedPreferences.getInstance();
   }
